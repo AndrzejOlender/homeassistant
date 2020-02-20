@@ -1,2 +1,2 @@
 # homeassistant
-ss
+my configuration

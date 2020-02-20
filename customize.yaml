@@ -1,0 +1,164 @@
+switch.shelly_01:
+  icon: mdi:wall-sconce-flat
+switch.shelly_02:
+  icon: mdi:wall-sconce-flat
+switch.shelly_03:
+  icon: mdi:lightbulb-on-outline
+binary_sensor.childroomwindow_contact:
+  device_class: window
+  icon: mdi:window-closed-variant
+binary_sensor.kitchenwindow_contact:
+  device_class: window
+  icon: mdi:window-closed-variant
+binary_sensor.livingroombalconywindow_contact:
+  device_class: window
+  icon: mdi:window-closed-variant
+binary_sensor.livingroomwindow_contact:
+  device_class: window
+  icon: mdi:window-closed-variant
+light.aqaralampchildroom_light:
+  icon: mdi:ceiling-light
+light.ikeabulblamp_light:
+  icon: mdi:floor-lamp
+  supported_features: 57
+switch.shelly_001:
+  icon: mdi:wall-sconce-flat
+switch.washermachine_relay:
+  icon: mdi:washing-machine
+switch.tv_relay:
+  icon: mdi:television
+switch.yamaha_relay:
+  icon: mdi:speaker
+switch.dishmachine_relay:
+  icon: mdi:dishwasher
+sensor.washermachine_power:
+  icon: mdi:washing-machine
+sensor.tv_power:
+  icon: mdi:television
+sensor.dishwasher_power:
+  icon: mdi:dishwasher
+switch.dishwasher_relay:
+  icon: mdi:dishwasher
+sensor.yamaha_power:
+  icon: mdi:speaker
+switch.yamaha:
+  friendly_name: Yamaha
+  icon: mdi:speaker
+sensor.yamaha_current:
+  icon: mdi:speaker
+switch.hdmi1:
+  icon: mdi:remote-tv
+switch.hdmi2:
+  icon: mdi:remote-tv
+switch.tvn:
+  assumed_state: true
+  icon: mdi:remote-tv
+switch.tv:
+  friendly_name: TV
+  icon: mdi:television
+switch.minimini:
+  assumed_state: true
+  icon: mdi:remote-tv
+switch.radio:
+  friendly_name: Radio
+  icon: mdi:radio
+sensor.light_1:
+  friendly_name: Light 1
+  icon: mdi:lightbulb
+sensor.light_2:
+  icon: mdi:lightbulb
+sensor.light_3:
+  icon: mdi:lightbulb
+sensor.airly_pm1:
+  icon: mdi:gauge
+sensor.airly_pm2_5_percent:
+  icon: mdi:gauge
+sensor.airly_pm2_5:
+  icon: mdi:gauge
+sensor.airly_pm10:
+  icon: mdi:gauge
+sensor.airly_pm10_percent:
+  icon: mdi:gauge
+script.miio_turn_on_nc:
+  friendly_name: Canal+
+  icon: mdi:remote-tv
+script.miio_turn_on_yamaha_hdmi1:
+  icon: mdi:remote-tv
+script.miio_turn_on_yamaha_hdmi2:
+  icon: mdi:remote-tv
+script.miio_turn_on_yamaha_radio:
+  icon: mdi:radio
+script.miio_turn_on_yamaha:
+  icon: mdi:speaker
+light.yamaha:
+  icon: mdi:speaker
+light.radio:
+  icon: mdi:radio
+light.hdmi1:
+  icon: mdi:remote-tv
+light.hdmi2:
+  icon: mdi:remote-tv
+light.nc:
+  icon: mdi:remote-tv
+light.group_kitchen_desk:
+  friendly_name: Table
+  icon: mdi:vanity-light
+light.lamp_kitchen:
+  friendly_name: Lamp Kitchen
+  icon: mdi:ceiling-light
+  supported_features: 41
+light.group_kitchen_table:
+  friendly_name: Table
+  icon: mdi:vanity-light
+  supported_features: 41
+scene.good_night:
+  friendly_name: Good Night
+  icon: mdi:bed-king
+scene.good_morning:
+  icon: mdi:weather-sunny
+scene.good_evening:
+  icon: mdi:mdi:weather-night
+light.group_anteroom_1:
+  icon: mdi:wall-sconce-flat
+light.group_anteroom_2:
+  icon: mdi:track-light
+person.ania:
+  entity_picture: /local/ania.jpg
+person.andrzej:
+  entity_picture: /local/andrzej.jpg
+device_tracker.redmi_note_4_3:
+  entity_picture: /local/ania.jpg
+device_tracker.xiaomi_redmi_4:
+  entity_picture: /local/ania.jpg
+device_tracker.iphone:
+  entity_picture: /local/andrzej.jpg
+light.ikeabulbsgrouptoiletmirror:
+  icon: mdi:track-light
+  supported_features: 41
+light.ikeabulbtoiletleft_light:
+  icon: mdi:wall-sconce-flat
+light.ikeabulbtoiletright_light:
+  icon: mdi:wall-sconce-flat
+light.group_toilet_1:
+  icon: mdi:wall-sconce-flat
+light.ikeabulbsgroupanteroom2:
+  icon: mdi:track-light
+light.ikeabulbsgroupanteroom1:
+  icon: mdi:wall-sconce-flat
+light.ikeabulbsgroupkitchen:
+  icon: mdi:vanity-light
+light.osrambulbsgrouptoilet:
+  icon: mdi:wall-sconce-flat
+sensor.fridge_power:
+  icon: mdi:fridge
+switch.fridge_relay:
+  icon: mdi:fridge
+sensor.mi_aqi:
+  icon: mdi:gauge
+sensor.airly_aqi:
+  icon: mdi:gauge
+switch.airpurifiermax:
+  icon: mdi:weather-windy
+light.ikeabulbsgroupwardobe:
+  icon: mdi:wall-sconce-flat
+  supported_features: 41

@@ -1,0 +1,673 @@
+
+- alias: Switch Light Toilet 1
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchtoilet1_click
+    to: right
+  action:
+    entity_id: light.osrambulbsgrouptoilet
+    service: light.toggle
+
+- alias: Switch Light Toilet 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchtoilet1_click
+    to: left
+  action:
+    entity_id: light.ikeabulbsgrouptoiletmirror
+    service: light.toggle
+    
+- alias: Turn Off Light Toilet 1 & 2
+  trigger:  
+    platform: state
+    entity_id: sensor.aqaraswitchtoilet1_click
+    to: right_double
+  action:
+    entity_id:   
+      - light.ikeabulbsgrouptoiletmirror
+      - light.osrambulbsgrouptoilet
+    service: light.turn_off       
+  
+- alias: Switch Light 1
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom1_click
+    to: right
+  action:
+    entity_id: switch.shelly_02
+    service: switch.toggle
+
+- alias: Switch Light 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom1_click
+    to: left
+  action:
+    entity_id: switch.shelly_01
+    service: switch.toggle
+
+- alias: Switch Light 3
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom2_click
+    to: right
+  action:
+    entity_id: switch.shelly_001
+    service: switch.toggle
+
+- alias: Switch Light Anteroom 1
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: right
+  action:
+    entity_id: light.ikeabulbsgroupanteroom1
+    service: light.toggle
+
+- alias: Switch Light Wardobe
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchwardrobe_click
+    to: single
+  action:
+    entity_id: light.ikeabulbsgroupwardobe
+    service: light.toggle    
+
+- alias: Switch Good Night Right
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: right_double
+  action:
+    entity_id: scene.good_night
+    service: scene.turn_on
+
+- alias: Switch Good Evening Left
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: left_double
+  action:
+    entity_id: scene.good_evening
+    service: scene.turn_on  
+
+- alias: Switch Light Anteroom 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: left
+  action:
+    entity_id: light.ikeabulbsgroupanteroom2
+    service: light.toggle
+
+- alias: Lamp Table Kitchen
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchkitchen1_click
+    to: single
+  action:
+    entity_id: light.ikeabulbsgroupkitchen
+    service: light.toggle 
+
+- alias: Switch Off Light in the Kitchen & Anteroom
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchkitchen1_click
+    to: double
+  action:
+    entity_id: 
+      - light.ikeabulbsgroupkitchen
+      - light.lamp_kitchen
+      - light.ikeabulbsgroupanteroom1
+      - light.ikeabulbsgroupanteroom2
+    service: light.turn_off     
+
+- alias: Lamp Kitchen
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchkitchen2_click
+    to: single
+  action:
+    entity_id: light.lamp_kitchen
+    service: light.toggle  
+
+- alias: Enable Washer
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom2_click
+    to: left
+  action:
+    entity_id: switch.washermachine_relay
+    service: switch.turn_on
+
+- alias: Disable Washer
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom2_click
+    to: left_double
+  action:
+    entity_id: switch.washermachine_relay
+    service: switch.turn_off
+
+- alias: Lamp Childroom
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom_click
+    to: single
+  action:
+    entity_id: light.aqaralampchildroom_light
+    service: light.toggle
+
+- alias: Lamp Childroom 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom2_click
+    to: single
+  action:
+    entity_id: light.aqaralampchildroom_light
+    service: light.toggle    
+
+- alias: Send Notification Enter Home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: person.arsen
+      state: "not_home"
+    - condition: state
+      entity_id: binary_sensor.motionkitchen_occupancy
+      state: "off"
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Enter Home"
+      data:
+        push:
+          sound: default
+
+- alias: Send Notification Exit Home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: person.arsen
+      state: "not_home"
+    - condition: state
+      entity_id: binary_sensor.motionkitchen_occupancy
+      state: "on"
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Exit Home"
+      data:
+        push:
+          sound: default 
+
+# Wyjście z poczty
+- alias: Poczta Exit
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.poczta
+    event: leave
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Anna left the Poczta"
+      data:
+        push:
+          sound: default
+
+# Wejście do poczty          
+- alias: Poczta Enter
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.poczta
+    event: enter
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Anna went into the Poczta"
+      data:
+        push:
+          sound: default                         
+
+- alias: Send Notification Leak Toilet
+  trigger:
+    platform: state
+    entity_id: binary_sensor.leaksensortoilet_water_leak
+    from: "off"
+    to: "on"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "Leak in toilet"
+        data:
+          push:
+            sound: default
+    - service: light.turn_on
+      data:
+        brightness: 255
+        rgb_color: [255, 0, 0]
+        entity_id:
+          - light.ikeabulblamp_light
+    - service: switch.turn_off
+      data:
+        entity_id: switch.washermachine_relay            
+
+- alias: Send Notification Leak Kitchen
+  trigger:
+    platform: state
+    entity_id: binary_sensor.leaksensorkitchen_water_leak
+    from: "off"
+    to: "on"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "Leak in kitchen"
+        data:
+          push:
+            sound: default
+    - service: light.turn_on
+      data:
+        brightness: 255
+        rgb_color: [255, 0, 0]
+        entity_id:
+          - light.ikeabulblamp_light 
+    - service: switch.turn_off
+      data:
+        entity_id: switch.dishwasher_relay                      
+
+# Away Mode In Weekdays 
+- alias: Set Away Mode 
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on' 
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+
+# Set 23 Time 16:00 In Weekdays
+- alias: Set Auto 23 Day Mode 
+  trigger:
+    platform: time
+    at: "16:00:00"
+  condition:
+    condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'on'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto            
+
+# Night Mode Good Sleep
+- alias: Set Auto 20 Night Mode 
+  trigger:
+    platform: time
+    at: "01:30:00"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 20
+        hvac_mode: auto        
+
+# Set 23 Time 7:00 in Weekends      
+- alias: Set Auto 23 Day Mode Weekends
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: state
+    entity_id: 'binary_sensor.workday_sensor'
+    state: 'off'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto          
+
+# Auto Light in Kithen Sunset
+- alias: Turn on Light in Kitchen
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionkitchen2_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: "-00:15:00"
+  action: 
+    entity_id: light.lamp_kitchen
+    service: light.turn_on
+
+# Auto Light Off Kithen Sunset
+- alias: Turn off Light in Kitchen
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionkitchen2_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 2
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: "-00:15:00"
+  action: 
+    entity_id: light.lamp_kitchen
+    service: light.turn_off 
+
+# Auto Light in Kithen Day
+- alias: Turn on Light in Kitchen Day
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionkitchen2_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: sun
+      before: sunrise
+    - condition: time
+      after: '05:30:00'
+  action: 
+    entity_id: light.lamp_kitchen
+    service: light.turn_on
+
+# Auto Light Off Kithen Day
+- alias: Turn off Light in Kitchen Day
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionkitchen2_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 10
+  condition:
+    - condition: sun
+      before: sunrise
+    - condition: time
+      after: '05:30:00'
+  action: 
+    entity_id: light.lamp_kitchen
+    service: light.turn_off     
+    
+# Auto Light in Toilet In Day Mode
+- alias: Turn On Light In Toilet
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motiontoilet_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: time
+      after: '05:30:00'
+      before: '23:45:00'
+    - condition: state
+      entity_id: binary_sensor.toiletdoor_contact
+      state:  "on"     
+  action: 
+    service: light.turn_on 
+    data:
+      transition: 0
+      brightness: 255
+      entity_id:
+        - light.osrambulbsgrouptoilet      
+    
+# Auto Light in Toilet In Night Mode
+- alias: Turn On Light In Toilet 20%
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motiontoilet_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    condition: time
+    after: '23:45:00'
+    before: '05:30:00'   
+  action: 
+    service: light.turn_on          
+    data:
+      transition: 5
+      brightness: 20
+      entity_id:
+        - light.osrambulbsgrouptoilet
+    
+# Auto Light Off In Toilet 10 minutes no occupancy
+- alias: Turn Off Light Toilet 10 No Occupancy
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motiontoilet_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 10
+  action: 
+    - service: light.turn_off
+      entity_id:
+        - light.osrambulbsgrouptoilet  
+        - light.ikeabulbsgrouptoiletmirror
+
+# Auto Turn on Light in Anteroom Enter Home
+- alias: Turn on Light in Anteroom Enter Home
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
+      - condition: state
+        entity_id: binary_sensor.motionkitchen_occupancy
+        state: "off"
+      - condition: state
+        entity_id: switch.airpurifiermax
+        state: "off"     
+  action: 
+    entity_id: light.ikeabulbsgroupanteroom1
+    service: light.turn_on
+
+- alias: "Notification Low Battery"
+  trigger:
+    platform: time
+    at: "18:00:00"
+  condition:
+    condition: template
+    value_template: >
+      {% macro battery_level() %}
+        {%- set threshold = 20 -%}
+        {%- set domains = ['light', 'switch', 'sensor', 'lock', 'binary_sensor'] -%}
+        {% for domain in domains -%}
+          {% for item in states[domain] if (((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ('battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == 'low' or item.state | lower == 'unknown')))) and not (( 'humidity' in item.entity_id) or ('illumination' in item.entity_id)) -%}
+            {% if (item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) %}
+              - {{ item.entity_id }} [{{ item.attributes['battery_level'] | round(0) }}%]{% endif -%}
+            {% if 'battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == 'low' or item.state | lower == 'unknown') %}
+              - {{ item.entity_id }} [{{ item.state | round(0) }}%]{% endif -%}
+          {% endfor %}
+        {%- endfor %}
+      {% endmacro %}
+      {{ battery_level() | trim != '' }}
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: >
+          {% macro battery_level() %}
+            {%- set threshold = 20 -%}
+            {%- set domains = ['light', 'switch', 'sensor', 'lock', 'binary_sensor'] -%}
+            {% for domain in domains -%}
+              {% for item in states[domain] if (((item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) or ('battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == 'low' or item.state | lower == 'unknown')))) and not (( 'humidity' in item.entity_id) or ('illumination' in item.entity_id)) -%}
+                {% if (item.attributes.battery_level is defined and item.attributes['battery_level'] | int < threshold) %}
+           - {{ item.entity_id }} [{{ item.attributes['battery_level'] | round(0) }}%]{% endif -%}
+                {% if 'battery' in item.name | lower and ((item.state | int < threshold and item.state|int != 0) or item.state | lower == 'low' or item.state | lower == 'unknown') %}
+           - {{ item.entity_id }} [{{ item.state | round(0) }}%]{% endif -%}
+              {% endfor %}
+            {%- endfor %}
+          {% endmacro %}
+          Low Battery {{ battery_level() }}
+      data:
+        push:
+          sound: default    
+
+# Notification End Dishwasher
+- alias: "Notification Dishwasher End"
+  trigger:
+    - platform: state
+      entity_id: sensor.dishwasher
+      from: "washing"
+      to: "disable"
+      for:
+        minutes: 1
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Dishwasher Ended"
+      data:
+        push:
+          sound: default   
+
+# Notification End Washermachine
+- alias: "Notification Dishwasher End"
+  trigger:
+    - platform: state
+      entity_id: sensor.washermachine
+      from: "washing"
+      to: "disable"
+      for:
+        minutes: 1
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Washermachine Ended"
+      data:
+        push:
+          sound: default   
+
+# Air Purifier
+- alias: AQI Air Ok 
+  trigger:
+  - platform: numeric_state
+    entity_id: fan.air_purifier
+    value_template: '{{ state.attributes.aqi }}'
+    below: 5
+    for:
+      minutes: 10
+  condition:
+  - condition: state
+    entity_id: fan.air_purifier
+    state: 'on'
+  - condition: state
+    entity_id: switch.airpurifiermax
+    state: 'off'
+  action:
+  - entity_id: fan.air_purifier
+    service: fan.turn_on
+  - entity_id: fan.air_purifier
+    service: fan.set_speed
+    data:
+      speed: auto
+
+- alias: AQI Air Bad Day
+  trigger:
+  - above: 15
+    entity_id: fan.air_purifier
+    for:
+      minutes: 5
+    platform: numeric_state
+    value_template: '{{ state.attributes.aqi }}'
+  - above: 25
+    entity_id: fan.air_purifier
+    for:
+      minutes: 5
+    platform: numeric_state
+    value_template: '{{ state.attributes.aqi }}'
+  condition:
+    condition: and
+    conditions:
+    - after: '08:00:00'
+      before: '23:00:00'
+      condition: time
+  action:
+  - entity_id: fan.air_purifier
+    service: fan.turn_on
+  - entity_id: fan.air_purifier
+    service: fan.set_speed
+    data:
+      speed: favorite
+  - service: xiaomi_miio.fan_set_favorite_level       
+    data_template:
+      entity_id: fan.air_purifier
+      level: >
+        {% if state_attr('fan.air_purifier', 'aqi') | int > 30 %}
+        15
+        {% elif state_attr('fan.air_purifier', 'aqi') | int > 25 %}
+        12
+        {% elif state_attr('fan.air_purifier', 'aqi') | int > 20 %}
+        10
+        {% elif state_attr('fan.air_purifier', 'aqi') | int > 15 %}
+        8
+        {% else %}
+        5
+        {% endif %}     
+
+# Air Max On & Off
+- alias: "Air Max 30 min On"
+  trigger:
+    platform: time
+    at: "15:50:00"
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'  
+    - condition: state
+      entity_id: person.arsen
+      state: "not_home"
+    - condition: state
+      entity_id: person.ania
+      state: "not_home"    
+  action: 
+    entity_id: switch.airpurifiermax
+    service: switch.turn_on    
+
+- alias: "Air Max 30 Min Off"
+  trigger:
+    platform: state
+    entity_id: switch.airpurifiermax
+    from: 'off'
+    to: 'on' 
+    for: 
+      minutes: 30
+  action: 
+    entity_id: switch.airpurifiermax
+    service: switch.turn_off    
+
+      
+    
+
+

@@ -1,0 +1,143 @@
+Dark - Olender Blue:
+  ### Main Interface Colors ###
+  primary-color: "#03A9F4"
+  light-primary-color: "#03A9F4"
+  primary-background-color: "#141414"
+  secondary-background-color: var(--primary-background-color)
+  divider-color: "#262626"
+  border-top: "#000000"
+  ### Text ###
+  primary-text-color: "#EBEBEB"
+  secondary-text-color: "#03A9F4"
+  text-primary-color: "#141414"
+  disabled-text-color: "#5D5D5D"
+  ### Sidebar Menu ###
+  sidebar-icon-color: "#8E8E8E"
+  sidebar-text-color: "#EBEBEB"
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: "#03A9F4"
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  ### States and Badges ###
+  state-icon-color: "white"
+  state-icon-active-color: "#03A9F4"
+  state-icon-unavailable-color: var(--disabled-text-color)
+  ### Sliders ###
+  paper-slider-knob-color: "#03A9F4"
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: var(--paper-slider-knob-color)
+  paper-slider-secondary-color: var(--light-primary-color)
+  ### Labels ###
+  label-badge-background-color: "#515151"
+  label-badge-text-color: "#EBEBEB"
+  label-badge-red: "#515151"
+  ### Cards ###
+  paper-card-background-color: "#1A1A1A"
+  paper-listbox-background-color: var(--primary-background-color)
+  ### Toggles ###
+  paper-toggle-button-checked-button-color: "#03A9F4"
+  paper-toggle-button-checked-bar-color: "#03A9F4"
+  paper-toggle-button-unchecked-button-color: "#8E8E8E"
+  paper-toggle-button-unchecked-bar-color: "#515151"
+  ### Table row ###
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+
+  st-font-size-xl: 24px
+  st-font-size-m: 26px
+  st-font-size-title: 16px
+  st-font-size-sensors: 16px
+  st-spacing: 4px
+
+Dark - Olender Blue Oled:
+  ### Main Interface Colors ###
+  
+  primary-color: "#03A9F4"
+  light-primary-color: "#03A9F4"
+  primary-background-color: "#101010"
+  secondary-background-color: var(--primary-background-color)
+  divider-color: "#262626"
+  ### Text ###
+  primary-text-color: "#EBEBEB"
+  border-top: "#000000"
+  secondary-text-color: "#03A9F4"
+  text-primary-color: "#141414"
+  disabled-text-color: "#5D5D5D"
+  ### Sidebar Menu ###
+  sidebar-icon-color: "#8E8E8E"
+  sidebar-text-color: "#EBEBEB"
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: "#03A9F4"
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  ### States and Badges ###
+  state-icon-color: "white"
+  state-icon-active-color: "#03A9F4"
+  state-icon-unavailable-color: var(--disabled-text-color)
+  ### Sliders ###
+  paper-slider-knob-color: "#03A9F4"
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: var(--paper-slider-knob-color)
+  paper-slider-secondary-color: var(--light-primary-color)
+  ### Labels ###
+  label-badge-background-color: "#515151"
+  label-badge-text-color: "#EBEBEB"
+  label-badge-red: "#515151"
+  ### Cards ###
+  paper-card-background-color: "#000000"
+  paper-listbox-background-color: var(--primary-background-color)
+  ### Toggles ###
+  paper-toggle-button-checked-button-color: "#03A9F4"
+  paper-toggle-button-checked-bar-color: "#03A9F4"
+  paper-toggle-button-unchecked-button-color: "#8E8E8E"
+  paper-toggle-button-unchecked-bar-color: "#515151"
+  ### Table row ###
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+
+Light - Blue:
+  ### Main Interface Colors ###
+  primary-color: "#2F7EFD"
+  light-primary-color: "#6FA6FE"
+  primary-background-color: "#FEFEFE"
+  secondary-background-color: var(--primary-background-color)
+  divider-color: "#E0E2EA"
+  ### Text ###
+  primary-text-color: "#4D5575"
+  secondary-text-color: "#2F7EFD"
+  text-primary-color: "#FFFFFF"
+  disabled-text-color: "#A6B0BF"
+  ### Sidebar Menu ###
+  sidebar-icon-color: "#818AAC"
+  sidebar-text-color: var(--sidebar-icon-color)
+  sidebar-selected-background-color: var(--primary-background-color)
+  sidebar-selected-icon-color: "#6FA6FE"
+  sidebar-selected-text-color: var(--sidebar-selected-icon-color)
+  ### States and Badges ###
+  state-icon-color: "#2F7EFD"
+  state-icon-active-color: "#FBCD41"
+  state-icon-unavailable-color: var(--disabled-text-color)
+  ### Sliders ###
+  paper-slider-knob-color: "#2F7EFD"
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: var(--paper-slider-knob-color)
+  paper-slider-secondary-color: var(--light-primary-color)
+  ### Labels ###
+  label-badge-background-color: "#F8FAF9"
+  label-badge-text-color: "#4D5575"
+  label-badge-red: "#6FA6FE"
+  ### Cards ###
+  paper-card-background-color: "#FCFCFC"
+  paper-listbox-background-color: var(--primary-background-color)
+  ### Toggles ###
+  paper-toggle-button-checked-button-color: "#2F7EFD"
+  paper-toggle-button-checked-bar-color: "#6FA6FE"
+  paper-toggle-button-unchecked-button-color: var(--paper-toggle-button-checked-button-color)
+  paper-toggle-button-unchecked-bar-color: "#BFC6D1"
+  ### Table row ###
+  table-row-background-color: var(--primary-background-color)
+  table-row-alternative-background-color: var(--secondary-background-color)
+
+
+

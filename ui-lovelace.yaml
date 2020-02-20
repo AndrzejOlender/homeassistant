@@ -1,0 +1,344 @@
+resources:
+  - url: /local/mini-graph-card-bundle.js?v=0.8.2
+    type: module
+  
+  - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
+    type: module    
+    
+title: Home
+views:
+  - badges: []
+    cards:
+      - entity: weather.home
+        type: weather-forecast
+      - entities:
+          - entity: scene.good_morning
+          - entity: scene.good_evening
+          - entity: scene.good_night
+        show_header_toggle: false
+        type: entities
+
+      - entities:
+          - entity: light.aqaralampchildroom_light
+            name: Child Room
+          - entity: light.ikeabulblamp_light
+            name: Living Room 
+          - entity: switch.shelly_02
+            name: Living Room 1
+            state_color: on
+          - entity: switch.shelly_01
+            name: Living Room 2
+            state_color: on
+          - entity: switch.shelly_001
+            name: Living Room 3
+            state_color: on
+          - entity: light.ikeabulbsgroupkitchen
+            name: Kitchen Table
+          - entity: light.lamp_kitchen
+            name: Kitchen 
+          - entity: light.ikeabulbsgroupanteroom1
+            name: Ante Room 1
+          - entity: light.ikeabulbsgroupanteroom2
+            name: Ante Room 2  
+          - entity: light.osrambulbsgrouptoilet
+            name: Toilet
+          - entity: light.ikeabulbsgrouptoiletmirror
+            name: Toilet Mirror
+          - entity: light.ikeabulbsgroupwardobe
+            name: Wardobe
+
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: media_player.lg
+            state_color: on
+          - entity: light.yamaha
+            state_color: on
+          - entity: light.radio
+            state_color: on
+          - entity: light.hdmi1
+            state_color: on
+          - entity: light.hdmi2
+            state_color: on
+          - entity: light.nc
+            state_color: on
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: binary_sensor.childroomwindow_contact
+            state_color: on
+          - entity: binary_sensor.kitchenwindow_contact
+            state_color: on
+          - entity: binary_sensor.livingroombalconywindow_contact
+            state_color: on
+          - entity: binary_sensor.livingroomwindow_contact
+            state_color: on
+        show_header_toggle: false
+        theme: Backend-selected
+        type: entities
+      - entities:
+          - entity: climate.thermolivingroom_climate
+            name: Living Room
+            state_color: on
+          - entity: climate.thermochildroom_climate
+            name: Child Room
+            state_color: on
+        show_header_toggle: false
+        type: entities               
+      - entities:
+          - entity: binary_sensor.toiletdoor_contact
+            state_color: on
+          - entity: binary_sensor.maindoor_contact
+            state_color: on
+        show_header_toggle: false
+        type: entities        
+      - entities:
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Ante Room
+            state_color: on
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Kitchen 
+            state_color: on
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Toilet
+            state_color: on
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: binary_sensor.leaksensorkitchen_water_leak
+            state_color: on
+          - entity: binary_sensor.leaksensortoilet_water_leak
+            state_color: on
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: air_quality.airly
+          - entity: fan.air_purifier
+            state_color: on
+          - entity: switch.airpurifiermax
+            name: Air Max 
+            state_color: on
+          - entity: sensor.airly_aqi
+            name: Outdoor
+          - entity: sensor.mi_aqi
+            name: Home
+        show_header_toggle: false
+        type: entities        
+      - entities:
+          - entity: switch.dishwasher_relay
+            name: Dishwasher
+            state_color: on
+          - entity: switch.washermachine_relay
+            name: Washermachine
+            state_color: on
+          - entity: switch.fridge_relay
+            name: Fridge  
+            state_color: on
+          - entity: switch.tv_relay
+            name: TV 
+            state_color: on
+          # - entity: switch.yamaha_relay
+          #   name: Yamaha
+        show_header_toggle: false
+        type: entities
+
+    icon: 'mdi:home'
+    panel: false
+    path: default_view
+    theme: default
+    title: Home
+
+  - badges: []
+    cards:
+      - type: 'custom:mini-graph-card'
+        name: Lights
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.light_1
+            name: Light 1
+          - entity: sensor.light_2
+            name: Light 2
+          - entity: sensor.light_3
+            name: Light 3    
+      - type: 'custom:mini-graph-card'
+        name: UPC
+        icon: 'mdi:server'
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.speedtest_download
+            name: Download
+          - entity: sensor.speedtest_upload
+            name: Upload  
+          - entity: sensor.speedtest_ping
+            name: Ping
+            color: green     
+      - type: 'custom:mini-graph-card'
+        name: Air
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.airly_aqi
+            name: Outdoor
+          - entity: sensor.mi_aqi
+            name: Home  
+      - type: 'custom:mini-graph-card'
+        name: Shelly 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.shelly_01_analog_temperature
+            name: Shelly 01
+          - entity: sensor.shelly_02_analog_temperature
+            name: Shelly 02
+
+      - type: 'custom:mini-graph-card'
+        name: Temperature 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.thermostat_livingroom_temperature
+            name: Living Room
+          - entity: sensor.thermostat_childroom_temperature
+            name: Child Room
+          - entity: sensor.airly_temperature
+            name: Outside 
+            color: green      
+
+      - type: custom:mini-graph-card
+        entities:
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Anteroom
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Kitchen
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Toilet
+            color: green
+        name: Motion
+        hours_to_show: 6
+        points_per_hour: 6
+        font_size: 75
+        font_size_header: 12
+        update_interval: 30
+        aggregate_func: max
+        line_width: 2
+        smoothing: false
+        state_map:
+          - value: "off"
+            label: Clear
+          - value: "on"
+            label: Detected         
+
+      - type: 'custom:mini-graph-card'
+        name: AGD 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.washermachine_power
+            name: Washermachine
+          - entity: sensor.fridge_power
+            name: Fridge
+          - entity: sensor.dishwasher_power
+            name: Dishwasher 
+
+      - type: 'custom:mini-graph-card'
+        name: RTV 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.tv_power
+            name: TV
+          - entity: sensor.yamaha_power
+            name: Yamaha 
+
+      - type: 'custom:mini-graph-card'
+        name: Puriffier 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.mi_rpm
+            name: RPM   
+
+    icon: 'mdi:gauge'
+    path: monit
+    theme: default
+    title: Monit
+
+  - badges: []
+    cards:
+      - entities:
+          - sensor.adguard_average_processing_speed
+          - sensor.adguard_dns_queries
+          - sensor.adguard_dns_queries_blocked_ratio
+          - sensor.adguard_parental_control_blocked
+          - sensor.adguard_safe_browsing_blocked
+          - sensor.adguard_safe_searches_enforced
+          - switch.adguard_protection
+          - switch.adguard_safe_browsing
+          - switch.adguard_filtering
+          - switch.adguard_parental_control
+        show_header_toggle: false
+        type: entities
+
+    icon: 'mdi:shield-account'
+    path: guard
+    theme: default
+    title: Guard
+
+  - badges: []
+    panel: true
+    cards:
+      - type: custom:zigbee2mqtt-networkmap
+        entity: sensor.zigbee2mqtt_networkmap
+        # the following are optional:
+        name: Zigbbee2Mqtt
+        mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
+        force: 3000 # decrease it to get smaller map if you have many devices
+        node_size: 16
+        font_size: 12
+        link_width: 2
+        height: 800 # height of the card
+        # use this css config or use whatever css tech to change look and feel,
+        # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
+        css: |
+          :host {
+            --zigbee2mqtt-networkmap-node-color: rgba(3, 169, 244, .7);
+            --zigbee2mqtt-networkmap-node-fill-color: #92d5f4;
+            --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
+            --zigbee2mqtt-networkmap-link-color: rgba(3, 169, 244, .7);
+            --zigbee2mqtt-networkmap-hover-color: #be385d;
+            --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
+            --zigbee2mqtt-networkmap-label-color: #03A9F4;
+            --zigbee2mqtt-networkmap-arrow-color: rgba(3, 169, 244, .7);
+            --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
+            --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
+          }      
+    icon: 'mdi:access-point-network'
+    path: zigbee
+    theme: default
+    title: Zigbee

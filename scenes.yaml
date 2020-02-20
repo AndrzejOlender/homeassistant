@@ -1,0 +1,62 @@
+- id: '1577046394155'
+  name: Good Evening
+  entities:
+    light.radio:
+      state: 'on'
+    switch.shelly_01:
+      state: 'on'
+    switch.shelly_02:
+      state: 'on'
+    light.aqaralampchildroom_light:
+      state: 'on'
+    light.ikeabulbsgroupanteroom1:
+      state: 'on'  
+
+- id: '1577085914679'
+  name: Good Night
+  entities:
+    switch.shelly_01:
+      state: 'off'
+    switch.shelly_02:
+      state: 'off'
+    switch.shelly_001:
+      state: 'off'
+    light.aqaralampchildroom_light:
+      state: 'off'
+    light.ikeabulblamp_light:
+      state: 'off'
+    light.yamaha:
+      state: 'off'  
+    light.nc:
+      state: 'off'
+    media_player.lg:
+      state: 'off'
+    light.ikeabulbsgroupkitchen:  
+      state: 'off'
+    light.lamp_kitchen:
+      state: 'off'
+    light.ikeabulbsgroupanteroom2:
+      state: 'off'
+    light.osrambulbsgrouptoilet:
+      state: 'off'       
+    light.ikeabulbsgrouptoiletmirror:
+      state: 'off'   
+    light.ikeabulbsgroupanteroom1:
+      state: 'off' 
+    light.ikeabulbsgroupwardobe:
+      state: 'off'  
+
+- id: '1577085924679'
+  name: Good Morning
+  entities:
+    light.yamaha:
+      state: 'on'   
+    media_player.lg:
+      state: 'on'
+    light.nc:
+      state: 'on'        
+    light.hdmi1: 
+      state: 'on'
+    
+
+

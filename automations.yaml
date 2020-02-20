@@ -655,7 +655,7 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_on    
 
-- alias: "Air Max 30 Min Off"
+- alias: "Air Max 30 min Off"
   trigger:
     platform: state
     entity_id: switch.airpurifiermax

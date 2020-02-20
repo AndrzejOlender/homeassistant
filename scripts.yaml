@@ -1,0 +1,53 @@
+miio_turn_on_tv:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VHACsCAACjBgAAyggAAI4RAAA9IwAACJ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAQAAAAAAAQEAAQEBAQEAAAABAAAAAAEBAQABAQEBBQJAA=
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: TV 
+
+miio_turn_on_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLABUCAABIAgAAjQYAANIIAACnEQAAcyMAALyYAADoegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEhAQEhAQEBIQEhIQEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: Canal+
+
+miio_turn_on_yamaha_hdmi1:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLADQCAAB7BgAAtggAAGoRAAAIIwAAYJ8AAHB1AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0ABAAEBAQEAAQABAAAAAAEBAQEAAAABAAAAAAEBAQAABQJGAkAA==
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: HDMI1  
+
+miio_turn_on_yamaha_hdmi2:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLACMCAABFAgAAkQYAAM0IAACCEQAA8SIAAGCfAABwdQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFECAQICAgIBAgECAQEBAQIBAgECAQECAQIBAgECAgEBBgNXA1AA==
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: HDMI2  
+
+miio_turn_on_yamaha_radio:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VDADcCAAB3BgAAaBEAAAwjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjABAAEBAQEAAQABAAAAAAEBAAABAAAAAAABAQABAQEAAA
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: Radio
+
+miio_turn_on_yamaha:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VHADYCAAB6BgAAtggAAG0RAAAIIwAAFJsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0ABAQEBAQEAAQAAAAAAAAEAAQABAAEAAAEAAQABAAEBBQJAA=
+    entity_id: remote.xiaomi_miio_192_168_0_179
+    service: remote.send_command
+  alias: Yamaha

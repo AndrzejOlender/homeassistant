@@ -291,9 +291,15 @@
     platform: time
     at: "07:00:00"
   condition:
-    condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on' 
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on' 
+    - condition: state
+      entity_id: person.arsen
+      state: "not_home"
+    - condition: state
+      entity_id: person.ania
+      state: "not_home"  
   action:
     - service: climate.turn_off
       data:

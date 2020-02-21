@@ -5,6 +5,10 @@ recorder:
   purge_keep_days: 90
   db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
 
+influxdb:
+  host: 127.0.0.1
+  database: homeassistant
+
 http:
   #api_password: M1styf1kacj4!
   base_url: https://olender.duckdns.org:8123
@@ -191,9 +195,9 @@ light:
     name: OsramBulbsGroupToilet
     command_topic: "zigbee2mqtt/group_1_toilet_1/set"
     state_topic: "zigbee2mqtt/group_1_toilet_1"
-    color_temp: true
+    color_temp: false
     brightness: true
-    rgb: true
+    rgb: false
 
   - platform: mqtt
     schema: json
@@ -201,6 +205,7 @@ light:
     command_topic: "zigbee2mqtt/group_2_anteroom_1/set"
     state_topic: "zigbee2mqtt/group_2_anteroom_1" 
     brightness: true
+
   - platform: mqtt
     schema: json
     name: IkeaBulbsGroupAnteroom2
@@ -233,11 +238,11 @@ light:
   - platform: "mqtt"
     state_topic: "zigbee2mqtt/IkeaBulbToiletMirror"
     availability_topic: "zigbee2mqtt/bridge/state"
-    brightness: true
-    color_temp: true
-    xy: true
     schema: "json"
     command_topic: "zigbee2mqtt/IkeaBulbToiletMirror/set"  
+    brightness: true
+    color_temp: false
+    rgb: false
    
 ### Sensors
 sensor:

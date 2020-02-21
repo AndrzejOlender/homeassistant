@@ -195,9 +195,9 @@ light:
     name: OsramBulbsGroupToilet
     command_topic: "zigbee2mqtt/group_1_toilet_1/set"
     state_topic: "zigbee2mqtt/group_1_toilet_1"
-    color_temp: false
+#    color_temp: false
     brightness: true
-    rgb: false
+#    rgb: false
 
   - platform: mqtt
     schema: json

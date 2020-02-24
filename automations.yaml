@@ -604,13 +604,13 @@
 
 - alias: AQI Air Bad Day
   trigger:
-  - above: 15
+  - above: 20
     entity_id: fan.air_purifier
     for:
       minutes: 5
     platform: numeric_state
     value_template: '{{ state.attributes.aqi }}'
-  - above: 25
+  - above: 30
     entity_id: fan.air_purifier
     for:
       minutes: 5

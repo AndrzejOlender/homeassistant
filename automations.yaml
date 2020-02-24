@@ -427,7 +427,7 @@
 - alias: Turn On Light In Toilet
   trigger: 
     platform: state
-    entity_id: binary_sensor.toiletdoor_contact
+    entity_id: binary_sensor.motiontoilet_occupancy
     from: "off"
     to: "on"
   condition:
@@ -435,7 +435,7 @@
       after: '05:30:00'
       before: '23:45:00'
     - condition: state
-      entity_id: binary_sensor.motiontoilet_occupancy
+      entity_id: binary_sensor.toiletdoor_contact
       state:  "on"     
   action: 
     service: light.turn_on 
@@ -449,7 +449,7 @@
 - alias: Turn On Light In Toilet 20%
   trigger: 
     platform: state
-    entity_id: binary_sensor.toiletdoor_contact
+    entity_id: binary_sensor.motiontoilet_occupancy
     from: "off"
     to: "on"
   condition:
@@ -457,7 +457,7 @@
       after: '23:45:00'
       before: '05:30:00'   
     - condition: state
-      entity_id: binary_sensor.motiontoilet_occupancy
+      entity_id: binary_sensor.toiletdoor_contact
       state:  "on"  
   action: 
     service: light.turn_on          

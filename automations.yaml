@@ -427,7 +427,7 @@
 - alias: Turn On Light In Toilet
   trigger: 
     platform: state
-    entity_id: binary_sensor.motiontoilet_occupancy
+    entity_id: binary_sensor.toiletdoor_contact
     from: "off"
     to: "on"
   condition:
@@ -435,7 +435,7 @@
       after: '05:30:00'
       before: '23:45:00'
     - condition: state
-      entity_id: binary_sensor.toiletdoor_contact
+      entity_id: binary_sensor.motiontoilet_occupancy
       state:  "on"     
   action: 
     service: light.turn_on 
@@ -449,13 +449,16 @@
 - alias: Turn On Light In Toilet 20%
   trigger: 
     platform: state
-    entity_id: binary_sensor.motiontoilet_occupancy
+    entity_id: binary_sensor.toiletdoor_contact
     from: "off"
     to: "on"
   condition:
-    condition: time
-    after: '23:45:00'
-    before: '05:30:00'   
+    - condition: time
+      after: '23:45:00'
+      before: '05:30:00'   
+    - condition: state
+      entity_id: binary_sensor.motiontoilet_occupancy
+      state:  "on"  
   action: 
     service: light.turn_on          
     data:
@@ -640,8 +643,8 @@
         8
         {% else %}
         5
-        {% endif %}     
-
+        {% endif %}   
+          
 # Air Max On & Off
 - alias: "Air Max 30 min On"
   trigger:
@@ -672,8 +675,5 @@
   action: 
     entity_id: switch.airpurifiermax
     service: switch.turn_off    
-
-      
-    
 
 

@@ -307,6 +307,34 @@
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
 
+# Away Mode 23 In Weekdays (person in home)
+- alias: Set Home Mode 
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'binary_sensor.workday_sensor'
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.arsen
+            state: "home"
+          - condition: state
+            entity_id: person.ania
+            state: "home"  
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto          
+
 # Set 23 Time 16:00 In Weekdays
 - alias: Set Auto 23 Day Mode 
   trigger:

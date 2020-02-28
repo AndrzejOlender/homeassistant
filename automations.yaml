@@ -27,7 +27,19 @@
       - light.ikeabulbsgrouptoiletmirror
       - light.osrambulbsgrouptoilet
     service: light.turn_off       
-  
+
+- alias: Turn Off Light 1,2,3
+  trigger:  
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom1_click
+    to: right_double
+  action:
+    entity_id: 
+      - switch.shelly_02
+      - switch.shelly_01
+      - switch.shelly_001
+    service: light.turn_off
+
 - alias: Switch Light 1
   trigger:
     platform: state

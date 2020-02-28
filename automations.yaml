@@ -38,7 +38,7 @@
       - switch.shelly_02
       - switch.shelly_01
       - switch.shelly_001
-    service: light.turn_off
+    service: switch.turn_off
 
 - alias: Switch Light 1
   trigger:

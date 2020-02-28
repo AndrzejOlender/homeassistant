@@ -200,6 +200,24 @@
         push:
           sound: default
 
+- alias: Send Notification Enter Zone Home
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.home
+    event: enter
+  condition:
+    - condition: state
+      entity_id: person.arsen
+      state: "home" 
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Anna went into zone Home"
+      data:
+        push:
+          sound: default           
+
 - alias: Send Notification Exit Home
   trigger:
     platform: state

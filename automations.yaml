@@ -627,7 +627,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 1
+        minutes: 2
   action:
     service: notify.mobile_app_iphone
     data:
@@ -636,13 +636,25 @@
         push:
           sound: default   
 
+# - alias: "Disable Dishwasher Plug"
+  trigger:
+    - platform: state
+      entity_id: sensor.washermachine
+      from: "washing"
+      to: "disable"
+      for:
+        minutes: 5
+  action:
+    entity_id: switch.washermachine_relay
+    service: switch.turn_off        
+
 # Air Purifier
 - alias: AQI Air Ok 
   trigger:
   - platform: numeric_state
     entity_id: fan.air_purifier
     value_template: '{{ state.attributes.aqi }}'
-    below: 5
+    below: 10
     for:
       minutes: 10
   condition:
@@ -733,5 +745,3 @@
   action: 
     entity_id: switch.airpurifiermax
     service: switch.turn_off    
-
-

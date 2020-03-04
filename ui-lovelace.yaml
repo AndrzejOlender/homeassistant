@@ -311,6 +311,29 @@ views:
     title: Guard
 
   - badges: []
+    cards:
+      - entities:
+          - sensor.poland_coronavirus_confirmed
+          - sensor.poland_coronavirus_current
+          - sensor.poland_coronavirus_deaths  
+          - sensor.poland_coronavirus_recovered
+        show_header_toggle: false
+        type: entities
+
+      - entities:
+          - sensor.worldwide_coronavirus_confirmed
+          - sensor.worldwide_coronavirus_current
+          - sensor.worldwide_coronavirus_deaths
+          - sensor.worldwide_coronavirus_recovered
+        show_header_toggle: false
+        type: entities  
+        
+    icon: 'mdi:shield-cross'
+    path: corona
+    theme: default
+    title: Corona  
+
+  - badges: []
     panel: true
     cards:
       - type: custom:zigbee2mqtt-networkmap

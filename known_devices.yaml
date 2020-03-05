@@ -1,9 +1,9 @@
 
-00_17_10_98_c9_19:
+foo1:
   hide_if_away: false
   icon:
   mac: 00:17:10:98:C9:19
-  name: 00_17_10_98_c9_19
+  name: foo1
   picture:
   track: false
 

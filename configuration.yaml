@@ -15,6 +15,12 @@ http:
   ssl_certificate: /config/ssl/fullchain.pem
   ssl_key: /config/ssl/privkey.pem
 
+device_tracker:
+  - platform: luci
+    host: 192.168.1.1
+    username: root
+    password: M1styf1kacj4!  
+
 zone:
   - name: Poczta
     latitude: 50.2568931

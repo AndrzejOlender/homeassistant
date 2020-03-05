@@ -142,3 +142,19 @@ nuc:
   name: nuc
   picture:
   track: true
+
+ec_fa_bc_34_37_0f:
+  hide_if_away: false
+  icon:
+  mac: EC:FA:BC:34:37:0F
+  name: ec_fa_bc_34_37_0f
+  picture:
+  track: true
+
+airpurifier:
+  hide_if_away: false
+  icon:
+  mac: 04:CF:8C:93:48:B1
+  name: airpurifier
+  picture:
+  track: true

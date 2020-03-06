@@ -76,8 +76,8 @@ homekit:
       - light.ikeabulbsgroupkitchen
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
-      - person.arsen
-      - person.ania
+      - device_tracker.iphone_luci_andrzej
+      - device_tracker.xiaomired_luci_ania
       - scene.good_evening
       - scene.good_morning
       - scene.good_night

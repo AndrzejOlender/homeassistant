@@ -46,7 +46,6 @@ homekit:
     include_entities:
       - light.aqaralampchildroom_light
       - light.ikeabulblamp_light
-      - switch.dishwasher_relay
       - switch.washermachine_relay
       - media_player.tv
       - script.miio_turn_on_yamaha

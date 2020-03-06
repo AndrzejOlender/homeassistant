@@ -110,3 +110,27 @@ miio_ir:
   name: miio-ir
   picture:
   track: false
+
+xiaomired-luci-ania:
+  hide_if_away: false
+  icon:
+  mac: 38:E6:0A:79:69:F2
+  name: xiaomired-luci-ania
+  picture:
+  track: true
+
+iphone-luci-andrzej:
+  hide_if_away: false
+  icon:
+  mac: C0:E8:62:3B:1C:41
+  name: iphone-luci-andrzej
+  picture:
+  track: true
+
+macbook:
+  hide_if_away: false
+  icon:
+  mac: F4:0F:24:2A:DE:57
+  name: macbook
+  picture:
+  track: true

@@ -610,7 +610,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 1
+        minutes: 3
   action:
     service: notify.mobile_app_iphone
     data:
@@ -620,7 +620,7 @@
           sound: default   
 
 # Notification End Washermachine
-- alias: "Notification Dishwasher End"
+- alias: "Notification Washermachine End"
   trigger:
     - platform: state
       entity_id: sensor.washermachine

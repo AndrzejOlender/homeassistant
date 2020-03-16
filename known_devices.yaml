@@ -134,3 +134,11 @@ macbook:
   name: macbook
   picture:
   track: false
+
+foo:
+  hide_if_away: false
+  icon:
+  mac: 44:65:0D:23:2A:16
+  name: foo
+  picture:
+  track: false

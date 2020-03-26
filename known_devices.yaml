@@ -142,3 +142,17 @@ foo:
   name: foo
   picture:
   track: false
+
+c8_91_f9_93_c5_28:
+  icon:
+  mac: C8:91:F9:93:C5:28
+  name: c8_91_f9_93_c5_28
+  picture:
+  track: true
+
+hplaserjet:
+  icon:
+  mac: 74:29:AF:80:55:94
+  name: hplaserjet
+  picture:
+  track: true

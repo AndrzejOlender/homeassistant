@@ -1,6 +1,6 @@
 resources:
-  - url: /local/mini-graph-card-bundle.js?v=0.9.3
-    type: module
+  # - url: /local/mini-graph-card-bundle.js?v=0.9.3
+  #   type: module
   
   - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
     type: module    
@@ -148,146 +148,146 @@ views:
     theme: default
     title: Home
 
-  - badges: []
-    cards:
-      - type: 'custom:mini-graph-card'
-        name: Lights
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.light_1
-            name: Light 1
-          - entity: sensor.light_2
-            name: Light 2
-          - entity: sensor.light_3
-            name: Light 3    
-      - type: 'custom:mini-graph-card'
-        name: UPC
-        icon: 'mdi:server'
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-          - entity: sensor.speedtest_upload
-            name: Upload  
-          - entity: sensor.speedtest_ping
-            name: Ping
-            color: green     
-      - type: 'custom:mini-graph-card'
-        name: Air
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.airly_aqi
-            name: Outdoor
-          - entity: sensor.mi_aqi
-            name: Home  
-      - type: 'custom:mini-graph-card'
-        name: Shelly 
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.shelly_01_analog_temperature
-            name: Shelly 01
-          - entity: sensor.shelly_02_analog_temperature
-            name: Shelly 02
+  # - badges: []
+  #   cards:
+  #     - type: 'custom:mini-graph-card'
+  #       name: Lights
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.light_1
+  #           name: Light 1
+  #         - entity: sensor.light_2
+  #           name: Light 2
+  #         - entity: sensor.light_3
+  #           name: Light 3    
+  #     - type: 'custom:mini-graph-card'
+  #       name: UPC
+  #       icon: 'mdi:server'
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.speedtest_download
+  #           name: Download
+  #         - entity: sensor.speedtest_upload
+  #           name: Upload  
+  #         - entity: sensor.speedtest_ping
+  #           name: Ping
+  #           color: green     
+  #     - type: 'custom:mini-graph-card'
+  #       name: Air
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.airly_aqi
+  #           name: Outdoor
+  #         - entity: sensor.mi_aqi
+  #           name: Home  
+  #     - type: 'custom:mini-graph-card'
+  #       name: Shelly 
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.shelly_01_analog_temperature
+  #           name: Shelly 01
+  #         - entity: sensor.shelly_02_analog_temperature
+  #           name: Shelly 02
 
-      - type: 'custom:mini-graph-card'
-        name: Temperature 
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.thermostat_livingroom_temperature
-            name: Living Room
-          - entity: sensor.thermostat_childroom_temperature
-            name: Child Room
-          - entity: sensor.airly_temperature
-            name: Outside 
-            color: green      
+  #     - type: 'custom:mini-graph-card'
+  #       name: Temperature 
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.thermostat_livingroom_temperature
+  #           name: Living Room
+  #         - entity: sensor.thermostat_childroom_temperature
+  #           name: Child Room
+  #         - entity: sensor.airly_temperature
+  #           name: Outside 
+  #           color: green      
 
-      - type: custom:mini-graph-card
-        entities:
-          - entity: binary_sensor.motionkitchen_occupancy
-            name: Anteroom
-          - entity: binary_sensor.motionkitchen2_occupancy
-            name: Kitchen
-          - entity: binary_sensor.motiontoilet_occupancy
-            name: Toilet
-            color: green
-        name: Motion
-        hours_to_show: 6
-        points_per_hour: 6
-        font_size: 75
-        font_size_header: 12
-        update_interval: 30
-        aggregate_func: max
-        line_width: 2
-        smoothing: false
-        state_map:
-          - value: "off"
-            label: Clear
-          - value: "on"
-            label: Detected         
+  #     - type: custom:mini-graph-card
+  #       entities:
+  #         - entity: binary_sensor.motionkitchen_occupancy
+  #           name: Anteroom
+  #         - entity: binary_sensor.motionkitchen2_occupancy
+  #           name: Kitchen
+  #         - entity: binary_sensor.motiontoilet_occupancy
+  #           name: Toilet
+  #           color: green
+  #       name: Motion
+  #       hours_to_show: 6
+  #       points_per_hour: 6
+  #       font_size: 75
+  #       font_size_header: 12
+  #       update_interval: 30
+  #       aggregate_func: max
+  #       line_width: 2
+  #       smoothing: false
+  #       state_map:
+  #         - value: "off"
+  #           label: Clear
+  #         - value: "on"
+  #           label: Detected         
 
-      - type: 'custom:mini-graph-card'
-        name: AGD 
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.washermachine_power
-            name: Washermachine
-          - entity: sensor.fridge_power
-            name: Fridge
-          - entity: sensor.dishwasher_power
-            name: Dishwasher 
+  #     - type: 'custom:mini-graph-card'
+  #       name: AGD 
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.washermachine_power
+  #           name: Washermachine
+  #         - entity: sensor.fridge_power
+  #           name: Fridge
+  #         - entity: sensor.dishwasher_power
+  #           name: Dishwasher 
 
-      - type: 'custom:mini-graph-card'
-        name: RTV 
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.tv_power
-            name: TV
-          - entity: sensor.yamaha_power
-            name: Yamaha 
+  #     - type: 'custom:mini-graph-card'
+  #       name: RTV 
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.tv_power
+  #           name: TV
+  #         - entity: sensor.yamaha_power
+  #           name: Yamaha 
 
-      - type: 'custom:mini-graph-card'
-        name: Puriffier 
-        line_width: 2
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.mi_rpm
-            name: RPM   
+  #     - type: 'custom:mini-graph-card'
+  #       name: Puriffier 
+  #       line_width: 2
+  #       font_size: 75
+  #       hours_to_show: 24
+  #       font_size_header: 12
+  #       line_color: '#04aaf5'
+  #       entities:
+  #         - entity: sensor.mi_rpm
+  #           name: RPM   
 
-    icon: 'mdi:gauge'
-    path: monit
-    theme: default
-    title: Monit
+  #   icon: 'mdi:gauge'
+  #   path: monit
+  #   theme: default
+  #   title: Monit
 
   - badges: []
     cards:

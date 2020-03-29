@@ -636,18 +636,6 @@
         push:
           sound: default   
 
-# - alias: "Disable Dishwasher Plug"
-  trigger:
-    - platform: state
-      entity_id: sensor.washermachine
-      from: "washing"
-      to: "disable"
-      for:
-        minutes: 5
-  action:
-    entity_id: switch.washermachine_relay
-    service: switch.turn_off        
-
 # Air Purifier
 - alias: AQI Air Ok 
   trigger:
@@ -674,13 +662,13 @@
 
 - alias: AQI Air Bad Day
   trigger:
-  - above: 20
+  - above: 30
     entity_id: fan.air_purifier
     for:
       minutes: 5
     platform: numeric_state
     value_template: '{{ state.attributes.aqi }}'
-  - above: 30
+  - above: 45
     entity_id: fan.air_purifier
     for:
       minutes: 5
@@ -746,19 +734,3 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_off    
 
-- alias: "Corona Poland Confirmed"
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id:
-        - sensor.poland_coronavirus_confirmed
-  condition:
-    - condition: template
-      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
-  action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Coronavirus {{trigger.from_state.state}} in Poland confirmed"
-      data:
-        push:
-          sound: default

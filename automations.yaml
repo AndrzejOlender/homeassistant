@@ -678,7 +678,7 @@
     condition: and
     conditions:
     - after: '08:00:00'
-      before: '23:00:00'
+      before: '22:00:00'
       condition: time
   action:
   - entity_id: fan.air_purifier
@@ -733,4 +733,3 @@
   action: 
     entity_id: switch.airpurifiermax
     service: switch.turn_off    
-

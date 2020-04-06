@@ -526,6 +526,31 @@
       brightness: 20
       entity_id:
         - light.osrambulbsgrouptoilet
+
+# Auto Light in Toilet In Night Mode Condition
+- alias: Turn On Light In Toilet 20% Condition
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motiontoilet_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: time
+      after: '23:45:00'
+      before: '05:30:00'   
+    - condition: state
+      entity_id: binary_sensor.toiletdoor_contact
+      state:  "on"  
+    - condition: state
+      entity_id: light.yamaha
+      state: on
+  action: 
+    service: light.turn_on          
+    data:
+      transition: 0
+      brightness: 255
+      entity_id:
+        - light.osrambulbsgrouptoilet
     
 # Auto Light Off In Toilet 10 minutes no occupancy
 - alias: Turn Off Light Toilet 10 No Occupancy
@@ -629,7 +654,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 2
+        minutes: 3
   action:
     service: notify.mobile_app_iphone
     data:

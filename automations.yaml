@@ -543,7 +543,7 @@
       state:  "on"  
     - condition: state
       entity_id: light.yamaha
-      state: on
+      state: "on"
   action: 
     service: light.turn_on          
     data:

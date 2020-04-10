@@ -82,7 +82,11 @@ homekit:
       - climate.thermochildroom_climate
       - climate.thermolivingroom_climate
       - media_player.lg
-      - fan.air_purifier   
+      - fan.air_purifier 
+  entity_config:
+    media_player.lg:
+      feature_list:
+        - feature: on_off 
 
 webostv:
     name: LG

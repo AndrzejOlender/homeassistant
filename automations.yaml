@@ -760,3 +760,14 @@
   action: 
     entity_id: switch.airpurifiermax
     service: switch.turn_off 
+
+
+- alias: 'Set theme at startup'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: "Google Dark Theme"
+

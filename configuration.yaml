@@ -410,7 +410,9 @@ sensor:
       mi_rpm:
         friendly_name: "Air RPM"
         unit_of_measurement: 'RPM'
-        value_template: "{{ state_attr('fan.air_purifier', 'motor_speed') }}"       
+        value_template: "{{ state_attr('fan.air_purifier', 'motor_speed') }}"     
+      mi_led:
+        value_template: '{{ states.fan.air_purifier.attributes.led }}'     
 
 # Binary sensor
 binary_sensor:
@@ -447,4 +449,24 @@ switch:
             - entity_id: fan.air_purifier
               service: fan.set_speed
               data:
-                speed: auto     
+                speed: auto
+
+  - platform: template
+    switches:
+      airpurifierled:
+        friendly_name: "Air Led"
+        value_template: "{{ is_state('sensor.mi_led', 'True') }}"
+        turn_on:
+          service: xiaomi_miio.fan_set_led_on
+          data:
+            entity_id: fan.air_purifier 
+        turn_off:
+          service: xiaomi_miio.fan_set_led_off
+          data:
+            entity_id: fan.air_purifier
+        icon_template: >-
+                  {% if is_state('sensor.mi_led', 'True') %}
+                    mdi:led-on
+                  {% else %}
+                    mdi:led-off
+                  {% endif %}              

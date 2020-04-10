@@ -118,6 +118,9 @@ views:
           - entity: switch.airpurifiermax
             name: Air Max 
             state_color: on
+          - entity: switch.airpurifierled
+            name: LED
+            state_color: on
           - entity: sensor.airly_aqi
             name: Outdoor
           - entity: sensor.mi_aqi

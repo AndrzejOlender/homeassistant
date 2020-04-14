@@ -28,8 +28,8 @@ zone:
     icon: mdi:worker
 
   - name: Yakudo
-    latitude: 50.0940742
-    longitude: 18.9904136
+    latitude: 49.957991
+    longitude: 18.964889
     radius: 250
     icon: mdi:worker  
 

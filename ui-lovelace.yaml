@@ -83,6 +83,9 @@ views:
           - entity: climate.thermochildroom_climate
             name: Child Room
             state_color: on
+          - entity: sensor.mi_temperature
+            name: Living Room
+            state_color: on
         show_header_toggle: false
         type: entities               
       - entities:
@@ -307,6 +310,13 @@ views:
           - switch.adguard_parental_control
         show_header_toggle: false
         type: entities
+        
+      - type: map
+        entities:
+          - device_tracker.iphone
+          - device_tracker.xiaomi_redmi_4
+        hours_to_show: 24
+        dark_mode: true
 
     icon: 'mdi:shield-account'
     path: guard

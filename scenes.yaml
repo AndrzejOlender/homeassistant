@@ -70,10 +70,10 @@
     light.hdmi2: 
       state: 'on' 
     switch.shelly_001: 
-      state: 'on'
+      state: 'off'
     switch.shelly_01:
       state: 'off'
     switch.shelly_02:
-      state: 'off'
+      state: 'on'
 
 

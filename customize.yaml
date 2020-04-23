@@ -117,7 +117,9 @@ scene.good_night:
 scene.good_morning:
   icon: mdi:weather-sunny
 scene.good_evening:
-  icon: mdi:mdi:weather-night
+  icon: mdi:weather-night
+scene.cinema:
+  icon: mdi:movie-open
 light.group_anteroom_1:
   icon: mdi:wall-sconce-flat
 light.group_anteroom_2:

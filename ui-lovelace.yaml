@@ -1,7 +1,4 @@
 resources:
-  # - url: /local/mini-graph-card-bundle.js?v=0.9.3
-  #   type: module
-  
   - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
     type: module    
     
@@ -15,6 +12,7 @@ views:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
+          - entity: scene.cinema
         show_header_toggle: false
         type: entities
 
@@ -83,6 +81,9 @@ views:
           - entity: climate.thermochildroom_climate
             name: Child Room
             state_color: on
+          - entity: sensor.mi_temperature
+            name: Living Room
+            state_color: on
         show_header_toggle: false
         type: entities               
       - entities:
@@ -117,6 +118,9 @@ views:
             state_color: on
           - entity: switch.airpurifiermax
             name: Air Max 
+            state_color: on
+          - entity: switch.airpurifierled
+            name: LED
             state_color: on
           - entity: sensor.airly_aqi
             name: Outdoor
@@ -304,6 +308,13 @@ views:
           - switch.adguard_parental_control
         show_header_toggle: false
         type: entities
+        
+      - type: map
+        entities:
+          - device_tracker.iphone
+          - device_tracker.xiaomi_redmi_4
+        hours_to_show: 24
+        dark_mode: true
 
     icon: 'mdi:shield-account'
     path: guard

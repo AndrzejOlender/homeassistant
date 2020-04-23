@@ -57,6 +57,23 @@
       state: 'on'        
     light.hdmi1: 
       state: 'on'
-    
+
+- id: 'cinema'
+  name: Cinema
+  entities:
+    light.yamaha:
+      state: 'on'   
+    media_player.lg:
+      state: 'on'
+    light.nc:
+      state: 'off'        
+    light.hdmi2: 
+      state: 'on' 
+    switch.shelly_001: 
+      state: 'off'
+    switch.shelly_01:
+      state: 'off'
+    switch.shelly_02:
+      state: 'on'
 
 

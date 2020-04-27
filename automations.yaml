@@ -280,10 +280,14 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "Leak!"
         message: "Leak in toilet"
         data:
           push:
-            sound: default
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
     - service: light.turn_on
       data:
         brightness: 255
@@ -292,7 +296,17 @@
           - light.ikeabulblamp_light
     - service: switch.turn_off
       data:
-        entity_id: switch.washermachine_relay            
+        entity_id: switch.washermachine_relay  
+    - service: notify.lg
+      data:
+        message: "Leak in toilet"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        title: "Leak!"
+        message: "Leak in toilet"  
+        data:
+          ttl: 0
+          priority: high        
 
 - alias: Send Notification Leak Kitchen
   trigger:
@@ -306,7 +320,10 @@
         message: "Leak in kitchen"
         data:
           push:
-            sound: default
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
     - service: light.turn_on
       data:
         brightness: 255
@@ -315,7 +332,17 @@
           - light.ikeabulblamp_light 
     - service: switch.turn_off
       data:
-        entity_id: switch.dishwasher_relay                      
+        entity_id: switch.dishwasher_relay   
+    - service: notify.lg
+      data:
+        message: "Leak in kitchen"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        title: "Leak!"
+        message: "Leak in kitchen"     
+        data:
+          ttl: 0
+          priority: high                 
 
 # # Away Mode In Weekdays 
 # - alias: Set Away Mode 
@@ -656,13 +683,18 @@
       for:
         minutes: 3
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Washermachine Ended"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default   
-
+        message: "Washermachine Ended"
+        data:
+          push:
+            sound: default   
+    - service: notify.lg
+      data:
+        message: "Washermachine Ended"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        message: "Washermachine Ended"
 # # Air Purifier
 # - alias: AQI Air Ok 
 #   trigger:

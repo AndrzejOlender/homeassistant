@@ -414,7 +414,15 @@ sensor:
         unit_of_measurement: 'RPM'
         value_template: "{{ state_attr('fan.air_purifier', 'motor_speed') }}"     
       mi_led:
-        value_template: '{{ states.fan.air_purifier.attributes.led }}'     
+        value_template: '{{ states.fan.air_purifier.attributes.led }}'    
+
+# Weather 
+  - platform: template
+    sensors:
+      wind:
+        friendly_name: "Wind"
+        unit_of_measurement: "km/h"
+        value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
 
 # Binary sensor
 binary_sensor:

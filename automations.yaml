@@ -801,5 +801,5 @@
   action:
     service: frontend.set_theme
     data:
-      name: "Google Dark Theme"
+      name: "Google Dark Theme Oled"
 

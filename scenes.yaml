@@ -21,6 +21,8 @@
       state: 'off'
     switch.shelly_001:
       state: 'off'
+    switch.airpurifierled:
+      state: 'off'
     light.aqaralampchildroom_light:
       state: 'off'
     light.ikeabulblamp_light:

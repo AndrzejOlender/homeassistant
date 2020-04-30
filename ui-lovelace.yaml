@@ -8,6 +8,8 @@ views:
     cards:
       - entity: weather.home
         type: weather-forecast
+        show_forecast: false
+  
       - entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
@@ -515,3 +517,5 @@ views:
     path: Rooms
     theme: default_view
     title: Rooms
+
+  

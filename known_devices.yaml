@@ -156,3 +156,10 @@ hplaserjet:
   name: hplaserjet
   picture:
   track: true
+
+c8_bc_c8_e1_7c_c0:
+  icon:
+  mac: C8:BC:C8:E1:7C:C0
+  name: c8_bc_c8_e1_7c_c0
+  picture:
+  track: true

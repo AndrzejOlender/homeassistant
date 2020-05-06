@@ -317,7 +317,7 @@ views:
         
       - type: map
         entities:
-          - device_tracker.iphone
+#          - device_tracker.iphone
           - device_tracker.xiaomi_redmi_4
         hours_to_show: 12
         dark_mode: true

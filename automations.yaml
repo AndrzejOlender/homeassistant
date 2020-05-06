@@ -801,5 +801,13 @@
   action:
     service: frontend.set_theme
     data:
-      name: "Google Dark Theme"
+      name: "Google Dark Theme Oled"
 
+- alias: Turn On LED AirPurifier
+  trigger:
+    platform: time
+    at: "08:00:00"
+  action:
+    entity_id: 
+      - switch.airpurifierled
+    service: switch.turn_on      

@@ -11,6 +11,8 @@
       state: 'on'
     light.ikeabulbsgroupanteroom1:
       state: 'on'  
+    switch.airpurifierled:
+      state: 'on'
 
 - id: '1577085914679'
   name: Good Night
@@ -20,6 +22,8 @@
     switch.shelly_02:
       state: 'off'
     switch.shelly_001:
+      state: 'off'
+    switch.airpurifierled:
       state: 'off'
     light.aqaralampchildroom_light:
       state: 'off'
@@ -56,6 +60,8 @@
     light.nc:
       state: 'on'        
     light.hdmi1: 
+      state: 'on'
+    switch.airpurifierled:
       state: 'on'
 
 - id: 'cinema'

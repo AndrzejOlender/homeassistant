@@ -1,6 +1,6 @@
-resources:
-  - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
-    type: module    
+# resources:
+#   - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
+#     type: module    
     
 title: Home
 views:
@@ -8,6 +8,8 @@ views:
     cards:
       - entity: weather.home
         type: weather-forecast
+        show_forecast: false
+  
       - entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
@@ -44,9 +46,9 @@ views:
             name: Toilet Mirror
           - entity: light.ikeabulbsgroupwardobe
             name: Wardobe
-
         show_header_toggle: false
         type: entities
+
       - entities:
           - entity: media_player.lg
             state_color: on
@@ -62,6 +64,7 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
       - entities:
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
@@ -72,8 +75,8 @@ views:
           - entity: binary_sensor.livingroomwindow_contact
             state_color: on
         show_header_toggle: false
-        theme: Backend-selected
         type: entities
+
       - entities:
           - entity: climate.thermolivingroom_climate
             name: Living Room
@@ -85,14 +88,16 @@ views:
             name: Living Room
             state_color: on
         show_header_toggle: false
-        type: entities               
+        type: entities     
+
       - entities:
           - entity: binary_sensor.toiletdoor_contact
             state_color: on
           - entity: binary_sensor.maindoor_contact
             state_color: on
         show_header_toggle: false
-        type: entities        
+        type: entities   
+
       - entities:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Ante Room
@@ -105,6 +110,7 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
       - entities:
           - entity: binary_sensor.leaksensorkitchen_water_leak
             state_color: on
@@ -112,6 +118,7 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
       - entities:
           - entity: air_quality.airly
           - entity: fan.air_purifier
@@ -127,7 +134,8 @@ views:
           - entity: sensor.mi_aqi
             name: Home
         show_header_toggle: false
-        type: entities        
+        type: entities  
+
       - entities:
           - entity: switch.dishwasher_relay
             name: Dishwasher
@@ -141,8 +149,6 @@ views:
           - entity: switch.tv_relay
             name: TV 
             state_color: on
-          # - entity: switch.yamaha_relay
-          #   name: Yamaha
         show_header_toggle: false
         type: entities
 
@@ -311,9 +317,9 @@ views:
         
       - type: map
         entities:
-          - device_tracker.iphone
+#          - device_tracker.iphone
           - device_tracker.xiaomi_redmi_4
-        hours_to_show: 24
+        hours_to_show: 12
         dark_mode: true
 
     icon: 'mdi:shield-account'
@@ -344,35 +350,172 @@ views:
     theme: default
     title: Corona  
 
+  # - badges: []
+  #   panel: true
+  #   cards:
+  #     - type: custom:zigbee2mqtt-networkmap
+  #       entity: sensor.zigbee2mqtt_networkmap
+  #       # the following are optional:
+  #       name: Zigbbee2Mqtt
+  #       mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
+  #       force: 3000 # decrease it to get smaller map if you have many devices
+  #       node_size: 16
+  #       font_size: 12
+  #       link_width: 2
+  #       height: 800 # height of the card
+  #       # use this css config or use whatever css tech to change look and feel,
+  #       # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
+  #       css: |
+  #         :host {
+  #           --zigbee2mqtt-networkmap-node-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-node-fill-color: #92d5f4;
+  #           --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
+  #           --zigbee2mqtt-networkmap-link-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-hover-color: #be385d;
+  #           --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
+  #           --zigbee2mqtt-networkmap-label-color: #03A9F4;
+  #           --zigbee2mqtt-networkmap-arrow-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
+  #           --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
+  #         }      
+  #   icon: 'mdi:access-point-network'
+  #   path: zigbee
+  #   theme: default
+  #   title: Zigbee
+
   - badges: []
-    panel: true
     cards:
-      - type: custom:zigbee2mqtt-networkmap
-        entity: sensor.zigbee2mqtt_networkmap
-        # the following are optional:
-        name: Zigbbee2Mqtt
-        mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
-        force: 3000 # decrease it to get smaller map if you have many devices
-        node_size: 16
-        font_size: 12
-        link_width: 2
-        height: 800 # height of the card
-        # use this css config or use whatever css tech to change look and feel,
-        # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
-        css: |
-          :host {
-            --zigbee2mqtt-networkmap-node-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-node-fill-color: #92d5f4;
-            --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
-            --zigbee2mqtt-networkmap-link-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-hover-color: #be385d;
-            --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
-            --zigbee2mqtt-networkmap-label-color: #03A9F4;
-            --zigbee2mqtt-networkmap-arrow-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
-            --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
-          }      
-    icon: 'mdi:access-point-network'
-    path: zigbee
-    theme: default
-    title: Zigbee
+      - entities:
+          - entity: scene.good_morning
+          - entity: scene.good_evening
+          - entity: scene.good_night
+          - entity: scene.cinema
+        show_header_toggle: false
+        title: Scenes
+        type: entities
+
+# Anteroom
+      - entities:
+          - entity: light.ikeabulbsgroupanteroom1
+            name: Light 1
+          - entity: light.ikeabulbsgroupanteroom2
+            name: Light 2  
+          - entity: binary_sensor.maindoor_contact
+            state_color: on
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Motion
+            state_color: on
+        show_header_toggle: false
+        type: entities  
+        title: Ante Room
+
+# Living Room        
+      - entities:
+          - entity: light.ikeabulblamp_light
+            name: Lamp 
+          - entity: switch.shelly_02
+            name: Light 1
+            state_color: on
+          - entity: switch.shelly_01
+            name: Light 2
+            state_color: on
+          - entity: switch.shelly_001
+            name: Light 3
+            state_color: on
+          - entity: media_player.lg
+            name: TV
+            state_color: on
+          - entity: light.yamaha
+            state_color: on
+          - entity: light.radio
+            state_color: on
+          - entity: light.hdmi1
+            state_color: on
+          - entity: light.hdmi2
+            state_color: on
+          - entity: light.nc
+            state_color: on
+          - entity: binary_sensor.livingroombalconywindow_contact
+            name: Balcony
+            state_color: on
+          - entity: binary_sensor.livingroomwindow_contact
+            name: Window
+            state_color: on
+          - entity: fan.air_purifier
+            state_color: on
+          - entity: climate.thermolivingroom_climate
+            name: Thermostat
+            state_color: on
+        show_header_toggle: false
+        type: entities
+        title: Living Room
+
+# Child room
+      - entities:
+          - entity: light.aqaralampchildroom_light
+            name: Light
+          - entity: binary_sensor.childroomwindow_contact
+            state_color: on
+            name: Window
+          - entity: climate.thermochildroom_climate
+            name: Thermostat
+        show_header_toggle: false
+        type: entities  
+        title: Child Room
+
+# Kitchen
+      - entities:
+          - entity: light.lamp_kitchen
+            name: Light 
+          - entity: light.ikeabulbsgroupkitchen
+            name: Table
+          - entity: binary_sensor.kitchenwindow_contact
+            name: Window
+            state_color: on
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Motion 
+            state_color: on  
+          - entity: binary_sensor.leaksensorkitchen_water_leak
+            state_color: on
+            name: Leak          
+        show_header_toggle: false
+        type: entities  
+        title: Kitchen
+
+# Toilet
+      - entities:
+          - entity: light.osrambulbsgrouptoilet
+            name: Light
+          - entity: light.ikeabulbsgrouptoiletmirror
+            name: Mirror
+          - entity: binary_sensor.toiletdoor_contact
+            state_color: on
+            name: Door
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Motion
+            state_color: on
+          - entity: binary_sensor.leaksensortoilet_water_leak
+            state_color: on
+            name: Leak
+          - entity: switch.washermachine_relay
+            name: Washermachine
+            state_color: on
+        show_header_toggle: false
+        type: entities  
+        title: Toilet
+
+# Wardobe
+      - entities:
+          - entity: light.ikeabulbsgroupwardobe
+            name: Light
+        show_header_toggle: false
+        type: entities  
+        title: Wardobe
+
+    icon: 'mdi:home-assistant'
+    panel: false
+    path: Rooms
+    theme: default_view
+    title: Rooms
+
+  

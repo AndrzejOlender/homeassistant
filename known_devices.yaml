@@ -148,11 +148,18 @@ c8_91_f9_93_c5_28:
   mac: C8:91:F9:93:C5:28
   name: c8_91_f9_93_c5_28
   picture:
-  track: true
+  track: false
 
 hplaserjet:
   icon:
   mac: 74:29:AF:80:55:94
   name: hplaserjet
   picture:
-  track: true
+  track: false
+
+c8_bc_c8_e1_7c_c0:
+  icon:
+  mac: C8:BC:C8:E1:7C:C0
+  name: c8_bc_c8_e1_7c_c0
+  picture:
+  track: false

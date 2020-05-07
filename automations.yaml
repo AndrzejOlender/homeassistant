@@ -297,7 +297,7 @@
     - service: switch.turn_off
       data:
         entity_id: switch.washermachine_relay  
-    - service: notify.lg
+    - service: notify.tv
       data:
         message: "Leak in toilet"
     - service: notify.mobile_app_redmi_note_4
@@ -333,7 +333,7 @@
     - service: switch.turn_off
       data:
         entity_id: switch.dishwasher_relay   
-    - service: notify.lg
+    - service: notify.tv
       data:
         message: "Leak in kitchen"
     - service: notify.mobile_app_redmi_note_4
@@ -689,7 +689,7 @@
         data:
           push:
             sound: default   
-    - service: notify.lg
+    - service: notify.tv
       data:
         message: "Washermachine Ended"
     - service: notify.mobile_app_redmi_note_4

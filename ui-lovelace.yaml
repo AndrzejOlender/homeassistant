@@ -50,7 +50,7 @@ views:
         type: entities
 
       - entities:
-          - entity: media_player.lg
+          - entity: media_player.tv
             state_color: on
           - entity: light.yamaha
             state_color: on
@@ -422,7 +422,7 @@ views:
           - entity: switch.shelly_001
             name: Light 3
             state_color: on
-          - entity: media_player.lg
+          - entity: media_player.tv
             name: TV
             state_color: on
           - entity: light.yamaha

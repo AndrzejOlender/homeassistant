@@ -82,101 +82,16 @@ homekit:
       - scene.cinema
       - climate.thermochildroom_climate
       - climate.thermolivingroom_climate
-      - media_player.lg
+      - media_player.tv
       - fan.air_purifier
 
   entity_config:
-    light.aqaralampchildroom_light:
-      name: Light
-    light.ikeabulblamp_light:
-      name: Lamp
-    switch.washermachine_relay:
-      name: Washermachine
-    script.miio_turn_on_yamaha:
-      name: Yamaha
-    script.miio_turn_on_yamaha_radio:
-      name: Radio
-    script.miio_turn_on_nc:
-      name: NC
-    switch.shelly_02:
-      name: Light 1
-    switch.shelly_01:
-      name: Light 2
-    switch.shelly_001:
-      name: Light 3
-    light.osrambulbsgrouptoilet:
-      name: Toilet
-    light.ikeabulbsgrouptoiletmirror:
-      name: Mirror
-    light.ikeabulbsgroupwardobe:
-      name: Light
-    script.miio_turn_on_yamaha_hdmi1:
-      name: HDMI1
-    script.miio_turn_on_yamaha_hdmi2:
-      name: HDMI2
-    air_quality.airly:
-      name: Air
-    binary_sensor.toiletdoor_contact:
-      name: Door
-    binary_sensor.livingroomwindow_contact:
-      name: Window
-    binary_sensor.maindoor_contact:
-      name: Door
-    binary_sensor.livingroombalconywindow_contact:
-      name: Balcony
-    binary_sensor.childroomwindow_contact:
-      name: Window
-    binary_sensor.kitchenwindow_contact:
-      name: Window
-    binary_sensor.leaksensorkitchen_water_leak:
-      name: Leak
-    binary_sensor.leaksensortoilet_water_leak:
-      name: Leak
-    binary_sensor.motionkitchen_occupancy:
-      name: Motion
-    binary_sensor.motionkitchen2_occupancy:
-      name: Motion
-    binary_sensor.motiontoilet_occupancy:
-      name: Motion
-    light.lamp_kitchen:
-      name: Lamp
-    light.ikeabulbsgroupkitchen:
-      name: Table
-    light.ikeabulbsgroupanteroom1:
-      name: Light 1
-    light.ikeabulbsgroupanteroom2:
-      name: Light 2
-    device_tracker.iphone_luci_andrzej:
-      name: Andrzej
-    device_tracker.xiaomired_luci_ania:
-      name: Ania
-    scene.good_evening:
-      name: Good Evening
-    scene.good_morning:
-      name: Good Morning
-    scene.good_night:
-      name: Good Night
-    scene.cinema:
-      name: Cinema
-    climate.thermochildroom_climate:
-      name: Thermo
-    climate.thermolivingroom_climate:
-      name: Thermo
-    fan.air_purifier:
-      name: Air Purifier
-    media_player.lg:
-      name: TV
+    media_player.tv:
       feature_list:
         - feature: on_off
 
-logger:
-  default: warning
-  logs:
-    homeassistant.components.homekit: debug
-    pyhap: debug
-
 webostv:
-    name: LG
+    name: tv
     host: 192.168.1.6
     turn_on_action:
       - service: remote.send_command
@@ -189,7 +104,7 @@ webostv:
         - livetv
         - hdmi1
         - youtube
-        - netflix      
+        - netflix  
 
 speedtestdotnet:
   scan_interval:

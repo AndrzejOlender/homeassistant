@@ -803,7 +803,7 @@
     data:
       name: "Google Dark Theme Oled"
 
-- alias: Turn On LED AirPurifier
+- alias: 'Turn On LED AirPurifier'
   trigger:
     platform: time
     at: "08:00:00"

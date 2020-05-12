@@ -1,6 +1,6 @@
-switch.shelly_01:
+switch.light2_relay:
   icon: mdi:wall-sconce-flat
-switch.shelly_02:
+switch.light1_relay:
   icon: mdi:wall-sconce-flat
 switch.shelly_03:
   icon: mdi:lightbulb-on-outline
@@ -21,7 +21,7 @@ light.aqaralampchildroom_light:
 light.ikeabulblamp_light:
   icon: mdi:floor-lamp
   supported_features: 57
-switch.shelly_001:
+switch.light3_relay:
   icon: mdi:wall-sconce-flat
 switch.washermachine_relay:
   icon: mdi:washing-machine

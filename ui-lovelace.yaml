@@ -6,10 +6,12 @@ title: Home
 views:
   - badges: []
     cards:
-      - entity: weather.home
-        type: weather-forecast
-        show_forecast: false
-  
+      # - entity: weather.home
+      #   type: weather-forecast
+      #   name: 'Siemianowice'
+      #   show_forecast: false
+      #   attribute: humidity
+
       - entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
@@ -23,13 +25,13 @@ views:
             name: Child Room
           - entity: light.ikeabulblamp_light
             name: Living Room 
-          - entity: switch.shelly_02
+          - entity: switch.light1_relay
             name: Living Room 1
             state_color: on
-          - entity: switch.shelly_01
+          - entity: switch.light2_relay
             name: Living Room 2
             state_color: on
-          - entity: switch.shelly_001
+          - entity: switch.light3_relay
             name: Living Room 3
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
@@ -413,13 +415,13 @@ views:
       - entities:
           - entity: light.ikeabulblamp_light
             name: Lamp 
-          - entity: switch.shelly_02
+          - entity: switch.light1_relay
             name: Light 1
             state_color: on
-          - entity: switch.shelly_01
+          - entity: switch.light2_relay
             name: Light 2
             state_color: on
-          - entity: switch.shelly_001
+          - entity: switch.light3_relay
             name: Light 3
             state_color: on
           - entity: media_player.tv

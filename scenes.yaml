@@ -3,9 +3,9 @@
   entities:
     light.radio:
       state: 'on'
-    switch.shelly_01:
+    switch.light2_relay:
       state: 'on'
-    switch.shelly_02:
+    switch.light1_relay:
       state: 'on'
     light.aqaralampchildroom_light:
       state: 'on'
@@ -17,11 +17,11 @@
 - id: '1577085914679'
   name: Good Night
   entities:
-    switch.shelly_01:
+    switch.light2_relay:
       state: 'off'
-    switch.shelly_02:
+    switch.light1_relay:
       state: 'off'
-    switch.shelly_001:
+    switch.light3_relay:
       state: 'off'
     switch.airpurifierled:
       state: 'off'
@@ -75,11 +75,11 @@
       state: 'off'        
     light.hdmi2: 
       state: 'on' 
-    switch.shelly_001: 
+    switch.light3_relay: 
       state: 'off'
-    switch.shelly_01:
+    switch.light2_relay:
       state: 'off'
-    switch.shelly_02:
+    switch.light1_relay:
       state: 'on'
 
 

@@ -50,9 +50,9 @@ homekit:
       - script.miio_turn_on_yamaha
       - script.miio_turn_on_yamaha_radio
       - script.miio_turn_on_nc
-      - switch.shelly_02
-      - switch.shelly_01
-      - switch.shelly_001
+      - switch.light1_relay
+      - switch.light2_relay
+      - switch.light3_relay
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe

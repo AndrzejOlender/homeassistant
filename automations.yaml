@@ -35,9 +35,9 @@
     to: right_double
   action:
     entity_id: 
-      - switch.shelly_02
-      - switch.shelly_01
-      - switch.shelly_001
+      - switch.light1_relay
+      - switch.light2_relay
+      - switch.light3_relay
     service: switch.turn_off
 
 - alias: Switch Light 1
@@ -46,7 +46,7 @@
     entity_id: sensor.aqaraswitchlivingroom1_click
     to: right
   action:
-    entity_id: switch.shelly_02
+    entity_id: switch.light1_relay
     service: switch.toggle
 
 - alias: Switch Light 2
@@ -55,7 +55,7 @@
     entity_id: sensor.aqaraswitchlivingroom1_click
     to: left
   action:
-    entity_id: switch.shelly_01
+    entity_id: switch.light2_relay
     service: switch.toggle
 
 - alias: Switch Light 3
@@ -64,7 +64,7 @@
     entity_id: sensor.aqaraswitchlivingroom2_click
     to: right
   action:
-    entity_id: switch.shelly_001
+    entity_id: switch.light3_relay
     service: switch.toggle
 
 - alias: Switch Light Anteroom 1

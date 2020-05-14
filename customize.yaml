@@ -6,6 +6,9 @@ switch.shelly_03:
   icon: mdi:lightbulb-on-outline
 binary_sensor.childroomwindow_contact:
   device_class: window
+  icon: mdi:window-closed-variant  
+binary_sensor.wardobewindow_contact:
+  device_class: window
   icon: mdi:window-closed-variant
 binary_sensor.kitchenwindow_contact:
   device_class: window
@@ -130,7 +133,7 @@ person.andrzej:
   entity_picture: /local/andrzej.jpg
 device_tracker.redmi_note_4_3:
   entity_picture: /local/ania.jpg
-device_tracker.xiaomi_redmi_4:
+device_tracker.redmi_note_4:
   entity_picture: /local/ania.jpg
 device_tracker.iphone:
   entity_picture: /local/andrzej.jpg

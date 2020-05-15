@@ -76,6 +76,9 @@ views:
             state_color: on
           - entity: binary_sensor.livingroomwindow_contact
             state_color: on
+          - entity: binary_sensor.wardobewindow_contact
+            name: Wardobe
+            state_color: on
         show_header_toggle: false
         type: entities
 
@@ -109,6 +112,9 @@ views:
             state_color: on
           - entity: binary_sensor.motiontoilet_occupancy
             name: Toilet
+            state_color: on
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Child Room
             state_color: on
         show_header_toggle: false
         type: entities
@@ -320,7 +326,7 @@ views:
       - type: map
         entities:
 #          - device_tracker.iphone
-          - device_tracker.xiaomi_redmi_4
+          - device_tracker.redmi_note_4
         hours_to_show: 12
         dark_mode: true
 
@@ -461,6 +467,9 @@ views:
             name: Window
           - entity: climate.thermochildroom_climate
             name: Thermostat
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Motion
+            state_color: on
         show_header_toggle: false
         type: entities  
         title: Child Room
@@ -510,6 +519,9 @@ views:
       - entities:
           - entity: light.ikeabulbsgroupwardobe
             name: Light
+          - entity: binary_sensor.wardobewindow_contact
+            name: Window
+            state_color: on
         show_header_toggle: false
         type: entities  
         title: Wardobe

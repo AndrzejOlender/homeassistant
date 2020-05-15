@@ -65,11 +65,13 @@ homekit:
       - binary_sensor.livingroombalconywindow_contact
       - binary_sensor.childroomwindow_contact
       - binary_sensor.kitchenwindow_contact
+      - binary_sensor.wardobewindow_contact
       - binary_sensor.leaksensorkitchen_water_leak
       - binary_sensor.leaksensortoilet_water_leak
       - binary_sensor.motionkitchen_occupancy
       - binary_sensor.motionkitchen2_occupancy
       - binary_sensor.motiontoilet_occupancy
+      - binary_sensor.motionchildroom_occupancy
       - light.lamp_kitchen
       - light.ikeabulbsgroupkitchen
       - light.ikeabulbsgroupanteroom1

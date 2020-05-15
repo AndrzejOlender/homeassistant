@@ -177,7 +177,18 @@
     to: single
   action:
     entity_id: light.aqaralampchildroom_light
-    service: light.toggle    
+    service: light.toggle
+
+- alias: Lamp Childroom Off All
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom2_click
+    to: double
+  action:
+    entity_id:
+      - light.aqaralampchildroom_light
+      - light.ikeabulbsgroupwardobe
+    service: light.turn_off
 
 - alias: Send Notification Enter Home
   trigger:

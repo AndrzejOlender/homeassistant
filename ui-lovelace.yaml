@@ -532,4 +532,22 @@ views:
     theme: default_view
     title: Rooms
 
-  
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.motionchildroom_battery
+            name: Motion Child Room
+          - entity: sensor.aqaraswitchanteroom1_battery
+            name: Aqara switch anteroom 1
+          - entity: sensor.aqaraswitchchildroom_battery
+            name: Aqara switch childroom
+          - entity: sensor.aqaraswitchchildroom2_battery
+            name: Aqara switch 2 childroom
+        show_header_toggle: false
+        type: entities
+
+    icon: 'mdi:battery'
+    panel: false
+    path: Battery
+    theme: default_view
+    title: Battery

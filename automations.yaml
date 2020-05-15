@@ -190,16 +190,18 @@
       - light.ikeabulbsgroupwardobe
     service: light.turn_off
 
-- alias: Lamp Childroom Off All double click
-  trigger:
+- alias: Turn Off Light Childroom 10 No Occupancy
+  trigger: 
     platform: state
-    entity_id: sensor.aqaraswitchchildroom2_click
-    to: double
-  action:
-    entity_id:
-      - light.aqaralampchildroom_light
-      - light.ikeabulbsgroupwardobe
-    service: light.turn_off
+    entity_id: binary_sensor.motionchildroom_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 10
+  action: 
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light  
 
 - alias: Send Notification Enter Home
   trigger:
@@ -270,6 +272,10 @@
     entity_id: person.ania
     zone: zone.poczta
     event: leave
+  condition:
+    condition: state
+    entity_id: device_tracker.iphone
+    state: "not_poczta"
   action:
     service: notify.mobile_app_iphone
     data:
@@ -833,3 +839,20 @@
     entity_id: 
       - switch.airpurifierled
     service: switch.turn_on      
+
+- alias: Turn On LED Enter Home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+    for:
+      minutes: 1
+  condition:
+    - condition: state
+      entity_id: binary_sensor.motionkitchen_occupancy
+      state: "off"
+  action:
+    entity_id: 
+      - switch.airpurifierled
+    service: switch.turn_on  

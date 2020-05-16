@@ -536,13 +536,52 @@ views:
     cards:
       - entities:
           - entity: sensor.motionchildroom_battery
-            name: Motion Child Room
+            name: Aqara motion - child room
+          - entity: sensor.motionkitchen_battery
+            name: Aqara motion - kitchen
+          - entity: sensor.motionkitchen2_battery
+            name: Aqara motion - kitchen 2
+          - entity: sensor.motiontoilet_battery
+            name: Aqata motion - toilet
           - entity: sensor.aqaraswitchanteroom1_battery
-            name: Aqara switch anteroom 1
+            name: Aqara switch - anteroom 1
           - entity: sensor.aqaraswitchchildroom_battery
-            name: Aqara switch childroom
+            name: Aqara switch - childroom
           - entity: sensor.aqaraswitchchildroom2_battery
-            name: Aqara switch 2 childroom
+            name: Aqara switch 2 - childroom
+          - entity: sensor.aqaraswitchkitchen1_battery
+            name: Aqara switch - kitchen 1
+          - entity: sensor.aqaraswitchkitchen2_battery
+            name: Aqara switch - kitchen 2
+          - entity: sensor.aqaraswitchlivingroom1_battery
+            name: Aqara switch - living room 1
+          - entity: sensor.aqaraswitchlivingroom2_battery
+            name: Aqara switch - living room 2
+          - entity: sensor.aqaraswitchtoilet1_battery
+            name: Aqara switch - toilet 1
+          - entity: sensor.aqaraswitchwardrobe_battery
+            name: Aqara switch - wardobe
+          - entity: sensor.kitchenwindow_battery
+            name: Aqara window - kitchen
+          - entity: sensor.leaksensorkitchen_battery
+            name: Aqara leak - kitchen
+          - entity: sensor.leaksensortoilet_battery
+            name: Aqara leak - toilet
+          - entity: sensor.livingroombalconywindow_battery
+            name: Aqara window balcony - livingroom
+          - entity: sensor.livingroomwindow_battery
+            name: Aqara window - livingroom
+          - entity: sensor.wardobewindow_battery
+            name: Aqara window - wardobe
+          - entity: sensor.maindoor_battery
+            name: Aqara door - anteroom
+          - entity: sensor.toiletdoor_battery
+            name: Aqara door - toilet
+          - entity: sensor.thermochildroom_battery
+            name: Eurotronic thermo - child room
+          - entity: sensor.thermolivingroom_battery
+            name: Eurotronic thermo - livingroom
+
         show_header_toggle: false
         type: entities
 

@@ -1,6 +1,6 @@
-# resources:
-#   - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
-#     type: module    
+resources:
+  - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
+    type: module    
     
 title: Home
 views:

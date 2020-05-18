@@ -1,4 +1,3 @@
-
 - alias: Switch Light Toilet 1
   trigger:
     platform: state
@@ -840,6 +839,7 @@
       - switch.airpurifierled
     service: switch.turn_on      
 
+# comment test gitlab
 - alias: Turn On LED Enter Home
   trigger:
     platform: state

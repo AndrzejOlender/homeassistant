@@ -845,8 +845,6 @@
     entity_id: binary_sensor.maindoor_contact
     from: "off"
     to: "on"
-    for:
-      minutes: 1
   condition:
     - condition: state
       entity_id: binary_sensor.motionkitchen_occupancy

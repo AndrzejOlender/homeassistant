@@ -820,6 +820,18 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_off 
 
+- alias: "Ring Auto Off"
+  trigger:
+    platform: state
+    entity_id: sensor.ringvibration_action
+    to: vibration 
+    for: 
+      minutes: 2
+  action:
+    service: mqtt.publish
+    data:
+      topic: "zigbee2mqtt/RingVibration/action"
+      payload: "unknown"
 
 - alias: 'Set theme at startup'
   trigger:

@@ -425,6 +425,12 @@ sensor:
         friendly_name: "Wind"
         unit_of_measurement: "km/h"
         value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
+# Ring
+  - platform: template
+    sensors:
+      ring:
+        friendly_name: "Ring"
+        value_template: "{{ state_attr('sensor.ringvibration_action', 'vibration') }}"
 
 # Binary sensor
 binary_sensor:

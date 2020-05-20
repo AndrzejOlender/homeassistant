@@ -853,3 +853,24 @@
     entity_id: 
       - switch.airpurifierled
     service: switch.turn_on  
+
+# Ring
+- alias: Ring Home
+  trigger:  
+    platform: state
+    entity_id: sensor.ringvibration_action
+    to: vibration   
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Ring Ring"
+        message: "Ring home door"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.tv
+      data:
+        message: "Ring Ring" 

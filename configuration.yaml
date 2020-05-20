@@ -253,29 +253,6 @@ light:
     brightness: true
     color_temp: false
     rgb: false
-   
-### Sensors
-sensor:
-# Lights Shelly 1
-  - platform: mqtt
-    name: "Light 1"
-    state_topic: "shelly-02/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[0] }}"
-    unit_of_measurement: "W"
-
-# Lights Shelly 2
-  - platform: mqtt
-    name: "Light 2"
-    state_topic: "shelly-01/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[0] }}"
-    unit_of_measurement: "W"    
-
-# Lights Shelly 3
-  - platform: mqtt
-    name: "Light 3"
-    state_topic: "shelly-01/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[1] }}"
-    unit_of_measurement: "W"
 
 # Zigbee Network Map
   - platform: mqtt

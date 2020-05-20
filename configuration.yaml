@@ -253,7 +253,9 @@ light:
     brightness: true
     color_temp: false
     rgb: false
-
+   
+### Sensors
+sensor:
 # Zigbee Network Map
   - platform: mqtt
     name: Zigbee2mqtt Networkmap
@@ -407,7 +409,7 @@ light:
     sensors:
       ring:
         friendly_name: "Ring"
-        value_template: "{{ state_attr('sensor.ringvibration_action', 'vibration') }}"
+        value_template: "{{ is_state_attr('sensor.ringvibration_action', 'action', 'vibration' ) }}"
 
 # Binary sensor
 binary_sensor:

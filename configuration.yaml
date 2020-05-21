@@ -72,6 +72,7 @@ homekit:
       - binary_sensor.motionkitchen2_occupancy
       - binary_sensor.motiontoilet_occupancy
       - binary_sensor.motionchildroom_occupancy
+      - binary_sensor.doorbell
       - light.lamp_kitchen
       - light.ikeabulbsgroupkitchen
       - light.ikeabulbsgroupanteroom1

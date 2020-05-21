@@ -876,7 +876,7 @@
     - service: notify.mobile_app_iphone
       data:
         title: "Doorbell"
-        message: "Ring home door"
+        message: "Ring ring maindoor"
         data:
           push:
             sound: 
@@ -885,4 +885,4 @@
               volume: 1.0
     - service: notify.tv
       data:
-        message: "Ring Ring" 
+        message: "Ring ring maindoor" 

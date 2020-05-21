@@ -867,7 +867,7 @@
     service: switch.turn_on  
 
 # Ring
-- alias: Ring Home
+- alias: Doorbell
   trigger:  
     platform: state
     entity_id: sensor.ringvibration_action
@@ -875,7 +875,7 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: "Ring Ring"
+        title: "Doorbell"
         message: "Ring home door"
         data:
           push:

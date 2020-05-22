@@ -585,6 +585,8 @@ views:
             name: Aqara door - anteroom
           - entity: sensor.toiletdoor_battery
             name: Aqara door - toilet
+          - entity: sensor.ringvibration_battery
+            name: Aqara Doorbell - anteroom
           - entity: sensor.thermochildroom_battery
             name: Eurotronic thermo - child room
           - entity: sensor.thermolivingroom_battery

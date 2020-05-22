@@ -102,6 +102,12 @@ views:
             state_color: on
           - entity: binary_sensor.maindoor_contact
             state_color: on
+          - entity: device_tracker.iphone_luci_andrzej
+            name: Andrzej
+            state_color: on
+          - entity: device_tracker.xiaomired_luci_ania
+            name: Ania
+            state_color: on
         show_header_toggle: false
         type: entities   
 

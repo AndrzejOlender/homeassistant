@@ -1,17 +1,17 @@
 # Configure a default setup
 default_config:
 
-recorder:
-  purge_keep_days: 1
-  purge_interval: 1
-  db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
+# recorder:
+#   purge_keep_days: 1
+#   purge_interval: 1
+#   db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
 
 influxdb:
   host: 127.0.0.1
   database: homeassistant
 
 http:
-  base_url: https://h.olender.me:8123
+#  base_url: https://h.olender.me:8123
   ssl_certificate: /config/ssl/fullchain.pem
   ssl_key: /config/ssl/privkey.pem
 
@@ -72,6 +72,7 @@ homekit:
       - binary_sensor.motionkitchen2_occupancy
       - binary_sensor.motiontoilet_occupancy
       - binary_sensor.motionchildroom_occupancy
+      - binary_sensor.doorbell
       - light.lamp_kitchen
       - light.ikeabulbsgroupkitchen
       - light.ikeabulbsgroupanteroom1
@@ -256,27 +257,6 @@ light:
    
 ### Sensors
 sensor:
-# Lights Shelly 1
-  - platform: mqtt
-    name: "Light 1"
-    state_topic: "shelly-02/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[0] }}"
-    unit_of_measurement: "W"
-
-# Lights Shelly 2
-  - platform: mqtt
-    name: "Light 2"
-    state_topic: "shelly-01/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[0] }}"
-    unit_of_measurement: "W"    
-
-# Lights Shelly 3
-  - platform: mqtt
-    name: "Light 3"
-    state_topic: "shelly-01/tele/SENSOR"
-    value_template: "{{ value_json.ENERGY.Power[1] }}"
-    unit_of_measurement: "W"
-
 # Zigbee Network Map
   - platform: mqtt
     name: Zigbee2mqtt Networkmap
@@ -425,7 +405,23 @@ sensor:
         friendly_name: "Wind"
         unit_of_measurement: "km/h"
         value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
-
+# Ring
+  # - platform: template
+  #   sensors:
+  #     ring:
+  #       friendly_name: "Doorbell-old"
+  #       value_template: >-
+  #        {% if is_state('sensor.ringvibration_action', 'vibration') %}
+  #           On
+  #         {% else  %}
+  #           Off
+  #         {% endif %}
+  #       icon_template: >-
+  #         {% if is_state('sensor.ringvibration_action', 'vibration') %}
+  #           mdi:bell-ring
+  #         {% else %}
+  #           mdi:bell
+  #         {% endif %} 
 # Binary sensor
 binary_sensor:
   - platform: workday
@@ -438,6 +434,22 @@ binary_sensor:
       - '2020-05-03'
       - '2020-12-25'
       - '2020-12-26'
+
+  - platform: template
+    sensors:
+      doorbell:
+        friendly_name: "Doorbell"
+        delay_off:
+          minutes: 2
+#        device_class: sound
+        value_template: >-
+          {{ is_state('sensor.ringvibration_action', 'vibration') }}
+        icon_template: >-
+          {% if is_state("binary_sensor.doorbell", "on") %}
+            mdi:bell-ring
+          {% else %}
+            mdi:bell
+          {% endif %}
 
 # Switch
 switch:

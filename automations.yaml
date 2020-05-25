@@ -820,6 +820,18 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_off 
 
+- alias: "Ring Auto Off"
+  trigger:
+    platform: state
+    entity_id: sensor.ringvibration_action
+    to: vibration 
+    for: 
+      minutes: 2
+  action:
+    service: mqtt.publish
+    data:
+      topic: "zigbee2mqtt/RingVibration/action"
+      payload: "unknown"
 
 - alias: 'Set theme at startup'
   trigger:
@@ -855,7 +867,7 @@
     service: switch.turn_on  
 
 # Ring
-- alias: Ring Home
+- alias: Doorbell
   trigger:  
     platform: state
     entity_id: sensor.ringvibration_action
@@ -863,14 +875,14 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: "Ring Ring"
-        message: "Ring home door"
+        title: "Doorbell"
+        message: "Ring ring maindoor"
         data:
           push:
             sound: 
               name: default
-              critical: 1
-              volume: 1.0
+              # critical: 1
+              # volume: 1.0
     - service: notify.tv
       data:
-        message: "Ring Ring" 
+        message: "Ring ring maindoor" 

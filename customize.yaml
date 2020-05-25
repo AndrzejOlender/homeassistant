@@ -167,5 +167,3 @@ switch.airpurifiermax:
 light.ikeabulbsgroupwardobe:
   icon: mdi:wall-sconce-flat
   supported_features: 41
-# media_player.lg:
-#   device_class: tv

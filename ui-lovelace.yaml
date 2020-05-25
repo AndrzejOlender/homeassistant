@@ -96,9 +96,17 @@ views:
         type: entities     
 
       - entities:
+          - entity: binary_sensor.doorbell
+            state_color: on
           - entity: binary_sensor.toiletdoor_contact
             state_color: on
           - entity: binary_sensor.maindoor_contact
+            state_color: on
+          - entity: device_tracker.iphone_luci_andrzej
+            name: Andrzej
+            state_color: on
+          - entity: device_tracker.xiaomired_luci_ania
+            name: Ania
             state_color: on
         show_header_toggle: false
         type: entities   
@@ -577,6 +585,8 @@ views:
             name: Aqara door - anteroom
           - entity: sensor.toiletdoor_battery
             name: Aqara door - toilet
+          - entity: sensor.ringvibration_battery
+            name: Aqara Doorbell - anteroom
           - entity: sensor.thermochildroom_battery
             name: Eurotronic thermo - child room
           - entity: sensor.thermolivingroom_battery

@@ -1,10 +1,10 @@
 # Configure a default setup
 default_config:
 
-# recorder:
-#   purge_keep_days: 1
-#   purge_interval: 1
-#   db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
+recorder:
+  purge_keep_days: 1
+  purge_interval: 1
+  db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
 
 influxdb:
   host: 127.0.0.1

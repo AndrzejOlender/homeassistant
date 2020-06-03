@@ -1,5 +1,4 @@
 test:
-  tags:
-    - dev
+  stage: test
   script:
-    - echo 'Hello World 2'
+    - echo Hello World

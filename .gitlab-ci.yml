@@ -1,5 +1,12 @@
-demo_job:
+# demo_job:
+#   tags: 
+#     - master
+#   script: 
+#     - echo Hello World
+
+test: 
+  image: alpine:latest
   tags: 
     - master
-  script: 
-    - echo Hello World
+  script:
+    - echo 'Hello World'

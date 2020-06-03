@@ -1,5 +1,5 @@
 test:
   tags:
-    - master
+    - dev
   script:
     - echo 'Hello World 2'

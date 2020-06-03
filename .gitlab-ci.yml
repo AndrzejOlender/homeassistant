@@ -1,0 +1,5 @@
+test:
+  tags:
+    - dev
+  script:
+    - echo 'Hello World 2'

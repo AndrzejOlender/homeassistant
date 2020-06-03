@@ -1,12 +1,7 @@
-# demo_job:
-#   tags: 
-#     - master
-#   script: 
-#     - echo Hello World
-
-test: 
-  image: alpine:latest
+test:
+  stage: test
+  image: homeassistant/amd64-homeassistant
   tags: 
     - master
   script:
-    - echo 'Hello World'
+    - hass --script check_config -c .

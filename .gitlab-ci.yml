@@ -1,4 +1,10 @@
+stages: 
+  - test
+
 test:
   stage: test
+  only: 
+    - dev
+    - master
   script:
     - echo Hello World

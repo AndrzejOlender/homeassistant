@@ -1,0 +1,28 @@
+test:
+  stage: test
+  image: homeassistant/amd64-homeassistant
+  tags: 
+    - master
+  before_script:
+    - python -m homeassistant --version
+    - mv fake_secrets.yaml secrets.yaml
+  script:
+    - python -m homeassistant --config . --script check_config
+        # --info all
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  before_script:
+    - 'which ssh-agent || ( apk add openssh )'
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
+
+  script:
+    - ssh -o "StrictHostKeyChecking=no" $DEPLOY_USER@$DEPLOY_HOST -p 2223 "cd '$DEPLOY_PATH'; touch abc.txt"    
+    # - ssh $DEPLOY_USER@$DEPLOY_HOST "cd '$DEPLOY_PATH'; git pull; docker-compose down; docker-compose up -d"

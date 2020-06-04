@@ -22,7 +22,6 @@ deploy:
     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
-
   script:
-    - ssh $DEPLOY_USER@$DEPLOY_HOST -p 2223 "cd '$DEPLOY_PATH'; touch abc.txt"    
+    - ssh -o "StrictHostKeyChecking=no" $DEPLOY_USER@$DEPLOY_HOST -p 2223 "cd '$DEPLOY_PATH'; touch abc.txt"    
     # - ssh $DEPLOY_USER@$DEPLOY_HOST "cd '$DEPLOY_PATH'; git pull; docker-compose down; docker-compose up -d"

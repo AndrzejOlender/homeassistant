@@ -10,7 +10,6 @@ influxdb:
   database: homeassistant
 
 http:
-#  base_url: https://h.olender.me:8123
   ssl_certificate: /config/ssl/fullchain.pem
   ssl_key: /config/ssl/privkey.pem
 

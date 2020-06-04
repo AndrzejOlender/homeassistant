@@ -10,8 +10,6 @@ influxdb:
   database: homeassistant
 
 http:
-  ssl_certificate: /config/ssl/fullchain.pem
-  ssl_key: /config/ssl/privkey.pem
 
 device_tracker:
   - platform: luci

@@ -4,9 +4,13 @@ test:
   tags: 
     - master
   before_script:
+    - python -m homeassistant --version
     - mv fake_secrets.yaml secrets.yaml
   script:
-    - hass --script check_config -c .
+    - python -m homeassistant \
+        --config $CI_PROJECT_DIR \
+        --script check_config \
+        # --info all
 
 # deploy:
 #   stage: deploy

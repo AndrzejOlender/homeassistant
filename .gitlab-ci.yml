@@ -7,9 +7,7 @@ test:
     - python -m homeassistant --version
     - mv fake_secrets.yaml secrets.yaml
   script:
-    - python -m homeassistant \
-        --config . \
-        --script check_config \
+    - python -m homeassistant --config . --script check_config
         # --info all
 
 # deploy:

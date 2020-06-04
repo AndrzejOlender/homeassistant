@@ -8,7 +8,7 @@ test:
     - mv fake_secrets.yaml secrets.yaml
   script:
     - python -m homeassistant \
-        --config $CI_PROJECT_DIR \
+        --config . \
         --script check_config \
         # --info all
 

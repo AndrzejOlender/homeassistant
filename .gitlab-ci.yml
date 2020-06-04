@@ -16,7 +16,7 @@ deploy:
     - master
   before_script:
     - 'which ssh-agent || ( apk add openssh )'
-    - eval $(ssh-agent -s)l
+    - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts

@@ -519,7 +519,7 @@
     entity_id: light.lamp_kitchen
     service: light.turn_on
 
-# Auto Light Off Kithen Day
+# Auto Light Off Kithen Day 2
 - alias: Turn off Light in Kitchen Day
   trigger: 
     platform: state

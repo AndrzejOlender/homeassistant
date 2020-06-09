@@ -1,0 +1,17 @@
+.cloud/*
+.storage/*
+.vscode/*
+.homekit.state
+*.pem
+*.key
+*.jpg
+docker-compose*
+*.db
+*.mp3
+webostv.conf
+*.js
+home-assistant.log
+secrets.yaml
+known_devices.yaml
+home-assistant_v2*
+docker-restart.sh

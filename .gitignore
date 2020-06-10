@@ -5,7 +5,6 @@
 *.pem
 *.key
 *.jpg
-docker-compose*
 *.db
 *.mp3
 webostv.conf

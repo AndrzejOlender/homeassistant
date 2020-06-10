@@ -14,3 +14,4 @@ secrets.yaml
 known_devices.yaml
 home-assistant_v2*
 docker-restart.sh
+.HA_VERSION

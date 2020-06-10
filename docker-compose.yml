@@ -2,7 +2,7 @@ version: '2'
 services:
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/home-assistant:0.109.5
+    image: homeassistant/home-assistant:0.110.7
     volumes:
       - /opt/docker/homeassistant:/config
     environment:

@@ -264,6 +264,25 @@ sensor:
     # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
     json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw  
 
+### Weather
+  - platform: yr
+    name: Weather
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - pressure
+      - windDirection
+      - humidity
+      - fog
+      - cloudiness
+      - lowClouds
+      - mediumClouds
+      - highClouds
+      - dewpointTemperature
+
 # Dishwasher
   - platform: integration
     source: sensor.dishwasher_power

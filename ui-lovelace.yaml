@@ -6,12 +6,12 @@ title: Home
 views:
   - badges: []
     cards:
-      # - entity: weather.home
-      #   type: weather-forecast
-      #   name: 'Siemianowice'
-      #   show_forecast: false
-      #   attribute: humidity
-
+      - entity: weather.home
+        type: weather-forecast
+        name: 'Siemianowice'
+        show_forecast: false
+        attribute: humidity
+        
       - entities:
           - entity: scene.good_morning
           - entity: scene.good_evening

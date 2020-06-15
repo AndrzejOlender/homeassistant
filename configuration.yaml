@@ -402,23 +402,7 @@ sensor:
         friendly_name: "Wind"
         unit_of_measurement: "km/h"
         value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
-# Ring
-  # - platform: template
-  #   sensors:
-  #     ring:
-  #       friendly_name: "Doorbell-old"
-  #       value_template: >-
-  #        {% if is_state('sensor.ringvibration_action', 'vibration') %}
-  #           On
-  #         {% else  %}
-  #           Off
-  #         {% endif %}
-  #       icon_template: >-
-  #         {% if is_state('sensor.ringvibration_action', 'vibration') %}
-  #           mdi:bell-ring
-  #         {% else %}
-  #           mdi:bell
-  #         {% endif %} 
+
 # Binary sensor
 binary_sensor:
   - platform: workday

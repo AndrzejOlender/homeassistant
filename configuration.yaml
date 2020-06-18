@@ -264,25 +264,6 @@ sensor:
     # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
     json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw  
 
-### Weather
-  - platform: yr
-    name: Weather
-    forecast: 24
-    monitored_conditions:
-      - temperature
-      - symbol
-      - precipitation
-      - windSpeed
-      - pressure
-      - windDirection
-      - humidity
-      - fog
-      - cloudiness
-      - lowClouds
-      - mediumClouds
-      - highClouds
-      - dewpointTemperature
-
 # Dishwasher
   - platform: integration
     source: sensor.dishwasher_power
@@ -421,23 +402,7 @@ sensor:
         friendly_name: "Wind"
         unit_of_measurement: "km/h"
         value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
-# Ring
-  # - platform: template
-  #   sensors:
-  #     ring:
-  #       friendly_name: "Doorbell-old"
-  #       value_template: >-
-  #        {% if is_state('sensor.ringvibration_action', 'vibration') %}
-  #           On
-  #         {% else  %}
-  #           Off
-  #         {% endif %}
-  #       icon_template: >-
-  #         {% if is_state('sensor.ringvibration_action', 'vibration') %}
-  #           mdi:bell-ring
-  #         {% else %}
-  #           mdi:bell
-  #         {% endif %} 
+
 # Binary sensor
 binary_sensor:
   - platform: workday

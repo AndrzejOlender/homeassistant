@@ -2,7 +2,7 @@
 default_config:
 
 recorder:
-  db_url: mysql://homeassistant:M1styf1kacj4!@192.168.1.2/homeassistant?charset=utf8
+  db_url: mysql://homeassistant:M1styf1kacj4!@127.0.0.1/homeassistant?charset=utf8
 
 influxdb:
   host: 127.0.0.1

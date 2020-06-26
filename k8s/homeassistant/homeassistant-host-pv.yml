@@ -9,7 +9,7 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/opt/docker/homeassistant2"
+    path: "/opt/docker/homeassistant"
 # ---
 # apiVersion: v1
 # kind: PersistentVolume

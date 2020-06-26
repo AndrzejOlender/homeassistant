@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: homekit
+spec:
+  ports:
+  - port: 51827
+s    protocol: TCP
+    targetPort: 51827
+  externalIPs:
+    - 192.168.1.2
+  selector:
+    app: homeassistant
+  type: ClusterIP

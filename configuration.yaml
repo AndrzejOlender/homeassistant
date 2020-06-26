@@ -39,7 +39,7 @@ zone:
     icon: mdi:home
   
 homekit:
-  # advertise_ip: "192.168.1.2"
+  advertise_ip: "192.168.1.2"
   port: 51827
   filter:
     include_entities:

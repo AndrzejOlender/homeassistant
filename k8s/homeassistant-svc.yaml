@@ -13,7 +13,6 @@ spec:
     - name: homekit
       protocol: TCP
       port: 51827
-      protocol: TCP
       targetPort: 51827
   externalIPs:
     - 192.168.1.2

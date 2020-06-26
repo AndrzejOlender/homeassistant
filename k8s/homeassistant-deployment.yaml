@@ -14,7 +14,6 @@ spec:
       labels:
         app: homeassistant
     spec:
-      # hostNetwork: true
       containers:
       - name: homeassistant
         image: homeassistant/home-assistant:0.111.4

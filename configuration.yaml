@@ -40,7 +40,7 @@ zone:
   
 homekit:
   # advertise_ip: "192.168.1.2"
-  # port: 51827
+  port: 51827
   filter:
     include_entities:
       - light.aqaralampchildroom_light

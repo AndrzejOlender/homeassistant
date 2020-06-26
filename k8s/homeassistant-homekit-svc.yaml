@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
   - port: 51827
-s    protocol: TCP
+    protocol: TCP
     targetPort: 51827
   externalIPs:
     - 192.168.1.2

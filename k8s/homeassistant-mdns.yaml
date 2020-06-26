@@ -30,13 +30,13 @@ spec:
             #memory: "128Mi"
             #cpu: "500m"
         env:
-        - name: NUC
-          value: eno1
-        # - name: HOST_IP
-        #   valueFrom:
-        #     fieldRef:
-        #       fieldPath: status.hostIP
-        - name: dockerNUC
+        # - name: hostNIC
+        #   value: eth0
+        - name: HOST_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: dockerNIC
           value: weave
         # Verbose mode
         # - name: options

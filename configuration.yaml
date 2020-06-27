@@ -87,7 +87,6 @@ homekit:
       - climate.thermolivingroom_climate
       - media_player.tv
       - fan.air_purifier
-
   entity_config:
     media_player.tv:
       feature_list:

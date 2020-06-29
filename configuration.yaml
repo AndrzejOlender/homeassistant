@@ -2,6 +2,7 @@
 default_config:
 
 recorder:
+  purge_keep_days: 2
   db_url: mysql://homeassistant:M1styf1kacj4!@192.168.1.2/homeassistant?charset=utf8
 
 influxdb:

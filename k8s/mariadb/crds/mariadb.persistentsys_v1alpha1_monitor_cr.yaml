@@ -1,0 +1,14 @@
+apiVersion: mariadb.persistentsys/v1alpha1
+kind: Monitor
+metadata:
+  name: mariadb-monitor
+spec:
+  # Add fields here
+  size: 1
+  # Database source to connect with for colleting metrics
+  # Format: "<db-user>:<db-password>@(<dbhost>:<dbport>)/<dbname>">
+  # Make approprite changes  
+  dataSourceName: "root:password@(192.168.1.2:30685)/homeassistant"
+  # Image name with version
+  # Refer https://registry.hub.docker.com/r/prom/mysqld-exporter for more details
+  image: "prom/mysqld-exporter"

@@ -1,0 +1,28 @@
+apiVersion: mariadb.persistentsys/v1alpha1
+kind: MariaDB
+metadata:
+  name: mariadb
+spec:
+  # Keep this parameter value unchanged.
+  size: 1
+  
+  # Root user password
+  rootpwd: DAiL!WM@CWP_B3a
+
+  # New Database name
+  database: homeassistant
+  # Database additional user details (base64 encoded)
+  username: homeassistant
+  password: asF6VcoaXJK!mq8
+
+  # Image name with version
+  image: "mariadb/server:10.3"
+
+  # Database storage Path
+  dataStoragePath: "/opt/docker/mariadb/data2" 
+
+  # Database storage Size (Ex. 1Gi, 100Mi)
+  dataStorageSize: "5Gi"
+
+  # Port number exposed for Database service
+  port: 30685

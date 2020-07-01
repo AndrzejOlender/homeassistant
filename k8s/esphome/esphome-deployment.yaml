@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: esphome
+  labels: 
+    app: esphome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esphome
+  template:
+    metadata:
+      labels:
+        app: esphome
+    spec:
+      containers:
+      - name: esphome
+        image: esphome/esphome:1.14.5
+        ports:
+        - containerPort: 6052
+        volumeMounts:
+        - mountPath: /config
+          name: config-esphome
+      volumes:
+      - name: config-esphome
+        persistentVolumeClaim:
+          claimName: config-esphome

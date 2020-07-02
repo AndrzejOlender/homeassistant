@@ -12,10 +12,11 @@ test:
 
 deploy:
   stage: deploy
+  image: gitlab/gitlab-runner:alpine
   only:
     - master
   before_script:
-    - 'which ssh-agent || ( apt-get install openssh-server )'
+    - 'which ssh-agent || ( apk add openssh )'
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh

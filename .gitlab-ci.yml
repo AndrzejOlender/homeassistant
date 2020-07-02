@@ -24,7 +24,7 @@ deploy:
     - chmod 644 ~/.ssh/known_hosts
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
   script:
-    - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; kubectl apply -f k8s/"
+    - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; kubectl apply -f k8s/homeassistant/"
 
 # deploy:
 #   stage: deploy

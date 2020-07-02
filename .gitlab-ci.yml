@@ -15,7 +15,7 @@ deploy:
   only:
     - master
   before_script:
-    - 'which ssh-agent || ( apk add openssh )'
+    - 'which ssh-agent || ( apt-get install openssh )'
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh

@@ -21,9 +21,9 @@ spec:
         - containerPort: 1883
         - containerPort: 9001
         volumeMounts:
-        - mountPath: /mosquitto
-          name: config-mosquitto
+        - mountPath: /mosquitto/data
+          name: config-data-mosquitto
       volumes:
-      - name: config-mosquitto
+      - name: config-data-mosquitto
         persistentVolumeClaim:
-          claimName: config-mosquitto
+          claimName: config-data-mosquitto

@@ -1,12 +1,12 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: config-mosquitto
+  name: config-data-mosquitto
   labels:
     type: host
 spec:
   # set to empty to disable dynamic provisioning using StorageClass
-  storageClassName: "config-mosquitto"
+  storageClassName: "config-data-mosquitto"
   accessModes:
     - ReadWriteMany
   resources:

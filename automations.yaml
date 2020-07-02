@@ -485,7 +485,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 255
+      brightness: 254
       entity_id:
         - light.lamp_kitchen
 
@@ -521,7 +521,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 255
+      brightness: 254
       entity_id:
         - light.ikeabulblamp_light
 
@@ -561,7 +561,7 @@
     service: light.turn_on 
     data:
       transition: 0
-      brightness: 255
+      brightness: 254
       entity_id:
         - light.osrambulbsgrouptoilet      
     
@@ -608,7 +608,7 @@
     service: light.turn_on          
     data:
       transition: 0
-      brightness: 255
+      brightness: 254
       entity_id:
         - light.osrambulbsgrouptoilet
     
@@ -644,7 +644,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 255
+      brightness: 254
       entity_id:
         - light.ikeabulbsgroupanteroom1
 

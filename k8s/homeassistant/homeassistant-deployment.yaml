@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/home-assistant:0.111.4
+        image: homeassistant/home-assistant:0.112.0
         ports:
         - containerPort: 8123
         readinessProbe:

@@ -483,8 +483,11 @@
     after: sunset
     after_offset: "-00:15:00"
   action: 
-    entity_id: light.lamp_kitchen
     service: light.turn_on
+    data:
+      brightness: 255
+      entity_id:
+        - light.lamp_kitchen
 
 # Auto Light Off Kithen Sunset
 - alias: Turn off Light in Kitchen
@@ -516,8 +519,11 @@
     - condition: time
       after: '05:30:00'
   action: 
-    entity_id: light.lamp_kitchen
     service: light.turn_on
+    data:
+      brightness: 255
+      entity_id:
+        - light.ikeabulblamp_light
 
 # Auto Light Off Kithen Day 2
 - alias: Turn off Light in Kitchen Day
@@ -634,13 +640,13 @@
         after_offset: "-00:15:00"
       - condition: state
         entity_id: binary_sensor.motionkitchen_occupancy
-        state: "off"
-      - condition: state
-        entity_id: switch.airpurifiermax
-        state: "off"     
+        state: "off"   
   action: 
-    entity_id: light.ikeabulbsgroupanteroom1
     service: light.turn_on
+    data:
+      brightness: 255
+      entity_id:
+        - light.ikeabulbsgroupanteroom1
 
 - alias: "Notification Low Battery"
   trigger:

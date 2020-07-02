@@ -1,0 +1,14 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: config-esphome
+  labels:
+    type: host
+spec:
+  # set to empty to disable dynamic provisioning using StorageClass
+  storageClassName: "config-esphome"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

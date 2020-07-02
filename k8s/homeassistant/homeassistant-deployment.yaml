@@ -17,6 +17,9 @@ spec:
       containers:
       - name: homeassistant
         image: homeassistant/home-assistant:0.112.0
+        env:
+        - name: version
+          value: 0.112.0.1
         ports:
         - containerPort: 8123
         readinessProbe:
@@ -24,7 +27,7 @@ spec:
             path: /
             port: 8123
           initialDelaySeconds: 15
-          periodSeconds: 3
+          periodSeconds: 5
         volumeMounts:
         - mountPath: /config
           name: homeassistant
@@ -32,3 +35,4 @@ spec:
       - name: homeassistant
         persistentVolumeClaim:
           claimName: homeassistant
+

@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  name: homeassistant
+spec:
+  rules:
+  - host: homeassistant.192.168.1.200.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: homeassistant
+          servicePort: 8123
+        path: /

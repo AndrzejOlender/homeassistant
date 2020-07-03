@@ -899,5 +899,5 @@
     platform: homeassistant
     event: start
   action:
-    - delay: 00:01  # Waits 1 minutes
+    - delay: 00:02  # Waits 1 minutes
     - service: homekit.start

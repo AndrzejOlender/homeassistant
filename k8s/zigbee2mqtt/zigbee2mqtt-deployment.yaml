@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: production-homeassistant
+  name: homeassistant
   labels: 
     app: homeassistant
 spec:
@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/home-assistant:0.112.2
+        image: homeassistant/home-assistant:0.112.1
         env:
         - name: version
-          value: 0.112.2.0
+          value: 0.112.1.0
         ports:
         - containerPort: 8123
         readinessProbe:

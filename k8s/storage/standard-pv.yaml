@@ -4,7 +4,7 @@ metadata:
   name: standard-local
 spec:
   capacity:
-    storage: 10Gi
+    storage: 50Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

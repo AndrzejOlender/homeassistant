@@ -1,6 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  namespace: home
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
   name: homeassistant

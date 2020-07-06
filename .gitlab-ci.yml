@@ -12,6 +12,7 @@ test:
 
 deploy:
   stage: deploy
+  environment: production
   image: gitlab/gitlab-runner:alpine
   only:
     - master

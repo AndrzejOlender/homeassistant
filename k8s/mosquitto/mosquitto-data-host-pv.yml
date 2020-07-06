@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: config-data-mosquitto
+  namespace: home
 spec:
   storageClassName: "config-data-mosquitto"
   capacity:

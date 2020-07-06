@@ -1,14 +1,14 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: standard-local
+  name: homeassistant
   labels:
     type: host
 spec:
   # set to empty to disable dynamic provisioning using StorageClass
-  storageClassName: "standard-local"
+  storageClassName: "homeassistant"
   accessModes:
     - ReadWriteMany
   resources:
     requests:
-      storage: 50Gi
+      storage: 5Gi

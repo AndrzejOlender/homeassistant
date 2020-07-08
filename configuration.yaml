@@ -3,7 +3,7 @@ default_config:
 
 recorder:
   purge_keep_days: 2
-  db_url: mysql://homeassistant:dZF!HDeT.i7H-rd@192.168.1.2:30685/homeassistant?charset=utf8
+  db_url: mysql://homeassistant:dZF!HDeT.i7H-rd@mariadb-service.mariadb:80/homeassistant?charset=utf8
 
 influxdb:
   host: 192.168.1.2
@@ -146,7 +146,7 @@ remote:
 
 fan:
   - platform: xiaomi_miio
-    host: 192.168.12.7
+    host: 192.168.1.7
     token: ca40b830acc8cff3afff41db1d31aab6
     name: Air Purifier     
 

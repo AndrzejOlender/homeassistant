@@ -893,11 +893,11 @@
       data:
         message: "Ring ring maindoor" 
 
-# HomeKit Delay
-- alias: Start HomeKit
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    - delay: 00:02  # Waits 1 minutes
-    - service: homekit.start
+# # HomeKit Delay
+# - alias: Start HomeKit
+#   trigger:
+#     platform: homeassistant
+#     event: start
+#   action:
+#     - delay: 00:02  # Waits 1 minutes
+#     - service: homekit.start

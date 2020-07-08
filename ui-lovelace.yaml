@@ -137,7 +137,7 @@ views:
 
       - entities:
           - entity: air_quality.airly
-          - entity: fan.air_purifier
+          # - entity: fan.air_purifier
             state_color: on
           - entity: switch.airpurifiermax
             name: Air Max 
@@ -293,8 +293,8 @@ views:
           - entity: binary_sensor.livingroomwindow_contact
             name: Window
             state_color: on
-          - entity: fan.air_purifier
-            state_color: on
+          # - entity: fan.air_purifier
+          #   state_color: on
           - entity: climate.thermolivingroom_climate
             name: Thermostat
             state_color: on

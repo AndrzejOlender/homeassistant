@@ -15,6 +15,6 @@ spec:
       protocol: TCP
       port: 9001
       targetPort: 9001
-  externalIPs:
-    - 192.168.1.2
+  # externalIPs:
+  #   - 192.168.1.2
   type: ClusterIP

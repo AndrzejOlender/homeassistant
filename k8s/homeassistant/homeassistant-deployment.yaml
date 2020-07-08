@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: production-homeassistant
-  annotations:
-    homeassistant/app: ${CI_PROJECT_PATH_SLUG}
-    homeassistant/env: ${CI_ENVIRONMENT_SLUG}
   namespace: home
   labels: 
     app: homeassistant
@@ -14,24 +11,16 @@ spec:
     matchLabels:
       app: homeassistant
   template:
-    annotations:
-      homeassistant/app: ${CI_PROJECT_PATH_SLUG}
-      homeassistant/env: ${CI_ENVIRONMENT_SLUG}
     metadata:
       labels:
         app: homeassistant
     spec:
-      template:
-        metadata:
-          annotations:
-            homeassistant/app: ${CI_PROJECT_PATH_SLUG}
-            homeassistant/env: ${CI_ENVIRONMENT_SLUG}
       containers:
       - name: homeassistant
         image: homeassistant/home-assistant:0.112.3
         env:
         - name: version
-          value: 0.112.3.2
+          value: 0.112.3.4
         ports:
         - containerPort: 8123
         readinessProbe:

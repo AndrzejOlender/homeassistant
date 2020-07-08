@@ -146,8 +146,8 @@ remote:
 
 fan:
   - platform: xiaomi_miio
-    host: 192.168.1.7
-    token: b6101395cc2be06198c1459824317207
+    host: 192.168.12.7
+    token: ca40b830acc8cff3afff41db1d31aab6
     name: Air Purifier     
 
 # Template for switches and xiaomi ir, no light ;)

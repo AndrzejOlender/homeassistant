@@ -19,7 +19,7 @@ spec:
   image: "mariadb/server:10.3"
 
   # Database storage Path
-  dataStoragePath: "/opt/docker/mariadb/data2" 
+  dataStoragePath: "/opt/docker/mariadb/data" 
 
   # Database storage Size (Ex. 1Gi, 100Mi)
   dataStorageSize: "5Gi"

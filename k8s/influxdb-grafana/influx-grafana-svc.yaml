@@ -11,18 +11,14 @@ spec:
       protocol: TCP
       port: 3003
       targetPort: 3003
-    - name: grafana-backup
+    - name: influxdb-http
       protocol: TCP
       port: 8083
       targetPort: 8083
-    - name: influxdb-http
+    - name: influxdb-db
       protocol: TCP
       port: 8086
       targetPort: 8086
-    - name: influxdb-ssh
-      protocol: TCP
-      port: 22
-      targetPort: 22022
   externalIPs:
     - 192.168.1.2
   type: ClusterIP

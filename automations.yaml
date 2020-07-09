@@ -728,6 +728,81 @@
     - service: notify.mobile_app_redmi_note_4
       data:
         message: "Washermachine Ended"
+
+# Notification Weather Warning
+- alias: "Notification Storm Nearby"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_storms_nearby
+      from: 'off'
+      to: 'on'  
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Storm"
+        message: "Storm nearby"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+
+- alias: "Notification Storm Warning"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_storm_warning
+      from: 'off'
+      to: 'on'   
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Storm"
+        message: "Storm warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+
+- alias: "Notification Heat Warning"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_heat_warning
+      from: 'off'
+      to: 'on'    
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Heat warning"
+        message: "Heat warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+
+- alias: "Notification Wind Warning"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_wind_warning
+      from: 'off'
+      to: 'on'  
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Wind warning"
+        message: "Wind warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+
+
 # # Air Purifier
 # - alias: AQI Air Ok 
 #   trigger:

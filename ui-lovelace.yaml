@@ -93,7 +93,23 @@ views:
             name: Living Room
             state_color: on
         show_header_toggle: false
-        type: entities     
+        type: entities  
+        
+      - entities:
+          - entity: binary_sensor.burze_dzis_net_heat_warning
+            name: Heat
+            state_color: on
+          - entity: binary_sensor.burze_dzis_net_storms_nearby
+            name: Storms nearby
+            state_color: on
+          - entity: binary_sensor.burze_dzis_net_storm_warning
+            name: Storm warning
+            state_color: on
+          - entity: binary_sensor.burze_dzis_net_wind_warning
+            name: Wind warning
+            state_color: on
+        show_header_toggle: false
+        type: entities
 
       - entities:
           - entity: binary_sensor.doorbell

@@ -22,7 +22,7 @@ spec:
   dataStoragePath: "/opt/docker/mariadb/data" 
 
   # Database storage Size (Ex. 1Gi, 100Mi)
-  dataStorageSize: "5Gi"
+  dataStorageSize: "4Gi"
 
   # Port number exposed for Database service
   port: 30685

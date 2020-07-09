@@ -435,6 +435,19 @@ binary_sensor:
             mdi:bell
           {% endif %}
 
+  - platform: burze_dzis_net
+    api_key: !secret burze_dzis_net.api_key
+    latitude: 50.2985936
+    longitude: 19.04179
+    warnings:
+      - frost_warning
+      - heat_warning
+      - wind_warning
+      - precipitation_warning
+      - storm_warning
+    storms_nearby:
+      radius: 15
+
 # Switch
 switch:
   - platform: template
@@ -479,4 +492,3 @@ switch:
                     mdi:led-off
                   {% endif %}              
 
-# 602bbf216a023c9ea7671771848b8bca8950f513 API burze.dzis.net

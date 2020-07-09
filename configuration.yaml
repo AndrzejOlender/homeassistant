@@ -478,3 +478,5 @@ switch:
                   {% else %}
                     mdi:led-off
                   {% endif %}              
+
+# 602bbf216a023c9ea7671771848b8bca8950f513 API burze.dzis.net

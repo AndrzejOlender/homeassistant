@@ -9,7 +9,6 @@ test:
     - mv fake_homeassistant-ec281e42879c.json homeassistant-ec281e42879c.json
   script:
     - python -m homeassistant --config . --script check_config
-        # --info all
 
 deploy:
   stage: deploy
@@ -27,18 +26,3 @@ deploy:
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
   script:
     - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; kubectl apply -f k8s/homeassistant/"
-
-# deploy:
-#   stage: deploy
-#   only:
-#     - master
-#   before_script:
-#     - 'which ssh-agent || ( apk add openssh )'
-#     - eval $(ssh-agent -s)
-#     - mkdir -p ~/.ssh
-#     - chmod 700 ~/.ssh
-#     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-#     - chmod 644 ~/.ssh/known_hosts
-#     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
-#   script:
-#     - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; docker-compose down; docker-compose up -d"

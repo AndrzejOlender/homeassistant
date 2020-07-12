@@ -16,3 +16,4 @@ home-assistant_v2*
 docker-restart.sh
 .HA_VERSION
 docker-compose.yaml
+homeassistant-ec281e42879c.json

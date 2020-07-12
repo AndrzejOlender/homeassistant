@@ -8,12 +8,12 @@
 *.db
 *.mp3
 webostv.conf
-*.js
 home-assistant.log
 secrets.yaml
 known_devices.yaml
 home-assistant_v2*
 docker-restart.sh
 .HA_VERSION
+www/
 docker-compose.yaml
 homeassistant-ec281e42879c.json

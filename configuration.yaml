@@ -42,7 +42,7 @@ zone:
 # Google Home
 google_assistant:
   project_id: homeassistant-282912
-  service_account: !include homeassistant-ec281e42879c.json
+  service_account: !include homeassistant-google.json
   report_state: true
   exposed_domains:
     - switch

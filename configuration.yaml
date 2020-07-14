@@ -44,9 +44,6 @@ google_assistant:
   project_id: homeassistant-282912
   service_account: !include homeassistant-google.json
   report_state: true
-  # exposed_domains:
-  #   - switch
-  #   - light
   expose_by_default: false
   entity_config:
     light.aqaralampchildroom_light:
@@ -94,48 +91,6 @@ google_assistant:
     air_quality.airly:
       expose: true
       name: Airly
-    binary_sensor.toiletdoor_contact:
-      expose: true
-      name: Door
-    binary_sensor.livingroomwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.maindoor_contact:
-      expose: true
-      name: Door
-    binary_sensor.livingroombalconywindow_contact:
-      expose: true
-      name: Balcony
-    binary_sensor.childroomwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.kitchenwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.wardobewindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.leaksensorkitchen_water_leak:
-      expose: true
-      name: Leak
-    binary_sensor.leaksensortoilet_water_leak:
-      expose: true
-      name: Leak
-    binary_sensor.motionkitchen_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motionkitchen2_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motiontoilet_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motionchildroom_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.doorbell:
-      expose: true
-      name: Doorbell
     light.lamp_kitchen:
       expose: true
       name: Light
@@ -148,12 +103,6 @@ google_assistant:
     light.ikeabulbsgroupanteroom2:
       expose: true
       name: Light 2
-    device_tracker.iphone_luci_andrzej:
-      expose: true
-      name: Andrzej
-    device_tracker.xiaomired_luci_ania:
-      expose: true
-      name: Ania
     scene.good_evening:
       expose: true
       name: Good evening

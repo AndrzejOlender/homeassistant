@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/opt/docker/mariadb/data2"
+    path: "/opt/docker/mariadb/data"

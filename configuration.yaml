@@ -176,8 +176,6 @@ google_assistant:
       expose: true
       name: Purifier
 
- 
-
 # HomeKit
 homekit:
   # auto_start: false

@@ -44,9 +44,9 @@ google_assistant:
   project_id: homeassistant-282912
   service_account: !include homeassistant-google.json
   report_state: true
-  exposed_domains:
-    - switch
-    - light
+  # exposed_domains:
+  #   - switch
+  #   - light
   expose_by_default: false
   entity_config:
     light.aqaralampchildroom_light:

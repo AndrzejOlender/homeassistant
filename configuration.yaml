@@ -39,91 +39,22 @@ zone:
     radius: 250
     icon: mdi:home
 
-# Google Home
-google_assistant:
-  project_id: homeassistant-282912
-  service_account: !include homeassistant-google.json
-  report_state: true
-  expose_by_default: false
-  entity_config:
-    light.aqaralampchildroom_light:
-      expose: true
-      name: Lamp
-    light.ikeabulblamp_light:
-      expose: true
-      name: Lamp
-    switch.washermachine_relay:
-      expose: true
-      name: Washermachine
-    script.miio_turn_on_yamaha:
-      expose: true
-      name: Yamaha
-    script.miio_turn_on_yamaha_radio:
-      expose: true
-      name: Radio
-    script.miio_turn_on_nc:
-      expose: true
-      name: NC
-    script.miio_turn_on_yamaha_hdmi1:
-      expose: true
-      name: HDMI1
-    script.miio_turn_on_yamaha_hdmi2:
-      expose: true
-      name: HDMI2
-    switch.light1_relay:
-      expose: true
-      name: Light 1
-    switch.light2_relay:
-      expose: true
-      name: Light 2
-    switch.light3_relay:
-      expose: true
-      name: Light 3
-    light.osrambulbsgrouptoilet:
-      expose: true
-      name: Light 
-    light.ikeabulbsgrouptoiletmirror:
-      expose: true
-      name: Mirror
-    light.ikeabulbsgroupwardobe:
-      expose: true
-      name: Light 
-    air_quality.airly:
-      expose: true
-      name: Airly
-    light.lamp_kitchen:
-      expose: true
-      name: Light
-    light.ikeabulbsgroupkitchen:
-      expose: true
-      name: Table
-    light.ikeabulbsgroupanteroom1:
-      expose: true
-      name: Light 1
-    light.ikeabulbsgroupanteroom2:
-      expose: true
-      name: Light 2
-    scene.good_evening:
-      expose: true
-      name: Good evening
-    scene.good_morning:
-      expose: true
-      name: Good morning
-    scene.good_night:
-      expose: true
-      name: Good night
-    climate.thermochildroom_climate:
-      expose: true
-      name: Thermo
-    climate.thermolivingroom_climate:
-      expose: true
-      name: Thermo
-    media_player.tv:
-      expose: true
-      name: TV
-    fan.air_purifier:
-      expose: true
-      name: Purifier
+# Alexa
+alexa:
+  smart_home:
+    locale: en-US
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
+    filter:
+      include_entities:
+        - light.aqaralampchildroom_light
+    entity_config:
+      light.aqaralampchildroom_light:
+        name: "Lamp"
+        description: "The light in the childroom"
+      switch.stairs:
+        display_categories: LIGHT
 
 # HomeKit
 homekit:

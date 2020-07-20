@@ -39,7 +39,13 @@ zone:
     radius: 250
     icon: mdi:home
 
-# Alexa
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+
+# Amazon Alexa
 alexa:
   smart_home:
     locale: en-US

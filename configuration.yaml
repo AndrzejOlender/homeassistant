@@ -38,9 +38,10 @@ zone:
     longitude: 19.04179
     radius: 250
     icon: mdi:home
-    
+
 tts:
   - platform: google_translate
+    language: 'pl'
 
 alexa_media:
   accounts:

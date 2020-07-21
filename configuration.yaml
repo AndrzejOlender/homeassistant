@@ -41,6 +41,7 @@ zone:
 
 tts:
   - platform: google_translate
+    service_name: google_say
     language: 'pl'
 
 alexa_media:
@@ -48,6 +49,12 @@ alexa_media:
     - email: !secret amazon_user
       password: !secret amazon_password
       url: amazon.com
+      include_devices:
+        - "echo"
+
+notify:
+  - platform: alexa_media
+    name: alexa_media
 
 # Amazon Alexa
 alexa:

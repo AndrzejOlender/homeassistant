@@ -285,7 +285,7 @@
           push:
             sound: default
     - delay:
-      seconds: 10
+        seconds: 10
 
 # Wejście do poczty          
 - alias: Poczta Enter

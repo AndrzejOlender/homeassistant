@@ -1,16 +1,35 @@
 # Configure a default setup
 default_config:
 
+# Yamls
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+frontend:
+  themes: !include themes.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+lovelace:
+  mode: yaml
+
+# Recorder
 recorder:
   purge_keep_days: 2
   db_url: mysql://homeassistant:dZF!HDeT.i7H-rd@mariadb-service.mariadb:80/homeassistant?charset=utf8
 
+# Influxdb
 influxdb:
   host: influxdb-grafana.metrics
   database: homeassistant
 
 http:
 
+# Device tracker
 device_tracker:
   - platform: luci
     host: 192.168.1.1
@@ -19,6 +38,7 @@ device_tracker:
     new_device_defaults:
       track_new_devices: false
 
+# Zones
 zone:
   - name: Poczta
     latitude: 50.2568931
@@ -39,11 +59,13 @@ zone:
     radius: 250
     icon: mdi:home
 
+# Google tts
 tts:
   - platform: google_translate
     service_name: google_say
     language: 'pl'
 
+# Amazon Alexa
 alexa_media:
   accounts:
     - email: !secret amazon_user
@@ -56,7 +78,6 @@ notify:
   - platform: alexa_media
     name: alexa_media
 
-# Amazon Alexa
 alexa:
   smart_home:
     locale: en-US
@@ -207,7 +228,6 @@ alexa:
 
 # HomeKit
 homekit:
-  # auto_start: false
   advertise_ip: "192.168.1.2"
   port: 51827
   filter:
@@ -260,6 +280,7 @@ homekit:
       feature_list:
         - feature: on_off
 
+# TV
 webostv:
     name: tv
     host: 192.168.1.6
@@ -276,6 +297,7 @@ webostv:
         - youtube
         - netflix  
 
+# Speed test
 speedtestdotnet:
   scan_interval:
     minutes: 30
@@ -283,21 +305,6 @@ speedtestdotnet:
     - ping
     - download
     - upload
-
-### Yamls
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
-
-frontend:
-    themes: !include themes.yaml
-homeassistant:
-    customize: !include customize.yaml
-    packages: !include_dir_named packages
-
-lovelace:
-  mode: yaml
 
 # Remotes    
 remote:
@@ -312,6 +319,7 @@ remote:
         command:
           - raw:Z6VDADcCAAB3BgAAaBEAAAwjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjABAAEBAQEAAQABAAAAAAEBAAABAAAAAAABAQABAQEAAA
 
+# Airpurifier
 fan:
   - platform: xiaomi_miio
     host: 192.168.1.7
@@ -423,7 +431,7 @@ light:
     color_temp: false
     rgb: false
    
-### Sensors
+#Sensors
 sensor:
 # Zigbee Network Map
   - platform: mqtt
@@ -593,7 +601,6 @@ binary_sensor:
         friendly_name: "Doorbell"
         delay_off:
           minutes: 2
-#        device_class: sound
         value_template: >-
           {{ is_state('sensor.ringvibration_action', 'vibration') }}
         icon_template: >-
@@ -603,6 +610,7 @@ binary_sensor:
             mdi:bell
           {% endif %}
 
+# Storm day
   - platform: burze_dzis_net
     api_key: !secret burze_dzis_net.api_key
     latitude: 50.2985936
@@ -616,7 +624,7 @@ binary_sensor:
     storms_nearby:
       radius: 15
 
-# Switch
+# Switches
 switch:
   - platform: template
     switches:

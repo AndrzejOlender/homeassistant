@@ -1,6 +1,6 @@
 test:
   stage: test
-  image: homeassistant/amd64-homeassistant
+  image: homeassistant/amd64-homeassistant:latest
   tags: 
     - master
   before_script:

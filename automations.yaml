@@ -334,6 +334,20 @@
         data:
           ttl: 0
           priority: high        
+          action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.echo
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo
+        data:
+          type: tts
+        message: "Warning! Warning! Warning!. Leak in toilet."
+
 
 - alias: Send Notification Leak Kitchen
   trigger:
@@ -369,7 +383,15 @@
         message: "Leak in kitchen"     
         data:
           ttl: 0
-          priority: high                 
+          priority: high 
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo
+        data:
+          type: tts
+        message: "Warning! Warning! Warning!. Leak in kitchen."
+                
 
 # # Away Mode In Weekdays 
 # - alias: Set Away Mode 
@@ -728,6 +750,19 @@
     - service: notify.mobile_app_redmi_note_4
       data:
         message: "Washermachine Ended"
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.echo
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo
+        data:
+          type: tts
+        message: "Washermachine ended."
+
 
 # Notification Weather Warning
 - alias: "Notification Storm Nearby"
@@ -976,3 +1011,16 @@
 #   action:
 #     - delay: 00:02  # Waits 1 minutes
 #     - service: homekit.start
+
+# test
+- alias: abc
+  trigger:  
+    platform: state
+    entity_id: sensor.ringvibration_action
+    to: vibration   
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.echo
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01

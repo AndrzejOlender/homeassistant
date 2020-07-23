@@ -39,142 +39,171 @@ zone:
     radius: 250
     icon: mdi:home
 
-# Google Home
-google_assistant:
-  project_id: homeassistant-282912
-  service_account: !include homeassistant-google.json
-  report_state: true
-  exposed_domains:
-    - switch
-    - light
-  expose_by_default: false
-  entity_config:
-    light.aqaralampchildroom_light:
-      expose: true
-      name: Lamp
-    light.ikeabulblamp_light:
-      expose: true
-      name: Lamp
-    switch.washermachine_relay:
-      expose: true
-      name: Washermachine
-    script.miio_turn_on_yamaha:
-      expose: true
-      name: Yamaha
-    script.miio_turn_on_yamaha_radio:
-      expose: true
-      name: Radio
-    script.miio_turn_on_nc:
-      expose: true
-      name: NC
-    script.miio_turn_on_yamaha_hdmi1:
-      expose: true
-      name: HDMI1
-    script.miio_turn_on_yamaha_hdmi2:
-      expose: true
-      name: HDMI2
-    switch.light1_relay:
-      expose: true
-      name: Light 1
-    switch.light2_relay:
-      expose: true
-      name: Light 2
-    switch.light3_relay:
-      expose: true
-      name: Light 3
-    light.osrambulbsgrouptoilet:
-      expose: true
-      name: Light 
-    light.ikeabulbsgrouptoiletmirror:
-      expose: true
-      name: Mirror
-    light.ikeabulbsgroupwardobe:
-      expose: true
-      name: Light 
-    air_quality.airly:
-      expose: true
-      name: Airly
-    binary_sensor.toiletdoor_contact:
-      expose: true
-      name: Door
-    binary_sensor.livingroomwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.maindoor_contact:
-      expose: true
-      name: Door
-    binary_sensor.livingroombalconywindow_contact:
-      expose: true
-      name: Balcony
-    binary_sensor.childroomwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.kitchenwindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.wardobewindow_contact:
-      expose: true
-      name: Window
-    binary_sensor.leaksensorkitchen_water_leak:
-      expose: true
-      name: Leak
-    binary_sensor.leaksensortoilet_water_leak:
-      expose: true
-      name: Leak
-    binary_sensor.motionkitchen_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motionkitchen2_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motiontoilet_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.motionchildroom_occupancy:
-      expose: true
-      name: Motion
-    binary_sensor.doorbell:
-      expose: true
-      name: Doorbell
-    light.lamp_kitchen:
-      expose: true
-      name: Light
-    light.ikeabulbsgroupkitchen:
-      expose: true
-      name: Table
-    light.ikeabulbsgroupanteroom1:
-      expose: true
-      name: Light 1
-    light.ikeabulbsgroupanteroom2:
-      expose: true
-      name: Light 2
-    device_tracker.iphone_luci_andrzej:
-      expose: true
-      name: Andrzej
-    device_tracker.xiaomired_luci_ania:
-      expose: true
-      name: Ania
-    scene.good_evening:
-      expose: true
-      name: Good evening
-    scene.good_morning:
-      expose: true
-      name: Good morning
-    scene.good_night:
-      expose: true
-      name: Good night
-    climate.thermochildroom_climate:
-      expose: true
-      name: Thermo
-    climate.thermolivingroom_climate:
-      expose: true
-      name: Thermo
-    media_player.tv:
-      expose: true
-      name: TV
-    fan.air_purifier:
-      expose: true
-      name: Purifier
+tts:
+  - platform: google_translate
+    service_name: google_say
+    language: 'pl'
+
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
+      include_devices:
+        - "echo"
+
+notify:
+  - platform: alexa_media
+    name: alexa_media
+
+# Amazon Alexa
+alexa:
+  smart_home:
+    locale: en-US
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: !secret alexa_client_id
+    client_secret: !secret alexa_client_secret
+    filter:
+      include_entities:
+        - light.aqaralampchildroom_light
+        - light.ikeabulblamp_light
+        - switch.washermachine_relay
+        - script.miio_turn_on_yamaha
+        - script.miio_turn_on_yamaha_radio
+        - script.miio_turn_on_nc
+        - switch.light1_relay
+        - switch.light2_relay
+        - switch.light3_relay
+        - light.osrambulbsgrouptoilet
+        - light.ikeabulbsgrouptoiletmirror
+        - light.ikeabulbsgroupwardobe
+        - script.miio_turn_on_yamaha_hdmi1
+        - script.miio_turn_on_yamaha_hdmi2
+        - light.lamp_kitchen
+        - light.ikeabulbsgroupkitchen
+        - light.ikeabulbsgroupanteroom1
+        - light.ikeabulbsgroupanteroom2
+        - scene.good_evening
+        - scene.good_morning
+        - scene.good_night
+        - scene.cinema
+        - climate.thermochildroom_climate
+        - climate.thermolivingroom_climate
+        - media_player.tv
+        - fan.air_purifier
+        - binary_sensor.toiletdoor_contact
+        - binary_sensor.maindoor_contact
+        - binary_sensor.motionkitchen_occupancy
+        - binary_sensor.motionkitchen2_occupancy
+        - binary_sensor.motiontoilet_occupancy
+        - binary_sensor.motionchildroom_occupancy
+        - binary_sensor.livingroomwindow_contact
+        - binary_sensor.livingroombalconywindow_contact
+        - binary_sensor.childroomwindow_contact
+        - binary_sensor.kitchenwindow_contact
+        - binary_sensor.wardobewindow_contact
+        - binary_sensor.doorbell
+    entity_config:
+      light.aqaralampchildroom_light:
+        name: "Lamp"
+      light.ikeabulblamp_light:
+        name: "Lamp"
+      switch.washermachine_relay:
+        name: "Washermachine"
+      script.miio_turn_on_yamaha:
+        name: "Yamaha"
+        display_categories: SWITCH
+      script.miio_turn_on_yamaha_radio:
+        name: "Radio"
+        display_categories: SWITCH
+      script.miio_turn_on_nc:
+        name: "NC"
+        display_categories: SWITCH
+      switch.light1_relay:
+        name: "Light 1"
+        display_categories: LIGHT
+      switch.light2_relay:
+        name: "Light 2"
+        display_categories: LIGHT
+      switch.light3_relay:
+        name: "Light 3"
+        display_categories: LIGHT
+      light.osrambulbsgrouptoilet:
+        name: "Light"
+      light.ikeabulbsgrouptoiletmirror:
+        name: "Mirror"
+      light.ikeabulbsgroupwardobe:
+        name: "Light"
+      light.lamp_kitchen:
+        name: "Light"
+      light.ikeabulbsgroupkitchen:
+        name: "Table"
+      light.ikeabulbsgroupanteroom1:
+        name: "Light 1"
+      light.ikeabulbsgroupanteroom2:
+        name: "Light 2"
+      script.miio_turn_on_yamaha_hdmi1:
+        name: "HDMI1"
+        display_categories: SWITCH
+      script.miio_turn_on_yamaha_hdmi2:
+        name: "HDMI2"
+        display_categories: SWITCH        
+      scene.good_evening:
+        name: "Good Night"
+        display_categories: SCENE
+      scene.good_morning:
+        name: "Good Morning"
+        display_categories: SCENE
+      scene.good_night:
+        name: "Good Night"
+        display_categories: SCENE
+      scene.cinema:
+        name: "Cinema"
+        display_categories: SCENE
+      climate.thermochildroom_climate:
+        name: "Thermo"
+      climate.thermolivingroom_climate:
+        name: "Thermo"
+      media_player.tv:
+        name: TV
+      fan.air_purifier:
+        name: Airpurifier
+      binary_sensor.toiletdoor_contact:
+        name: Toilet Door
+        display_categories: DOOR
+      binary_sensor.maindoor_contact:
+        name: Main Door
+        display_categories: DOOR
+      binary_sensor.motionkitchen_occupancy:
+        name: Motion 
+        display_categories: MOTION_SENSOR
+      binary_sensor.motionkitchen2_occupancy:
+        name: Motion
+        display_categories: MOTION_SENSOR
+      binary_sensor.motiontoilet_occupancy: 
+        name: Motion
+        display_categories: MOTION_SENSOR
+      binary_sensor.motionchildroom_occupancy:  
+        name: Motion
+        display_categories: MOTION_SENSOR
+      binary_sensor.livingroomwindow_contact:
+        name: Window
+        display_categories: CONTACT_SENSOR
+      binary_sensor.livingroombalconywindow_contact:
+        name: Balcony
+        display_categories: CONTACT_SENSOR
+      binary_sensor.childroomwindow_contact:
+        name: Window
+        display_categories: CONTACT_SENSOR
+      binary_sensor.kitchenwindow_contact:
+        name: Window
+        display_categories: CONTACT_SENSOR
+      binary_sensor.wardobewindow_contact:
+        name: Window
+        display_categories: CONTACT_SENSOR
+      binary_sensor.doorbell:
+        name: Doorbell
+        display_categories: DOORBELL
 
 # HomeKit
 homekit:

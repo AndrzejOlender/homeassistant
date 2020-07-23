@@ -54,6 +54,8 @@ views:
       - entities:
           - entity: media_player.tv
             state_color: on
+          - entity: media_player.echo
+            state_color: on
           - entity: light.yamaha
             state_color: on
           - entity: light.radio

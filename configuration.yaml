@@ -17,6 +17,9 @@ homeassistant:
 lovelace:
   mode: yaml
 
+# Input
+input_select: !include input_select.yaml
+
 # Recorder
 recorder:
   purge_keep_days: 2

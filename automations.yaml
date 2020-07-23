@@ -166,8 +166,12 @@
     entity_id: sensor.aqaraswitchchildroom_click
     to: single
   action:
-    entity_id: light.aqaralampchildroom_light
-    service: light.toggle
+    - service: light.toggle
+      entity_id: light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Lamp Childroom 2
   trigger:
@@ -175,8 +179,12 @@
     entity_id: sensor.aqaraswitchchildroom2_click
     to: single
   action:
-    entity_id: light.aqaralampchildroom_light
-    service: light.toggle
+    - service: light.toggle
+      entity_id: light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Lamp Childroom Off All
   trigger:
@@ -184,10 +192,14 @@
     entity_id: sensor.aqaraswitchchildroom2_click
     to: double
   action:
-    entity_id:
-      - light.aqaralampchildroom_light
-      - light.ikeabulbsgroupwardobe
-    service: light.turn_off
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Turn Off Light Childroom 10 No Occupancy
   trigger: 
@@ -200,7 +212,25 @@
   action: 
     - service: light.turn_off
       entity_id:
-        - light.aqaralampchildroom_light  
+        - light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "ON" 
+
+- alias: Turn On Light Childroom if auto light off
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: input_select.light_childroom
+    state: "ON"
+  action: 
+    - service: light.turn_on
+      entity_id: light.aqaralampchildroom_light
 
 - alias: Send Notification Enter Home
   trigger:

@@ -1,0 +1,7 @@
+light_childroom:
+    name: "Light Childroom"
+    options:
+        - 'ON'
+        - 'OFF'
+    initial: 'OFF'
+    icon: mdi:lightbulb

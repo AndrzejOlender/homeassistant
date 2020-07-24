@@ -3,5 +3,5 @@ light_childroom:
     options:
         - 'ON'
         - 'OFF'
-    initial: 'OFF'
+    # initial: 'OFF'
     icon: mdi:lightbulb

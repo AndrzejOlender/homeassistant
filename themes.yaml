@@ -49,7 +49,7 @@ Google Dark Theme:
   # Cards
   ha-card-border-radius: "0px"
   ha-card-box-shadow: 0px 0px 0px 0px rgb(12, 12, 14)
-  paper-card-background-color: "#1c1c1c"
+  card-background-color: "#1c1c1c"
   paper-listbox-background-color: "#1c1c1c"
   # Switches
   switch-checked-button-color: "#008DEF"
@@ -117,7 +117,7 @@ Google Dark Theme Oled:
   # Cards
   ha-card-border-radius: "0px"
   ha-card-box-shadow: 0px 0px 0px 0px rgb(12, 12, 14)
-  paper-card-background-color: "#090909"
+  card-background-color: "#090909"
   paper-listbox-background-color: "#090909"
   # Switches
   switch-checked-button-color: "#008DEF"

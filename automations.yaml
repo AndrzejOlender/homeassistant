@@ -166,8 +166,12 @@
     entity_id: sensor.aqaraswitchchildroom_click
     to: single
   action:
-    entity_id: light.aqaralampchildroom_light
-    service: light.toggle
+    - service: light.toggle
+      entity_id: light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Lamp Childroom 2
   trigger:
@@ -175,8 +179,12 @@
     entity_id: sensor.aqaraswitchchildroom2_click
     to: single
   action:
-    entity_id: light.aqaralampchildroom_light
-    service: light.toggle
+    - service: light.toggle
+      entity_id: light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Lamp Childroom Off All
   trigger:
@@ -184,10 +192,14 @@
     entity_id: sensor.aqaraswitchchildroom2_click
     to: double
   action:
-    entity_id:
-      - light.aqaralampchildroom_light
-      - light.ikeabulbsgroupwardobe
-    service: light.turn_off
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Turn Off Light Childroom 10 No Occupancy
   trigger: 
@@ -197,10 +209,35 @@
     to: "off"
     for:
       minutes: 10
+  condition:
+    - condition: state
+      entity_id: light.aqaralampchildroom_light
+      state: "ON"
   action: 
     - service: light.turn_off
       entity_id:
-        - light.aqaralampchildroom_light  
+        - light.aqaralampchildroom_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "ON" 
+
+- alias: Turn On Light Childroom if auto light off
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_select.light_childroom
+      state: "ON"
+    - condition: time
+      after: '05:00:00'
+      before: '23:00:00'
+  action: 
+    - service: light.turn_on
+      entity_id: light.aqaralampchildroom_light
 
 - alias: Send Notification Enter Home
   trigger:
@@ -257,12 +294,14 @@
       entity_id: binary_sensor.motionkitchen_occupancy
       state: "on"
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Exit Home"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default 
+        message: "Exit Home"
+        data:
+          push:
+            sound: default 
+    - delay:
+        seconds: 10
 
 # Wyjście z poczty
 - alias: Poczta Exit
@@ -276,12 +315,14 @@
     entity_id: device_tracker.iphone
     state: "not_poczta"
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Anna left the Poczta"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default
+        message: "Anna left the Poczta"
+        data:
+          push:
+            sound: default
+    - delay:
+        seconds: 10
 
 # Wejście do poczty          
 - alias: Poczta Enter
@@ -719,7 +760,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 10
+        minutes: 7
   action:
     service: notify.mobile_app_iphone
     data:
@@ -1002,25 +1043,5 @@
     - service: notify.tv
       data:
         message: "Ring ring maindoor" 
-
-# # HomeKit Delay
-# - alias: Start HomeKit
-#   trigger:
-#     platform: homeassistant
-#     event: start
-#   action:
-#     - delay: 00:02  # Waits 1 minutes
-#     - service: homekit.start
-
-# test
-- alias: abc
-  trigger:  
-    platform: state
-    entity_id: sensor.ringvibration_action
-    to: vibration   
-  action:
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.echo
-        media_content_type: sound
-        media_content_id: amzn_sfx_doorbell_chime_01
+    - delay:
+        seconds: 10

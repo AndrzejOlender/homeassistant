@@ -128,3 +128,4 @@ automation:
           message: "Name: {{trigger.payload_json.meta.friendly_name}},
                     Vendor: {{trigger.payload_json.meta.vendor}},
                     Description: {{trigger.payload_json.meta.description}}"
+

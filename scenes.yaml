@@ -48,7 +48,9 @@
     light.ikeabulbsgroupanteroom1:
       state: 'off' 
     light.ikeabulbsgroupwardobe:
-      state: 'off'  
+      state: 'off' 
+    media_player.echo:
+      state: standby
 
 - id: '1577085924679'
   name: Good Morning

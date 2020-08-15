@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/home-assistant:0.114.0
+        image: homeassistant/home-assistant:0.114.1
         env:
         - name: version
-          value: 0.114.0.0
+          value: 0.114.1.1
         ports:
         - containerPort: 8123
         readinessProbe:

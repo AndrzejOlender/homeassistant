@@ -20,7 +20,11 @@ spec:
         image: homeassistant/home-assistant:0.114.1
         env:
         - name: version
+<<<<<<< k8s/homeassistant/homeassistant-deployment.yaml
           value: 0.114.1.0
+=======
+          value: 0.114.1.0
+>>>>>>> k8s/homeassistant/homeassistant-deployment.yaml
         ports:
         - containerPort: 8123
         readinessProbe:

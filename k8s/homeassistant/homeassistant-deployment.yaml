@@ -17,10 +17,10 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/home-assistant:0.114.1
+        image: homeassistant/home-assistant:0.114.2
         env:
         - name: version
-          value: 0.114.1.2
+          value: 0.114.2.1
         ports:
         - containerPort: 8123
         readinessProbe:
@@ -32,6 +32,10 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: homeassistant
+        resources:
+          limits:
+            memory: "4Gi"
+            cpu: "3"
       volumes:
       - name: homeassistant
         persistentVolumeClaim:

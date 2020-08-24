@@ -32,10 +32,10 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: homeassistant
-          #        resources:
-                #          limits:
-                #            memory: "4Gi"
-                #            cpu: "3"
+          resources:
+            limits:
+            memory: "4Gi"
+            cpu: "3"
       volumes:
       - name: homeassistant
         persistentVolumeClaim:

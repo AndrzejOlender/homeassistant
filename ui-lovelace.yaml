@@ -9,7 +9,7 @@ views:
       - entity: weather.home
         type: weather-forecast
         name: 'Siemianowice'
-        show_forecast: false
+        show_forecast: true
         attribute: humidity
         
       - entities:

@@ -548,7 +548,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 254
+      brightness: 255
       entity_id:
         - light.lamp_kitchen
 

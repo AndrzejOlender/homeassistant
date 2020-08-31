@@ -27,7 +27,7 @@ recorder:
 
 # Influxdb
 influxdb:
-  host: influxdb-grafana.metrics
+  host: influxdb.metrics
   database: homeassistant
 
 http:

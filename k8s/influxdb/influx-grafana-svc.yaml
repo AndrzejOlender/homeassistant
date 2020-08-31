@@ -1,20 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: influxdb-grafana
+  name: influxdb
   namespace: metrics
 spec:
   selector:
-    app: influxdb-grafana
+    app: influxdb
   ports:
-    - name: grafana-http
-      protocol: TCP
-      port: 3003
-      targetPort: 3003
-    - name: influxdb-http
-      protocol: TCP
-      port: 8083
-      targetPort: 8083
     - name: influxdb-db
       protocol: TCP
       port: 8086

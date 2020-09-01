@@ -7,8 +7,8 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: 30Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
     path: "/opt/docker/mariadb/data"

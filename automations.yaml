@@ -586,7 +586,7 @@
     data:
       brightness: 254
       entity_id:
-        - light.ikeabulblamp_light
+        - light.lamp_kitchen
 
 # Auto Light Off Kithen Day 2
 - alias: Turn off Light in Kitchen Day

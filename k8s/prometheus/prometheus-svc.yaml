@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus
-  namespace: gitlab-managed-apps
+  name: production-prometheus-oper-prometheus
+  namespace: metrics
 spec:
   selector:
-    app: prometheus
+    app: production-prometheus-oper-prometheus
   ports:
     - name: prometheus
       protocol: TCP

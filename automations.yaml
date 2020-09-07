@@ -226,6 +226,10 @@
     to: "off"
     for:
       minutes: 5
+  condition:
+    - condition: state
+      entity_id: light.aqaralampchildroom_light
+      state: "on"
   action: 
     - service: light.turn_off
       entity_id:

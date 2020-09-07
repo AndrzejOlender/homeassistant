@@ -201,22 +201,22 @@
         entity_id: input_select.light_childroom
         option: "OFF"
 
-# - alias: Turn On Light Childroom if auto light off
-#   trigger: 
-#     platform: state
-#     entity_id: binary_sensor.motionchildroom_occupancy
-#     from: "off"
-#     to: "on"
-#   condition:
-#     - condition: state
-#       entity_id: input_select.light_childroom
-#       state: "ON"
-#     - condition: time
-#       after: '05:00:00'
-#       before: '23:00:00'
-#   action: 
-#     - service: light.turn_on
-#       entity_id: light.aqaralampchildroom_light
+- alias: Turn On Light Childroom if auto light off
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_select.light_childroom
+      state: "ON"
+    - condition: time
+      after: '05:00:00'
+      before: '23:00:00'
+  action: 
+    - service: light.turn_on
+      entity_id: light.aqaralampchildroom_light
 
 - alias: Turn Off Light Childroom 10 No Occupancy
   trigger: 
@@ -225,11 +225,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 15
-  condition:
-    - condition: state
-      entity_id: light.aqaralampchildroom_light
-      state: "ON"
+      minutes: 5
   action: 
     - service: light.turn_off
       entity_id:

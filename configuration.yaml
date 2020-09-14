@@ -35,7 +35,7 @@ http:
 # Device tracker
 device_tracker:
   - platform: luci
-    host: 192.168.1.1
+    host: 192.168.1.1:8080
     username: root
     password: !secret luci  
     new_device_defaults:

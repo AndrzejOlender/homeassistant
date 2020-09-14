@@ -47,13 +47,13 @@ zone:
     latitude: 50.2568931
     longitude: 19.0168151
     radius: 250
-    icon: mdi:worker
+    icon: mdi:account-hard-hat
 
   - name: Yakudo
     latitude: 49.957991
     longitude: 18.964889
     radius: 250
-    icon: mdi:worker  
+    icon: mdi:account-hard-hat  
 
 # This will override the default home zone
   - name: Home

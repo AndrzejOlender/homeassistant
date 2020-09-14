@@ -9,8 +9,6 @@ spec:
   ports:
     - name: grafana-http
       protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000
-  externalIPs:
-    - 192.168.1.2
-  type: ClusterIP
+  type: LoadBalancer

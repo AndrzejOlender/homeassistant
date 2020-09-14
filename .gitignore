@@ -18,5 +18,3 @@ www/
 docker-compose.yaml
 homeassistant-ec281e42879c.json
 homeassistant-google.json
-custom_components/*
-custom_components/alexa_media/*

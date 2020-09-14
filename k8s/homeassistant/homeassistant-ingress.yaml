@@ -1,16 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  namespace: home
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-  name: homeassistant
+    kubernetes.io/ingress.class: "nginx"    
+    cert-manager.io/issuer: "letsencrypt-prod"
+  name: homeasssitant
 spec:
+  tls:
+    - hosts:
+      - home.olender.me
+      secretName: home.olender.me
   rules:
-  - host: homeassistant.192.168.1.200.nip.io
+  - host: home.olender.me
     http:
       paths:
       - backend:
-          serviceName: homeassistant
-          servicePort: 8123
+          serviceName: homeasssitant
+          servicePort: 80
         path: /

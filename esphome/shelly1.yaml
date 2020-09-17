@@ -1,0 +1,97 @@
+esphome:
+  name: shelly1
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret password
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+logger:
+
+i2c:
+  sda: GPIO12
+  scl: GPIO14
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO13
+    name: "light2 Relay"
+    on_press:
+      then:
+        - switch.toggle: light2
+  - platform: gpio
+    pin:
+      number: GPIO5
+    name: "light3 Relay"
+    on_press:
+      then:
+        - switch.toggle: light3
+
+sensor:
+  - platform: ntc
+    sensor: shelly1_resistance_sensor
+    id: shelly1_temperature
+    name: "shelly1 Temperature"
+    unit_of_measurement: "°C"
+    accuracy_decimals: 1
+    icon: mdi:thermometer
+    calibration:
+      b_constant: 3350
+      reference_temperature: 25°C
+      reference_resistance: 10kOhm
+  - platform: adc
+    id: shelly1_source_sensor
+    pin: A0
+    update_interval: 10s
+  - platform: resistance
+    id: shelly1_resistance_sensor
+    sensor: shelly1_source_sensor
+    configuration: DOWNSTREAM
+    resistor: 32kOhm
+  - platform: ade7953
+    voltage:
+      name: "shelly1 Voltage"
+    current_a: 
+      name: "light2 Current"
+    current_b:
+      name: "light3 Current"
+    active_power_a:
+      name: "light2 Power"
+    active_power_b:
+      name: "light3 Power"
+      filters:
+      - multiply: -1.0
+  - platform: uptime
+    name: '${device_name} Uptime'
+    unit_of_measurement: days
+    update_interval: 300s
+    filters:
+      - multiply: 0.000011574
+  - platform: wifi_signal
+    name: '${device_name} WiFi Signal'
+    update_interval: 300s
+
+
+status_led:
+  pin:
+    number: GPIO0
+    inverted: yes
+
+switch:
+  - platform: gpio
+    id: light2
+    name: "light2 Relay"
+    pin: GPIO15
+    restore_mode: ALWAYS_OFF
+  - platform: gpio
+    id: light3
+    name: "light3 Relay"
+    pin: GPIO4
+    restore_mode: ALWAYS_OFF 

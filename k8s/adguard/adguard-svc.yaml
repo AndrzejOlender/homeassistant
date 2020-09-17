@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: adguard
+  namespace: smart-home
+spec:
+  selector:
+    app: adguard
+  ports:
+    - name: adguard-dns-tcp
+      protocol: TCP
+      port: 53
+      targetPort: 53
+    - name: adguard-dns-udp
+      protocol: UDP
+      port: 53
+      targetPort: 53
+    - name: adguard-http
+      protocol: TCP
+      port: 8888
+      targetPort: 8888
+    - name: adguard-dns-tls
+      protocol: TCP
+      port: 853
+      targetPort: 853
+    - name: adguard-ruby
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  externalIPs:
+    - 192.168.1.2
+  type: ClusterIP

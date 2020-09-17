@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  namespace: home
+  namespace: smart-home
   name: config
 spec:
   storageClassName: "homeassistant"

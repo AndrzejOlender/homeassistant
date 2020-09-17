@@ -201,22 +201,22 @@
         entity_id: input_select.light_childroom
         option: "OFF"
 
-# - alias: Turn On Light Childroom if auto light off
-#   trigger: 
-#     platform: state
-#     entity_id: binary_sensor.motionchildroom_occupancy
-#     from: "off"
-#     to: "on"
-#   condition:
-#     - condition: state
-#       entity_id: input_select.light_childroom
-#       state: "ON"
-#     - condition: time
-#       after: '05:00:00'
-#       before: '23:00:00'
-#   action: 
-#     - service: light.turn_on
-#       entity_id: light.aqaralampchildroom_light
+- alias: Turn On Light Childroom if auto light off
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_select.light_childroom
+      state: "ON"
+    - condition: time
+      after: '05:00:00'
+      before: '23:00:00'
+  action: 
+    - service: light.turn_on
+      entity_id: light.aqaralampchildroom_light
 
 - alias: Turn Off Light Childroom 10 No Occupancy
   trigger: 
@@ -225,11 +225,11 @@
     from: "on"
     to: "off"
     for:
-      minutes: 15
+      minutes: 5
   condition:
     - condition: state
       entity_id: light.aqaralampchildroom_light
-      state: "ON"
+      state: "on"
   action: 
     - service: light.turn_off
       entity_id:
@@ -245,8 +245,8 @@
     entity_id: binary_sensor.maindoor_contact
     from: "off"
     to: "on"
-    for:
-      minutes: 1
+    # for:
+    #   minutes: 1
   condition:
     - condition: state
       entity_id: device_tracker.iphone_luci_andrzej
@@ -548,7 +548,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 254
+      brightness: 255
       entity_id:
         - light.lamp_kitchen
 
@@ -586,7 +586,7 @@
     data:
       brightness: 254
       entity_id:
-        - light.ikeabulblamp_light
+        - light.lamp_kitchen
 
 # Auto Light Off Kithen Day 2
 - alias: Turn off Light in Kitchen Day
@@ -1045,3 +1045,14 @@
         message: "Ring ring maindoor" 
     - delay:
         seconds: 10
+
+- alias: Nfc
+  trigger: 
+    platform: event
+    event_type: tag_scanned
+    event_data:
+      # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
+      tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
+  action:
+    entity_id: light.ikeabulbsgroupanteroom2
+    service: light.toggle

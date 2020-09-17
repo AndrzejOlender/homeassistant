@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: production-homeassistant
-  namespace: home
+  namespace: smart-home
   labels: 
     app: homeassistant
 spec:
@@ -17,10 +17,14 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/home-assistant:0.114.3
+        image: homeassistant/amd64-homeassistant:0.115.0
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1"
         env:
         - name: version
-          value: 0.114.3.1
+          value: 0.114.0.0 
         ports:
         - containerPort: 8123
         readinessProbe:
@@ -32,10 +36,6 @@ spec:
         volumeMounts:
         - mountPath: /config
           name: homeassistant
-        resources:
-          limits:
-            memory: "4Gi"
-            cpu: "3"
       volumes:
       - name: homeassistant
         persistentVolumeClaim:

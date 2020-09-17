@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    kubernetes.io/ingress.class: "nginx"    
+    cert-manager.io/issuer: "letsencrypt-prod"
+  name: grafana
+  namespace: metrics
+spec:
+  tls:
+    - hosts:
+      - grafana.olender.me
+      secretName: grafana.olender.me
+  rules:
+  - host: grafana.olender.me
+    http:
+      paths:
+      - backend:
+          serviceName: grafana
+          servicePort: 80
+        path: /

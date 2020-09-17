@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: esphome
-  namespace: home
+  namespace: smart-home
   labels: 
     app: esphome
 spec:

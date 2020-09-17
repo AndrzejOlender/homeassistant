@@ -5,8 +5,8 @@ metadata:
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 5Gi
+      storage: 30Gi
   volumeName: "mariadb-pv-volume"

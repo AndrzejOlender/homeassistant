@@ -2,7 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: homeassistant
-  namespace: home
+  namespace: smart-home
   labels:
     type: host
 spec:

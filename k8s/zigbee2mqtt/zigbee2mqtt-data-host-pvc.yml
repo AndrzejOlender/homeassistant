@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data-zigbee2mqtt
+  namespace: smart-home
+  labels:
+    type: host
+spec:
+  # set to empty to disable dynamic provisioning using StorageClass
+  storageClassName: "data-zigbee2mqtt"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 5Gi

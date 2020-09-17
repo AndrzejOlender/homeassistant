@@ -494,53 +494,53 @@ sensor:
     sensors:
       airly_aqi:
         friendly_name: "Airly AQI"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: 'AQI'
         value_template: "{{ state_attr('air_quality.airly', 'air_quality_index') }}"
 
       airly_pm10:
         friendly_name: "Airly PM10"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: 'µg/m³'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_10') }}"
 
       airly_pm2_5:
         friendly_name: "Airly PM2.5"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: 'µg/m³'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_2_5') }}"
 
       airly_advice:
         friendly_name: "Airly advice"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         value_template: "{{ state_attr('air_quality.airly', 'advice') }}"
 
       airly_aqi_level:
         friendly_name: "Airly AQI level"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         value_template: "{{ state_attr('air_quality.airly', 'air_quality_index_level') }}"
 
       airly_pm2_5_limit:
         friendly_name: "Airly PM2.5 limit"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: 'µg/m³'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_2_5_limit') }}"
 
       airly_pm2_5_percent:
         friendly_name: "PM2.5 limit"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: '%'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_2_5_percent_of_limit') }}"
 
       airly_pm10_limit:
         friendly_name: "Airly PM10 limit"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: 'µg/m³'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_10_limit') }}"
 
       airly_pm10_percent:
         friendly_name: "PM10 limit"
-        entity_id: air_quality.airly
+        # entity_id: air_quality.airly
         unit_of_measurement: '%'
         value_template: "{{ state_attr('air_quality.airly', 'particulate_matter_10_percent_of_limit') }}" 
         

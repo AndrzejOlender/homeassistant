@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adguard
+  namespace: smart-home
+  labels: 
+    app: adguard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adguard
+  template:
+    metadata:
+      labels:
+        app: adguard
+    spec:
+      containers:
+      - name: adguard
+        image: adguard/adguardhome
+        ports:
+        - containerPort: 53
+          hostPort: 53
+          protocol: UDP
+        - containerPort: 53
+          hostPort: 53
+          protocol: TCP
+        - containerPort: 853
+          hostPort: 853
+          protocol: TCP
+        - containerPort: 80
+        - containerPort: 443
+        - containerPort: 3000
+        volumeMounts:
+        - mountPath: /opt/adguardhome/conf
+          name: config-adguard
+        - mountPath: /opt/adguardhome/work
+          name: work-adguard
+      volumes:
+      - name: config-adguard
+        persistentVolumeClaim:
+          claimName: config-adguard
+      - name: work-adguard
+        persistentVolumeClaim:
+          claimName: work-adguard

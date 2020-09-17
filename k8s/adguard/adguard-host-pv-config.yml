@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: config-adguard
+  namespace: smart-home
+spec:
+  storageClassName: "config-adguard"
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/docker/adguard/data/conf"

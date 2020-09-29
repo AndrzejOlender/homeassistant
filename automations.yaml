@@ -434,105 +434,118 @@
         message: "Warning! Warning! Warning!. Leak in kitchen."
                 
 
-# # Away Mode In Weekdays 
-# - alias: Set Away Mode 
-#   trigger:
-#     platform: time
-#     at: "08:00:00"
-#   condition:
-#     - condition: state
-#       entity_id: 'binary_sensor.workday_sensor'
-#       state: 'on' 
-#     - condition: state
-#       entity_id: device_tracker.iphone_luci_andrzej
-#       state: "not_home"
-#     - condition: state
-#       entity_id: device_tracker.xiaomired_luci_ania
-#       state: "not_home"  
-#   action:
-#     - service: climate.turn_off
-#       data:
-#         entity_id: 
-#           - climate.thermochildroom_climate
-#           - climate.thermolivingroom_climate
+# Away Mode In Weekdays 
+- alias: Set Away Mode 
+  trigger:
+    platform: time
+    at: "08:00:00"
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on' 
+    - condition: state
+      entity_id: device_tracker.iphone_luci_andrzej
+      state: "not_home"
+    - condition: state
+      entity_id: device_tracker.xiaomired_luci_ania
+      state: "not_home"  
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
 
-# # Away Mode 23 In Weekdays (person in home)
-# - alias: Set Home Mode 
-#   trigger:
-#     platform: time
-#     at: "07:00:00"
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: state
-#         entity_id: 'binary_sensor.workday_sensor'
-#         state: 'on'
-#       - condition: or
-#         conditions:
-#           - condition: state
-#             entity_id: device_tracker.iphone_luci_andrzej
-#             state: "home"
-#           - condition: state
-#             entity_id: device_tracker.xiaomired_luci_ania
-#             state: "home"  
-#   action:
-#     - service: climate.set_temperature
-#       data:
-#         entity_id: 
-#           - climate.thermochildroom_climate
-#           - climate.thermolivingroom_climate
-#         temperature: 23
-#         hvac_mode: auto          
+# Away Mode 23 In Weekdays (person in home)
+- alias: Set Home Mode 
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'binary_sensor.workday_sensor'
+        state: 'on'
+      - condition: state
+        entity_id: input_select.thermo_season
+        state: "ON"
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: device_tracker.iphone_luci_andrzej
+            state: "home"
+          - condition: state
+            entity_id: device_tracker.xiaomired_luci_ania
+            state: "home"  
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto          
 
-# # Set 23 Time 16:00 In Weekdays
-# - alias: Set Auto 23 Day Mode 
-#   trigger:
-#     platform: time
-#     at: "16:00:00"
-#   condition:
-#     condition: state
-#     entity_id: 'binary_sensor.workday_sensor'
-#     state: 'on'
-#   action:
-#     - service: climate.set_temperature
-#       data:
-#         entity_id: 
-#           - climate.thermochildroom_climate
-#           - climate.thermolivingroom_climate
-#         temperature: 23
-#         hvac_mode: auto            
+# Set 23 Time 16:00 In Weekdays
+- alias: Set Auto 23 Day Mode 
+  trigger:
+    platform: time
+    at: "15:30:00"
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: state
+      entity_id: input_select.thermo_season
+      state: "ON"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto            
 
-# # Night Mode Good Sleep
-# - alias: Set Auto 20 Night Mode 
-#   trigger:
-#     platform: time
-#     at: "01:30:00"
-#   action:
-#     - service: climate.set_temperature
-#       data:
-#         entity_id: 
-#           - climate.thermochildroom_climate
-#           - climate.thermolivingroom_climate
-#         temperature: 20
-#         hvac_mode: auto        
+# Night Mode Good Sleep
+- alias: Set Auto 20 Night Mode 
+  trigger:
+    platform: time
+    at: "01:30:00"
+  condition:
+    - condition: state
+      entity_id: input_select.thermo_season
+      state: "ON"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 20
+        hvac_mode: auto        
 
-# # Set 23 Time 7:00 in Weekends      
-# - alias: Set Auto 23 Day Mode Weekends
-#   trigger:
-#     platform: time
-#     at: "07:00:00"
-#   condition:
-#     condition: state
-#     entity_id: 'binary_sensor.workday_sensor'
-#     state: 'off'
-#   action:
-#     - service: climate.set_temperature
-#       data:
-#         entity_id: 
-#           - climate.thermochildroom_climate
-#           - climate.thermolivingroom_climate
-#         temperature: 23
-#         hvac_mode: auto          
+# Set 23 Time 7:00 in Weekends      
+- alias: Set Auto 23 Day Mode Weekends
+  trigger:
+    platform: time
+    at: "07:00:00"
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
+    - condition: state
+      entity_id: input_select.thermo_season
+      state: "ON"
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+          - climate.thermolivingroom_climate
+        temperature: 23
+        hvac_mode: auto          
 
 # Auto Light in Kithen Sunset
 - alias: Turn on Light in Kitchen
@@ -950,7 +963,7 @@
 - alias: "Air Max 30 min On"
   trigger:
     platform: time
-    at: "14:30:00"
+    at: "15:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'

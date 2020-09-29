@@ -244,6 +244,9 @@ homekit:
       - switch.light1_relay
       - switch.light2_relay
       - switch.light3_relay
+      - switch.thermoseason
+      - sensor.mi_humidity
+      - sensor.mi_temperature
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe
@@ -669,4 +672,21 @@ switch:
                   {% else %}
                     mdi:led-off
                   {% endif %}              
+
+  - platform: template
+    switches:
+      thermoseason:
+        friendly_name: "Thermo Season"
+        value_template: "ON"
+        turn_on:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.thermo_season
+              option: "ON"
+        turn_off:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.thermo_season
+              option: "OFF"
+
 

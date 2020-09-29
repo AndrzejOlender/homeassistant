@@ -92,6 +92,9 @@ views:
           - entity: sensor.mi_temperature
             name: Living Room
             state_color: on
+          - entity: sensor.mi_humidity
+            name: Living Room
+            state_color: on
         show_header_toggle: false
         type: entities  
         
@@ -160,6 +163,9 @@ views:
             state_color: on
           - entity: switch.airpurifierled
             name: LED
+            state_color: on
+          - entity: switch.thermoseason
+            name: Heat Season
             state_color: on
           - entity: sensor.airly_aqi
             name: Outdoor
@@ -234,7 +240,7 @@ views:
         # the following are optional:
         name: Zigbbee2Mqtt
         mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
-        force: 3000 # decrease it to get smaller map if you have many devices
+        force: 2000 # decrease it to get smaller map if you have many devices
         node_size: 16
         font_size: 12
         link_width: 2
@@ -320,6 +326,12 @@ views:
             name: Window
             state_color: on
           - entity: fan.air_purifier
+            state_color: on
+          - entity: sensor.mi_humidity
+            name: Living Room
+            state_color: on
+          - entity: switch.thermoseason
+            name: Heat Season
             state_color: on
           - entity: climate.thermolivingroom_climate
             name: Thermostat

@@ -161,7 +161,7 @@ views:
           - entity: switch.airpurifierled
             name: LED
             state_color: on
-          - entity: input_select.thermo_season
+          - entity: switch.thermoseason
             name: Heat Season
             state_color: on
           - entity: sensor.airly_aqi

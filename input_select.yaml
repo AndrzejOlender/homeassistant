@@ -5,3 +5,11 @@ light_childroom:
         - 'OFF'
     # initial: 'OFF'
     icon: mdi:lightbulb
+
+thermo_season:
+    name: "Thermo Season"
+    options:
+        - 'ON'
+        - 'OFF'
+    # initial: 'OFF'
+    icon: mdi:radiator

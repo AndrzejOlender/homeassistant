@@ -388,7 +388,7 @@
         data:
           type: tts
         message: "Warning! Warning! Warning!. Leak in toilet."
-        
+
 
 - alias: Send Notification Leak Kitchen
   trigger:
@@ -467,6 +467,9 @@
       - condition: state
         entity_id: 'binary_sensor.workday_sensor'
         state: 'on'
+      - condition: state
+        entity_id: input_select.thermo_season_
+        state: "ON"
       - condition: or
         conditions:
           - condition: state
@@ -490,9 +493,12 @@
     platform: time
     at: "16:00:00"
   condition:
-    condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'on'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+    - condition: state
+      entity_id: input_select.thermo_season_
+      state: "ON"
   action:
     - service: climate.set_temperature
       data:
@@ -507,6 +513,10 @@
   trigger:
     platform: time
     at: "01:30:00"
+  condition:
+    - condition: state
+      entity_id: input_select.thermo_season_
+      state: "ON"
   action:
     - service: climate.set_temperature
       data:
@@ -522,9 +532,12 @@
     platform: time
     at: "07:00:00"
   condition:
-    condition: state
-    entity_id: 'binary_sensor.workday_sensor'
-    state: 'off'
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
+    - condition: state
+      entity_id: input_select.thermo_season_
+      state: "ON"
   action:
     - service: climate.set_temperature
       data:

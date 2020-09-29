@@ -244,6 +244,9 @@ homekit:
       - switch.light1_relay
       - switch.light2_relay
       - switch.light3_relay
+      - switch.thermoseason
+      - sensor.mi_humidity
+      - sensor.mi_temperature
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe

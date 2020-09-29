@@ -84,6 +84,8 @@ sensor.airly_pm10:
   icon: mdi:gauge
 sensor.airly_pm10_percent:
   icon: mdi:gauge
+sensor.mi_humidity:
+  icon: mdi:water
 script.miio_turn_on_nc:
   friendly_name: Canal+
   icon: mdi:remote-tv

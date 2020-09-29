@@ -963,7 +963,7 @@
 - alias: "Air Max 30 min On"
   trigger:
     platform: time
-    at: "14:30:00"
+    at: "15:00:00"
   condition:
     - condition: state
       entity_id: 'binary_sensor.workday_sensor'

@@ -670,3 +670,20 @@ switch:
                     mdi:led-off
                   {% endif %}              
 
+  - platform: template
+    switches:
+      thermoseason:
+        friendly_name: "Thermo Season"
+        value_template: "ON"
+        turn_on:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.thermo_season
+              option: "ON"
+        turn_off:
+          - service: input_select.select_option
+            data:
+              entity_id: input_select.thermo_season
+              option: "OFF"
+
+

@@ -92,6 +92,9 @@ views:
           - entity: sensor.mi_temperature
             name: Living Room
             state_color: on
+          - entity: sensor.mi_humidity
+            name: Living Room
+            state_color: on
         show_header_toggle: false
         type: entities  
         
@@ -323,6 +326,12 @@ views:
             name: Window
             state_color: on
           - entity: fan.air_purifier
+            state_color: on
+          - entity: sensor.mi_humidity
+            name: Living Room
+            state_color: on
+          - entity: switch.thermoseason
+            name: Heat Season
             state_color: on
           - entity: climate.thermolivingroom_climate
             name: Thermostat

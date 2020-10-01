@@ -141,6 +141,8 @@ device_tracker.redmi_note_4:
   entity_picture: /local/ania.jpg
 device_tracker.iphone:
   entity_picture: /local/andrzej.jpg
+device_tracker.macbookpro:
+  entity_picture: /local/andrzej.jpg
 light.ikeabulbsgrouptoiletmirror:
   icon: mdi:track-light
   supported_features: 41

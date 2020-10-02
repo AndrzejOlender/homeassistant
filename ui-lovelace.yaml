@@ -22,7 +22,9 @@ views:
 
       - entities:
           - entity: light.aqaralampchildroom_light
-            name: Child Room
+            name: Child Room 1
+          - entity: light.ikeabulbsgroupwardobe
+            name: Child Room 2
           - entity: light.ikeabulblamp_light
             name: Living Room 
           - entity: switch.light1_relay
@@ -46,8 +48,6 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
-          - entity: light.ikeabulbsgroupwardobe
-            name: Wardobe
         show_header_toggle: false
         type: entities
 
@@ -70,14 +70,15 @@ views:
       - entities:
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
+            name: Child Room 1
+          - entity: binary_sensor.wardobewindow_contact
+            name: Child Room 2
+            state_color: on
           - entity: binary_sensor.kitchenwindow_contact
             state_color: on
           - entity: binary_sensor.livingroombalconywindow_contact
             state_color: on
           - entity: binary_sensor.livingroomwindow_contact
-            state_color: on
-          - entity: binary_sensor.wardobewindow_contact
-            name: Wardobe
             state_color: on
         show_header_toggle: false
         type: entities
@@ -343,10 +344,14 @@ views:
 # Child room
       - entities:
           - entity: light.aqaralampchildroom_light
-            name: Light
+            name: Light 1
+          - entity: light.ikeabulbsgroupwardobe
+            name: Light 2
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
-            name: Window
+            name: Window 1
+          - entity: binary_sensor.wardobewindow_contact
+            name: Window 2
           - entity: climate.thermochildroom_climate
             name: Thermostat
           - entity: binary_sensor.motionchildroom_occupancy
@@ -396,17 +401,6 @@ views:
         show_header_toggle: false
         type: entities  
         title: Toilet
-
-# Wardobe
-      - entities:
-          - entity: light.ikeabulbsgroupwardobe
-            name: Light
-          - entity: binary_sensor.wardobewindow_contact
-            name: Window
-            state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Wardobe
 
     icon: 'mdi:home-assistant'
     panel: false

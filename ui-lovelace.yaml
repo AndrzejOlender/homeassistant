@@ -198,6 +198,8 @@ views:
     title: Home
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     cards:
       - entities:
           - sensor.adguard_average_processing_speed
@@ -234,6 +236,8 @@ views:
     title: Guard
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     panel: true
     cards:
       - type: custom:zigbee2mqtt-networkmap
@@ -409,6 +413,8 @@ views:
     title: Rooms
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     cards:
       - entities:
           - entity: sensor.motionchildroom_battery

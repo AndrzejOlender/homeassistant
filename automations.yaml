@@ -81,8 +81,12 @@
     entity_id: sensor.aqaraswitchwardrobe_click
     to: single
   action:
-    entity_id: light.ikeabulbsgroupwardobe
-    service: light.toggle    
+    - service: light.toggle
+      entity_id: light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Switch Good Night Right
   trigger:

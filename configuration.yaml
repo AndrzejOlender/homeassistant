@@ -677,7 +677,7 @@ switch:
     switches:
       thermoseason:
         friendly_name: "Thermo Season"
-        value_template: "ON"
+        value_template: "{{ is_state('input_select.thermo_season', 'ON') }}"
         turn_on:
           - service: input_select.select_option
             data:
@@ -688,5 +688,11 @@ switch:
             data:
               entity_id: input_select.thermo_season
               option: "OFF"
+        icon_template: >-
+                  {% if is_state('input_select.thermo_season', 'ON') %}
+                    mdi:radiator
+                  {% else %}
+                    mdi:radiator-disabled
+                  {% endif %} 
 
 

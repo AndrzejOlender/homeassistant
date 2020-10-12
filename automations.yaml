@@ -217,6 +217,8 @@
   action: 
     - service: light.turn_on
       entity_id: light.aqaralampchildroom_light
+    - service: light.turn_on
+      entity_id: light.ikeabulbsgroupwardobe
 
 - alias: Turn Off Light Childroom 10 No Occupancy
   trigger: 
@@ -234,6 +236,7 @@
     - service: light.turn_off
       entity_id:
         - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
     - service: input_select.select_option
       data:
         entity_id: input_select.light_childroom

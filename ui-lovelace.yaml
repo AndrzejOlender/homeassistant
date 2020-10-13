@@ -201,20 +201,20 @@ views:
     visible:
       - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     cards:
-      - entities:
-          - sensor.adguard_average_processing_speed
-          - sensor.adguard_dns_queries
-          - sensor.adguard_dns_queries_blocked_ratio
-          - sensor.adguard_parental_control_blocked
-          - sensor.adguard_safe_browsing_blocked
-          - sensor.adguard_safe_searches_enforced
-          - switch.adguard_protection
-          - switch.adguard_safe_browsing
-          - switch.adguard_filtering
-          - switch.adguard_parental_control
-        show_header_toggle: false
-        type: entities
-        
+      # - entities:
+      #     - sensor.adguard_average_processing_speed
+      #     - sensor.adguard_dns_queries
+      #     - sensor.adguard_dns_queries_blocked_ratio
+      #     - sensor.adguard_parental_control_blocked
+      #     - sensor.adguard_safe_browsing_blocked
+      #     - sensor.adguard_safe_searches_enforced
+      #     - switch.adguard_protection
+      #     - switch.adguard_safe_browsing
+      #     - switch.adguard_filtering
+      #     - switch.adguard_parental_control
+      #   show_header_toggle: false
+      #   type: entities
+
       - entities:
           - entity: sensor.zigbee2mqtt_bridge_state
           - entity: sensor.zigbee2mqtt_version

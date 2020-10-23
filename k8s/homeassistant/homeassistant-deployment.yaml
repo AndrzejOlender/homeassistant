@@ -17,14 +17,14 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/amd64-homeassistant:0.116.2
+        image: homeassistant/amd64-homeassistant:0.116.3
         resources:
           limits:
             memory: "1Gi"
             cpu: "1"
         env:
         - name: version
-          value: 0.116.2.0 
+          value: 0.116.3.0 
         ports:
         - containerPort: 8123
         readinessProbe:

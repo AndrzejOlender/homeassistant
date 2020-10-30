@@ -22,7 +22,9 @@ views:
 
       - entities:
           - entity: light.aqaralampchildroom_light
-            name: Child Room
+            name: Child Room 1
+          - entity: light.ikeabulbsgroupwardobe
+            name: Child Room 2
           - entity: light.ikeabulblamp_light
             name: Living Room 
           - entity: switch.light1_relay
@@ -46,8 +48,6 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
-          - entity: light.ikeabulbsgroupwardobe
-            name: Wardobe
         show_header_toggle: false
         type: entities
 
@@ -70,14 +70,15 @@ views:
       - entities:
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
+            name: Child Room 1
+          - entity: binary_sensor.wardobewindow_contact
+            name: Child Room 2
+            state_color: on
           - entity: binary_sensor.kitchenwindow_contact
             state_color: on
           - entity: binary_sensor.livingroombalconywindow_contact
             state_color: on
           - entity: binary_sensor.livingroomwindow_contact
-            state_color: on
-          - entity: binary_sensor.wardobewindow_contact
-            name: Wardobe
             state_color: on
         show_header_toggle: false
         type: entities
@@ -197,21 +198,23 @@ views:
     title: Home
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     cards:
-      - entities:
-          - sensor.adguard_average_processing_speed
-          - sensor.adguard_dns_queries
-          - sensor.adguard_dns_queries_blocked_ratio
-          - sensor.adguard_parental_control_blocked
-          - sensor.adguard_safe_browsing_blocked
-          - sensor.adguard_safe_searches_enforced
-          - switch.adguard_protection
-          - switch.adguard_safe_browsing
-          - switch.adguard_filtering
-          - switch.adguard_parental_control
-        show_header_toggle: false
-        type: entities
-        
+      # - entities:
+      #     - sensor.adguard_average_processing_speed
+      #     - sensor.adguard_dns_queries
+      #     - sensor.adguard_dns_queries_blocked_ratio
+      #     - sensor.adguard_parental_control_blocked
+      #     - sensor.adguard_safe_browsing_blocked
+      #     - sensor.adguard_safe_searches_enforced
+      #     - switch.adguard_protection
+      #     - switch.adguard_safe_browsing
+      #     - switch.adguard_filtering
+      #     - switch.adguard_parental_control
+      #   show_header_toggle: false
+      #   type: entities
+
       - entities:
           - entity: sensor.zigbee2mqtt_bridge_state
           - entity: sensor.zigbee2mqtt_version
@@ -233,6 +236,8 @@ views:
     title: Guard
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     panel: true
     cards:
       - type: custom:zigbee2mqtt-networkmap
@@ -343,10 +348,14 @@ views:
 # Child room
       - entities:
           - entity: light.aqaralampchildroom_light
-            name: Light
+            name: Light 1
+          - entity: light.ikeabulbsgroupwardobe
+            name: Light 2
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
-            name: Window
+            name: Window 1
+          - entity: binary_sensor.wardobewindow_contact
+            name: Window 2
           - entity: climate.thermochildroom_climate
             name: Thermostat
           - entity: binary_sensor.motionchildroom_occupancy
@@ -397,17 +406,6 @@ views:
         type: entities  
         title: Toilet
 
-# Wardobe
-      - entities:
-          - entity: light.ikeabulbsgroupwardobe
-            name: Light
-          - entity: binary_sensor.wardobewindow_contact
-            name: Window
-            state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Wardobe
-
     icon: 'mdi:home-assistant'
     panel: false
     path: Rooms
@@ -415,6 +413,8 @@ views:
     title: Rooms
 
   - badges: []
+    visible:
+      - user: 2bcb193b06bd4c64b0252e7d2ebfe3b2
     cards:
       - entities:
           - entity: sensor.motionchildroom_battery

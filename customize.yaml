@@ -28,8 +28,6 @@ switch.light3_relay:
   icon: mdi:wall-sconce-flat
 switch.washermachine_relay:
   icon: mdi:washing-machine
-switch.thermoseason:
-  icon: mdi:radiator
 switch.tv_relay:
   icon: mdi:television
 switch.yamaha_relay:

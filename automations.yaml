@@ -229,7 +229,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 5
+      minutes: 10
   condition:
     - condition: state
       entity_id: light.aqaralampchildroom_light

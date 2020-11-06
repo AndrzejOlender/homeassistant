@@ -124,6 +124,7 @@
     entity_id: light.ikeabulbsgroupkitchen
     service: light.toggle 
 
+# Manual turnoff lights
 - alias: Switch Off Light in the Kitchen & Anteroom
   trigger:
     platform: state
@@ -136,6 +137,23 @@
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
     service: light.turn_off     
+
+# Auto turnoff lights
+- alias: Switch Off Light in the Kitchen & Anteroom 2
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionkitchen2_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 2
+  action:
+    entity_id: 
+      - light.lamp_kitchen
+      - light.ikeabulbsgroupanteroom1
+      - light.ikeabulbsgroupanteroom2
+    service: light.turn_off     
+
 
 - alias: Lamp Kitchen
   trigger:
@@ -615,11 +633,6 @@
     to: "off"
     for:
       minutes: 10
-  condition:
-    - condition: sun
-      before: sunrise
-    - condition: time
-      after: '05:30:00'
   action: 
     entity_id: light.lamp_kitchen
     service: light.turn_off     

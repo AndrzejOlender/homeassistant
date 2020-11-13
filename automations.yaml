@@ -1079,13 +1079,13 @@
     - delay:
         seconds: 10
 
-- alias: Nfc
-  trigger: 
-    platform: event
-    event_type: tag_scanned
-    event_data:
-      # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
-      tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
-  action:
-    entity_id: light.ikeabulbsgroupanteroom2
-    service: light.toggle
+# - alias: Nfc
+#   trigger: 
+#     platform: event
+#     event_type: tag_scanned
+#     event_data:
+#       # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
+#       tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
+#   action:
+#     entity_id: light.ikeabulbsgroupanteroom2
+#     service: light.toggle

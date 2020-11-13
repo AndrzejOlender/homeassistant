@@ -146,7 +146,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 2
+      minutes: 4
   action:
     entity_id: 
       - light.lamp_kitchen
@@ -507,7 +507,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto          
 
 # Set 23 Time 16:00 In Weekdays
@@ -596,7 +596,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 2
+      minutes: 4
   condition:
     condition: sun
     after: sunset

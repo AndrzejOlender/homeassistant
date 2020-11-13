@@ -148,7 +148,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 4
+      minutes: 3
   action:
     entity_id: 
       - light.lamp_kitchen
@@ -598,7 +598,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 4
+      minutes: 3
   condition:
     condition: sun
     after: sunset

@@ -144,7 +144,6 @@
     platform: state
     entity_id: 
       - binary_sensor.motionkitchen2_occupancy
-      - binary_sensor.motionkitchen_occupancy
     from: "on"
     to: "off"
     for:

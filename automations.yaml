@@ -511,8 +511,8 @@
         temperature: 21
         hvac_mode: auto          
 
-# Set 23 Time 16:00 In Weekdays
-- alias: Set Auto 23 Day Mode 
+# Set 21 Time 16:00 In Weekdays
+- alias: Set Auto 21 Day Mode 
   trigger:
     platform: time
     at: "15:30:00"
@@ -529,7 +529,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto            
 
 # Night Mode Good Sleep
@@ -550,8 +550,8 @@
         temperature: 20
         hvac_mode: auto        
 
-# Set 23 Time 7:00 in Weekends      
-- alias: Set Auto 23 Day Mode Weekends
+# Set 21 Time 7:00 in Weekends      
+- alias: Set Auto 21 Day Mode Weekends
   trigger:
     platform: time
     at: "07:00:00"
@@ -568,7 +568,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto          
 
 # Auto Light in Kithen Sunset

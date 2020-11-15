@@ -263,6 +263,41 @@
         entity_id: input_select.light_childroom
         option: "ON"
 
+# Notification open main door
+- alias: "Notification Open Main Door"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.maindoor_contact
+      from: "off"
+      to: "on"
+      for:
+        minutes: 1
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "Open Main Door"
+        data:
+          push:
+            sound: default   
+    - service: notify.tv
+      data:
+        message: "Open Main Door"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        message: "Open Main Door"
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.echo
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo
+        data:
+          type: tts
+        message: "Open Main Door"
+
 - alias: Send Notification Enter Home
   trigger:
     platform: state

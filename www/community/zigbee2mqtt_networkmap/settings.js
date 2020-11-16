@@ -1,0 +1,2 @@
+var webhook_trigger_update_url = 'https://home.olender.me/api/webhook/0dbfd663dcda1ded41fca0329570beab06f777d37ee5cb07bda5db9aff223930';
+var webhook_check_update_url = 'https://home.olender.me/api/webhook/49bb6df8d166bf7db36c06064959005e5be2c795d3a3a5bb61656df4f20d62c7';

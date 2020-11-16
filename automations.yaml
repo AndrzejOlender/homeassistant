@@ -124,6 +124,7 @@
     entity_id: light.ikeabulbsgroupkitchen
     service: light.toggle 
 
+# Manual turnoff lights
 - alias: Switch Off Light in the Kitchen & Anteroom
   trigger:
     platform: state
@@ -136,6 +137,24 @@
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
     service: light.turn_off     
+
+# Auto turnoff lights
+- alias: Switch Off Light in the Kitchen & Anteroom 2
+  trigger: 
+    platform: state
+    entity_id: 
+      - binary_sensor.motionkitchen2_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 3
+  action:
+    entity_id: 
+      - light.lamp_kitchen
+      - light.ikeabulbsgroupanteroom1
+      - light.ikeabulbsgroupanteroom2
+    service: light.turn_off     
+
 
 - alias: Lamp Kitchen
   trigger:
@@ -229,7 +248,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 5
+      minutes: 10
   condition:
     - condition: state
       entity_id: light.aqaralampchildroom_light
@@ -243,6 +262,41 @@
       data:
         entity_id: input_select.light_childroom
         option: "ON"
+
+# Notification open main door
+- alias: "Notification Open Main Door"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.maindoor_contact
+      from: "off"
+      to: "on"
+      for:
+        minutes: 1
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "Open Main Door"
+        data:
+          push:
+            sound: default   
+    - service: notify.tv
+      data:
+        message: "Open Main Door"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        message: "Open Main Door"
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.echo
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo
+        data:
+          type: tts
+        message: "Open Main Door"
 
 - alias: Send Notification Enter Home
   trigger:
@@ -489,11 +543,11 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto          
 
-# Set 23 Time 16:00 In Weekdays
-- alias: Set Auto 23 Day Mode 
+# Set 21 Time 16:00 In Weekdays
+- alias: Set Auto 21 Day Mode 
   trigger:
     platform: time
     at: "15:30:00"
@@ -510,7 +564,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto            
 
 # Night Mode Good Sleep
@@ -531,8 +585,8 @@
         temperature: 20
         hvac_mode: auto        
 
-# Set 23 Time 7:00 in Weekends      
-- alias: Set Auto 23 Day Mode Weekends
+# Set 21 Time 7:00 in Weekends      
+- alias: Set Auto 21 Day Mode Weekends
   trigger:
     platform: time
     at: "07:00:00"
@@ -549,7 +603,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 23
+        temperature: 21
         hvac_mode: auto          
 
 # Auto Light in Kithen Sunset
@@ -578,7 +632,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 2
+      minutes: 3
   condition:
     condition: sun
     after: sunset
@@ -615,11 +669,6 @@
     to: "off"
     for:
       minutes: 10
-  condition:
-    - condition: sun
-      before: sunrise
-    - condition: time
-      after: '05:30:00'
   action: 
     entity_id: light.lamp_kitchen
     service: light.turn_off     
@@ -1064,13 +1113,13 @@
     - delay:
         seconds: 10
 
-- alias: Nfc
-  trigger: 
-    platform: event
-    event_type: tag_scanned
-    event_data:
-      # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
-      tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
-  action:
-    entity_id: light.ikeabulbsgroupanteroom2
-    service: light.toggle
+# - alias: Nfc
+#   trigger: 
+#     platform: event
+#     event_type: tag_scanned
+#     event_data:
+#       # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
+#       tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
+#   action:
+#     entity_id: light.ikeabulbsgroupanteroom2
+#     service: light.toggle

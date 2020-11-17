@@ -20,6 +20,7 @@ lovelace:
 # Input
 input_select: !include input_select.yaml
 
+# Recorder
 recorder:
   purge_keep_days: 2
   db_url: postgresql://postgres:postgres@postgresql.postgresql.svc.cluster.local/postgres

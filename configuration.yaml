@@ -20,10 +20,9 @@ lovelace:
 # Input
 input_select: !include input_select.yaml
 
-# Recorder
 recorder:
   purge_keep_days: 2
-  db_url: mysql://homeassistant:dZF!HDeT.i7H-rd@mariadb-service.mariadb:80/homeassistant?charset=utf8
+  db_url: postgresql://postgres:postgres@postgresql.postgresql.svc.cluster.local/postgres
 
 # Influxdb
 influxdb:
@@ -120,8 +119,6 @@ alexa:
         - scene.good_morning
         - scene.good_night
         - scene.cinema
-        - climate.thermochildroom_climate
-        - climate.thermolivingroom_climate
         - media_player.tv
         - fan.air_purifier
         - binary_sensor.toiletdoor_contact

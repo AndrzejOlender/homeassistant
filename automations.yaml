@@ -819,22 +819,22 @@
         push:
           sound: default    
 
-# Notification End Dishwasher
-- alias: "Notification Dishwasher End"
-  trigger:
-    - platform: state
-      entity_id: sensor.dishwasher
-      from: "washing"
-      to: "disable"
-      for:
-        minutes: 7
-  action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Dishwasher Ended"
-      data:
-        push:
-          sound: default   
+# # Notification End Dishwasher
+# - alias: "Notification Dishwasher End"
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.dishwasher
+#       from: "washing"
+#       to: "disable"
+#       for:
+#         minutes: 7
+#   action:
+#     service: notify.mobile_app_iphone
+#     data:
+#       message: "Dishwasher Ended"
+#       data:
+#         push:
+#           sound: default   
 
 # Notification End Washermachine
 - alias: "Notification Washermachine End"

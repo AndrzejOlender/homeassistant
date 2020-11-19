@@ -143,14 +143,13 @@
   trigger: 
     platform: state
     entity_id: 
-      - binary_sensor.motionkitchen2_occupancy
+      - binary_sensor.motionkitchen_occupancy
     from: "on"
     to: "off"
     for:
-      minutes: 3
+      minutes: 2
   action:
     entity_id: 
-      - light.lamp_kitchen
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
     service: light.turn_off     
@@ -819,22 +818,22 @@
         push:
           sound: default    
 
-# Notification End Dishwasher
-- alias: "Notification Dishwasher End"
-  trigger:
-    - platform: state
-      entity_id: sensor.dishwasher
-      from: "washing"
-      to: "disable"
-      for:
-        minutes: 7
-  action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Dishwasher Ended"
-      data:
-        push:
-          sound: default   
+# # Notification End Dishwasher
+# - alias: "Notification Dishwasher End"
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.dishwasher
+#       from: "washing"
+#       to: "disable"
+#       for:
+#         minutes: 7
+#   action:
+#     service: notify.mobile_app_iphone
+#     data:
+#       message: "Dishwasher Ended"
+#       data:
+#         push:
+#           sound: default   
 
 # Notification End Washermachine
 - alias: "Notification Washermachine End"

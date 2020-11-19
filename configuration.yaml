@@ -74,8 +74,8 @@ tts:
     pitch: 0.0
     gain: 0.0
     profiles:
-      - telephony-class-application
-      - wearable-class-device
+      - large-home-entertainment-class-device
+
 
 # Amazon Alexa
 alexa_media:

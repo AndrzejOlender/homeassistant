@@ -18,3 +18,4 @@ www/
 docker-compose.yaml
 homeassistant-ec281e42879c.json
 homeassistant-google.json
+tts/

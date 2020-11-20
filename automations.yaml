@@ -6,6 +6,11 @@
   action:
     entity_id: light.osrambulbsgrouptoilet
     service: light.toggle
+  # action:
+  # - service: tts.google_cloud_say
+  #   data:
+  #       entity_id: media_player.echo
+  #       message: "Cześć Andrzej, działa wszystko wyśmienicie"
 
 - alias: Switch Light Toilet 2
   trigger:
@@ -1122,3 +1127,4 @@
 #   action:
 #     entity_id: light.ikeabulbsgroupanteroom2
 #     service: light.toggle
+

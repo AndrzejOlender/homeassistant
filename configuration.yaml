@@ -69,12 +69,12 @@ tts:
     language: pl-PL
     gender: male
     voice: pl-PL-Wavenet-E
-    # encoding: linear16
-    # speed: 1.0
-    # pitch: 0.0
-    # gain: 0.0
-    # profiles:
-    #   - large-home-entertainment-class-device
+    encoding: linear16
+    speed: 1.0
+    pitch: 0.0
+    gain: 0.0
+    profiles:
+      - large-home-entertainment-class-device
 
 
 # Amazon Alexa

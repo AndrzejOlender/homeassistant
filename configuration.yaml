@@ -22,7 +22,7 @@ input_select: !include input_select.yaml
 
 # Recorder
 recorder:
-  purge_keep_days: 2
+  purge_keep_days: 10
   db_url: postgresql://postgres:postgres@postgresql.postgresql.svc.cluster.local/postgres
 
 # Influxdb
@@ -32,7 +32,7 @@ influxdb:
 
 http:
 
-# Device tracker
+# Device tracker 
 device_tracker:
   - platform: luci
     host: 192.168.1.1:8080
@@ -61,6 +61,140 @@ zone:
     longitude: 19.04179
     radius: 250
     icon: mdi:home
+
+# Google home
+google_assistant:
+  project_id: homeassistant-296112
+  service_account: !include homeassistant-google.json
+  report_state: true
+  expose_by_default: false
+  entity_config:
+    light.aqaralampchildroom_light:
+      expose: true
+      name: Lamp
+    light.ikeabulblamp_light:
+      expose: true
+      name: Lamp
+    switch.washermachine_relay:
+      expose: true
+      name: Washermachine
+    script.miio_turn_on_yamaha:
+      expose: true
+      name: Yamaha
+    script.miio_turn_on_yamaha_radio:
+      expose: true
+      name: Radio
+    script.miio_turn_on_nc:
+      expose: true
+      name: NC
+    script.miio_turn_on_yamaha_hdmi1:
+      expose: true
+      name: HDMI1
+    script.miio_turn_on_yamaha_hdmi2:
+      expose: true
+      name: HDMI2
+    switch.light1_relay:
+      expose: true
+      name: Light 1
+    switch.light2_relay:
+      expose: true
+      name: Light 2
+    switch.light3_relay:
+      expose: true
+      name: Light 3
+    light.osrambulbsgrouptoilet:
+      expose: true
+      name: Light 
+    light.ikeabulbsgrouptoiletmirror:
+      expose: true
+      name: Mirror
+    light.ikeabulbsgroupwardobe:
+      expose: true
+      name: Light 
+    air_quality.airly:
+      expose: true
+      name: Airly
+    binary_sensor.toiletdoor_contact:
+      expose: true
+      name: Door
+    binary_sensor.livingroomwindow_contact:
+      expose: true
+      name: Window
+    binary_sensor.maindoor_contact:
+      expose: true
+      name: Door
+    binary_sensor.livingroombalconywindow_contact:
+      expose: true
+      name: Balcony
+    binary_sensor.childroomwindow_contact:
+      expose: true
+      name: Window
+    binary_sensor.kitchenwindow_contact:
+      expose: true
+      name: Window
+    binary_sensor.wardobewindow_contact:
+      expose: true
+      name: Window
+    binary_sensor.leaksensorkitchen_water_leak:
+      expose: true
+      name: Leak
+    binary_sensor.leaksensortoilet_water_leak:
+      expose: true
+      name: Leak
+    binary_sensor.motionkitchen_occupancy:
+      expose: true
+      name: Motion
+    binary_sensor.motionkitchen2_occupancy:
+      expose: true
+      name: Motion
+    binary_sensor.motiontoilet_occupancy:
+      expose: true
+      name: Motion
+    binary_sensor.motionchildroom_occupancy:
+      expose: true
+      name: Motion
+    binary_sensor.doorbell:
+      expose: true
+      name: Doorbell
+    light.lamp_kitchen:
+      expose: true
+      name: Light
+    light.ikeabulbsgroupkitchen:
+      expose: true
+      name: Table
+    light.ikeabulbsgroupanteroom1:
+      expose: true
+      name: Light 1
+    light.ikeabulbsgroupanteroom2:
+      expose: true
+      name: Light 2
+    device_tracker.iphone_luci_andrzej:
+      expose: true
+      name: Andrzej
+    device_tracker.xiaomired_luci_ania:
+      expose: true
+      name: Ania
+    scene.good_evening:
+      expose: true
+      name: Good evening
+    scene.good_morning:
+      expose: true
+      name: Good morning
+    scene.good_night:
+      expose: true
+      name: Good night
+    climate.thermochildroom_climate:
+      expose: true
+      name: Thermo
+    climate.thermolivingroom_climate:
+      expose: true
+      name: Thermo
+    media_player.tv:
+      expose: true
+      name: TV
+    fan.air_purifier:
+      expose: true
+      name: Purifier
 
 # Google tts
 tts:

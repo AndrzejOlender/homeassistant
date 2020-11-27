@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: homeassistant
-        image: homeassistant/amd64-homeassistant:0.118.3
+        image: homeassistant/amd64-homeassistant:0.118.4
         resources:
           limits:
             memory: "1Gi"

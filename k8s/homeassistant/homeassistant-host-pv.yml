@@ -11,16 +11,3 @@ spec:
     - ReadWriteMany
   hostPath:
     path: "/opt/docker/homeassistant"
-# ---
-# apiVersion: v1
-# kind: PersistentVolume
-# metadata:
-#   name: hostvol2
-# spec:
-#   storageClassName: "fast-and-furious"
-#   capacity:
-#     storage: 2Gi
-#   accessModes:
-#     - ReadWriteOnce
-#   hostPath:
-#     path: "/volumes/vol2"

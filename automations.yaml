@@ -366,38 +366,38 @@
     - delay:
         seconds: 10
 
-# Wyjście z poczty
-- alias: Poczta Exit
+# Wyjście z WPKiW
+- alias: Wpkiw Exit
   trigger:
     platform: zone
     entity_id: person.ania
-    zone: zone.poczta
+    zone: zone.wpkiw
     event: leave
   condition:
     condition: state
     entity_id: device_tracker.iphone
-    state: "not_poczta"
+    state: "not_wpkiw"
   action:
     - service: notify.mobile_app_iphone
       data:
-        message: "Anna left the Poczta"
+        message: "Anna left the WPKiW"
         data:
           push:
             sound: default
     - delay:
         seconds: 10
 
-# Wejście do poczty          
-- alias: Poczta Enter
+# Wejście do WPKiW          
+- alias: Wpkiw Enter
   trigger:
     platform: zone
     entity_id: person.ania
-    zone: zone.poczta
+    zone: zone.wpkiw
     event: enter
   action:
     service: notify.mobile_app_iphone
     data:
-      message: "Anna went into the Poczta"
+      message: "Anna went into the WPKiW"
       data:
         push:
           sound: default                         

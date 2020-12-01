@@ -55,9 +55,9 @@ device_tracker:
 
 # Zones
 zone:
-  - name: Poczta
-    latitude: 50.2568931
-    longitude: 19.0168151
+  - name: Wpkiw
+    latitude: 50.281688
+    longitude: 18.978667
     radius: 250
     icon: mdi:account-hard-hat
 

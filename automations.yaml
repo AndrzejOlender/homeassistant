@@ -1111,6 +1111,9 @@
               name: default
               # critical: 1
               # volume: 1.0
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        message: "Ring ring maindoor"
     - service: notify.tv
       data:
         message: "Ring ring maindoor" 

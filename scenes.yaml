@@ -1,7 +1,7 @@
 - id: '1577046394155'
   name: Good Evening
   entities:
-    light.radio:
+    switch.radio:
       state: 'on'
     switch.light2_relay:
       state: 'on'
@@ -29,9 +29,9 @@
       state: 'off'
     light.ikeabulblamp_light:
       state: 'off'
-    light.yamaha:
+    switch.yamaha:
       state: 'off'  
-    light.nc:
+    switch.nc:
       state: 'off'
     media_player.tv:
       state: 'off'
@@ -55,13 +55,13 @@
 - id: '1577085924679'
   name: Good Morning
   entities:
-    light.yamaha:
+    switch.yamaha:
       state: 'on'   
     media_player.tv:
       state: 'on'
-    light.nc:
+    switch.nc:
       state: 'on'        
-    light.hdmi1: 
+    switch.hdmi1: 
       state: 'on'
     switch.airpurifierled:
       state: 'on'
@@ -69,13 +69,13 @@
 - id: 'cinema'
   name: Cinema
   entities:
-    light.yamaha:
+    switch.yamaha:
       state: 'on'   
     media_player.tv:
       state: 'on'
-    light.nc:
+    switch.nc:
       state: 'off'        
-    light.hdmi2: 
+    switch.hdmi2: 
       state: 'on' 
     switch.light3_relay: 
       state: 'off'

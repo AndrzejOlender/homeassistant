@@ -54,15 +54,15 @@ views:
       - entities:
           - entity: media_player.tv
             state_color: on
-          - entity: light.yamaha
+          - entity: switch.yamaha
             state_color: on
-          - entity: light.radio
+          - entity: switch.radio
             state_color: on
-          - entity: light.hdmi1
+          - entity: switch.hdmi1
             state_color: on
-          - entity: light.hdmi2
+          - entity: switch.hdmi2
             state_color: on
-          - entity: light.nc
+          - entity: switch.nc
             state_color: on
         show_header_toggle: false
         type: entities
@@ -314,15 +314,15 @@ views:
             state_color: on
           - entity: media_player.echo
             state_color: on
-          - entity: light.yamaha
+          - entity: switch.yamaha
             state_color: on
-          - entity: light.radio
+          - entity: switch.radio
             state_color: on
-          - entity: light.hdmi1
+          - entity: switch.hdmi1
             state_color: on
-          - entity: light.hdmi2
+          - entity: switch.hdmi2
             state_color: on
-          - entity: light.nc
+          - entity: switch.nc
             state_color: on
           - entity: binary_sensor.livingroombalconywindow_contact
             name: Balcony

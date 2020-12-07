@@ -47,6 +47,7 @@ filter:
     - climate.thermolivingroom_climate
     - media_player.tv
     - fan.air_purifier
+    - lock.maindoorlock
 entity_config:
   media_player.tv:
     feature_list:

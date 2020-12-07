@@ -6,6 +6,7 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+homekit: !include homekit.yaml
 
 frontend:
   themes: !include themes.yaml
@@ -381,62 +382,6 @@ alexa:
       binary_sensor.doorbell:
         name: Doorbell
         display_categories: DOORBELL
-
-# HomeKit
-homekit:
-  advertise_ip: "192.168.1.2"
-  port: 51827
-  filter:
-    include_entities:
-      - light.aqaralampchildroom_light
-      - light.ikeabulblamp_light
-      - switch.hdmi1
-      - switch.hdmi2
-      - switch.washermachine_relay
-      - switch.radio
-      - script.miio_turn_on_nc
-      - switch.light1_relay
-      - switch.light2_relay
-      - switch.light3_relay
-      - switch.yamaha
-      - switch.thermoseason
-      - sensor.mi_humidity
-      - sensor.mi_temperature
-      - light.osrambulbsgrouptoilet
-      - light.ikeabulbsgrouptoiletmirror
-      - light.ikeabulbsgroupwardobe
-      - air_quality.airly
-      - binary_sensor.toiletdoor_contact
-      - binary_sensor.livingroomwindow_contact
-      - binary_sensor.maindoor_contact
-      - binary_sensor.livingroombalconywindow_contact
-      - binary_sensor.childroomwindow_contact
-      - binary_sensor.kitchenwindow_contact
-      - binary_sensor.wardobewindow_contact
-      - binary_sensor.leaksensorkitchen_water_leak
-      - binary_sensor.leaksensortoilet_water_leak
-      - binary_sensor.motionkitchen_occupancy
-      - binary_sensor.motionkitchen2_occupancy
-      - binary_sensor.motiontoilet_occupancy
-      - binary_sensor.motionchildroom_occupancy
-      - light.lamp_kitchen
-      - light.ikeabulbsgroupkitchen
-      - light.ikeabulbsgroupanteroom1
-      - light.ikeabulbsgroupanteroom2
-      - device_tracker.iphone_luci_andrzej
-      - device_tracker.xiaomired_luci_ania
-      - scene.good_evening
-      - scene.good_morning
-      - scene.good_night
-      - scene.cinema
-      - climate.thermochildroom_climate
-      - climate.thermolivingroom_climate
-      - media_player.tv
-      - fan.air_purifier
-  entity_config:
-    media_player.tv:
-      feature_list:
-        - feature: on_off
 
 # TV
 webostv:

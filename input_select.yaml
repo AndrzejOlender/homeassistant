@@ -6,6 +6,14 @@ light_childroom:
     # initial: 'OFF'
     icon: mdi:lightbulb
 
+light_childroom2:
+    name: "Light Childroom 2"
+    options:
+        - 'ON'
+        - 'OFF'
+    # initial: 'OFF'
+    icon: mdi:lightbulb
+
 thermo_season:
     name: "Thermo Season"
     options:

@@ -80,19 +80,6 @@
     entity_id: light.ikeabulbsgroupanteroom1
     service: light.toggle
 
-- alias: Switch Light Wardobe
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchwardrobe_click
-    to: single
-  action:
-    - service: light.toggle
-      entity_id: light.ikeabulbsgroupwardobe
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom
-        option: "OFF"
-
 - alias: Switch Good Night Right
   trigger:
     platform: state
@@ -187,6 +174,8 @@
     entity_id: switch.washermachine_relay
     service: switch.turn_off
 
+
+# Switches Childroom 1
 - alias: Lamp Childroom
   trigger:
     platform: state
@@ -213,7 +202,65 @@
         entity_id: input_select.light_childroom
         option: "OFF"
 
+# Switches Childroom 2
+- alias: Light Childroom
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchwardrobe_click
+    to: single
+  action:
+    - service: light.toggle
+      entity_id: light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom2
+        option: "OFF"
+
+- alias: Light Childroom 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom3_click
+    to: single
+  action:
+    - service: light.toggle
+      entity_id: light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom2
+        option: "OFF"
+
+# Autooff all double click
 - alias: Lamp Childroom Off All
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchwardrobe_click
+    to: double
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
+
+- alias: Lamp Childroom Off All 2
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom_click
+    to: double
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
+
+- alias: Lamp Childroom Off All 3
   trigger:
     platform: state
     entity_id: sensor.aqaraswitchchildroom2_click
@@ -228,6 +275,22 @@
         entity_id: input_select.light_childroom
         option: "OFF"
 
+- alias: Lamp Childroom Off All 4
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchchildroom3_click
+    to: double
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom2
+        option: "OFF"
+
+# Auto off child room 1
 - alias: Turn On Light Childroom if auto light off
   trigger: 
     platform: state
@@ -265,6 +328,46 @@
     - service: input_select.select_option
       data:
         entity_id: input_select.light_childroom
+        option: "ON"
+
+# Auto off child room 2
+- alias: Turn On Light Childroom if auto light off
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom2_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_select.light_childroom2
+      state: "ON"
+    - condition: time
+      after: '05:00:00'
+      before: '23:00:00'
+  action: 
+    - service: light.turn_on
+      entity_id: light.ikeabulbsgroupwardobe
+
+- alias: Turn Off Light Childroom 10 No Occupancy
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.motionchildroom2_occupancy
+    from: "on"
+    to: "off"
+    for:
+      minutes: 10
+  condition:
+    - condition: state
+      entity_id: light.ikeabulbsgroupwardobe
+      state: "on"
+  action: 
+    - service: light.turn_off
+      entity_id:
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom2
         option: "ON"
 
 # Notification open main door

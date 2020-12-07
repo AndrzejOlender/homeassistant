@@ -22,7 +22,10 @@ alexa: !include alexa.yaml
 recorder: !include recorder.yaml
 input_select: !include input_select.yaml
 google_assistant: !include google-home.yaml
+tts: !include tts.yaml
 light: !include light.yaml
+
+
 
 # Influxdb
 influxdb:
@@ -60,21 +63,6 @@ zone:
     longitude: 19.04179
     radius: 250
     icon: mdi:home
-
-# Google tts
-tts:
-  - platform: google_cloud
-    key_file: homeassistant-google.json
-    language: pl-PL
-    gender: male
-    voice: pl-PL-Wavenet-E
-    encoding: linear16
-    speed: 1.0
-    pitch: 0.0
-    gain: 0.0
-    profiles:
-      - large-home-entertainment-class-device
-
 
 # Amazon Alexa
 alexa_media:

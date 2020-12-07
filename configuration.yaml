@@ -1,6 +1,10 @@
 # Configure a default setup
 default_config:
 
+# lovelace mode
+lovelace:
+  mode: yaml
+
 # Yamls
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -8,6 +12,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 homekit: !include homekit.yaml
 alexa: !include alexa.yaml
+recorder: !include recorder.yaml
 
 frontend:
   themes: !include themes.yaml
@@ -16,28 +21,8 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
 
-lovelace:
-  mode: yaml
-
 # Input
 input_select: !include input_select.yaml
-
-# Recorder
-recorder:
-  db_url: postgresql://postgres:v2PXHM6X2x@postgresql.postgresql.svc.cluster.local/postgres
-  auto_purge: false
-  exclude:
-    domains:
-      - automation
-      - updater
-    entity_globs:
-      - sensor.weather_*
-    entities:
-      - sun.sun 
-      - sensor.last_boot
-      - sensor.date
-    event_types:
-      - call_service
 
 # Influxdb
 influxdb:

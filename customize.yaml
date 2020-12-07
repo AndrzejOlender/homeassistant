@@ -32,8 +32,6 @@ switch.tv_relay:
   icon: mdi:television
 switch.yamaha_relay:
   icon: mdi:speaker
-switch.yamaha2:
-  icon: mdi:speaker
 switch.dishmachine_relay:
   icon: mdi:dishwasher
 sensor.washermachine_power:
@@ -51,10 +49,6 @@ switch.yamaha:
   icon: mdi:speaker
 sensor.yamaha_current:
   icon: mdi:speaker
-switch.hdmi1:
-  icon: mdi:remote-tv
-switch.hdmi2:
-  icon: mdi:remote-tv
 switch.tvn:
   assumed_state: true
   icon: mdi:remote-tv
@@ -97,10 +91,6 @@ script.miio_turn_on_yamaha_radio:
   icon: mdi:radio
 script.miio_turn_on_yamaha:
   icon: mdi:speaker
-switch.yamaha:
-  icon: mdi:speaker
-switch.radio:
-  icon: mdi:radio
 switch.hdmi1:
   icon: mdi:remote-tv
 switch.hdmi2:

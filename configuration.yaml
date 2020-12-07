@@ -339,7 +339,6 @@ light:
     color_temp: false
     rgb: false
    
-#Sensors
 sensor:
 # Zigbee Network Map
   - platform: mqtt

@@ -121,9 +121,9 @@ views:
           - entity: lock.maindoorlock
             name: Lock
             state_color: on
-          - entity: binary_sensor.toiletdoor_contact
-            state_color: on
           - entity: binary_sensor.maindoor_contact
+            state_color: on
+          - entity: binary_sensor.toiletdoor_contact
             state_color: on
           - entity: device_tracker.iphone_luci_andrzej
             name: Andrzej

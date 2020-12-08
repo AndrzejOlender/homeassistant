@@ -35,4 +35,3 @@ fan: !include config/fan.yaml
 # tts: !include config/tts/tts.yaml
 
 http:
-

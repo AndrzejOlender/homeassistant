@@ -1,0 +1,17 @@
+- name: Wpkiw
+  latitude: 50.281688
+  longitude: 18.978667
+  radius: 250
+  icon: mdi:account-hard-hat
+
+- name: Yakudo
+  latitude: 49.957991
+  longitude: 18.964889
+  radius: 250
+  icon: mdi:account-hard-hat  
+
+- name: Home
+  latitude: 50.2985936
+  longitude: 19.04179
+  radius: 250
+  icon: mdi:home

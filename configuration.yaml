@@ -12,108 +12,27 @@ homeassistant:
   customize: !include config/customize.yaml
   packages: !include_dir_named config/packages
 
-# Yamls
 group: !include config/groups.yaml
 automation: !include config/automations.yaml
 script: !include config/scripts.yaml
 scene: !include config/scenes.yaml
 homekit: !include config/homekit.yaml
-alexa: !include config/alexa.yaml
+influxdb: !include config/influxdb.yaml
+alexa: !include_dir_named config/alexa
 recorder: !include config/recorder.yaml
 input_select: !include config/input_select.yaml
 # google_assistant: !include config/google-home/google-home.yaml
-tts: !include config/tts.yaml
+tts: !include config/tts/tts.yaml
 light: !include config/light.yaml
 sensor: !include config/sensor.yaml
 binary_sensor: !include config/binary.yaml
 switch: !include config/switch.yaml
 device_tracker: !include config/tracker.yaml
-
-
-# Influxdb
-influxdb:
-  host: influxdb.metrics
-  database: homeassistant
+zone: !include config/zone.yaml
+webostv: !include config/webostv.yaml
+speedtestdotnet: !include config/speedtest.yaml
+remote: !include config/remote.yaml
+fan: !include config/fan.yaml
 
 http:
-
-# Zones
-zone:
-  - name: Wpkiw
-    latitude: 50.281688
-    longitude: 18.978667
-    radius: 250
-    icon: mdi:account-hard-hat
-
-  - name: Yakudo
-    latitude: 49.957991
-    longitude: 18.964889
-    radius: 250
-    icon: mdi:account-hard-hat  
-
-# This will override the default home zone
-  - name: Home
-    latitude: 50.2985936
-    longitude: 19.04179
-    radius: 250
-    icon: mdi:home
-
-# Amazon Alexa
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.com
-      include_devices:
-        - "echo"
-
-notify:
-  - platform: alexa_media
-    name: alexa_media
-
-# TV
-webostv:
-    name: tv
-    host: 192.168.1.6
-    turn_on_action:
-      - service: remote.send_command
-        entity_id: 'remote.xiaomi_miio'
-        data:
-          command:
-          - raw:Z6VHACsCAACjBgAAyggAAI4RAAA9IwAACJ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAQAAAAAAAQEAAQEBAQEAAAABAAAAAAEBAQABAQEBBQJAA='  
-    customize:
-      sources:
-        - livetv
-        - hdmi1
-        - youtube
-        - netflix  
-
-# Speed test
-speedtestdotnet:
-  scan_interval:
-    minutes: 30
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-# Remotes    
-remote:
-  - platform: xiaomi_miio
-    host: 192.168.1.3    
-    token: e97db4b3d0ffd51e6eda924b270fb2e4
-    slot: 1
-    timeout: 30
-    hidden: false
-    commands:
-      yamaha:
-        command:
-          - raw:Z6VDADcCAAB3BgAAaBEAAAwjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjABAAEBAQEAAQABAAAAAAEBAAABAAAAAAABAQABAQEAAA
-
-# Airpurifier
-fan:
-  - platform: xiaomi_miio
-    host: 192.168.1.7
-    token: ca40b830acc8cff3afff41db1d31aab6
-    name: Air Purifier     
 

@@ -21,7 +21,7 @@ homekit: !include config/homekit.yaml
 alexa: !include config/alexa.yaml
 recorder: !include config/recorder.yaml
 input_select: !include config/input_select.yaml
-google_assistant: !include config/google-home/google-home.yaml
+# google_assistant: !include config/google-home/google-home.yaml
 tts: !include config/tts.yaml
 light: !include config/light.yaml
 sensor: !include config/sensor.yaml

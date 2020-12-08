@@ -9,28 +9,28 @@ frontend:
   themes: !include config/themes.yaml
 
 homeassistant:
-  customize: !include config/customize.yaml
   packages: !include_dir_named config/packages
+  customize: !include config/customize.yaml
 
+fan: !include config/fan.yaml
+zone: !include config/zone.yaml
 group: !include config/groups.yaml
-automation: !include config/automations.yaml
 script: !include config/scripts.yaml
 scene: !include config/scenes.yaml
-homekit: !include config/homekit.yaml
-influxdb: !include config/influxdb.yaml
 alexa: !include config/alexa/alexa.yaml
-recorder: !include config/recorder.yaml
-input_select: !include config/input_select.yaml
 light: !include config/light.yaml
+homekit: !include config/homekit.yaml
 sensor: !include config/sensor.yaml
-binary_sensor: !include config/binary.yaml
 switch: !include config/switch.yaml
-device_tracker: !include config/tracker.yaml
-zone: !include config/zone.yaml
-webostv: !include config/webostv.yaml
-speedtestdotnet: !include config/speedtest.yaml
 remote: !include config/remote.yaml
-fan: !include config/fan.yaml
+webostv: !include config/webostv.yaml
+recorder: !include config/recorder.yaml
+influxdb: !include config/influxdb.yaml
+automation: !include config/automations.yaml
+input_select: !include config/input_select.yaml
+binary_sensor: !include config/binary.yaml
+device_tracker: !include config/tracker.yaml
+speedtestdotnet: !include config/speedtest.yaml
 # google_assistant: !include config/google-home/google-home.yaml
 # tts: !include config/tts/tts.yaml
 

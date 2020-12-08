@@ -7,6 +7,7 @@ test:
     - python -m homeassistant --version
     - mv fake_secrets.yaml secrets.yaml
     - mv fake_homeassistant-google.json homeassistant-google.json
+    - mv config/tts/fake_homeassistant-google.json config/tts/homeassistant-google.json
   script:
     - python -m homeassistant --config . --script check_config
 

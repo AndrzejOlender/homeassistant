@@ -10,20 +10,20 @@ test:
   script:
     - python -m homeassistant --config . --script check_config
 
-deploy:
-  stage: deploy
-  environment: production
-  image: gitlab/gitlab-runner:alpine
-  only:
-    - master
-  before_script:
-    - 'which ssh-agent || ( apk add openssh )'
-    - eval $(ssh-agent -s)
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
+# deploy:
+#   stage: deploy
+#   environment: production
+#   image: gitlab/gitlab-runner:alpine
+#   only:
+#     - master
+#   before_script:
+#     - 'which ssh-agent || ( apk add openssh )'
+#     - eval $(ssh-agent -s)
+#     - mkdir -p ~/.ssh
+#     - chmod 700 ~/.ssh
+#     - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+#     - chmod 644 ~/.ssh/known_hosts
+#     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/nul
   # script:
   #   - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; $KUBECONFIG kubectl apply -f k8s/homeassistant/"
   #   - ssh -o "$KEY_CHECKING" $DEPLOY_USER@$DEPLOY_HOST -p $PORT "cd '$DEPLOY_PATH'; git pull; $KUBECONFIG kubectl apply -f k8s/zigbee2mqtt/"

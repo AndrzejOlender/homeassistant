@@ -6,7 +6,7 @@ test:
   before_script:
     - python -m homeassistant --version
     - mv fake_secrets.yaml secrets.yaml
-    - mv config/fake_homeassistant-google.json config/homeassistant-google.json
+    - mv fake_homeassistant-google.json homeassistant-google.json
   script:
     - python -m homeassistant --config . --script check_config
 

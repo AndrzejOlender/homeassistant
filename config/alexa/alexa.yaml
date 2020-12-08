@@ -145,7 +145,7 @@ alexa:
         name: Doorbell
         display_categories: DOORBELL
       lock.maindoorlock:
-        name: Lock
+        name: Door
         display_categories: SMARTLOCK
 
 # Amazon Alexa

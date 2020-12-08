@@ -1,4 +1,4 @@
 #  Home Assistant Configuration Files
 
-![HA.png](images/HA.png)
-![HA-zigbbe-mesh.png](images/HA-zigbbe-mesh.png)
+![HA.png](image/HA.png)
+![HA-zigbbe-mesh.png](image/HA-zigbbe-mesh.png)

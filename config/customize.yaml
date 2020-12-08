@@ -49,10 +49,6 @@ switch.yamaha:
   icon: mdi:speaker
 sensor.yamaha_current:
   icon: mdi:speaker
-switch.hdmi1:
-  icon: mdi:remote-tv
-switch.hdmi2:
-  icon: mdi:remote-tv
 switch.tvn:
   assumed_state: true
   icon: mdi:remote-tv
@@ -95,15 +91,11 @@ script.miio_turn_on_yamaha_radio:
   icon: mdi:radio
 script.miio_turn_on_yamaha:
   icon: mdi:speaker
-light.yamaha:
-  icon: mdi:speaker
-light.radio:
-  icon: mdi:radio
-light.hdmi1:
+switch.hdmi1:
   icon: mdi:remote-tv
-light.hdmi2:
+switch.hdmi2:
   icon: mdi:remote-tv
-light.nc:
+switch.nc:
   icon: mdi:remote-tv
 light.group_kitchen_desk:
   friendly_name: Table

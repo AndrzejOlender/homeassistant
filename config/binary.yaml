@@ -1,0 +1,53 @@
+# Binary sensor
+- platform: workday
+  country: PL
+  workdays: [mon, tue, wed, thu, fri]
+  excludes: [sat, sun, holiday]
+  add_holidays:
+    - '2020-05-01'
+    - '2020-05-02'
+    - '2020-05-03'
+    - '2020-12-25'
+    - '2020-12-26'
+
+- platform: template
+  sensors:
+    doorbell:
+      friendly_name: "Doorbell"
+      delay_off:
+        minutes: 2
+      value_template: >-
+        {{ is_state('sensor.ringvibration_action', 'vibration') }}
+      icon_template: >-
+        {% if is_state("binary_sensor.doorbell", "on") %}
+          mdi:bell-ring
+        {% else %}
+          mdi:bell
+        {% endif %}
+
+# Lock
+- platform: template
+  sensors:
+    lock:
+      value_template: >-
+        {{ is_state("lock.maindoorlock", "unlocked") }}
+      icon_template: >-
+        {% if is_state("binary_sensor.lock", "on") %}
+          mdi:lockopen
+        {% else %}
+          mdi:lock
+        {% endif %}
+
+# Storm day
+- platform: burze_dzis_net
+  api_key: !secret burze_dzis_net.api_key
+  latitude: 50.2985936
+  longitude: 19.04179
+  warnings:
+    - frost_warning
+    - heat_warning
+    - wind_warning
+    - precipitation_warning
+    - storm_warning
+  storms_nearby:
+    radius: 15

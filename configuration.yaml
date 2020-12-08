@@ -6,26 +6,29 @@ lovelace:
   mode: yaml
 
 frontend:
-  themes: !include themes.yaml
+  themes: !include config/themes.yaml
 
 homeassistant:
-  customize: !include customize.yaml
-  packages: !include_dir_named packages
-  packages: !include_dir_named sensor
-  packages: !include_dir_named switch
+  customize: !include config/customize.yaml
+  packages: !include_dir_named config/packages
 
 # Yamls
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
-homekit: !include homekit.yaml
-alexa: !include alexa.yaml
-recorder: !include recorder.yaml
-input_select: !include input_select.yaml
-google_assistant: !include google-home.yaml
-tts: !include tts.yaml
-light: !include light.yaml
+group: !include config/groups.yaml
+automation: !include config/automations.yaml
+script: !include config/scripts.yaml
+scene: !include config/scenes.yaml
+homekit: !include config/homekit.yaml
+alexa: !include config/alexa.yaml
+recorder: !include config/recorder.yaml
+input_select: !include config/input_select.yaml
+google_assistant: !include config/google-home/google-home.yaml
+tts: !include config/tts.yaml
+light: !include config/light.yaml
+sensor: !include config/sensor.yaml
+binary_sensor: !include config/binary.yaml
+switch: !include config/switch.yaml
+device_tracker: !include config/tracker.yaml
+
 
 # Influxdb
 influxdb:
@@ -33,15 +36,6 @@ influxdb:
   database: homeassistant
 
 http:
-
-# Device tracker 
-device_tracker:
-  - platform: luci
-    host: 192.168.1.1:8080
-    username: root
-    password: !secret luci  
-    new_device_defaults:
-      track_new_devices: false
 
 # Zones
 zone:

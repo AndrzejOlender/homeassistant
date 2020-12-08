@@ -118,6 +118,9 @@ views:
       - entities:
           - entity: binary_sensor.doorbell
             state_color: on
+          - entity: lock.maindoorlock
+            name: Lock
+            state_color: on
           - entity: binary_sensor.toiletdoor_contact
             state_color: on
           - entity: binary_sensor.maindoor_contact
@@ -286,6 +289,9 @@ views:
 
 # Anteroom
       - entities:
+          - entity: lock.maindoorlock
+            name: Lock
+            state_color: on
           - entity: light.ikeabulbsgroupanteroom1
             name: Light 1
           - entity: light.ikeabulbsgroupanteroom2

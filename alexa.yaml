@@ -41,6 +41,7 @@ smart_home:
       - binary_sensor.kitchenwindow_contact
       - binary_sensor.wardobewindow_contact
       - binary_sensor.doorbell
+      - lock.maindoorlock
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -142,3 +143,6 @@ smart_home:
     binary_sensor.doorbell:
       name: Doorbell
       display_categories: DOORBELL
+    lock.maindoorlock:
+      name: Lock
+      display_categories: SMARTLOCK

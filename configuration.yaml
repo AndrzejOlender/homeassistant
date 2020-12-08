@@ -18,11 +18,9 @@ script: !include config/scripts.yaml
 scene: !include config/scenes.yaml
 homekit: !include config/homekit.yaml
 influxdb: !include config/influxdb.yaml
-alexa: !include_dir_named config/alexa
+alexa: !include config/alexa/alexa.yaml
 recorder: !include config/recorder.yaml
 input_select: !include config/input_select.yaml
-# google_assistant: !include config/google-home/google-home.yaml
-# tts: !include config/tts/tts.yaml
 light: !include config/light.yaml
 sensor: !include config/sensor.yaml
 binary_sensor: !include config/binary.yaml
@@ -33,6 +31,7 @@ webostv: !include config/webostv.yaml
 speedtestdotnet: !include config/speedtest.yaml
 remote: !include config/remote.yaml
 fan: !include config/fan.yaml
+# google_assistant: !include config/google-home/google-home.yaml
+# tts: !include config/tts/tts.yaml
 
 http:
-

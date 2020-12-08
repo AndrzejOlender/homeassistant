@@ -22,7 +22,7 @@ alexa: !include_dir_named config/alexa
 recorder: !include config/recorder.yaml
 input_select: !include config/input_select.yaml
 # google_assistant: !include config/google-home/google-home.yaml
-tts: !include config/tts/tts.yaml
+# tts: !include config/tts/tts.yaml
 light: !include config/light.yaml
 sensor: !include config/sensor.yaml
 binary_sensor: !include config/binary.yaml

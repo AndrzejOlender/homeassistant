@@ -9,7 +9,7 @@ smart_home:
       - light.ikeabulblamp_light
       - switch.washermachine_relay
       - switch.yamaha
-      - swicth.radio
+      - switch.radio
       - switch.nc
       - switch.light1_relay
       - switch.light2_relay

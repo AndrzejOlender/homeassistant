@@ -146,7 +146,6 @@
       - light.ikeabulbsgroupanteroom2
     service: light.turn_off     
 
-
 - alias: Lamp Kitchen
   trigger:
     platform: state
@@ -173,7 +172,6 @@
   action:
     entity_id: switch.washermachine_relay
     service: switch.turn_off
-
 
 # Switches Childroom 1
 - alias: Lamp Childroom
@@ -978,7 +976,6 @@
           type: tts
         message: "Washermachine ended."
 
-
 # Notification Weather Warning
 - alias: "Notification Storm Nearby"
   trigger:
@@ -1051,7 +1048,6 @@
               name: default
               critical: 1
               volume: 1.0
-
 
 # # Air Purifier
 # - alias: AQI Air Ok 

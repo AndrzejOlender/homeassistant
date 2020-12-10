@@ -650,11 +650,11 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 21
+        temperature: 23
         hvac_mode: auto          
 
-# Set 21 Time 16:00 In Weekdays
-- alias: Set Auto 21 Day Mode 
+# Set 23 Time 16:00 In Weekdays
+- alias: Set Auto 23 Day Mode 
   trigger:
     platform: time
     at: "15:30:00"
@@ -671,7 +671,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 21
+        temperature: 23
         hvac_mode: auto            
 
 # Night Mode Good Sleep
@@ -692,8 +692,8 @@
         temperature: 20
         hvac_mode: auto        
 
-# Set 21 Time 7:00 in Weekends      
-- alias: Set Auto 21 Day Mode Weekends
+# Set 23 Time 7:00 in Weekends      
+- alias: Set Auto 23 Day Mode Weekends
   trigger:
     platform: time
     at: "07:00:00"
@@ -710,7 +710,7 @@
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
-        temperature: 21
+        temperature: 23
         hvac_mode: auto          
 
 # Auto Light in Kithen Sunset
@@ -1223,16 +1223,16 @@
     - delay:
         seconds: 10
 
-# - alias: Nfc
-#   trigger: 
-#     platform: event
-#     event_type: tag_scanned
-#     event_data:
-#       # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
-#       tag_id: 59fc875f-8084-407e-bcf8-079b8d7269ea
-#   action:
-#     entity_id: light.ikeabulbsgroupanteroom2
-#     service: light.toggle
+- alias: NFC
+  trigger: 
+    platform: event
+    event_type: tag_scanned
+    event_data:
+      # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
+      tag_id: cc3f02c0-9ced-4ca1-974c-7fa1568adae5
+  action:
+    entity_id: light.aqaralampchildroom_light
+    service: light.toggle
 
 # Amazon Echo
 - alias: "Sound Low Alexa Echo"

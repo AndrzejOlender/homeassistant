@@ -240,8 +240,11 @@
         - light.ikeabulbsgroupwardobe
     - service: input_select.select_option
       data:
-        entity_id: input_select.light_childroom
+        entity_id: 
+          - input_select.light_childroom
+          - input_select.light_childroom2
         option: "OFF"
+        
 
 - alias: Lamp Childroom Off All 2
   trigger:
@@ -255,7 +258,9 @@
         - light.ikeabulbsgroupwardobe
     - service: input_select.select_option
       data:
-        entity_id: input_select.light_childroom
+        entity_id: 
+          - input_select.light_childroom
+          - input_select.light_childroom2
         option: "OFF"
 
 - alias: Lamp Childroom Off All 3
@@ -270,7 +275,9 @@
         - light.ikeabulbsgroupwardobe
     - service: input_select.select_option
       data:
-        entity_id: input_select.light_childroom
+        entity_id: 
+          - input_select.light_childroom
+          - input_select.light_childroom2
         option: "OFF"
 
 - alias: Lamp Childroom Off All 4
@@ -285,7 +292,9 @@
         - light.ikeabulbsgroupwardobe
     - service: input_select.select_option
       data:
-        entity_id: input_select.light_childroom2
+        entity_id: 
+          - input_select.light_childroom
+          - input_select.light_childroom2
         option: "OFF"
 
 # Auto off child room 1

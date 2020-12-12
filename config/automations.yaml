@@ -559,7 +559,6 @@
           type: tts
         message: "Warning! Warning! Warning!. Leak in toilet."
 
-
 - alias: Send Notification Leak Kitchen
   trigger:
     platform: state
@@ -601,8 +600,7 @@
           - media_player.echo
         data:
           type: tts
-        message: "Warning! Warning! Warning!. Leak in kitchen."
-                
+        message: "Warning! Warning! Warning!. Leak in kitchen."   
 
 # Away Mode In Weekdays 
 - alias: Set Away Mode 
@@ -805,7 +803,7 @@
       brightness: 254
       entity_id:
         - light.osrambulbsgrouptoilet      
-    
+
 # Auto Light in Toilet In Night Mode
 - alias: Turn On Light In Toilet 20%
   trigger: 
@@ -852,7 +850,7 @@
       brightness: 254
       entity_id:
         - light.osrambulbsgrouptoilet
-    
+
 # Auto Light Off In Toilet 10 minutes no occupancy
 - alias: Turn Off Light Toilet 10 No Occupancy
   trigger: 
@@ -1121,7 +1119,7 @@
 #         {% else %}
 #         5
 #         {% endif %}   
-          
+
 # Air Max On & Off
 - alias: "Air Max 30 min On"
   trigger:

@@ -20,7 +20,7 @@
   action:
     entity_id: light.ikeabulbsgrouptoiletmirror
     service: light.toggle
-    
+
 - alias: Turn Off Light Toilet 1 & 2
   trigger:  
     platform: state

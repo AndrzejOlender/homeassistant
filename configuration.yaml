@@ -26,7 +26,7 @@ remote: !include config/remote.yaml
 webostv: !include config/webostv.yaml
 recorder: !include config/recorder.yaml
 influxdb: !include config/influxdb.yaml
-automation: !include config/automations.yaml
+automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 binary_sensor: !include config/binary.yaml
 device_tracker: !include config/tracker.yaml

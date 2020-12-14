@@ -137,24 +137,6 @@
     entity_id: light.lamp_kitchen
     service: light.toggle  
 
-- alias: Enable Washer
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_click
-    to: left
-  action:
-    entity_id: switch.washermachine_relay
-    service: switch.turn_on
-
-- alias: Disable Washer
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_click
-    to: left_double
-  action:
-    entity_id: switch.washermachine_relay
-    service: switch.turn_off
-
 # Switches Childroom 1
 - alias: Lamp Childroom
   trigger:
@@ -654,32 +636,3 @@
       topic: "zigbee2mqtt/RingVibration/action"
       payload: "unknown"
 
-- alias: 'Set theme at startup'
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    service: frontend.set_theme
-    data:
-      name: "Google Dark Theme Oled"
-
-# Amazon Echo
-- alias: "Sound Low Alexa Echo"
-  trigger:
-    platform: time
-    at: "21:00:00"   
-  action:
-    - service: media_player.volume_set
-      data:
-          entity_id: media_player.echo
-          volume_level: 0.1
-
-- alias: "Sound Up Alexa Echo"
-  trigger:
-    platform: time
-    at: "07:00:00"   
-  action:
-    - service: media_player.volume_set
-      data:
-          entity_id: media_player.echo
-          volume_level: 0.5

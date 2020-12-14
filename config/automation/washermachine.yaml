@@ -1,0 +1,17 @@
+- alias: Enable Washer
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom2_click
+    to: left
+  action:
+    entity_id: switch.washermachine_relay
+    service: switch.turn_on
+
+- alias: Disable Washer
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom2_click
+    to: left_double
+  action:
+    entity_id: switch.washermachine_relay
+    service: switch.turn_off

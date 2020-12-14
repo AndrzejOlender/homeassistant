@@ -1,0 +1,19 @@
+- alias: "Sound Low Alexa Echo"
+  trigger:
+    platform: time
+    at: "21:00:00"   
+  action:
+    - service: media_player.volume_set
+      data:
+          entity_id: media_player.echo
+          volume_level: 0.1
+
+- alias: "Sound Up Alexa Echo"
+  trigger:
+    platform: time
+    at: "07:00:00"   
+  action:
+    - service: media_player.volume_set
+      data:
+          entity_id: media_player.echo
+          volume_level: 0.5

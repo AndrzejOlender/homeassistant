@@ -1,0 +1,9 @@
+- alias: NFC
+  trigger: 
+    platform: event
+    event_type: tag_scanned
+    event_data:
+      tag_id: cc3f02c0-9ced-4ca1-974c-7fa1568adae5
+  action:
+    entity_id: light.aqaralampchildroom_light
+    service: light.toggle

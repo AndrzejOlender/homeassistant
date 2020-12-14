@@ -1,0 +1,119 @@
+- alias: "Air Max 30 min On"
+  trigger:
+    platform: time
+    at: "15:00:00"
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'  
+    - condition: state
+      entity_id: device_tracker.iphone_luci_andrzej
+      state: "not_home"
+    - condition: state
+      entity_id: device_tracker.xiaomired_luci_ania
+      state: "not_home"    
+  action: 
+    entity_id: switch.airpurifiermax
+    service: switch.turn_on    
+
+- alias: "Air Max 30 min Off"
+  trigger:
+    platform: state
+    entity_id: switch.airpurifiermax
+    from: 'off'
+    to: 'on' 
+    for: 
+      minutes: 30
+  action: 
+    entity_id: switch.airpurifiermax
+    service: switch.turn_off 
+
+- alias: 'Turn On LED AirPurifier'
+  trigger:
+    platform: time
+    at: "06:30:00"
+  action:
+    entity_id: 
+      - switch.airpurifierled
+    service: switch.turn_on      
+
+- alias: Turn On LED Enter Home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.motionkitchen_occupancy
+      state: "off"
+  action:
+    entity_id: 
+      - switch.airpurifierled
+    service: switch.turn_on  
+
+# - alias: AQI Air Ok 
+#   trigger:
+#   - platform: numeric_state
+#     entity_id: fan.air_purifier
+#     value_template: '{{ state.attributes.aqi }}'
+#     below: 10
+#     for:
+#       minutes: 10
+#   condition:
+#   - condition: state
+#     entity_id: fan.air_purifier
+#     state: 'on'
+#   - condition: state
+#     entity_id: switch.airpurifiermax
+#     state: 'off'
+#   action:
+#   - entity_id: fan.air_purifier
+#     service: fan.turn_on
+#   - entity_id: fan.air_purifier
+#     service: fan.set_speed
+#     data:
+#       speed: auto
+
+# - alias: AQI Air Bad Day
+#   trigger:
+#   - above: 30
+#     entity_id: fan.air_purifier
+#     for:
+#       minutes: 5
+#     platform: numeric_state
+#     value_template: '{{ state.attributes.aqi }}'
+#   - above: 45
+#     entity_id: fan.air_purifier
+#     for:
+#       minutes: 5
+#     platform: numeric_state
+#     value_template: '{{ state.attributes.aqi }}'
+#   condition:
+#     condition: and
+#     conditions:
+#     - after: '08:00:00'
+#       before: '22:00:00'
+#       condition: time
+#   action:
+#   - entity_id: fan.air_purifier
+#     service: fan.turn_on
+#   - entity_id: fan.air_purifier
+#     service: fan.set_speed
+#     data:
+#       speed: favorite
+#   - service: xiaomi_miio.fan_set_favorite_level       
+#     data_template:
+#       entity_id: fan.air_purifier
+#       level: >
+#         {% if state_attr('fan.air_purifier', 'aqi') | int > 30 %}
+#         15
+#         {% elif state_attr('fan.air_purifier', 'aqi') | int > 25 %}
+#         12
+#         {% elif state_attr('fan.air_purifier', 'aqi') | int > 20 %}
+#         10
+#         {% elif state_attr('fan.air_purifier', 'aqi') | int > 15 %}
+#         8
+#         {% else %}
+#         5
+#         {% endif %}  

@@ -1,0 +1,17 @@
+- alias: Switch Good Night Right
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: right_double
+  action:
+    entity_id: scene.good_night
+    service: scene.turn_on
+
+- alias: Switch Good Evening Left
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchanteroom1_click
+    to: left_double
+  action:
+    entity_id: scene.good_evening
+    service: scene.turn_on  

@@ -474,7 +474,6 @@
       entity_id:
         - light.osrambulbsgrouptoilet
 
-# Auto Light Off In Toilet 10 minutes no occupancy
 - alias: Turn Off Light Toilet 10 No Occupancy
   trigger: 
     platform: state
@@ -489,7 +488,6 @@
         - light.osrambulbsgrouptoilet  
         - light.ikeabulbsgrouptoiletmirror
 
-# Auto Turn on Light in Anteroom Enter Home
 - alias: Turn on Light in Anteroom Enter Home
   trigger: 
     platform: state

@@ -1,4 +1,3 @@
-# Air Max On & Off
 - alias: "Air Max 30 min On"
   trigger:
     platform: time

@@ -1,5 +1,4 @@
-# Away Mode In Weekdays 
-- alias: Set Away Mode 
+- alias: Set Away Mode In Weekdays
   trigger:
     platform: time
     at: "08:00:00"
@@ -20,8 +19,7 @@
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
 
-# Away Mode 23 In Weekdays (person in home)
-- alias: Set Home Mode 
+- alias: Set Mode 23 In Weekdays (person in home) 
   trigger:
     platform: time
     at: "07:00:00"
@@ -51,8 +49,7 @@
         temperature: 23
         hvac_mode: auto  
 
-# Set 23 Time 16:00 In Weekdays
-- alias: Set Auto 23 Day Mode 
+- alias: Set Auto 23 Day Mode In Weekdays
   trigger:
     platform: time
     at: "15:30:00"
@@ -72,7 +69,6 @@
         temperature: 23
         hvac_mode: auto  
 
-# Night Mode Good Sleep
 - alias: Set Auto 20 Night Mode 
   trigger:
     platform: time
@@ -90,7 +86,6 @@
         temperature: 20
         hvac_mode: auto  
 
-# Set 23 Time 7:00 in Weekends      
 - alias: Set Auto 23 Day Mode Weekends
   trigger:
     platform: time

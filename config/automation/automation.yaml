@@ -80,24 +80,6 @@
     entity_id: light.ikeabulbsgroupanteroom1
     service: light.toggle
 
-- alias: Switch Good Night Right
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: right_double
-  action:
-    entity_id: scene.good_night
-    service: scene.turn_on
-
-- alias: Switch Good Evening Left
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: left_double
-  action:
-    entity_id: scene.good_evening
-    service: scene.turn_on  
-
 - alias: Switch Light Anteroom 2
   trigger:
     platform: state
@@ -680,17 +662,6 @@
     service: frontend.set_theme
     data:
       name: "Google Dark Theme Oled"
-
-- alias: NFC
-  trigger: 
-    platform: event
-    event_type: tag_scanned
-    event_data:
-      # device_id: 4D950353-9346-4EE0-8106-E19C563BD4B0
-      tag_id: cc3f02c0-9ced-4ca1-974c-7fa1568adae5
-  action:
-    entity_id: light.aqaralampchildroom_light
-    service: light.toggle
 
 # Amazon Echo
 - alias: "Sound Low Alexa Echo"

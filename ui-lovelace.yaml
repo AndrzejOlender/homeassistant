@@ -321,7 +321,11 @@ views:
           - entity: media_player.tv
             name: TV
             state_color: on
+          - entity: media_player.appletv
+            name: AppleTV
+            state_color: on
           - entity: media_player.echo
+            name: Echo
             state_color: on
           - entity: switch.yamaha
             state_color: on

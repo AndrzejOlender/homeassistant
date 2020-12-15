@@ -32,6 +32,6 @@ binary_sensor: !include config/binary.yaml
 device_tracker: !include config/tracker.yaml
 speedtestdotnet: !include config/speedtest.yaml
 # google_assistant: !include config/google-home/google-home.yaml
-# tts: !include config/tts/tts.yaml
+tts: !include tts.yaml
 
 http:

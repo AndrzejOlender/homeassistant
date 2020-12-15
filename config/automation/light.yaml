@@ -9,7 +9,7 @@
   # action:
   # - service: tts.google_cloud_say
   #   data:
-  #       entity_id: media_player.echo
+  #       entity_id: media_player.appletv
   #       message: "Cześć Andrzej, działa wszystko wyśmienicie"
 
 - alias: Switch Light Toilet 2
@@ -260,7 +260,7 @@
           - input_select.light_childroom2
         option: "OFF"
 
-# Auto off child room 1
+# Auto on child room 1
 - alias: Turn On Light Childroom if auto light off
   trigger: 
     platform: state

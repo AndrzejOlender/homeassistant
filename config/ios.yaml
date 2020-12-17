@@ -4,12 +4,12 @@ push:
       identifier: 'lock'
       actions:
         - identifier: 'LOCK'
-          title: 'Lock MainDoor'
+          title: 'Lock'
           activationMode: 'background'
           authenticationRequired: false
           destructive: false
         - identifier: 'UNLOCK'
-          title: 'Unlock MainDoor'
+          title: 'Unlock'
           activationMode: 'background'
           authenticationRequired: false
           destructive: false

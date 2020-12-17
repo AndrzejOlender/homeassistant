@@ -55,22 +55,36 @@
         push:
           sound: default
 
-- alias: Send Notification Open Lock
+- alias: Send Notification Opened Lock
   trigger:
     platform: state
     entity_id: binary_sensor.lock
     from: "off"
     to: "on"
-  condition:
-    - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
-      state: "not_home"
   action:
     service: notify.mobile_app_iphone
     data:
-      message: "Lock Open"
+      title: GerdaLock
+      message: "Lock Opened"
       data:
         push:
+          category: lock
+          sound: default
+
+- alias: Send Notification Closed Lock
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lock
+    from: "on"
+    to: "off"
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      title: GerdaLock
+      message: "Lock Closed"
+      data:
+        push:
+          category: lock
           sound: default
 
 - alias: Send Notification Enter Zone Home

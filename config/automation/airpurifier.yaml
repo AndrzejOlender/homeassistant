@@ -7,11 +7,8 @@
       entity_id: 'binary_sensor.workday_sensor'
       state: 'on'  
     - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
-      state: "not_home"
-    - condition: state
-      entity_id: device_tracker.xiaomired_luci_ania
-      state: "not_home"    
+      entity_id: group.household
+      state: "not_home"   
   action: 
     entity_id: switch.airpurifiermax
     service: switch.turn_on    
@@ -28,29 +25,31 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_off 
 
+- alias: "Air Max Off Geo"
+  trigger:
+    platform: state
+    entity_id: 
+      - device_tracker.iphone_luci_andrzej
+      - device_tracker.xiaomired_luci_ania
+    to: "home"
+  action: 
+    entity_id: switch.airpurifiermax
+    service: switch.turn_off 
+
+    action:
+    entity_id: 
+      - switch.airpurifierled
+    service: switch.turn_on 
+  
+
 - alias: 'Turn On LED AirPurifier'
   trigger:
     platform: time
-    at: "06:30:00"
+    at: "06:00:00"
   action:
     entity_id: 
       - switch.airpurifierled
-    service: switch.turn_on      
-
-- alias: Turn On LED Enter Home
-  trigger:
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motionkitchen_occupancy
-      state: "off"
-  action:
-    entity_id: 
-      - switch.airpurifierled
-    service: switch.turn_on  
+    service: switch.turn_on        
 
 # - alias: AQI Air Ok 
 #   trigger:

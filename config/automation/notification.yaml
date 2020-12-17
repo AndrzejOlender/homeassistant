@@ -55,6 +55,24 @@
         push:
           sound: default
 
+- alias: Send Notification Open Lock
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lock
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: device_tracker.iphone_luci_andrzej
+      state: "not_home"
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      message: "Lock Open"
+      data:
+        push:
+          sound: default
+
 - alias: Send Notification Enter Zone Home
   trigger:
     platform: zone

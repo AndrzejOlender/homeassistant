@@ -36,12 +36,6 @@
     entity_id: switch.airpurifiermax
     service: switch.turn_off 
 
-    action:
-    entity_id: 
-      - switch.airpurifierled
-    service: switch.turn_on 
-  
-
 - alias: 'Turn On LED AirPurifier'
   trigger:
     platform: time

@@ -4,14 +4,15 @@
     entity_id: binary_sensor.lock
     from: "off"
     to: "on"
+
   action:
     service: notify.mobile_app_iphone
     data:
-      title: "Check this out!"
-      message: "Something happened at home!"
-      data:
-        push:
-          category: map
-        action_data:
-          latitude: "40.785091"
-          longitude: "-73.968285"
+        title: "Check this out!"
+        message: "Something happened at home!"
+        data:
+          push:
+            category: "alarm" # Needs to match the top level identifier you used in the ios configuration
+          action_data: # Anything passed in action_data will get echoed back to Home Assistant.
+            entity_id: light.aqaralampchildroom_light
+            my_custom_data: foo_bar

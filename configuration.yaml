@@ -13,6 +13,7 @@ homeassistant:
   customize: !include config/customize.yaml
 
 fan: !include config/fan.yaml
+ios: !include config/ios.yaml
 zone: !include config/zone.yaml
 group: !include config/groups.yaml
 script: !include config/scripts.yaml

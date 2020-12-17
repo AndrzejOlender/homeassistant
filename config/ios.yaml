@@ -1,0 +1,15 @@
+push:
+  categories:
+    - name: Lock
+      identifier: 'lock'
+      actions:
+        - identifier: 'LOCK'
+          title: 'Lock MainDoor'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: false
+        - identifier: 'UNLOCK'
+          title: 'Unlock MainDoor'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: false

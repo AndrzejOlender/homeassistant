@@ -1,0 +1,11 @@
+- alias: Locking Of The Main Door 
+  trigger:
+    platform: state
+    entity_id: group.household
+    to: "home"
+    for:
+      minutes: "5"
+  action:
+    service: lock.lock
+    entity_id: lock.maindoorlock
+

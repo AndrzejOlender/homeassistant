@@ -14,7 +14,7 @@
     switch.airpurifierled:
       state: 'on'
     lock.maindoorlock:
-      state: LOCK
+      state: locked
 
 - id: '1577085914679'
   name: Good Night
@@ -54,7 +54,7 @@
     media_player.echo:
       state: standby
     lock.maindoorlock:
-      state: LOCK
+      state: locked
 
 - id: '1577085924679'
   name: Good Morning

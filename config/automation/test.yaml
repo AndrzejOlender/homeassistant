@@ -1,0 +1,17 @@
+- alias: test test
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lock
+    from: "off"
+    to: "on"
+  action:
+    service: notify.mobile_app_iphone
+    data:
+      title: "Check this out!"
+      message: "Something happened at home!"
+      data:
+        push:
+          category: map
+        action_data:
+          latitude: "40.785091"
+          longitude: "-73.968285"

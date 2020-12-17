@@ -123,6 +123,9 @@ entity_config:
   climate.thermolivingroom_climate:
     expose: true
     name: Thermo
+  climate.thermokitchen_climate:
+    expose: true
+    name: Thermo  
   media_player.tv:
     expose: true
     name: TV

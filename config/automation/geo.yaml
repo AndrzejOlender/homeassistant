@@ -1,0 +1,17 @@
+- alias: Locking Of The Main Door 
+  trigger:
+    platform: state
+    entity_id: device_tracker.iphone_luci_andrzej, device_tracker.xiaomired_luci_ania
+    to: "home"
+    # for:
+    #   minutes: "5"
+  # action:
+  #   service: lock.lock
+  #   entity_id: lock.maindoorlock
+  action:
+      service: notify.mobile_app_iphone
+      data:
+        message: "test"
+        data:
+          push:
+            sound: default 

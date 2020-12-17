@@ -487,6 +487,8 @@ views:
             name: Eurotronic thermo - child room
           - entity: sensor.thermolivingroom_battery
             name: Eurotronic thermo - livingroom
+          - entity: sensor.thermokitchen_battery
+            name: Eurotronic thermo - kitchen
           - entity: sensor.maindoorlock_battery
             name: Danalock - Anteroom
 

@@ -1,4 +1,4 @@
-- alias: Locking Of The Main Door 
+- alias: Locking Main Door 
   trigger:
     platform: state
     entity_id: group.household

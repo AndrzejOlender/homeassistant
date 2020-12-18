@@ -80,7 +80,7 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: GerdaLock
+        title: Lock
         message: "Lock Opened"
         data:
           push:
@@ -88,7 +88,7 @@
             sound: default
     - service: notify.mobile_app_macbook
       data:
-        title: GerdaLock
+        title: Lock
         message: "Lock Opened"
         data:
           push:
@@ -104,15 +104,15 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: GerdaLock
+        title: Lock
         message: "Lock Closed"
         data:
           push:
             category: lock
-            sound: 
+            sound: default
     - service: notify.mobile_app_macbook
       data:
-        title: GerdaLock
+        title: Lock
         message: "Lock Closed"
         data:
           push:

@@ -28,3 +28,21 @@
   action:
     service: lock.unlock
     entity_id: lock.maindoorlock
+
+- alias: test
+  trigger:
+    platform: state
+    entity_id: group.household
+    to: "home"
+    for:
+      minutes: "5"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: Location
+        data:
+          push:
+            category: map
+          action_data:
+            latitude: "{{states.device_tracker.phone2.attributes.latitude}}"
+            longitude: "{{states.device_tracker.phone2.attributes.longitude}}"

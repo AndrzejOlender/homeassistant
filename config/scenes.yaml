@@ -53,8 +53,8 @@
       state: 'off' 
     media_player.echo:
       state: standby
-    lock.maindoorlock:
-      state: locked
+    # lock.maindoorlock:
+    #   state: locked
 
 - id: '1577085924679'
   name: Good Morning

@@ -13,5 +13,5 @@
 - name: Home
   latitude: 50.2985936
   longitude: 19.04179
-  radius: 250
+  radius: 350
   icon: mdi:home

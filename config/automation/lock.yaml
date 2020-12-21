@@ -46,33 +46,3 @@
 #           action_data:
 #             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
 #             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
-
-        # data:
-      #   message: Location
-      #   data:
-      #     push:
-      #     category: map
-      #     action_data:
-      #       # latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-      #       # longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
-      #       latitude: "40.785091"
-      #       longitude: "-73.968285"
-
-
-    # - service: notify.filip
-    #   data:
-    #     message: >-
-    #       {% if (trigger.to_state.state == 'on') %}
-    #       🚲 Drzwi garażowe zostały otwarte!
-    #       {% elif (trigger.to_state.state == 'off') %}
-    #       👍🏻 Drzwi garażowe zostały zamknięte
-    #       {% endif %}
-    #     data:
-    #       push:
-    #         category: "garaz"
-    #         sound:
-    #           name: Telegraph.caf
-    #           critical: "{{ 1 if ((states('input_boolean.tryb_nocny') == 'on') or is_state('binary_sensor.czuwanie_alarmu', 'on')) else 0 }}"
-    #           volume: 0.4
-    #       apns_headers:
-    #         'apns-collapse-id': 'drzwi-garaz-otwarte'

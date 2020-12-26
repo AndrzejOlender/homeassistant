@@ -12,6 +12,8 @@ frontend:
 homeassistant:
   packages: !include_dir_named config/packages
   customize: !include config/customize.yaml
+  allowlist_external_urls:
+    - "https://home.olender.me"
 
 fan: !include config/fan.yaml
 ios: !include config/ios.yaml

@@ -1,0 +1,15 @@
+push:
+  categories:
+    - name: Lock
+      identifier: 'lock'
+      actions:
+        - identifier: 'LOCK'
+          title: 'Lock'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: false
+        - identifier: 'UNLOCK'
+          title: 'Unlock'
+          activationMode: 'background'
+          authenticationRequired: false
+          destructive: false

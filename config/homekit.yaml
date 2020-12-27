@@ -46,6 +46,7 @@ filter:
     - scene.cinema
     - climate.thermochildroom_climate
     - climate.thermolivingroom_climate
+    - climate.thermokitchen_climate
     - media_player.tv
     - fan.air_purifier
     - lock.maindoorlock

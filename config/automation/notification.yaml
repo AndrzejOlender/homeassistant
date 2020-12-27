@@ -9,10 +9,18 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "Door"
         message: "Open Main Door"
         data:
           push:
-            sound: default   
+            sound: default
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Door"
+        message: "Open Main Door"
+        data:
+          push:
+            sound: default    
     - service: notify.tv
       data:
         message: "Open Main Door"
@@ -48,12 +56,68 @@
       entity_id: binary_sensor.motionkitchen_occupancy
       state: "off"
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Enter Home"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default
+        title: "Home"
+        message: "Enter Home"
+        data:
+          push:
+            sound: default
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Home"
+        message: "Enter Home"
+        data:
+          push:
+            sound: default
+
+- alias: Send Notification Opened Lock
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lock
+    from: "off"
+    to: "on"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: Lock
+        message: "Lock Opened"
+        data:
+          push:
+            category: lock
+            sound: default
+    - service: notify.mobile_app_macbook
+      data:
+        title: Lock
+        message: "Lock Opened"
+        data:
+          push:
+            category: lock
+            sound: default
+
+- alias: Send Notification Closed Lock
+  trigger:
+    platform: state
+    entity_id: binary_sensor.lock
+    from: "on"
+    to: "off"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: Lock
+        message: "Lock Closed"
+        data:
+          push:
+            category: lock
+            sound: default
+    - service: notify.mobile_app_macbook
+      data:
+        title: Lock
+        message: "Lock Closed"
+        data:
+          push:
+            category: lock
+            sound: default
 
 - alias: Send Notification Enter Zone Home
   trigger:
@@ -66,12 +130,20 @@
       entity_id: device_tracker.iphone_luci_andrzej
       state: "home" 
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Anna went into zone Home"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default   
+        title: "Location"
+        message: "Anna went into zone Home"
+        data:
+          push:
+            sound: default   
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Location"
+        message: "Anna went into zone Home"
+        data:
+          push:
+            sound: default   
 
 - alias: Send Notification Exit Home
   trigger:
@@ -89,6 +161,14 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "Home"
+        message: "Exit Home"
+        data:
+          push:
+            sound: default 
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Home"
         message: "Exit Home"
         data:
           push:
@@ -109,6 +189,14 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "Location"
+        message: "Anna left the WPKiW"
+        data:
+          push:
+            sound: default
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Location"
         message: "Anna left the WPKiW"
         data:
           push:
@@ -123,12 +211,20 @@
     zone: zone.wpkiw
     event: enter
   action:
-    service: notify.mobile_app_iphone
-    data:
-      message: "Anna went into the WPKiW"
+    - service: notify.mobile_app_iphone
       data:
-        push:
-          sound: default                         
+        title: "Location"
+        message: "Anna went into the WPKiW"
+        data:
+          push:
+            sound: default     
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Location"
+        message: "Anna went into the WPKiW"
+        data:
+          push:
+            sound: default                        
 
 - alias: Send Notification Leak Toilet
   trigger:
@@ -138,6 +234,16 @@
     to: "on"
   action:
     - service: notify.mobile_app_iphone
+      data:
+        title: "Leak!"
+        message: "Leak in toilet"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.mobile_app_macbook
       data:
         title: "Leak!"
         message: "Leak in toilet"
@@ -189,6 +295,17 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "Leak!"
+        message: "Leak in kitchen"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Leak!"
         message: "Leak in kitchen"
         data:
           push:
@@ -232,13 +349,21 @@
 #       to: "disable"
 #       for:
 #         minutes: 7
-#   action:
-#     service: notify.mobile_app_iphone
-#     data:
-#       message: "Dishwasher Ended"
-#       data:
-#         push:
-#           sound: default  
+  # action:
+  #   - service: notify.mobile_app_iphone
+  #     data:
+  #       title: "AGD"
+  #       message: "Dishwasher Ended"
+  #       data:
+  #         push:
+  #           sound: default  
+  #   - service: notify.mobile_app_macbook
+  #     data:
+  #       title: "AGD"
+  #       message: "Dishwasher Ended"
+  #       data:
+  #         push:
+  #           sound: default  
 
 - alias: "Notification Washermachine End"
   trigger:
@@ -251,10 +376,18 @@
   action:
     - service: notify.mobile_app_iphone
       data:
+        title: "AGD"
         message: "Washermachine Ended"
         data:
           push:
             sound: default   
+    - service: notify.mobile_app_macbook
+      data:
+        title: "AGD"
+        message: "Washermachine Ended"
+        data:
+          push:
+            sound: default 
     - service: notify.tv
       data:
         message: "Washermachine Ended"
@@ -291,6 +424,16 @@
               name: default
               critical: 1
               volume: 1.0
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Weather"
+        message: "Storm nearby"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
 
 - alias: "Notification Storm Warning"
   trigger:
@@ -300,6 +443,16 @@
       to: 'on'   
   action:
     - service: notify.mobile_app_iphone
+      data:
+        title: "Weather"
+        message: "Storm warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.mobile_app_macbook
       data:
         title: "Storm"
         message: "Storm warning"
@@ -319,7 +472,17 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: "Heat warning"
+        title: "Weather"
+        message: "Heat warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Weather"
         message: "Heat warning"
         data:
           push:
@@ -337,7 +500,17 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: "Wind warning"
+        title: "Weather"
+        message: "Wind warning"
+        data:
+          push:
+            sound: 
+              name: default
+              critical: 1
+              volume: 1.0
+    - service: notify.mobile_app_macbook
+      data:
+        title: "Weather"
         message: "Wind warning"
         data:
           push:
@@ -353,6 +526,16 @@
     to: vibration   
   action:
     - service: notify.mobile_app_iphone
+      data:
+        title: "Doorbell"
+        message: "Ring ring maindoor"
+        data:
+          push:
+            sound: 
+              name: default
+              # critical: 1
+              # volume: 1.0
+    - service: notify.mobile_app_macbook
       data:
         title: "Doorbell"
         message: "Ring ring maindoor"

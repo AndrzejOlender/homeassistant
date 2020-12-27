@@ -1,6 +1,7 @@
 # Configure a default setup
 default_config:
-
+# Color Extractor
+color_extractor:
 # lovelace mode
 lovelace:
   mode: yaml
@@ -11,8 +12,11 @@ frontend:
 homeassistant:
   packages: !include_dir_named config/packages
   customize: !include config/customize.yaml
+  allowlist_external_urls:
+    - "https://home.olender.me"
 
 fan: !include config/fan.yaml
+ios: !include config/ios.yaml
 zone: !include config/zone.yaml
 group: !include config/groups.yaml
 script: !include config/scripts.yaml

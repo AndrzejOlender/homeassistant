@@ -1,0 +1,48 @@
+# - alias: Locking Main Door 
+#   trigger:
+#     platform: state
+#     entity_id: group.household
+#     to: "home"
+#     for:
+#       minutes: "15"
+#   action:
+#     service: lock.lock
+#     entity_id: lock.maindoorlock
+
+- alias: Locking Main Door Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: LOCK
+  action:
+    service: lock.lock
+    entity_id: lock.maindoorlock
+
+- alias: Unlocking Main Door Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: UNLOCK
+  action:
+    service: lock.unlock
+    entity_id: lock.maindoorlock
+
+# - alias: test abc
+#   trigger:
+#     platform: state
+#     entity_id: group.household
+#     to: "home"
+#     for:
+#       minutes: "5"
+#   action:
+#     - service: notify.mobile_app_iphone
+#       data:
+#         message: Something happened at home!
+#         data:
+#           push:
+#             category: map
+#           action_data:
+#             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+#             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"

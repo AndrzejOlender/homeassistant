@@ -90,6 +90,9 @@ views:
           - entity: climate.thermochildroom_climate
             name: Child Room
             state_color: on
+          - entity: climate.thermokitchen_climate
+            name: Kitchen
+            state_color: on
           - entity: sensor.mi_temperature
             name: Living Room
             state_color: on
@@ -321,7 +324,11 @@ views:
           - entity: media_player.tv
             name: TV
             state_color: on
+          - entity: media_player.appletv
+            name: AppleTV
+            state_color: on
           - entity: media_player.echo
+            name: Echo
             state_color: on
           - entity: switch.yamaha
             state_color: on
@@ -391,7 +398,10 @@ views:
             state_color: on  
           - entity: binary_sensor.leaksensorkitchen_water_leak
             state_color: on
-            name: Leak          
+            name: Leak   
+          - entity: climate.thermokitchen_climate
+            name: Thermostat
+            state_color: on       
         show_header_toggle: false
         type: entities  
         title: Kitchen
@@ -477,6 +487,8 @@ views:
             name: Eurotronic thermo - child room
           - entity: sensor.thermolivingroom_battery
             name: Eurotronic thermo - livingroom
+          - entity: sensor.thermokitchen_battery
+            name: Eurotronic thermo - kitchen
           - entity: sensor.maindoorlock_battery
             name: Danalock - Anteroom
 

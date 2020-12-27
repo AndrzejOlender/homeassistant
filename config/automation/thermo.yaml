@@ -7,11 +7,8 @@
       entity_id: 'binary_sensor.workday_sensor'
       state: 'on' 
     - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
+      entity_id: group.household
       state: "not_home"
-    - condition: state
-      entity_id: device_tracker.xiaomired_luci_ania
-      state: "not_home"  
   action:
     - service: climate.turn_off
       data:

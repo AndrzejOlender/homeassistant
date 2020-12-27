@@ -4,10 +4,10 @@
 * Intel NUC NUC7i3BNH, i3-7100U CPU 2.40GHz, 16GB RAM (Ubuntu Server)
 * Home Assistant in Kubernetes instalation (Helm Charts)
 
-## ZigBee Adapter
-* Texas Instruments LAUNCHXL-CC1352P-2 
-
 ## ZigBee Devices
+### ZigBee Adapter 
+* Texas Instruments LAUNCHXL-CC1352P-2
+
 ### Lights
 * Aqara bulb ZNLDP12LM x1
 * Ikea bulb GU10 LED1650R5 x11

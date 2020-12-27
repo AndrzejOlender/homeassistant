@@ -41,6 +41,7 @@
 ## Wifi Devices
 ### Power Plug
 * BlitWolf BW-SHP6 x7 (eshome)
+* Shelly 2.5 x2 (esphome)
 
 ### Air Purifier
 * Xiaomi Air Purifier 2S x1

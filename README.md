@@ -59,14 +59,14 @@
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
 
 ## Integrations
-* Mobile App (iPhone, Android, MacOS)
-* MQTT
-* HomeKit
-* Airly
-* Speedtest
-* Alexa Media Player
-* HACS
-* Burze dziś
+* [Mobile App](https://apps.apple.com/us/app/home-assistant-companion/id1099568401) (iPhone, Android, MacOS)
+* [MQTT](https://www.home-assistant.io/integrations/mqtt/)
+* [HomeKit](https://www.home-assistant.io/integrations/homekit/)
+* [Airly](https://github.com/bieniu/ha-airly)
+* [Speedtest](https://www.home-assistant.io/integrations/speedtestdotnet/)
+* [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
+* [HACS](https://github.com/custom-components/hacs)
+* [Burze dziś](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Burze.dzis.net)
 
 ## Screenshots
 ![HA.png](image/HA.png)

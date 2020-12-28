@@ -23,13 +23,13 @@
 ### Lock
 * [Danalock V3-BTZB](https://www.zigbee2mqtt.io/devices/V3-BTZB.html) x1
 
-### Thermostat
+### Thermostats
 * [Eurotronic SPZB0001](https://www.zigbee2mqtt.io/devices/SPZB0001.html) x3
 
-### Leak Sensor
+### Leak Sensors
 * [Aqara SJCGQ11LM](https://www.zigbee2mqtt.io/devices/SJCGQ11LM.html) x2
 
-### Motion Sensor
+### Motion Sensors
 * [Aqara RTCGQ11LM](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) x5
 
 ### Contact Sensor
@@ -39,7 +39,7 @@
 * [Aqara DJT11LM](https://www.zigbee2mqtt.io/devices/DJT11LM.html) x1
 
 ## Wifi Devices
-### Power Plug
+### Power Plugs
 * [BlitWolf BW-SHP6](https://www.blitzwolf.com/BlitzWolf-BW-SHP6-2300W-WIFI-Smart-Socket-EU-Plug-Works-with-Alexa-Remote-Control-Time-Switch-Electricity-Monitoring-p-300.html) x7 ([eshome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
 * [Shelly 2.5](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) x2 ([esphome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
 
@@ -49,11 +49,11 @@
 ### IR Controller
 * [Xiaomi Universal IR](Universal IR) x1
 
-### Voice Assistant
+### Voice Assistants
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
 * [Siri](https://www.apple.com/siri/) (iPhone, Apple Watch)
 
-### Media Player
+### Media Players
 * [LG WebOS](https://www.lg.com/global/business/webos) x1
 * [AppleTV 4K](https://www.apple.com/apple-tv-4k/)
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)

@@ -40,23 +40,23 @@
 
 ## Wifi Devices
 ### Power Plug
-* BlitWolf BW-SHP6 x7 (eshome)
-* Shelly 2.5 x2 (esphome)
+* BlitWolf [BW-SHP6](https://www.blitzwolf.com/BlitzWolf-BW-SHP6-2300W-WIFI-Smart-Socket-EU-Plug-Works-with-Alexa-Remote-Control-Time-Switch-Electricity-Monitoring-p-300.html) x7 (eshome)
+* [Shelly 2.5](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) x2 (esphome)
 
 ### Air Purifier
-* Xiaomi Air Purifier 2S x1
+* Xiaomi [Air Purifier 2S](https://www.mi.com/in/air2s/) x1
 
 ### IR Controller
-* Xiaomi Universal IR x1
+* Xiaomi [Universal IR](Universal IR) x1
 
 ### Voice Assistant
-* Amazon Echo Dot 3
+* Amazon [Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
 * Siri (iPhone, Apple Watch)
 
 ### Media Player
 * LG WebOS x1
-* AppleTV 4K
-* Amazon Echo Dot 3
+* [AppleTV 4K](https://www.apple.com/apple-tv-4k/)
+* Amazon [Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
 
 ## Integrations
 * Mobile App (iPhone, Android, MacOS)

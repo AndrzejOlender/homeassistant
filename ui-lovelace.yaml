@@ -208,7 +208,7 @@ views:
 
   - badges: []
     visible:
-      - user: f2dce58afd6e4f718f64340f40d46403
+      - user: 4b4a93638a344e758538b4f233cb5147
     cards:
       # - entities:
       #     - sensor.adguard_average_processing_speed
@@ -246,7 +246,7 @@ views:
 
   - badges: []
     visible:
-      - user: f2dce58afd6e4f718f64340f40d46403
+      - user: 4b4a93638a344e758538b4f233cb5147
     panel: true
     cards:
       - type: custom:zigbee2mqtt-networkmap
@@ -436,7 +436,7 @@ views:
 
   - badges: []
     visible:
-      - user: f2dce58afd6e4f718f64340f40d46403
+      - user: 4b4a93638a344e758538b4f233cb5147
     cards:
       - entities:
           - entity: sensor.motionchildroom_battery

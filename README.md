@@ -40,8 +40,8 @@
 
 ## Wifi Devices
 ### Power Plug
-* BlitWolf BW-SHP6 x7 ([eshome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
-* Shelly 2.5 x2 ([esphome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
+* BlitWolf BW-SHP6 x7 (esphome)
+* Shelly 2.5 x2 (esphome)
 
 ### Air Purifier
 * Xiaomi Air Purifier 2S x1

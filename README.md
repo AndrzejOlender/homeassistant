@@ -51,7 +51,7 @@
 
 ### Voice Assistant
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
-* Siri (iPhone, Apple Watch)
+* [Siri](https://www.apple.com/siri/) (iPhone, Apple Watch)
 
 ### Media Player
 * [LG WebOS](https://www.lg.com/global/business/webos) x1

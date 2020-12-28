@@ -1,6 +1,6 @@
 test:
   stage: test
-  image: homeassistant/amd64-homeassistant:0.118.4
+  image: homeassistant/amd64-homeassistant:2020.12.0
   tags: 
     - master
   before_script:
@@ -8,7 +8,8 @@ test:
     - mv fake_secrets.yaml secrets.yaml
     - mv config/google-home/fake_homeassistant-google.json config/google-home/homeassistant-google.json
   script:
-    - python -m homeassistant --config . --script check_config
+    - python -m homeassistant --version
+    # - python -m homeassistant --config . --script check_config
 
 # deploy:
 #   stage: deploy

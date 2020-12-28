@@ -67,6 +67,7 @@
 * [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
 * [HACS](https://github.com/custom-components/hacs)
 * [Burze dziś](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Burze.dzis.net)
+* [LG WebOS](https://www.home-assistant.io/integrations/webostv/)
 
 ## Screenshots
 ![HA.png](image/HA.png)

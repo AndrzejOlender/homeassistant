@@ -40,8 +40,8 @@
 
 ## Wifi Devices
 ### Power Plug
-* [BlitWolf BW-SHP6](https://www.blitzwolf.com/BlitzWolf-BW-SHP6-2300W-WIFI-Smart-Socket-EU-Plug-Works-with-Alexa-Remote-Control-Time-Switch-Electricity-Monitoring-p-300.html) x7 (eshome)
-* [Shelly 2.5](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) x2 (esphome)
+* [BlitWolf BW-SHP6](https://www.blitzwolf.com/BlitzWolf-BW-SHP6-2300W-WIFI-Smart-Socket-EU-Plug-Works-with-Alexa-Remote-Control-Time-Switch-Electricity-Monitoring-p-300.html) x7 ([eshome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
+* [Shelly 2.5](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) x2 ([esphome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
 
 ### Air Purifier
 * [Xiaomi Air Purifier 2S](https://www.mi.com/in/air2s/) x1

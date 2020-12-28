@@ -1,7 +1,7 @@
 #  Home Assistant Configuration Files
 
 ## Server
-*[ Intel NUC NUC7i3BNH, i3-7100U CPU 2.40GHz, 16GB RAM](https://ark.intel.com/content/www/us/en/ark/products/95066/intel-nuc-kit-nuc7i3bnh.html) (Ubuntu Server)
+* [ Intel NUC NUC7i3BNH, i3-7100U CPU 2.40GHz, 16GB RAM](https://ark.intel.com/content/www/us/en/ark/products/95066/intel-nuc-kit-nuc7i3bnh.html) (Ubuntu Server)
 * Home Assistant in Kubernetes instalation (Helm Charts)
 
 ## ZigBee Devices

@@ -54,7 +54,7 @@
 * Siri (iPhone, Apple Watch)
 
 ### Media Player
-* LG WebOS x1
+* [LG WebOS](https://www.lg.com/global/business/webos) x1
 * [AppleTV 4K](https://www.apple.com/apple-tv-4k/)
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
 

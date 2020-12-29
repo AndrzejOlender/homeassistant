@@ -24,6 +24,26 @@ views:
         show_header_toggle: false
         type: entities
 
+      - type: 'custom:mini-graph-card'
+        name: Lights
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.light1_power
+            name: Light 1
+            show_legend: false
+          - entity: sensor.light2_power
+            name: Light 2
+            show_legend: false
+            color: green
+          - entity: sensor.light3_power
+            name: Light 3 
+            show_legend: false
+            color: purple 
+
       - entities:
           - entity: light.aqaralampchildroom_light
             name: Child Room 1
@@ -54,6 +74,22 @@ views:
             name: Toilet Mirror
         show_header_toggle: false
         type: entities
+
+      - type: 'custom:mini-graph-card'
+        name: RTV 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.tv_power
+            name: TV
+            show_legend: false
+          - entity: sensor.yamaha_power
+            name: Yamaha 
+            show_legend: false
+            color: green
 
       - entities:
           - entity: media_player.tv
@@ -86,6 +122,30 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
+      - type: 'custom:mini-graph-card'
+        name: Temperature 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.thermostat_livingroom_temperature
+            name: Living Room
+            show_legend: false
+          - entity: sensor.thermostat_childroom_temperature
+            name: Child Room
+            show_legend: false
+            color: green
+          - entity: sensor.thermostat_kitchen_temperature
+            name: Kitchen
+            show_legend: false
+            color: purple
+          # - entity: sensor.airly_temperature
+          #   name: Outside 
+          #   show_legend: false
+          #   color: yellow   
 
       - entities:
           - entity: climate.thermolivingroom_climate
@@ -141,6 +201,39 @@ views:
         show_header_toggle: false
         type: entities   
 
+      - type: custom:mini-graph-card
+        entities:
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Anteroom
+            show_legend: false
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Kitchen
+            show_legend: false
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Toilet
+            show_legend: false
+            color: green
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Childroom 1
+            show_legend: false
+          - entity: binary_sensor.motionchildroom2_occupancy
+            name: Childroom 2
+            show_legend: false
+        name: Motion
+        hours_to_show: 6
+        points_per_hour: 6
+        font_size: 75
+        font_size_header: 12
+        update_interval: 30
+        aggregate_func: max
+        line_width: 2
+        smoothing: false
+        state_map:
+          - value: "off"
+            label: Clear
+          - value: "on"
+            label: Detected 
+
       - entities:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Ante Room
@@ -187,6 +280,26 @@ views:
             name: Home
         show_header_toggle: false
         type: entities  
+
+      - type: 'custom:mini-graph-card'
+        name: AGD 
+        line_width: 2
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.washermachine_power
+            name: Washermachine
+            show_legend: false
+          - entity: sensor.fridge_power
+            name: Fridge
+            show_legend: false
+            color: green
+          - entity: sensor.dishwasher_power
+            name: Dishwasher 
+            show_legend: false
+            color: purple
 
       - entities:
           - entity: switch.dishwasher_relay
@@ -516,11 +629,11 @@ views:
         font_size_header: 12
         line_color: '#04aaf5'
         entities:
-          - entity: sensor.light_1
+          - entity: sensor.light1_current
             name: Light 1
-          - entity: sensor.light_2
+          - entity: sensor.light2_current
             name: Light 2
-          - entity: sensor.light_3
+          - entity: sensor.light3_current
             name: Light 3  
 
       - type: 'custom:mini-graph-card'
@@ -551,7 +664,8 @@ views:
           - entity: sensor.airly_aqi
             name: Outdoor
           - entity: sensor.mi_aqi
-            name: Home  
+            name: Home 
+
       - type: 'custom:mini-graph-card'
         name: Shelly 
         line_width: 2
@@ -560,9 +674,9 @@ views:
         font_size_header: 12
         line_color: '#04aaf5'
         entities:
-          - entity: sensor.shelly_01_analog_temperature
+          - entity: sensor.shelly1_temperature
             name: Shelly 01
-          - entity: sensor.shelly_02_analog_temperature
+          - entity: sensor.shelly2_temperature
             name: Shelly 02
 
       - type: 'custom:mini-graph-card'
@@ -590,6 +704,10 @@ views:
           - entity: binary_sensor.motiontoilet_occupancy
             name: Toilet
             color: green
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Childroom 1
+          - entity: binary_sensor.motionchildroom2_occupancy
+            name: Childroom 2
         name: Motion
         hours_to_show: 6
         points_per_hour: 6

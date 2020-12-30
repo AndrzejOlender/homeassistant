@@ -5,7 +5,9 @@
   action:
     - service: media_player.volume_set
       data:
-          entity_id: media_player.echo
+          entity_id: 
+            - media_player.echo_dot_3
+            - media_player.echo_dot_4
           volume_level: 0.1
 
 - alias: "Sound Up Alexa Echo"
@@ -15,5 +17,7 @@
   action:
     - service: media_player.volume_set
       data:
-          entity_id: media_player.echo
+          entity_id: 
+            - media_player.echo_dot_3
+            - media_player.echo_dot_4
           volume_level: 0.5

@@ -1,9 +1,0 @@
-# - alias: AppleTV to Shelf Lights
-#   trigger:
-#     - platform: state
-#       entity_id: media_player.echo
-#   action:
-#     - service: color_extractor.turn_on
-#       data_template:
-#         color_extract_url: '{{ states.media_player.echo.attributes.entity_picture }}'
-#         entity_id: light.ikeabulblamp_light

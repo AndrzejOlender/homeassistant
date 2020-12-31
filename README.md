@@ -69,7 +69,10 @@
 * [HACS](https://github.com/custom-components/hacs)
 * [Burze dziś](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Burze.dzis.net)
 * [LG WebOS](https://www.home-assistant.io/integrations/webostv/)
+* [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
 
 ## Screenshots
+### Main 
 ![HA.png](image/HA-20201231.png)
+### Zigbee Mesh
 ![HA-zigbbe-mesh.png](image/HA-zigbbe-mesh.png)

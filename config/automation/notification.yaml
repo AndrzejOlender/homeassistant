@@ -29,13 +29,16 @@
         message: "Open Main Door"
     - service: media_player.play_media
       data:
-        entity_id: media_player.echo
+        entity_id: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         media_content_type: sound
         media_content_id: amzn_sfx_doorbell_chime_01
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.echo
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         data:
           type: tts
         message: "Open Main Door"
@@ -275,13 +278,16 @@
           action:
     - service: media_player.play_media
       data:
-        entity_id: media_player.echo
+        entity_id: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         media_content_type: sound
         media_content_id: amzn_sfx_doorbell_chime_01
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.echo
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         data:
           type: tts
         message: "Warning! Warning! Warning!. Leak in toilet."
@@ -335,7 +341,8 @@
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.echo
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         data:
           type: tts
         message: "Warning! Warning! Warning!. Leak in kitchen."   
@@ -396,13 +403,16 @@
         message: "Washermachine Ended"
     - service: media_player.play_media
       data:
-        entity_id: media_player.echo
+        entity_id: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         media_content_type: sound
         media_content_id: amzn_sfx_doorbell_chime_01
     - service: notify.alexa_media
       data:
         target: 
-          - media_player.echo
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
         data:
           type: tts
         message: "Washermachine ended."

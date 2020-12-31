@@ -2,6 +2,10 @@ resources:
   - url: /local/zigbee2mqtt-networkmap.js?v=0.6.0
     type: module    
     
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
+    type: module
+  
+  
 title: Home
 views:
   - badges: []
@@ -19,6 +23,26 @@ views:
           - entity: scene.cinema
         show_header_toggle: false
         type: entities
+
+      - type: 'custom:mini-graph-card'
+        name: Lights
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.light1_power
+            name: Light 1
+            show_legend: false
+          - entity: sensor.light2_power
+            name: Light 2
+            show_legend: false
+            color: green
+          - entity: sensor.light3_power
+            name: Light 3 
+            show_legend: false
+            color: purple 
 
       - entities:
           - entity: light.aqaralampchildroom_light
@@ -51,6 +75,22 @@ views:
         show_header_toggle: false
         type: entities
 
+      - type: 'custom:mini-graph-card'
+        name: RTV 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.tv_power
+            name: TV
+            show_legend: false
+          - entity: sensor.yamaha_power
+            name: Yamaha 
+            show_legend: false
+            color: green
+
       - entities:
           - entity: media_player.tv
             state_color: on
@@ -82,6 +122,30 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
+      - type: 'custom:mini-graph-card'
+        name: Temperature 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.thermostat_livingroom_temperature
+            name: Living Room
+            show_legend: false
+          - entity: sensor.thermostat_childroom_temperature
+            name: Child Room
+            show_legend: false
+            color: green
+          - entity: sensor.thermostat_kitchen_temperature
+            name: Kitchen
+            show_legend: false
+            color: purple
+          # - entity: sensor.airly_temperature
+          #   name: Outside 
+          #   show_legend: false
+          #   color: yellow   
 
       - entities:
           - entity: climate.thermolivingroom_climate
@@ -137,6 +201,39 @@ views:
         show_header_toggle: false
         type: entities   
 
+      - type: custom:mini-graph-card
+        entities:
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Anteroom
+            show_legend: false
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Kitchen
+            show_legend: false
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Toilet
+            show_legend: false
+            color: green
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Childroom 1
+            show_legend: false
+          - entity: binary_sensor.motionchildroom2_occupancy
+            name: Childroom 2
+            show_legend: false
+        name: Motion
+        hours_to_show: 6
+        points_per_hour: 6
+        font_size: 75
+        font_size_header: 12
+        update_interval: 30
+        aggregate_func: max
+        line_width: 3
+        smoothing: false
+        state_map:
+          - value: "off"
+            label: Clear
+          - value: "on"
+            label: Detected 
+
       - entities:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Ante Room
@@ -183,6 +280,26 @@ views:
             name: Home
         show_header_toggle: false
         type: entities  
+
+      - type: 'custom:mini-graph-card'
+        name: AGD 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.washermachine_power
+            name: Washermachine
+            show_legend: false
+          - entity: sensor.fridge_power
+            name: Fridge
+            show_legend: false
+            color: green
+          - entity: sensor.dishwasher_power
+            name: Dishwasher 
+            show_legend: false
+            color: purple
 
       - entities:
           - entity: switch.dishwasher_relay
@@ -231,6 +348,11 @@ views:
           - entity: timer.zigbee_permit_join
         show_header_toggle: false
         type: entities
+
+      # - type: picture-glance
+      #   title: Camera
+      #   entities: []
+      #   camera_image: camera.front_door
 
       - type: map
         entities:
@@ -327,8 +449,11 @@ views:
           - entity: media_player.appletv
             name: AppleTV
             state_color: on
-          - entity: media_player.echo
-            name: Echo
+          - entity: media_player.echo_dot_3
+            name: Echo 3
+            state_color: on
+          - entity: media_player.echo_dot_4
+            name: Echo 4
             state_color: on
           - entity: switch.yamaha
             state_color: on
@@ -500,3 +625,153 @@ views:
     path: Battery
     theme: default_view
     title: Battery
+
+
+  - badges: []
+    cards:
+      - type: 'custom:mini-graph-card'
+        name: Lights
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.light1_current
+            name: Light 1
+          - entity: sensor.light2_current
+            name: Light 2
+          - entity: sensor.light3_current
+            name: Light 3  
+
+      - type: 'custom:mini-graph-card'
+        name: UPC
+        icon: 'mdi:server'
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.speedtest_download
+            name: Download
+          - entity: sensor.speedtest_upload
+            name: Upload  
+          - entity: sensor.speedtest_ping
+            name: Ping
+            color: green   
+
+      - type: 'custom:mini-graph-card'
+        name: Air
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.airly_aqi
+            name: Outdoor
+          - entity: sensor.mi_aqi
+            name: Home 
+
+      - type: 'custom:mini-graph-card'
+        name: Shelly 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.shelly1_temperature
+            name: Shelly 01
+          - entity: sensor.shelly2_temperature
+            name: Shelly 02
+
+      - type: 'custom:mini-graph-card'
+        name: Temperature 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.thermostat_livingroom_temperature
+            name: Living Room
+          - entity: sensor.thermostat_childroom_temperature
+            name: Child Room
+          - entity: sensor.airly_temperature
+            name: Outside 
+            color: green      
+
+      - type: custom:mini-graph-card
+        entities:
+          - entity: binary_sensor.motionkitchen_occupancy
+            name: Anteroom
+          - entity: binary_sensor.motionkitchen2_occupancy
+            name: Kitchen
+          - entity: binary_sensor.motiontoilet_occupancy
+            name: Toilet
+            color: green
+          - entity: binary_sensor.motionchildroom_occupancy
+            name: Childroom 1
+          - entity: binary_sensor.motionchildroom2_occupancy
+            name: Childroom 2
+        name: Motion
+        hours_to_show: 6
+        points_per_hour: 6
+        font_size: 75
+        font_size_header: 12
+        update_interval: 30
+        aggregate_func: max
+        line_width: 3
+        smoothing: false
+        state_map:
+          - value: "off"
+            label: Clear
+          - value: "on"
+            label: Detected         
+
+      - type: 'custom:mini-graph-card'
+        name: AGD 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.washermachine_power
+            name: Washermachine
+          - entity: sensor.fridge_power
+            name: Fridge
+          - entity: sensor.dishwasher_power
+            name: Dishwasher 
+
+      - type: 'custom:mini-graph-card'
+        name: RTV 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.tv_power
+            name: TV
+          - entity: sensor.yamaha_power
+            name: Yamaha 
+
+      - type: 'custom:mini-graph-card'
+        name: Puriffier 
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.mi_rpm
+            name: RPM   
+
+    icon: 'mdi:gauge'
+    path: monit
+    theme: default
+    title: Monit
+

@@ -103,13 +103,13 @@ smart_home:
       name: "Cinema"
       display_categories: SCENE
     # climate.thermochildroom_climate:
-    #   name: "Thermo"
+    #   name: "Thermo Child"
     #   display_categories: THERMOSTAT
     # climate.thermolivingroom_climate:
-    #   name: "Thermo"
+    #   name: "Thermo Living Room"
     #   display_categories: THERMOSTAT
     # climate.thermokitchen_climate:
-    #   name: "Thermo"
+    #   name: "Thermo Kitchen"
     #   display_categories: THERMOSTAT
     media_player.tv:
       name: TV
@@ -155,15 +155,3 @@ smart_home:
       name: Door
       display_categories: SMARTLOCK
 
-# # Amazon Alexa
-# alexa_media:
-#   accounts:
-#     - email: !secret amazon_user
-#       password: !secret amazon_password
-#       url: amazon.com
-#       include_devices:
-#         - "echo"
-
-# notify:
-#   - platform: alexa_media
-#     name: alexa_media

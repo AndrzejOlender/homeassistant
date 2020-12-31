@@ -71,5 +71,5 @@
 * [LG WebOS](https://www.home-assistant.io/integrations/webostv/)
 
 ## Screenshots
-![HA.png](image/HA.png)
+![HA.png](image/HA-20201231.png)
 ![HA-zigbbe-mesh.png](image/HA-zigbbe-mesh.png)

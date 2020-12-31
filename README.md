@@ -47,7 +47,7 @@
 * [Xiaomi Air Purifier 2S](https://www.mi.com/in/air2s/) x1
 
 ### IR Controller
-* [Xiaomi Universal IR](Universal IR) x1
+* [Xiaomi Universal IR](https://www.gearbest.com/smart-home/pp_229556.html) x1
 
 ### Voice Assistants
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)

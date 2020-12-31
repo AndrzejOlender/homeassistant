@@ -51,6 +51,7 @@
 
 ### Voice Assistants
 * [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
+* [Amazon Echo Dot 4](https://www.amazon.com/All-New-Echo-Dot-4th-Gen/dp/B07XJ8C8F5)
 * [Siri](https://www.apple.com/siri/) (iPhone, Apple Watch)
 
 ### Media Players

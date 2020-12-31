@@ -1,17 +1,17 @@
-- name: Wpkiw
-  latitude: 50.281688
-  longitude: 18.978667
+- name: WPKiW
+  latitude: !secret latitude_wpkiw
+  longitude: !secret longitude_wpkiw
   radius: 250
   icon: mdi:account-hard-hat
 
 - name: Yakudo
-  latitude: 49.957991
-  longitude: 18.964889
+  latitude: !secret latitude_yakudo
+  longitude: !secret longitude_yakudo
   radius: 250
   icon: mdi:account-hard-hat  
 
 - name: Home
-  latitude: 50.2985936
-  longitude: 19.04179
+  latitude: !secret latitude_home
+  longitude: !secret longitude_home
   radius: 350
   icon: mdi:home

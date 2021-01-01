@@ -464,7 +464,7 @@
       entity_id: binary_sensor.toiletdoor_contact
       state:  "on"  
     - condition: state
-      entity_id: light.yamaha
+      entity_id: switch.yamaha
       state: "on"
   action: 
     service: light.turn_on          

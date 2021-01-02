@@ -13,16 +13,61 @@ views:
       - entity: weather.home
         type: weather-forecast
         name: 'Siemianowice'
-        show_forecast: true
+        show_forecast: false
         attribute: humidity
         
       - entities:
           - entity: scene.good_morning
-          - entity: scene.good_evening
+          - entity: scene.good_eveningP
           - entity: scene.good_night
           - entity: scene.cinema
         show_header_toggle: false
         type: entities
+
+      # - type: vertical-stack
+      #   cards:
+      #     - type: vertical-stack
+      #       in_card: true
+      #       # title: "Internet"
+      #       cards:
+      #         - type: horizontal-stack
+      #           cards:
+      #             - type: custom:mini-graph-card
+      #               style: |
+      #                 ha-card.flex {
+      #                   padding-top: 0px;
+      #                   padding-bottom: 0px;
+      #                 }
+      #               <<: &GRAPH_IN_CARD
+      #                 name: Download
+      #                 hour24: true
+      #                 points_per_hour: 1
+      #                 animate: true
+      #                 font_size: 75
+      #                 font_size_header: 12
+      #                 show:
+      #                   fill: false
+      #                   labels: false
+      #                   points: false
+      #               line_color: "#36a2eb"
+      #               decimals: 1
+      #               entities:
+      #                 - sensor.speedtest_download
+      #             - type: custom:mini-graph-card
+      #               style: |
+      #                 ha-card.flex {
+      #                   padding-top: 0px;
+      #                   padding-bottom: 0px;
+      #                 }
+      #               <<: *GRAPH_IN_CARD
+      #               name: Upload
+      #               line_color: "#ffce57"
+      #               decimals: 1
+      #               font_size: 75
+      #               font_size_header: 12
+      #               entities:
+      #                 - sensor.speedtest_upload
+
 
       - type: 'custom:mini-graph-card'
         name: Lights
@@ -226,7 +271,7 @@ views:
         font_size_header: 12
         update_interval: 30
         aggregate_func: max
-        line_width: 3
+        line_width: 2
         smoothing: false
         state_map:
           - value: "off"
@@ -260,6 +305,22 @@ views:
             state_color: on
         show_header_toggle: false
         type: entities
+
+      - type: 'custom:mini-graph-card'
+        name: Air
+        line_width: 3
+        font_size: 75
+        hours_to_show: 24
+        font_size_header: 12
+        line_color: '#04aaf5'
+        entities:
+          - entity: sensor.mi_aqi
+            name: Home 
+            show_legend: false
+          - entity: sensor.airly_aqi
+            name: Outdoor
+            color: green
+            show_legend: false
 
       - entities:
           - entity: air_quality.airly

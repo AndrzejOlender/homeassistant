@@ -638,6 +638,17 @@ views:
     cards:
       - type: entities
         show_header_toggle: false
+        header:
+          type: picture
+          image: 'https://www.home-assistant.io/images/lovelace/header-footer/balloons-header.png'
+        footer:
+          type: buttons
+          entities:
+            - script.launch_confetti
+            - entity: script.swirl_lights
+              icon: 'mdi:track-light'
+            - entity: script.run_siren
+              icon: 'mdi:alarm-light'
         entities:
           - entity: sensor.motionchildroom_battery
             name: Aqara motion - child room
@@ -699,3 +710,4 @@ views:
     title: Battery
 
 
+    

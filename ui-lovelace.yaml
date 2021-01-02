@@ -5,24 +5,23 @@ resources:
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
     type: module
   
-  
 title: Home
 views:
   - badges: []
+    in_card: true
     cards:
-      - entity: weather.home
-        type: weather-forecast
-        name: 'Siemianowice'
+      - type: weather-forecast
         show_forecast: false
-        attribute: humidity
+        entity: weather.home
+        name: 'Siemianowice'
         
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
           - entity: scene.cinema
-        show_header_toggle: false
-        type: entities
 
       # - type: vertical-stack
       #   in_card: true
@@ -55,64 +54,77 @@ views:
       #           entities:
       #             - sensor.speedtest_upload
 
+      - type: vertical-stack
+        in_card: true
+        cards:
+          - type: 'custom:mini-graph-card'
+            name: Lights
+            animate: true
+            line_width: 3
+            font_size: 75
+            decimals: 1
+            hours_to_show: 24
+            font_size_header: 12
+            line_color: '#04aaf5'
+            show:
+              fill: false
+              labels: false
+              points: false
+            entities:
+              - entity: sensor.light1_power
+                name: Light 1
+                show_legend: false
+              - entity: sensor.light2_power
+                name: Light 2
+                show_legend: false
+                color: green
+              - entity: sensor.light3_power
+                name: Light 3 
+                show_legend: false
+                color: purple 
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: light.aqaralampchildroom_light
+                name: Child Room 1
+              - entity: light.ikeabulbsgroupwardobe
+                name: Child Room 2
+              - entity: light.ikeabulblamp_light
+                name: Living Room 
+              - entity: switch.light1_relay
+                name: Living Room 1
+                state_color: on
+              - entity: switch.light2_relay
+                name: Living Room 2
+                state_color: on
+              - entity: switch.light3_relay
+                name: Living Room 3
+                state_color: on
+              - entity: light.ikeabulbsgroupkitchen
+                name: Kitchen Table
+              - entity: light.lamp_kitchen
+                name: Kitchen 
+              - entity: light.ikeabulbsgroupanteroom1
+                name: Ante Room 1
+              - entity: light.ikeabulbsgroupanteroom2
+                name: Ante Room 2  
+              - entity: light.osrambulbsgrouptoilet
+                name: Toilet
+              - entity: light.ikeabulbsgrouptoiletmirror
+                name: Toilet Mirror
+
       - type: 'custom:mini-graph-card'
-        name: Lights
+        name: RTV 
         line_width: 3
         font_size: 75
         decimals: 1
         hours_to_show: 24
         font_size_header: 12
         line_color: '#04aaf5'
-        entities:
-          - entity: sensor.light1_power
-            name: Light 1
-            show_legend: false
-          - entity: sensor.light2_power
-            name: Light 2
-            show_legend: false
-            color: green
-          - entity: sensor.light3_power
-            name: Light 3 
-            show_legend: false
-            color: purple 
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: light.aqaralampchildroom_light
-            name: Child Room 1
-          - entity: light.ikeabulbsgroupwardobe
-            name: Child Room 2
-          - entity: light.ikeabulblamp_light
-            name: Living Room 
-          - entity: switch.light1_relay
-            name: Living Room 1
-            state_color: on
-          - entity: switch.light2_relay
-            name: Living Room 2
-            state_color: on
-          - entity: switch.light3_relay
-            name: Living Room 3
-            state_color: on
-          - entity: light.ikeabulbsgroupkitchen
-            name: Kitchen Table
-          - entity: light.lamp_kitchen
-            name: Kitchen 
-          - entity: light.ikeabulbsgroupanteroom1
-            name: Ante Room 1
-          - entity: light.ikeabulbsgroupanteroom2
-            name: Ante Room 2  
-          - entity: light.osrambulbsgrouptoilet
-            name: Toilet
-          - entity: light.ikeabulbsgrouptoiletmirror
-            name: Toilet Mirror
-
-      - type: 'custom:mini-graph-card'
-        name: RTV 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
+        show:
+          fill: false
+          labels: false
+          points: false
         entities:
           - entity: sensor.tv_power
             name: TV
@@ -159,7 +171,12 @@ views:
         font_size: 75
         hours_to_show: 24
         font_size_header: 12
+        decimals: 1
         line_color: '#04aaf5'
+        show:
+          fill: false
+          labels: false
+          points: false
         entities:
           - entity: sensor.thermostat_livingroom_temperature
             name: Living Room
@@ -250,10 +267,15 @@ views:
         points_per_hour: 6
         font_size: 75
         font_size_header: 12
+        decimals: 1
         update_interval: 30
         aggregate_func: max
         line_width: 2
         smoothing: false
+        show:
+          fill: false
+          labels: false
+          points: false
         state_map:
           - value: "off"
             label: Clear
@@ -292,7 +314,12 @@ views:
         font_size: 75
         hours_to_show: 24
         font_size_header: 12
+        decimals: 1
         line_color: '#04aaf5'
+        show:
+          fill: false
+          labels: false
+          points: false
         entities:
           - entity: sensor.mi_aqi
             name: Home 
@@ -327,7 +354,12 @@ views:
         font_size: 75
         hours_to_show: 24
         font_size_header: 12
+        decimals: 1
         line_color: '#04aaf5'
+        show:
+          fill: false
+          labels: false
+          points: false
         entities:
           - entity: sensor.washermachine_power
             name: Washermachine
@@ -666,152 +698,4 @@ views:
     theme: default_view
     title: Battery
 
-
-  - badges: []
-    cards:
-      - type: 'custom:mini-graph-card'
-        name: Lights
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.light1_current
-            name: Light 1
-          - entity: sensor.light2_current
-            name: Light 2
-          - entity: sensor.light3_current
-            name: Light 3  
-
-      - type: 'custom:mini-graph-card'
-        name: UPC
-        icon: 'mdi:server'
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-          - entity: sensor.speedtest_upload
-            name: Upload  
-          - entity: sensor.speedtest_ping
-            name: Ping
-            color: green   
-
-      - type: 'custom:mini-graph-card'
-        name: Air
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.airly_aqi
-            name: Outdoor
-          - entity: sensor.mi_aqi
-            name: Home 
-
-      - type: 'custom:mini-graph-card'
-        name: Shelly 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.shelly1_temperature
-            name: Shelly 01
-          - entity: sensor.shelly2_temperature
-            name: Shelly 02
-
-      - type: 'custom:mini-graph-card'
-        name: Temperature 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.thermostat_livingroom_temperature
-            name: Living Room
-          - entity: sensor.thermostat_childroom_temperature
-            name: Child Room
-          - entity: sensor.airly_temperature
-            name: Outside 
-            color: green      
-
-      - type: custom:mini-graph-card
-        entities:
-          - entity: binary_sensor.motionkitchen_occupancy
-            name: Anteroom
-          - entity: binary_sensor.motionkitchen2_occupancy
-            name: Kitchen
-          - entity: binary_sensor.motiontoilet_occupancy
-            name: Toilet
-            color: green
-          - entity: binary_sensor.motionchildroom_occupancy
-            name: Childroom 1
-          - entity: binary_sensor.motionchildroom2_occupancy
-            name: Childroom 2
-        name: Motion
-        hours_to_show: 6
-        points_per_hour: 6
-        font_size: 75
-        font_size_header: 12
-        update_interval: 30
-        aggregate_func: max
-        line_width: 3
-        smoothing: false
-        state_map:
-          - value: "off"
-            label: Clear
-          - value: "on"
-            label: Detected         
-
-      - type: 'custom:mini-graph-card'
-        name: AGD 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.washermachine_power
-            name: Washermachine
-          - entity: sensor.fridge_power
-            name: Fridge
-          - entity: sensor.dishwasher_power
-            name: Dishwasher 
-
-      - type: 'custom:mini-graph-card'
-        name: RTV 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.tv_power
-            name: TV
-          - entity: sensor.yamaha_power
-            name: Yamaha 
-
-      - type: 'custom:mini-graph-card'
-        name: Puriffier 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.mi_rpm
-            name: RPM   
-
-    icon: 'mdi:gauge'
-    path: monit
-    theme: default
-    title: Monit
 

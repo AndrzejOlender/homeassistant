@@ -25,54 +25,41 @@ views:
         type: entities
 
       # - type: vertical-stack
+      #   in_card: true
       #   cards:
-      #     - type: vertical-stack
-      #       in_card: true
-      #       # title: "Internet"
+      #     - type: horizontal-stack
       #       cards:
-      #         - type: horizontal-stack
-      #           cards:
-      #             - type: custom:mini-graph-card
-      #               style: |
-      #                 ha-card.flex {
-      #                   padding-top: 0px;
-      #                   padding-bottom: 0px;
-      #                 }
-      #               <<: &GRAPH_IN_CARD
-      #                 name: Download
-      #                 hour24: true
-      #                 points_per_hour: 1
-      #                 animate: true
-      #                 font_size: 75
-      #                 font_size_header: 12
-      #                 show:
-      #                   fill: false
-      #                   labels: false
-      #                   points: false
-      #               line_color: "#36a2eb"
-      #               decimals: 1
-      #               entities:
-      #                 - sensor.speedtest_download
-      #             - type: custom:mini-graph-card
-      #               style: |
-      #                 ha-card.flex {
-      #                   padding-top: 0px;
-      #                   padding-bottom: 0px;
-      #                 }
-      #               <<: *GRAPH_IN_CARD
-      #               name: Upload
-      #               line_color: "#ffce57"
-      #               decimals: 1
-      #               font_size: 75
-      #               font_size_header: 12
-      #               entities:
-      #                 - sensor.speedtest_upload
-
+      #         - type: custom:mini-graph-card
+      #           <<: &GRAPH_IN_CARD
+      #             name: Download
+      #             hour24: true
+      #             points_per_hour: 1
+      #             animate: true
+      #             font_size: 75
+      #             font_size_header: 12
+      #             show:
+      #               fill: false
+      #               labels: false
+      #               points: false
+      #           line_color: "#36a2eb"
+      #           decimals: 1
+      #           entities:
+      #             - sensor.speedtest_download
+      #         - type: custom:mini-graph-card
+      #           <<: *GRAPH_IN_CARD
+      #           name: Upload
+      #           line_color: "#ffce57"
+      #           decimals: 1
+      #           font_size: 75
+      #           font_size_header: 12
+      #           entities:
+      #             - sensor.speedtest_upload
 
       - type: 'custom:mini-graph-card'
         name: Lights
         line_width: 3
         font_size: 75
+        decimals: 1
         hours_to_show: 24
         font_size_header: 12
         line_color: '#04aaf5'
@@ -88,8 +75,9 @@ views:
             name: Light 3 
             show_legend: false
             color: purple 
-
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: light.aqaralampchildroom_light
             name: Child Room 1
           - entity: light.ikeabulbsgroupwardobe
@@ -117,8 +105,6 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
-        show_header_toggle: false
-        type: entities
 
       - type: 'custom:mini-graph-card'
         name: RTV 
@@ -135,8 +121,9 @@ views:
             name: Yamaha 
             show_legend: false
             color: green
-
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: media_player.tv
             state_color: on
           - entity: switch.yamaha
@@ -149,10 +136,10 @@ views:
             state_color: on
           - entity: switch.nc
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
             name: Child Room 1
@@ -165,8 +152,6 @@ views:
             state_color: on
           - entity: binary_sensor.livingroomwindow_contact
             state_color: on
-        show_header_toggle: false
-        type: entities
 
       - type: 'custom:mini-graph-card'
         name: Temperature 
@@ -187,12 +172,10 @@ views:
             name: Kitchen
             show_legend: false
             color: purple
-          # - entity: sensor.airly_temperature
-          #   name: Outside 
-          #   show_legend: false
-          #   color: yellow   
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: climate.thermolivingroom_climate
             name: Living Room
             state_color: on
@@ -208,10 +191,10 @@ views:
           - entity: sensor.mi_humidity
             name: Living Room
             state_color: on
+
+      - type: entities
         show_header_toggle: false
-        type: entities  
-        
-      - entities:
+        entities:
           - entity: binary_sensor.burze_dzis_net_heat_warning
             name: Heat warning
             state_color: on
@@ -224,10 +207,10 @@ views:
           - entity: binary_sensor.burze_dzis_net_storms_nearby
             name: Storms nearby
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.doorbell
             state_color: on
           - entity: lock.maindoorlock
@@ -242,9 +225,7 @@ views:
             state_color: on
           - entity: device_tracker.xiaomired_luci_ania
             name: Ania
-            state_color: on
-        show_header_toggle: false
-        type: entities   
+            state_color: on  
 
       - type: custom:mini-graph-card
         entities:
@@ -278,8 +259,9 @@ views:
             label: Clear
           - value: "on"
             label: Detected 
-
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Ante Room
             state_color: on
@@ -295,16 +277,14 @@ views:
           - entity: binary_sensor.motionchildroom2_occupancy
             name: Child Room 2
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.leaksensorkitchen_water_leak
             state_color: on
           - entity: binary_sensor.leaksensortoilet_water_leak
             state_color: on
-        show_header_toggle: false
-        type: entities
 
       - type: 'custom:mini-graph-card'
         name: Air
@@ -321,8 +301,9 @@ views:
             name: Outdoor
             color: green
             show_legend: false
-
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: air_quality.airly
           - entity: fan.air_purifier
             state_color: on
@@ -339,8 +320,6 @@ views:
             name: Outdoor
           - entity: sensor.mi_aqi
             name: Home
-        show_header_toggle: false
-        type: entities  
 
       - type: 'custom:mini-graph-card'
         name: AGD 
@@ -362,7 +341,9 @@ views:
             show_legend: false
             color: purple
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: switch.dishwasher_relay
             name: Dishwasher
             state_color: on
@@ -375,8 +356,6 @@ views:
           - entity: switch.tv_relay
             name: TV 
             state_color: on
-        show_header_toggle: false
-        type: entities
 
     icon: 'mdi:home'
     panel: false
@@ -402,13 +381,13 @@ views:
       #   show_header_toggle: false
       #   type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: sensor.zigbee2mqtt_bridge_state
           - entity: sensor.zigbee2mqtt_version
           - entity: switch.zigbee2mqtt_main_join
           - entity: timer.zigbee_permit_join
-        show_header_toggle: false
-        type: entities
 
       # - type: picture-glance
       #   title: Camera
@@ -464,17 +443,21 @@ views:
 
   - badges: []
     cards:
-      - entities:
+# Scenes
+      - type: entities
+        title: Scenes
+        show_header_toggle: false
+        entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
           - entity: scene.cinema
-        show_header_toggle: false
-        title: Scenes
-        type: entities
 
 # Anteroom
-      - entities:
+      - type: entities
+        title: Ante Room
+        show_header_toggle: false
+        entities:
           - entity: lock.maindoorlock
             name: Lock
             state_color: on
@@ -487,12 +470,12 @@ views:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Motion
             state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Ante Room
 
-# Living Room        
-      - entities:
+# Living Room    
+      - type: entities
+        title: Living Room
+        show_header_toggle: false    
+        entities:
           - entity: light.ikeabulblamp_light
             name: Lamp 
           - entity: switch.light1_relay
@@ -543,12 +526,12 @@ views:
           - entity: climate.thermolivingroom_climate
             name: Thermostat
             state_color: on
-        show_header_toggle: false
-        type: entities
-        title: Living Room
 
 # Child room
-      - entities:
+      - type: entities
+        title: Child Room
+        show_header_toggle: false
+        entities:
           - entity: light.aqaralampchildroom_light
             name: Light 1
           - entity: light.ikeabulbsgroupwardobe
@@ -566,12 +549,12 @@ views:
           - entity: binary_sensor.motionchildroom2_occupancy
             name: Motion 2
             state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Child Room
 
 # Kitchen
-      - entities:
+      - type: entities
+        title: Kitchen
+        show_header_toggle: false
+        entities:
           - entity: light.lamp_kitchen
             name: Light 
           - entity: light.ikeabulbsgroupkitchen
@@ -588,12 +571,12 @@ views:
           - entity: climate.thermokitchen_climate
             name: Thermostat
             state_color: on       
-        show_header_toggle: false
-        type: entities  
-        title: Kitchen
 
 # Toilet
-      - entities:
+      - type: entities
+        title: Toilet
+        show_header_toggle: false
+        entities:
           - entity: light.osrambulbsgrouptoilet
             name: Light
           - entity: light.ikeabulbsgrouptoiletmirror
@@ -610,9 +593,6 @@ views:
           - entity: switch.washermachine_relay
             name: Washermachine
             state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Toilet
 
     icon: 'mdi:home-assistant'
     panel: false
@@ -624,7 +604,9 @@ views:
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: sensor.motionchildroom_battery
             name: Aqara motion - child room
           - entity: sensor.motionkitchen_battery
@@ -677,9 +659,6 @@ views:
             name: Eurotronic thermo - kitchen
           - entity: sensor.maindoorlock_battery
             name: Danalock - Anteroom
-
-        show_header_toggle: false
-        type: entities
 
     icon: 'mdi:battery'
     panel: false

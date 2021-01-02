@@ -139,14 +139,22 @@
         message: "Anna went into zone Home"
         data:
           push:
-            sound: default   
+            category: map
+            sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
         message: "Anna went into zone Home"
         data:
           push:
-            sound: default   
+            category: map
+            sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
 
 - alias: Send Notification Exit Home
   trigger:
@@ -193,17 +201,25 @@
     - service: notify.mobile_app_iphone
       data:
         title: "Location"
-        message: "Anna left the WPKiW"
+        message: Anna left the WPKiW
         data:
           push:
+            category: map
             sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
         message: "Anna left the WPKiW"
         data:
           push:
+            category: map
             sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
     - delay:
         seconds: 10
 
@@ -213,21 +229,29 @@
     entity_id: person.ania
     zone: zone.wpkiw
     event: enter
-  action:
+  action: 
     - service: notify.mobile_app_iphone
       data:
         title: "Location"
         message: "Anna went into the WPKiW"
         data:
           push:
-            sound: default     
+            category: map
+            sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"      
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
         message: "Anna went into the WPKiW"
         data:
           push:
-            sound: default                        
+            category: map
+            sound: default
+          action_data:
+            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"                         
 
 - alias: Send Notification Leak Toilet
   trigger:

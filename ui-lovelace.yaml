@@ -5,46 +5,53 @@ resources:
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
     type: module
   
-  
 title: Home
 views:
   - badges: []
+    in_card: true
     cards:
-      - entity: weather.home
-        type: weather-forecast
+      - type: weather-forecast
+        show_forecast: false
+        entity: weather.home
         name: 'Siemianowice'
-        show_forecast: true
-        attribute: humidity
         
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
           - entity: scene.cinema
+
+      - type: entities
         show_header_toggle: false
-        type: entities
-
-      - type: 'custom:mini-graph-card'
-        name: Lights
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
+        header:
+          type: custom:mini-graph-card
+          name: Lights
+          animate: true
+          line_width: 3
+          font_size: 75
+          decimals: 1
+          hours_to_show: 24
+          font_size_header: 12
+          line_color: '#04aaf5'
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.light1_power
+              name: Light 1
+              show_legend: false
+            - entity: sensor.light2_power
+              name: Light 2
+              show_legend: false
+              color: green
+            - entity: sensor.light3_power
+              name: Light 3 
+              show_legend: false
+              color: purple 
         entities:
-          - entity: sensor.light1_power
-            name: Light 1
-            show_legend: false
-          - entity: sensor.light2_power
-            name: Light 2
-            show_legend: false
-            color: green
-          - entity: sensor.light3_power
-            name: Light 3 
-            show_legend: false
-            color: purple 
-
-      - entities:
           - entity: light.aqaralampchildroom_light
             name: Child Room 1
           - entity: light.ikeabulbsgroupwardobe
@@ -72,26 +79,31 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
+
+      - type: entities
+        header:
+          type: 'custom:mini-graph-card'
+          name: RTV 
+          line_width: 3
+          font_size: 75
+          decimals: 1
+          hours_to_show: 24
+          font_size_header: 12
+          line_color: '#04aaf5'
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.tv_power
+              name: TV
+              show_legend: false
+            - entity: sensor.yamaha_power
+              name: Yamaha 
+              show_legend: false
+              color: green
         show_header_toggle: false
-        type: entities
-
-      - type: 'custom:mini-graph-card'
-        name: RTV 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
         entities:
-          - entity: sensor.tv_power
-            name: TV
-            show_legend: false
-          - entity: sensor.yamaha_power
-            name: Yamaha 
-            show_legend: false
-            color: green
-
-      - entities:
           - entity: media_player.tv
             state_color: on
           - entity: switch.yamaha
@@ -104,10 +116,48 @@ views:
             state_color: on
           - entity: switch.nc
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        header:
+          type: custom:mini-graph-card
+          entities:
+            - entity: binary_sensor.childroomwindow_contact
+              name: Childroom 1
+              show_legend: false
+            - entity: binary_sensor.wardobewindow_contact
+              name: Child Room 2
+              show_legend: false
+            - entity: binary_sensor.kitchenwindow_contact
+              name: Kitchen
+              show_legend: false
+              color: green
+            - entity: binary_sensor.livingroombalconywindow_contact
+              name: Living Room Balcony
+              show_legend: false
+            - entity: binary_sensor.livingroomwindow_contact
+              name: Living Room
+              show_legend: false
+          name: Windows
+          hours_to_show: 6
+          points_per_hour: 6
+          font_size: 75
+          font_size_header: 12
+          decimals: 1
+          update_interval: 30
+          aggregate_func: max
+          line_width: 2
+          smoothing: false
+          show:
+            fill: false
+            labels: false
+            points: false
+          state_map:
+            - value: "off"
+              label: Closed
+            - value: "on"
+              label: Opened 
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.childroomwindow_contact
             state_color: on
             name: Child Room 1
@@ -120,34 +170,35 @@ views:
             state_color: on
           - entity: binary_sensor.livingroomwindow_contact
             state_color: on
+
+      - type: entities
+        header:
+          type: 'custom:mini-graph-card'
+          name: Temperature 
+          line_width: 3
+          font_size: 75
+          hours_to_show: 24
+          font_size_header: 12
+          decimals: 1
+          line_color: '#04aaf5'
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.thermostat_livingroom_temperature
+              name: Living Room
+              show_legend: false
+            - entity: sensor.thermostat_childroom_temperature
+              name: Child Room
+              show_legend: false
+              color: green
+            - entity: sensor.thermostat_kitchen_temperature
+              name: Kitchen
+              show_legend: false
+              color: purple
         show_header_toggle: false
-        type: entities
-
-      - type: 'custom:mini-graph-card'
-        name: Temperature 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
         entities:
-          - entity: sensor.thermostat_livingroom_temperature
-            name: Living Room
-            show_legend: false
-          - entity: sensor.thermostat_childroom_temperature
-            name: Child Room
-            show_legend: false
-            color: green
-          - entity: sensor.thermostat_kitchen_temperature
-            name: Kitchen
-            show_legend: false
-            color: purple
-          # - entity: sensor.airly_temperature
-          #   name: Outside 
-          #   show_legend: false
-          #   color: yellow   
-
-      - entities:
           - entity: climate.thermolivingroom_climate
             name: Living Room
             state_color: on
@@ -157,16 +208,16 @@ views:
           - entity: climate.thermokitchen_climate
             name: Kitchen
             state_color: on
-          - entity: sensor.mi_temperature
-            name: Living Room
+          - entity: switch.thermoseason
+            name: Heat Season
             state_color: on
           - entity: sensor.mi_humidity
             name: Living Room
             state_color: on
+
+      - type: entities
         show_header_toggle: false
-        type: entities  
-        
-      - entities:
+        entities:
           - entity: binary_sensor.burze_dzis_net_heat_warning
             name: Heat warning
             state_color: on
@@ -179,10 +230,10 @@ views:
           - entity: binary_sensor.burze_dzis_net_storms_nearby
             name: Storms nearby
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.doorbell
             state_color: on
           - entity: lock.maindoorlock
@@ -197,44 +248,49 @@ views:
             state_color: on
           - entity: device_tracker.xiaomired_luci_ania
             name: Ania
-            state_color: on
+            state_color: on  
+
+      - type: entities
+        header:
+          type: custom:mini-graph-card
+          entities:
+            - entity: binary_sensor.motionkitchen_occupancy
+              name: Anteroom
+              show_legend: false
+            - entity: binary_sensor.motionkitchen2_occupancy
+              name: Kitchen
+              show_legend: false
+            - entity: binary_sensor.motiontoilet_occupancy
+              name: Toilet
+              show_legend: false
+              color: green
+            - entity: binary_sensor.motionchildroom_occupancy
+              name: Childroom 1
+              show_legend: false
+            - entity: binary_sensor.motionchildroom2_occupancy
+              name: Childroom 2
+              show_legend: false
+          name: Motions
+          hours_to_show: 6
+          points_per_hour: 6
+          font_size: 75
+          font_size_header: 12
+          decimals: 1
+          update_interval: 30
+          aggregate_func: max
+          line_width: 2
+          smoothing: false
+          show:
+            fill: false
+            labels: false
+            points: false
+          state_map:
+            - value: "off"
+              label: Clear
+            - value: "on"
+              label: Detected 
         show_header_toggle: false
-        type: entities   
-
-      - type: custom:mini-graph-card
         entities:
-          - entity: binary_sensor.motionkitchen_occupancy
-            name: Anteroom
-            show_legend: false
-          - entity: binary_sensor.motionkitchen2_occupancy
-            name: Kitchen
-            show_legend: false
-          - entity: binary_sensor.motiontoilet_occupancy
-            name: Toilet
-            show_legend: false
-            color: green
-          - entity: binary_sensor.motionchildroom_occupancy
-            name: Childroom 1
-            show_legend: false
-          - entity: binary_sensor.motionchildroom2_occupancy
-            name: Childroom 2
-            show_legend: false
-        name: Motion
-        hours_to_show: 6
-        points_per_hour: 6
-        font_size: 75
-        font_size_header: 12
-        update_interval: 30
-        aggregate_func: max
-        line_width: 3
-        smoothing: false
-        state_map:
-          - value: "off"
-            label: Clear
-          - value: "on"
-            label: Detected 
-
-      - entities:
           - entity: binary_sensor.motionkitchen_occupancy
             name: Ante Room
             state_color: on
@@ -250,18 +306,39 @@ views:
           - entity: binary_sensor.motionchildroom2_occupancy
             name: Child Room 2
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: binary_sensor.leaksensorkitchen_water_leak
             state_color: on
           - entity: binary_sensor.leaksensortoilet_water_leak
             state_color: on
-        show_header_toggle: false
-        type: entities
 
-      - entities:
+      - type: entities
+        header:
+          type: 'custom:mini-graph-card'
+          name: Air
+          line_width: 3
+          font_size: 75
+          hours_to_show: 24
+          font_size_header: 12
+          decimals: 1
+          line_color: '#04aaf5'
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.airly_aqi
+              name: Outdoor
+              color: green
+              show_legend: false
+            - entity: sensor.mi_aqi
+              name: Home 
+              show_legend: false
+        show_header_toggle: false
+        entities:
           - entity: air_quality.airly
           - entity: fan.air_purifier
             state_color: on
@@ -271,37 +348,39 @@ views:
           - entity: switch.airpurifierled
             name: LED
             state_color: on
-          - entity: switch.thermoseason
-            name: Heat Season
-            state_color: on
           - entity: sensor.airly_aqi
             name: Outdoor
           - entity: sensor.mi_aqi
             name: Home
+
+      - type: entities
+        header:
+          type: 'custom:mini-graph-card'
+          name: AGD 
+          line_width: 3
+          font_size: 75
+          hours_to_show: 24
+          font_size_header: 12
+          decimals: 1
+          line_color: '#04aaf5'
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.washermachine_power
+              name: Washermachine
+              show_legend: false
+            - entity: sensor.fridge_power
+              name: Fridge
+              show_legend: false
+              color: green
+            - entity: sensor.dishwasher_power
+              name: Dishwasher 
+              show_legend: false
+              color: purple
         show_header_toggle: false
-        type: entities  
-
-      - type: 'custom:mini-graph-card'
-        name: AGD 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
         entities:
-          - entity: sensor.washermachine_power
-            name: Washermachine
-            show_legend: false
-          - entity: sensor.fridge_power
-            name: Fridge
-            show_legend: false
-            color: green
-          - entity: sensor.dishwasher_power
-            name: Dishwasher 
-            show_legend: false
-            color: purple
-
-      - entities:
           - entity: switch.dishwasher_relay
             name: Dishwasher
             state_color: on
@@ -314,8 +393,37 @@ views:
           - entity: switch.tv_relay
             name: TV 
             state_color: on
-        show_header_toggle: false
-        type: entities
+
+      - type: vertical-stack
+        in_card: true
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                <<: &GRAPH_IN_CARD
+                  name: Download
+                  hour24: true
+                  points_per_hour: 1
+                  animate: true
+                  font_size: 75
+                  font_size_header: 12
+                  show:
+                    fill: false
+                    labels: false
+                    points: false
+                line_color: "#36a2eb"
+                decimals: 1
+                entities:
+                  - sensor.speedtest_download
+              - type: custom:mini-graph-card
+                <<: *GRAPH_IN_CARD
+                name: Upload
+                line_color: "#ffce57"
+                decimals: 1
+                font_size: 75
+                font_size_header: 12
+                entities:
+                  - sensor.speedtest_upload
 
     icon: 'mdi:home'
     panel: false
@@ -341,13 +449,13 @@ views:
       #   show_header_toggle: false
       #   type: entities
 
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: sensor.zigbee2mqtt_bridge_state
           - entity: sensor.zigbee2mqtt_version
           - entity: switch.zigbee2mqtt_main_join
           - entity: timer.zigbee_permit_join
-        show_header_toggle: false
-        type: entities
 
       # - type: picture-glance
       #   title: Camera
@@ -402,168 +510,12 @@ views:
     title: Zigbee
 
   - badges: []
-    cards:
-      - entities:
-          - entity: scene.good_morning
-          - entity: scene.good_evening
-          - entity: scene.good_night
-          - entity: scene.cinema
-        show_header_toggle: false
-        title: Scenes
-        type: entities
-
-# Anteroom
-      - entities:
-          - entity: lock.maindoorlock
-            name: Lock
-            state_color: on
-          - entity: light.ikeabulbsgroupanteroom1
-            name: Light 1
-          - entity: light.ikeabulbsgroupanteroom2
-            name: Light 2  
-          - entity: binary_sensor.maindoor_contact
-            state_color: on
-          - entity: binary_sensor.motionkitchen_occupancy
-            name: Motion
-            state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Ante Room
-
-# Living Room        
-      - entities:
-          - entity: light.ikeabulblamp_light
-            name: Lamp 
-          - entity: switch.light1_relay
-            name: Light 1
-            state_color: on
-          - entity: switch.light2_relay
-            name: Light 2
-            state_color: on
-          - entity: switch.light3_relay
-            name: Light 3
-            state_color: on
-          - entity: media_player.tv
-            name: TV
-            state_color: on
-          - entity: media_player.appletv
-            name: AppleTV
-            state_color: on
-          - entity: media_player.echo_dot_3
-            name: Echo 3
-            state_color: on
-          - entity: media_player.echo_dot_4
-            name: Echo 4
-            state_color: on
-          - entity: switch.yamaha
-            state_color: on
-          - entity: switch.radio
-            state_color: on
-          - entity: switch.hdmi1
-            state_color: on
-          - entity: switch.hdmi2
-            state_color: on
-          - entity: switch.nc
-            state_color: on
-          - entity: binary_sensor.livingroombalconywindow_contact
-            name: Balcony
-            state_color: on
-          - entity: binary_sensor.livingroomwindow_contact
-            name: Window
-            state_color: on
-          - entity: fan.air_purifier
-            state_color: on
-          - entity: sensor.mi_humidity
-            name: Living Room
-            state_color: on
-          - entity: switch.thermoseason
-            name: Heat Season
-            state_color: on
-          - entity: climate.thermolivingroom_climate
-            name: Thermostat
-            state_color: on
-        show_header_toggle: false
-        type: entities
-        title: Living Room
-
-# Child room
-      - entities:
-          - entity: light.aqaralampchildroom_light
-            name: Light 1
-          - entity: light.ikeabulbsgroupwardobe
-            name: Light 2
-          - entity: binary_sensor.childroomwindow_contact
-            state_color: on
-            name: Window 1
-          - entity: binary_sensor.wardobewindow_contact
-            name: Window 2
-          - entity: climate.thermochildroom_climate
-            name: Thermostat
-          - entity: binary_sensor.motionchildroom_occupancy
-            name: Motion 1
-            state_color: on
-          - entity: binary_sensor.motionchildroom2_occupancy
-            name: Motion 2
-            state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Child Room
-
-# Kitchen
-      - entities:
-          - entity: light.lamp_kitchen
-            name: Light 
-          - entity: light.ikeabulbsgroupkitchen
-            name: Table
-          - entity: binary_sensor.kitchenwindow_contact
-            name: Window
-            state_color: on
-          - entity: binary_sensor.motionkitchen2_occupancy
-            name: Motion 
-            state_color: on  
-          - entity: binary_sensor.leaksensorkitchen_water_leak
-            state_color: on
-            name: Leak   
-          - entity: climate.thermokitchen_climate
-            name: Thermostat
-            state_color: on       
-        show_header_toggle: false
-        type: entities  
-        title: Kitchen
-
-# Toilet
-      - entities:
-          - entity: light.osrambulbsgrouptoilet
-            name: Light
-          - entity: light.ikeabulbsgrouptoiletmirror
-            name: Mirror
-          - entity: binary_sensor.toiletdoor_contact
-            state_color: on
-            name: Door
-          - entity: binary_sensor.motiontoilet_occupancy
-            name: Motion
-            state_color: on
-          - entity: binary_sensor.leaksensortoilet_water_leak
-            state_color: on
-            name: Leak
-          - entity: switch.washermachine_relay
-            name: Washermachine
-            state_color: on
-        show_header_toggle: false
-        type: entities  
-        title: Toilet
-
-    icon: 'mdi:home-assistant'
-    panel: false
-    path: Rooms
-    theme: default_view
-    title: Rooms
-
-  - badges: []
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
-      - entities:
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: sensor.motionchildroom_battery
             name: Aqara motion - child room
           - entity: sensor.motionkitchen_battery
@@ -617,9 +569,6 @@ views:
           - entity: sensor.maindoorlock_battery
             name: Danalock - Anteroom
 
-        show_header_toggle: false
-        type: entities
-
     icon: 'mdi:battery'
     panel: false
     path: Battery
@@ -627,151 +576,4 @@ views:
     title: Battery
 
 
-  - badges: []
-    cards:
-      - type: 'custom:mini-graph-card'
-        name: Lights
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.light1_current
-            name: Light 1
-          - entity: sensor.light2_current
-            name: Light 2
-          - entity: sensor.light3_current
-            name: Light 3  
-
-      - type: 'custom:mini-graph-card'
-        name: UPC
-        icon: 'mdi:server'
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.speedtest_download
-            name: Download
-          - entity: sensor.speedtest_upload
-            name: Upload  
-          - entity: sensor.speedtest_ping
-            name: Ping
-            color: green   
-
-      - type: 'custom:mini-graph-card'
-        name: Air
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.airly_aqi
-            name: Outdoor
-          - entity: sensor.mi_aqi
-            name: Home 
-
-      - type: 'custom:mini-graph-card'
-        name: Shelly 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.shelly1_temperature
-            name: Shelly 01
-          - entity: sensor.shelly2_temperature
-            name: Shelly 02
-
-      - type: 'custom:mini-graph-card'
-        name: Temperature 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.thermostat_livingroom_temperature
-            name: Living Room
-          - entity: sensor.thermostat_childroom_temperature
-            name: Child Room
-          - entity: sensor.airly_temperature
-            name: Outside 
-            color: green      
-
-      - type: custom:mini-graph-card
-        entities:
-          - entity: binary_sensor.motionkitchen_occupancy
-            name: Anteroom
-          - entity: binary_sensor.motionkitchen2_occupancy
-            name: Kitchen
-          - entity: binary_sensor.motiontoilet_occupancy
-            name: Toilet
-            color: green
-          - entity: binary_sensor.motionchildroom_occupancy
-            name: Childroom 1
-          - entity: binary_sensor.motionchildroom2_occupancy
-            name: Childroom 2
-        name: Motion
-        hours_to_show: 6
-        points_per_hour: 6
-        font_size: 75
-        font_size_header: 12
-        update_interval: 30
-        aggregate_func: max
-        line_width: 3
-        smoothing: false
-        state_map:
-          - value: "off"
-            label: Clear
-          - value: "on"
-            label: Detected         
-
-      - type: 'custom:mini-graph-card'
-        name: AGD 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.washermachine_power
-            name: Washermachine
-          - entity: sensor.fridge_power
-            name: Fridge
-          - entity: sensor.dishwasher_power
-            name: Dishwasher 
-
-      - type: 'custom:mini-graph-card'
-        name: RTV 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.tv_power
-            name: TV
-          - entity: sensor.yamaha_power
-            name: Yamaha 
-
-      - type: 'custom:mini-graph-card'
-        name: Puriffier 
-        line_width: 3
-        font_size: 75
-        hours_to_show: 24
-        font_size_header: 12
-        line_color: '#04aaf5'
-        entities:
-          - entity: sensor.mi_rpm
-            name: RPM   
-
-    icon: 'mdi:gauge'
-    path: monit
-    theme: default
-    title: Monit
-
+    

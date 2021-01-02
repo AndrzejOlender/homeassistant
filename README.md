@@ -50,14 +50,14 @@
 * [Xiaomi Universal IR](https://www.gearbest.com/smart-home/pp_229556.html) x1
 
 ### Voice Assistants
-* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
-* [Amazon Echo Dot 4](https://www.amazon.com/All-New-Echo-Dot-4th-Gen/dp/B07XJ8C8F5)
+* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R) x1
+* [Amazon Echo Dot 4](https://www.amazon.com/All-New-Echo-Dot-4th-Gen/dp/B07XJ8C8F5) x1
 * [Siri](https://www.apple.com/siri/) (iPhone, Apple Watch)
 
 ### Media Players
 * [LG WebOS](https://www.lg.com/global/business/webos) x1
-* [AppleTV 4K](https://www.apple.com/apple-tv-4k/)
-* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R)
+* [AppleTV 4K](https://www.apple.com/apple-tv-4k/) x1
+* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R) x1
 
 ## Integrations
 * [Mobile App](https://apps.apple.com/us/app/home-assistant-companion/id1099568401) (iPhone, Android, MacOS)

@@ -35,6 +35,7 @@ views:
           hours_to_show: 24
           font_size_header: 12
           line_color: '#04aaf5'
+          points_per_hour: 1
           show:
             fill: false
             labels: false
@@ -46,10 +47,12 @@ views:
             - entity: sensor.light2_power
               name: Light 2
               show_legend: false
+              show_state: true
               color: green
             - entity: sensor.light3_power
               name: Light 3 
               show_legend: false
+              show_state: false
               color: purple 
         entities:
           - entity: light.aqaralampchildroom_light
@@ -90,6 +93,7 @@ views:
           hours_to_show: 24
           font_size_header: 12
           line_color: '#04aaf5'
+          points_per_hour: 2
           show:
             fill: false
             labels: false
@@ -98,9 +102,11 @@ views:
             - entity: sensor.tv_power
               name: TV
               show_legend: false
+              show_state: true
             - entity: sensor.yamaha_power
               name: Yamaha 
               show_legend: false
+              show_state: true
               color: green
         show_header_toggle: false
         entities:
@@ -180,6 +186,7 @@ views:
           hours_to_show: 24
           font_size_header: 12
           decimals: 1
+          points_per_hour: 2
           line_color: '#04aaf5'
           show:
             fill: false
@@ -189,13 +196,16 @@ views:
             - entity: sensor.thermostat_livingroom_temperature
               name: Living Room
               show_legend: false
+              show_state: false
             - entity: sensor.thermostat_childroom_temperature
               name: Child Room
               show_legend: false
+              show_state: false
               color: green
             - entity: sensor.thermostat_kitchen_temperature
               name: Kitchen
               show_legend: false
+              show_state: false
               color: purple
         show_header_toggle: false
         entities:
@@ -325,6 +335,7 @@ views:
           font_size_header: 12
           decimals: 1
           line_color: '#04aaf5'
+          points_per_hour: 2
           show:
             fill: false
             labels: false
@@ -337,6 +348,7 @@ views:
             - entity: sensor.mi_aqi
               name: Home 
               show_legend: false
+              show_state: true
         show_header_toggle: false
         entities:
           - entity: air_quality.airly
@@ -363,6 +375,7 @@ views:
           font_size_header: 12
           decimals: 1
           line_color: '#04aaf5'
+          points_per_hour: 2
           show:
             fill: false
             labels: false
@@ -374,10 +387,12 @@ views:
             - entity: sensor.fridge_power
               name: Fridge
               show_legend: false
+              show_state: true
               color: green
             - entity: sensor.dishwasher_power
               name: Dishwasher 
               show_legend: false
+              show_state: false
               color: purple
         show_header_toggle: false
         entities:

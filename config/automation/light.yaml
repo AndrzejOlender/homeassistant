@@ -277,9 +277,13 @@
     from: "off"
     to: "on"
   condition:
-    condition: sun
-    after: sunset
-    after_offset: "-00:15:00"
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
+      - condition: template
+        value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
   action: 
     service: light.turn_on
     data:

@@ -433,7 +433,7 @@ views:
               - type: custom:mini-graph-card
                 <<: *GRAPH_IN_CARD
                 name: Upload
-                line_color: "#ffce57"
+                line_color: "green"
                 decimals: 1
                 font_size: 75
                 font_size_header: 12

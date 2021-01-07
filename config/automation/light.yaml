@@ -291,23 +291,6 @@
       entity_id:
         - light.lamp_kitchen
 
-# Auto Light Off Kithen Sunset
-- alias: Turn off Light in Kitchen
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionkitchen2_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 3
-  condition:
-    condition: sun
-    after: sunset
-    after_offset: "-00:15:00"
-  action: 
-    entity_id: light.lamp_kitchen
-    service: light.turn_off 
-
 # Auto Light in Kithen Day
 - alias: Turn on Light in Kitchen Day
   trigger: 
@@ -327,7 +310,7 @@
       entity_id:
         - light.lamp_kitchen
 
-# Auto Light Off Kithen Day 2
+# Auto Light Off Kithen Day
 - alias: Turn off Light in Kitchen Day
   trigger: 
     platform: state
@@ -335,7 +318,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 10
+      minutes: 5
   action: 
     entity_id: light.lamp_kitchen
     service: light.turn_off     

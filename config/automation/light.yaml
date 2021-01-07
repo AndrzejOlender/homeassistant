@@ -2,8 +2,8 @@
 - alias: Switch Light Toilet 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: right
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: single_right
   action:
     entity_id: light.osrambulbsgrouptoilet
     service: light.toggle
@@ -11,8 +11,8 @@
 - alias: Switch Light Toilet 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: left
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: single_left
   action:
     entity_id: light.ikeabulbsgrouptoiletmirror
     service: light.toggle
@@ -20,8 +20,8 @@
 - alias: Turn Off Light Toilet 1 & 2 (right)
   trigger:  
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: right_double
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: double_right
   action:
     entity_id:   
       - light.ikeabulbsgrouptoiletmirror
@@ -32,8 +32,8 @@
 - alias: Turn Off Light 1,2,3
   trigger:  
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: right_double
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: double_right
   action:
     entity_id: 
       - switch.light1_relay
@@ -44,8 +44,8 @@
 - alias: Switch Light 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: right
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: single_right
   action:
     entity_id: switch.light1_relay
     service: switch.toggle
@@ -53,8 +53,8 @@
 - alias: Switch Light 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: left
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: single_left
   action:
     entity_id: switch.light2_relay
     service: switch.toggle
@@ -62,8 +62,8 @@
 - alias: Switch Light 3 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_click
-    to: right
+    entity_id: sensor.aqaraswitchlivingroom2_action
+    to: single_right
   action:
     entity_id: switch.light3_relay
     service: switch.toggle
@@ -72,8 +72,8 @@
 - alias: Switch Light Anteroom 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: right
+    entity_id: sensor.aqaraswitchanteroom1_action
+    to: single_right
   action:
     entity_id: light.ikeabulbsgroupanteroom1
     service: light.toggle
@@ -81,8 +81,8 @@
 - alias: Switch Light Anteroom 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: left
+    entity_id: sensor.aqaraswitchanteroom1_action
+    to: single_left
   action:
     entity_id: light.ikeabulbsgroupanteroom2
     service: light.toggle
@@ -91,7 +91,7 @@
 - alias: Lamp Table Kitchen
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchkitchen1_click
+    entity_id: sensor.aqaraswitchkitchen1_action
     to: single
   action:
     entity_id: light.ikeabulbsgroupkitchen
@@ -101,8 +101,24 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchkitchen1_click
-      - sensor.aqaraswitchkitchen2_click
+      - sensor.aqaraswitchkitchen1_action
+      - sensor.aqaraswitchkitchen2_action
+    to: hold
+  action:
+    entity_id: 
+      - light.ikeabulbsgroupkitchen
+      - light.lamp_kitchen
+      - light.ikeabulbsgroupanteroom1
+      - light.ikeabulbsgroupanteroom2
+      - light.ikeabulbsgrouptoiletmirror
+      - light.osrambulbsgrouptoilet
+    service: light.turn_off  
+
+- alias: Switch Off Light in the Kitchen & Anteroom & Toilet
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.aqaraswitchkitchen1_action
     to: double
   action:
     entity_id: 
@@ -110,7 +126,7 @@
       - light.lamp_kitchen
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
-    service: light.turn_off     
+    service: light.turn_off    
 
 # Auto turnoff lights
 - alias: Switch Off Light in the Kitchen & Anteroom 2
@@ -131,7 +147,7 @@
 - alias: Lamp Kitchen (single)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchkitchen2_click
+    entity_id: sensor.aqaraswitchkitchen2_action
     to: single
   action:
     entity_id: light.lamp_kitchen
@@ -142,8 +158,8 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchchildroom_click
-      - sensor.aqaraswitchchildroom2_click
+      - sensor.aqaraswitchchildroom_action
+      - sensor.aqaraswitchchildroom2_action
     to: single
   action:
     - service: light.toggle
@@ -158,8 +174,8 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchwardrobe_click
-      - sensor.aqaraswitchchildroom3_click
+      - sensor.aqaraswitchwardrobe_action
+      - sensor.aqaraswitchchildroom3_action
     to: single
   action:
     - service: light.toggle
@@ -174,10 +190,10 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchwardrobe_click
-      - sensor.aqaraswitchchildroom_click
-      - sensor.aqaraswitchchildroom2_click
-      - sensor.aqaraswitchchildroom3_click
+      - sensor.aqaraswitchwardrobe_action
+      - sensor.aqaraswitchchildroom_action
+      - sensor.aqaraswitchchildroom2_action
+      - sensor.aqaraswitchchildroom3_action
     to: double
   action:
     - service: light.turn_off

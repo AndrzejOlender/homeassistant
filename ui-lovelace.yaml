@@ -415,28 +415,35 @@ views:
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
-                <<: &GRAPH_IN_CARD
-                  name: Download
-                  hour24: true
-                  points_per_hour: 1
-                  animate: false
-                  font_size: 75
-                  font_size_header: 12
-                  show:
-                    fill: false
-                    labels: false
-                    points: false
+                name: Download
+                hour24: true
+                points_per_hour: 1
+                animate: false
+                font_size: 75
+                font_size_header: 12
+                show:
+                  fill: false
+                  labels: false
+                  points: false
                 line_color: "#36a2eb"
                 decimals: 1
                 entities:
                   - sensor.speedtest_download
               - type: custom:mini-graph-card
-                <<: *GRAPH_IN_CARD
                 name: Upload
-                line_color: "green"
-                decimals: 1
+                hour24: true
+                points_per_hour: 1
+                animate: false
                 font_size: 75
                 font_size_header: 12
+                line_color: "green"
+                decimals: 1
+                show:
+                  fill: false
+                  labels: false
+                  points: false
+                # font_size: 75
+                # font_size_header: 12
                 entities:
                   - sensor.speedtest_upload
 

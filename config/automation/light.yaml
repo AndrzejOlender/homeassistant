@@ -353,9 +353,6 @@
           after: '23:45:00'
           before: '05:00:00'   
         - condition: state
-          entity_id: binary_sensor.toiletdoor_contact
-          state:  "on"  
-        - condition: state
           entity_id: switch.yamaha
           state: "off"
         sequence:

@@ -41,6 +41,29 @@
       - switch.light3_relay
     service: switch.turn_off
 
+- alias: Turn Off All Living Room and Child Room
+  trigger:  
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: double_left
+  action:
+    - service: media
+      entity_id: 
+        - switch.light1_relay
+        - switch.light2_relay
+        - switch.light3_relay
+        - switch.yamaha
+        - media_player.tv
+        - switch.nc
+    - service: light.turn_off
+      entity_id: 
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
+
 - alias: Switch Light 1 (right)
   trigger:
     platform: state

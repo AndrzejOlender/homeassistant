@@ -52,6 +52,7 @@
         - switch.light1_relay
         - switch.light2_relay
         - switch.light3_relay
+        - media_player.tv
         - switch.yamaha
         - switch.nc
     - service: light.turn_off

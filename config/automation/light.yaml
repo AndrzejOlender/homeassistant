@@ -120,7 +120,7 @@
     entity_id: light.ikeabulbsgroupkitchen
     service: light.toggle 
 
-- alias: Switch Off Light in the Kitchen & Anteroom
+- alias: Switch Off Light in the Kitchen & Anteroom & Toilet
   trigger:
     platform: state
     entity_id: 
@@ -137,11 +137,12 @@
       - light.osrambulbsgrouptoilet
     service: light.turn_off  
 
-- alias: Switch Off Light in the Kitchen & Anteroom & Toilet
+- alias: Switch Off Light in the Kitchen 
   trigger:
     platform: state
     entity_id: 
       - sensor.aqaraswitchkitchen1_action
+      - sensor.aqaraswitchkitchen2_action
     to: double
   action:
     entity_id: 

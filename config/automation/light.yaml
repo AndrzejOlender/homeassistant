@@ -47,13 +47,12 @@
     entity_id: sensor.aqaraswitchlivingroom1_action
     to: double_left
   action:
-    - service: media
+    - service: switch.turn_off
       entity_id: 
         - switch.light1_relay
         - switch.light2_relay
         - switch.light3_relay
         - switch.yamaha
-        - media_player.tv
         - switch.nc
     - service: light.turn_off
       entity_id: 

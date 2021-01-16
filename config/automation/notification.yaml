@@ -142,6 +142,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
     - service: notify.mobile_app_macbook
@@ -153,6 +154,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
 
@@ -207,6 +209,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
     - service: notify.mobile_app_macbook
@@ -218,6 +221,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
     - delay:
@@ -243,6 +247,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"      
     - service: notify.mobile_app_macbook
@@ -254,6 +259,7 @@
             category: map
             sound: default
           action_data:
+            shows_traffic: true
             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"                         
 

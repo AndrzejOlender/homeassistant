@@ -479,6 +479,12 @@ views:
           - entity: switch.zigbee2mqtt_main_join
           - entity: timer.zigbee_permit_join
 
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.redmi_note_4_wykryta_aktywnosc
+            name: Activity
+
       # - type: picture-glance
       #   title: Camera
       #   entities: []

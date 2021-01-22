@@ -195,10 +195,10 @@
     entity_id: person.ania
     zone: zone.wpkiw
     event: leave
-  condition:
-    condition: state
-    entity_id: device_tracker.iphone
-    state: "not_wpkiw" 
+  # condition:
+  #   condition: state
+  #   entity_id: device_tracker.iphone
+  #   state: "not_wpkiw" 
   action:
     - service: notify.mobile_app_iphone
       data:
@@ -233,10 +233,10 @@
     entity_id: person.ania
     zone: zone.wpkiw
     event: enter
-  condition:
-    condition: state
-    entity_id: device_tracker.iphone
-    state: "not_wpkiw"
+  # condition:
+  #   condition: state
+  #   entity_id: device_tracker.iphone
+  #   state: "not_wpkiw"
   action: 
     - service: notify.mobile_app_iphone
       data:

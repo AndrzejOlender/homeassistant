@@ -59,7 +59,7 @@
       state: "ON"
   action:
     - service: climate.set_temperature
-      data:
+8      data:
         entity_id: 
           - climate.thermochildroom_climate
           - climate.thermolivingroom_climate

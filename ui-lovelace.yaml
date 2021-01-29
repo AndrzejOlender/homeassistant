@@ -10,10 +10,10 @@ views:
   - badges: []
     in_card: true
     cards:
-      - type: weather-forecast
-        show_forecast: false
-        entity: weather.home
-        name: 'Siemianowice'
+      # - type: weather-forecast
+      #   show_forecast: false
+      #   entity: weather.home
+      #   name: 'Siemianowice'
         
       - type: entities
         show_header_toggle: false

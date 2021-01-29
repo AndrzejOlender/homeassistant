@@ -1,0 +1,67 @@
+Google Dark Green Theme:
+  # Header:
+  app-header-background-color: "#355b46"
+  app-header-text-color: "#212020"
+  accent-color: '#355b46'                                                         
+  accent-medium-color: '#355b46'  
+  # Main Interface Colors
+  primary-color: "#355b46"
+  light-primary-color: "#355b46"
+  primary-background-color: "#355b46"
+  secondary-background-color: #355b46
+  divider-color: var(--primary-background-color)
+  # UI
+  paper-card-header-color: "#355b46"                                
+  mdc-theme-primary: "#355b46"                               
+  # Text
+  primary-text-color: "#BDC1C6"
+  secondary-text-color: "#BDC1C6"
+  text-primary-color: "#FFFFFF"
+  disabled-text-color: "#717171"
+  # Sidebar Menu
+  sidebar-icon-color: var(--app-header-text-color)
+  sidebar-text-color: '#212020'
+  sidebar-background-color: "#355b46"
+  sidebar-selected-background-color: #355b46
+  sidebar-selected-icon-color: "#212020"
+  sidebar-selected-text-color: #355b46
+  # States and Badges
+  state-icon-color: "#355b46"
+  state-icon-active-color: "#355b46"
+  state-icon-unavailable-color: var(--disabled-text-color)
+  # Sliders
+  paper-slider-knob-color: "#355b46"
+  paper-slider-knob-start-color: var(--paper-slider-knob-color)
+  paper-slider-pin-color: var(--paper-slider-knob-color)
+  paper-slider-active-color: var(--paper-slider-knob-color)
+  paper-slider-secondary-color: var(--light-primary-color)
+  # Labels
+  label-badge-background-color: "#212020"
+  label-badge-text-color: "#BDC1C6"
+  label-badge-red: "#D06568"
+  label-badge-green: "#2f513f"
+  label-badge-blue: "#008DEF"
+  label-badge-yellow: "#DFC271"
+  label-badge-gray: "#5F6267"
+  # Icons
+  paper-item-icon-color: 'var(--primary-text-color)'                                
+  paper-item-icon-active-color: 'var(--accent-color)'  
+  # Cards
+  ha-card-border-radius: "0px"
+  ha-card-box-shadow: 0px 0px 0px 0px rgb(12, 12, 14)
+  card-background-color: "#212020"
+  paper-listbox-background-color: "#355b46"
+  # Switches
+  switch-checked-button-color: "#355b46"
+  switch-checked-track-color: "#355b46"
+  switch-unchecked-button-color: "#636466"
+  switch-unchecked-track-color: "#636466"
+  # Toggles
+  paper-toggle-button-checked-button-color: var(--switch-checked-button-color)
+  paper-toggle-button-checked-bar-color: var(--switch-checked-track-color)
+  paper-toggle-button-unchecked-button-color: var(--switch-unchecked-button-color)
+  paper-toggle-button-unchecked-bar-color: var(--switch-unchecked-track-color)
+  # Table
+  table-row-background-color: #355b46
+  table-row-alternative-background-color: #355b46
+  data-table-background-color: #355b46

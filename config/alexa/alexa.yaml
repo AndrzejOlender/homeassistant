@@ -14,6 +14,8 @@ smart_home:
       - switch.light1_relay
       - switch.light2_relay
       - switch.light3_relay
+      - switch.blitzlivingroomcommod
+      - switch.blitzlivingroomrtv
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe

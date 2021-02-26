@@ -74,7 +74,7 @@ views:
             name: LED Rtv
             state_color: on
           - entity: switch.blitzlivingroomcommod
-            name: LED Commod
+            name: LED Commode
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table

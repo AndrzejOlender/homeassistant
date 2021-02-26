@@ -70,6 +70,12 @@ views:
           - entity: switch.light3_relay
             name: Living Room 3
             state_color: on
+          - entity: switch.blitzlivingroomrtv
+            name: LED Rtv
+            state_color: on
+          - entity: switch.blitzlivingroomcommod
+            name: LED Commod
+            state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table
           - entity: light.lamp_kitchen

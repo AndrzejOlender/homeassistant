@@ -14,6 +14,8 @@ filter:
     - switch.light3_relay
     - switch.yamaha
     - switch.thermoseason
+    - switch.blitzlivingroomcommod
+    - switch.blitzlivingroomrtv
     - sensor.mi_humidity
     - sensor.mi_temperature
     - light.osrambulbsgrouptoilet

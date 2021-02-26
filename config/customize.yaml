@@ -4,6 +4,10 @@ switch.light1_relay:
   icon: mdi:wall-sconce-flat
 switch.shelly_03:
   icon: mdi:lightbulb-on-outline
+switch.blitzlivingroomcommod:
+  icon: mdi:lightbulb-on-outline
+switch.blitzlivingroomrtv:
+  icon: mdi:lightbulb-on-outline
 binary_sensor.childroomwindow_contact:
   device_class: window
   icon: mdi:window-closed-variant  

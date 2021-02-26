@@ -35,6 +35,10 @@
       state: 'off'  
     switch.nc:
       state: 'off'
+    switch.blitzlivingroomcommod:
+      state: 'off'
+    switch.blitzlivingroomrtv:
+      state: 'off'
     media_player.tv:
       state: 'off'
     light.ikeabulbsgroupkitchen:  

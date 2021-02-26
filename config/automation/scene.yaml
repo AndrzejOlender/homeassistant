@@ -15,3 +15,12 @@
   action:
     entity_id: scene.good_evening
     service: scene.turn_on  
+
+- alias: Aqara Switch Good Night
+  trigger:
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom3_action
+    to: double
+  action:
+    entity_id: scene.good_night
+    service: scene.turn_on

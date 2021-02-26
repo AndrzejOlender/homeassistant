@@ -93,6 +93,18 @@
     entity_id: switch.light3_relay
     service: switch.toggle
 
+- alias: LED RTV
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.aqaraswitchlivingroom3_action
+    to: single
+  action:
+    - service: switch.toggle
+      entity_id: 
+        - switch.blitzlivingroomcommod
+        - switch.blitzlivingroomrtv
+
 # Anteroom switches   
 - alias: Switch Light Anteroom 1 (right)
   trigger:

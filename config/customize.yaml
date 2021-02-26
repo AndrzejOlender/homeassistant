@@ -5,9 +5,9 @@ switch.light1_relay:
 switch.shelly_03:
   icon: mdi:lightbulb-on-outline
 switch.blitzlivingroomcommod:
-  icon: mdi:lightbulb-on-outline
+  icon: mdi:led-strip
 switch.blitzlivingroomrtv:
-  icon: mdi:lightbulb-on-outline
+  icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:
   device_class: window
   icon: mdi:window-closed-variant  

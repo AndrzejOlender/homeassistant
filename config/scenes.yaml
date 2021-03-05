@@ -57,6 +57,8 @@
       state: 'off' 
     media_player.echo:
       state: standby
+    media_player.appletv:
+      state: standby
     # lock.maindoorlock:
     #   state: locked
 

@@ -54,6 +54,8 @@
         - switch.light3_relay
         - switch.yamaha
         - switch.nc
+        - switch.blitzlivingroomrtv
+        - switch.blitzlivingroomglasscase
     - service: media_player.turn_off
       entity_id: 
         - media_player.tv

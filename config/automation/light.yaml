@@ -59,6 +59,9 @@
     - service: media_player.turn_off
       entity_id: 
         - media_player.tv
+    - service: media_player.media_pause
+      entity_id: 
+        - media_player.appletv
     - service: light.turn_off
       entity_id: 
         - light.aqaralampchildroom_light

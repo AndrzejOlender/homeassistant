@@ -58,7 +58,7 @@
     media_player.echo:
       state: standby
     media_player.appletv:
-      state: standby
+      state: paused
     # lock.maindoorlock:
     #   state: locked
 

@@ -1,11 +1,9 @@
 - id: '1577046394155'
   name: Good Evening
   entities:
-    switch.radio:
+    switch.blitzlivingroomrtv:
       state: 'on'
-    switch.light2_relay:
-      state: 'on'
-    switch.light1_relay:
+    switch.blitzlivingroomglasscase:
       state: 'on'
     light.aqaralampchildroom_light:
       state: 'on'
@@ -15,6 +13,8 @@
       state: 'on'
     lock.maindoorlock:
       state: locked
+    script.play_spotify_1:
+      state: 'on'
 
 - id: '1577085914679'
   name: Good Night

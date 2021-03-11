@@ -116,6 +116,8 @@ views:
               color: green
         show_header_toggle: false
         entities:
+          - entity: media_player.spotify
+            name: Spotify
           - entity: media_player.tv
             state_color: on
           - entity: switch.yamaha

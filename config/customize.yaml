@@ -8,6 +8,8 @@ switch.blitzlivingroomcommod:
   icon: mdi:led-strip
 switch.blitzlivingroomrtv:
   icon: mdi:led-strip
+switch.blitzlivingroomglasscase:
+  icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:
   device_class: window
   icon: mdi:window-closed-variant  
@@ -87,6 +89,9 @@ sensor.mi_humidity:
 script.miio_turn_on_nc:
   friendly_name: Canal+
   icon: mdi:remote-tv
+script.play_spotify_1:
+  friendly_name: Spotify
+  icon: mdi:spotify
 script.miio_turn_on_yamaha_hdmi1:
   icon: mdi:remote-tv
 script.miio_turn_on_yamaha_hdmi2:

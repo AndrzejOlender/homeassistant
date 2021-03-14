@@ -22,6 +22,8 @@ views:
           - entity: scene.good_evening
           - entity: scene.good_night
           - entity: scene.cinema
+          - entity: script.play_spotify_1
+            name: Spotify
 
       - type: entities
         show_header_toggle: false
@@ -75,6 +77,9 @@ views:
             state_color: on
           - entity: switch.blitzlivingroomcommod
             name: LED Commode
+            state_color: on
+          - entity: switch.blitzlivingroomglasscase
+            name: LED Glass Case
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table

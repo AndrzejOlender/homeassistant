@@ -5,16 +5,17 @@
       state: 'on'
     switch.blitzlivingroomglasscase:
       state: 'on'
+    switch.blitzlivingroomcommod:
+      state: 'on'
     light.aqaralampchildroom_light:
       state: 'on'
     light.ikeabulbsgroupanteroom1:
       state: 'on'  
     switch.airpurifierled:
       state: 'on'
-    lock.maindoorlock:
-      state: locked
     script.play_spotify_1:
       state: 'on'
+
 
 - id: '1577085914679'
   name: Good Night
@@ -39,6 +40,8 @@
       state: 'off'
     switch.blitzlivingroomrtv:
       state: 'off'
+    switch.blitzlivingroomglasscase:
+      state: 'off'
     media_player.tv:
       state: 'off'
     light.ikeabulbsgroupkitchen:  
@@ -58,6 +61,8 @@
     media_player.echo:
       state: standby
     media_player.appletv:
+      state: paused
+    media_player.spotify:
       state: paused
     # lock.maindoorlock:
     #   state: locked
@@ -93,5 +98,4 @@
       state: 'off'
     switch.light1_relay:
       state: 'on'
-
 

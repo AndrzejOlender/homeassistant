@@ -35,11 +35,14 @@
     entity_id: sensor.aqaraswitchlivingroom1_action
     to: double_right
   action:
-    entity_id: 
-      - switch.light1_relay
-      - switch.light2_relay
-      - switch.light3_relay
-    service: switch.turn_off
+    - service: switch.turn_off
+      entity_id: 
+        - switch.light1_relay
+        - switch.light2_relay
+        - switch.light3_relay
+    - service: light.turn_off
+      entity_id:
+        - light.ikeabulblamp_light
 
 - alias: Turn Off All Living Room and Child Room
   trigger:  
@@ -67,6 +70,7 @@
       entity_id: 
         - light.aqaralampchildroom_light
         - light.ikeabulbsgroupwardobe
+        - light.ikeabulblamp_light
     - service: input_select.select_option
       data:
         entity_id: input_select.light_childroom

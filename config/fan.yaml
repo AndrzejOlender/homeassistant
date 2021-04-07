@@ -1,4 +1,0 @@
-- platform: xiaomi_miio
-  host: 192.168.1.7
-  token: ca40b830acc8cff3afff41db1d31aab6
-  name: Air Purifier     

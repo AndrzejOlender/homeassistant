@@ -54,26 +54,18 @@ miio_turn_on_yamaha:
 
 play_spotify_1:
   sequence:
-    - service: switch.turn_on
-      entity_id: 
-        - switch.yamaha
-    - service: switch.turn_on
-      entity_id: 
-        - switch.hdmi2
     - service: remote.send_command
       target:
         entity_id: remote.appletv
       data:
-        delay_secs: 1.5
+        delay_secs: 3.0
         command:
-          - top_menu
-          - home
-          - right
+          - menu
+          - menu
           - select
     - service: media_player.play_media
       target:
         entity_id: media_player.spotify
       data:
-        media_content_id: "https://open.spotify.com/playlist/37i9dQZF1DX889U0CL85jj?si=KBzWNCh1TGCKKvduIkBHxQ"
+        media_content_id: "https://open.spotify.com/playlist/37i9dQZF1DWVoMrfBJGgYD?si=IOK4tvRISH6UnDwAC98d8Q"
         media_content_type: playlist
-        # source: 'AppleTV (7)'

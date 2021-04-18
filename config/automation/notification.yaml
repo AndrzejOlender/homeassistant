@@ -381,30 +381,51 @@
           type: tts
         message: "Warning! Warning! Warning!. Leak in kitchen."   
 
-# # Notification End Dishwasher
-# - alias: "Notification Dishwasher End"
-#   trigger:
-#     - platform: state
-#       entity_id: sensor.dishwasher
-#       from: "washing"
-#       to: "disable"
-#       for:
-#         minutes: 7
-  # action:
-  #   - service: notify.mobile_app_iphone
-  #     data:
-  #       title: "AGD"
-  #       message: "Dishwasher Ended"
-  #       data:
-  #         push:
-  #           sound: default  
-  #   - service: notify.mobile_app_macbook
-  #     data:
-  #       title: "AGD"
-  #       message: "Dishwasher Ended"
-  #       data:
-  #         push:
-  #           sound: default  
+# Notification End Dishwasher
+- alias: "Notification Dishwasher End"
+  trigger:
+    - platform: state
+      entity_id: sensor.dishwasher
+      from: "washing"
+      to: "disable"
+      for:
+        minutes: 7
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "AGD"
+        message: "Dishwasher Ended"
+        data:
+          push:
+            sound: default   
+    - service: notify.mobile_app_macbook
+      data:
+        title: "AGD"
+        message: "Dishwasher Ended"
+        data:
+          push:
+            sound: default 
+    - service: notify.tv
+      data:
+        message: "Dishwasher Ended"
+    - service: notify.mobile_app_redmi_note_4
+      data:
+        message: "Dishwasher Ended"
+    - service: media_player.play_media
+      data:
+        entity_id: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
+        media_content_type: sound
+        media_content_id: amzn_sfx_doorbell_chime_01
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
+        data:
+          type: tts
+        message: "Dishwasher ended."
 
 - alias: "Notification Washermachine End"
   trigger:

@@ -32,6 +32,7 @@ recorder: !include config/recorder.yaml
 influxdb: !include config/influxdb.yaml
 automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
+apache_kafka:  !include config/kafka.yaml
 binary_sensor: !include config/binary.yaml
 device_tracker: !include config/tracker.yaml
 speedtestdotnet: !include config/speedtest.yaml

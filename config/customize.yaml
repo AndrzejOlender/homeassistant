@@ -138,6 +138,8 @@ device_tracker.redmi_note_4_3:
   entity_picture: /local/ania.jpg
 device_tracker.redmi_note_4:
   entity_picture: /local/ania.jpg
+device_tracker.samsung:
+  entity_picture: /local/ania.jpg
 device_tracker.iphone:
   entity_picture: /local/andrzej.jpg
 device_tracker.macbookpro:

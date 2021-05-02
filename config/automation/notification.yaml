@@ -24,7 +24,7 @@
     - service: notify.tv
       data:
         message: "Open Main Door"
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         message: "Open Main Door"
     - service: media_player.play_media
@@ -143,8 +143,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"  
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
@@ -155,8 +155,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"  
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"  
 
 - alias: Send Notification Exit Home
   trigger:
@@ -210,8 +210,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
@@ -222,8 +222,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - delay:
         seconds: 10
 
@@ -248,8 +248,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"      
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"      
     - service: notify.mobile_app_macbook
       data:
         title: "Location"
@@ -260,8 +260,8 @@
             sound: default
           action_data:
             shows_traffic: true
-            latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"                         
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"                         
 
 - alias: Send Notification Leak Toilet
   trigger:
@@ -302,7 +302,7 @@
     - service: notify.tv
       data:
         message: "Leak in toilet"
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         title: "Leak!"
         message: "Leak in toilet"  
@@ -365,7 +365,7 @@
     - service: notify.tv
       data:
         message: "Leak in kitchen"
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         title: "Leak!"
         message: "Leak in kitchen"     
@@ -389,7 +389,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 7
+        minutes: 10
   action:
     - service: notify.mobile_app_iphone
       data:
@@ -408,7 +408,7 @@
     - service: notify.tv
       data:
         message: "Dishwasher Ended"
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         message: "Dishwasher Ended"
     - service: media_player.play_media
@@ -453,7 +453,7 @@
     - service: notify.tv
       data:
         message: "Washermachine Ended"
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         message: "Washermachine Ended"
     - service: media_player.play_media
@@ -610,7 +610,7 @@
               name: default
               # critical: 1
               # volume: 1.0
-    - service: notify.mobile_app_redmi_note_4
+    - service: notify.mobile_app_samsung
       data:
         message: "Ring ring maindoor"
     - service: notify.tv

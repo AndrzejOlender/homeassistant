@@ -22,7 +22,11 @@
     entity_id: sensor.aqaraswitchlivingroom3_action
     to: double
   action:
-    - entity_id: scene.good_night
-      service: scene.turn_on
-    - entity_id: lock.maindoorlock
-      service: lock.lock
+    - service: lock.lock
+      entity_id: 
+        - lock.maindoorlock
+    - service: scene.turn_on
+      entity_id: 
+        - scene.good_night
+
+

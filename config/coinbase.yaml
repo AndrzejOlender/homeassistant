@@ -1,0 +1,9 @@
+api_key: Zgz0oae6P5nQXj2m
+api_secret: Ithm3qT5iubwsxTwdrSgycnJ3BzJnwj8
+exchange_rate_currencies:
+  - BTC
+  - ETH
+  - LTC
+account_balance_currencies:
+  - ETH
+  - BTC

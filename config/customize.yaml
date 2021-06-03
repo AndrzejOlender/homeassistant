@@ -171,6 +171,10 @@ sensor.airly_aqi:
   icon: mdi:gauge
 switch.airpurifiermax:
   icon: mdi:weather-windy
+sensor.eth:
+  icon: mdi:ethereum
+sensor.btc:
+  icon: mdi:currency-btc
 light.ikeabulbsgroupwardobe:
   icon: mdi:wall-sconce-flat
   supported_features: 41

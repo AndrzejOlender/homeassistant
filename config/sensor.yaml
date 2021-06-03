@@ -152,3 +152,15 @@
       unit_of_measurement: "km/h"
       value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
 
+# Coinbase 
+- platform: template
+  sensors:
+    eth:
+      friendly_name: "ETH"
+      value_template: "{{ state_attr('sensor.coinbase_eth_wallet', 'Balance in native currency') }}"
+
+- platform: template
+  sensors:
+    btc:
+      friendly_name: "BTC"
+      value_template: "{{ state_attr('sensor.coinbase_btc_wallet', 'Balance in native currency') }}"

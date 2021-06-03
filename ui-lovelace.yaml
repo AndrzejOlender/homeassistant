@@ -487,9 +487,14 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
+          - entity: sensor.eth
+          - entity: sensor.btc
+
+      - type: entities
+        show_header_toggle: false
+        entities:
           - entity: sensor.eth_exchange_rate
           - entity: sensor.btc_exchange_rate
-          - entity: sensor.ltc_exchange_rate
 
       - type: entities
         show_header_toggle: false

@@ -470,40 +470,6 @@ views:
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
-      # - entities:
-      #     - sensor.adguard_average_processing_speed
-      #     - sensor.adguard_dns_queries
-      #     - sensor.adguard_dns_queries_blocked_ratio
-      #     - sensor.adguard_parental_control_blocked
-      #     - sensor.adguard_safe_browsing_blocked
-      #     - sensor.adguard_safe_searches_enforced
-      #     - switch.adguard_protection
-      #     - switch.adguard_safe_browsing
-      #     - switch.adguard_filtering
-      #     - switch.adguard_parental_control
-      #   show_header_toggle: false
-      #   type: entities
-
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.eth
-          - entity: sensor.btc
-
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.eth_exchange_rate
-          - entity: sensor.btc_exchange_rate
-
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.zigbee2mqtt_bridge_state
-          - entity: sensor.zigbee2mqtt_version
-          - entity: switch.zigbee2mqtt_main_join
-          - entity: timer.zigbee_permit_join
-
       - type: map
         entities:
 #          - device_tracker.iphone
@@ -515,6 +481,70 @@ views:
     path: guard
     theme: default
     title: Guard
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: custom:mini-graph-card
+        name: ETH / PLN
+        hour24: true
+        points_per_hour: 2
+        line_width: 3
+        animate: true
+        font_size: 75
+        font_size_header: 12
+        show:
+          fill: false
+          labels: true
+          points: true
+        line_color: "#36a2eb"
+        decimals: 1
+        entities:
+          - sensor.eth
+      - type: custom:mini-graph-card
+        name: BTC / PLN
+        hour24: true
+        points_per_hour: 2
+        line_width: 3
+        animate: true
+        font_size: 75
+        font_size_header: 12
+        show:
+          fill: false
+          labels: true
+          points: true
+        line_color: "#36a2eb"
+        decimals: 1
+        entities:
+          - sensor.btc
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.eth_exchange_rate
+          - entity: sensor.btc_exchange_rate
+
+    icon: 'mdi:currency-btc'
+    path: coin
+    theme: default
+    title: Coin
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.zigbee2mqtt_bridge_state
+          - entity: sensor.zigbee2mqtt_version
+          - entity: switch.zigbee2mqtt_main_join
+          - entity: timer.zigbee_permit_join
+
+    icon: 'mdi:broadcast'
+    path: zigbee
+    theme: default
+    title: Zigbee
 
   - badges: []
     visible:

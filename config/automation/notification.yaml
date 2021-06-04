@@ -389,7 +389,7 @@
       from: "washing"
       to: "disable"
       for:
-        minutes: 10
+        minutes: 15
   action:
     - service: notify.mobile_app_iphone
       data:

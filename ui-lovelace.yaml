@@ -354,7 +354,7 @@ views:
             labels: false
             points: false
           entities:
-            - entity: sensor.airly_aqi
+            - entity: sensor.airly_caqi
               name: Outdoor
               color: green
               show_legend: false
@@ -364,7 +364,6 @@ views:
               show_state: true
         show_header_toggle: false
         entities:
-          - entity: air_quality.airly
           - entity: fan.air_purifier
             state_color: on
           - entity: switch.airpurifiermax
@@ -373,7 +372,7 @@ views:
           - entity: switch.airpurifierled
             name: LED
             state_color: on
-          - entity: sensor.airly_aqi
+          - entity: sensor.airly_caqi
             name: Outdoor
           - entity: sensor.mi_aqi
             name: Home
@@ -487,41 +486,24 @@ views:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
       - type: custom:mini-graph-card
-        name: ETH / PLN
-        hour24: true
-        points_per_hour: 2
-        line_width: 3
-        animate: true
-        font_size: 75
-        font_size_header: 12
-        show:
-          fill: false
-          labels: true
-          points: true
-        line_color: "#36a2eb"
-        decimals: 1
-        entities:
-          - sensor.eth
-      - type: custom:mini-graph-card
         name: BTC / PLN
         hour24: true
-        points_per_hour: 2
+        points_per_hour: 10
         line_width: 3
         animate: true
         font_size: 75
         font_size_header: 12
         show:
-          fill: false
+          fill: true
           labels: true
-          points: true
-        line_color: "#36a2eb"
+          points: false
+        line_color: "green"
         decimals: 1
         entities:
           - sensor.btc
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: sensor.eth_exchange_rate
           - entity: sensor.btc_exchange_rate
 
     icon: 'mdi:currency-btc'

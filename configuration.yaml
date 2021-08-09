@@ -24,7 +24,6 @@ scene: !include config/scenes.yaml
 alexa: !include config/alexa/alexa.yaml
 light: !include config/light.yaml
 homekit: !include config/homekit.yaml
-spotify: !include config/spotify.yaml
 coinbase: !include config/coinbase.yaml
 sensor: !include config/sensor.yaml
 switch: !include config/switch.yaml

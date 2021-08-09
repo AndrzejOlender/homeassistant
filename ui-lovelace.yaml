@@ -22,8 +22,6 @@ views:
           - entity: scene.good_evening
           - entity: scene.good_night
           - entity: scene.cinema
-          - entity: script.play_spotify_1
-            name: Spotify
 
       - type: entities
         show_header_toggle: false
@@ -121,8 +119,6 @@ views:
               color: green
         show_header_toggle: false
         entities:
-          - entity: media_player.spotify
-            name: Spotify
           - entity: media_player.tv
             state_color: on
           - entity: switch.yamaha
@@ -486,27 +482,31 @@ views:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
       - type: custom:mini-graph-card
-        name: BTC / PLN
+        name: ETC / PLN
         hour24: true
         points_per_hour: 10
-        line_width: 3
+        line_width: 2
         animate: true
         font_size: 75
         font_size_header: 12
         show:
-          fill: true
+          fill: false
           labels: true
           points: false
-        line_color: "green"
+        line_color: '#04aaf5'
         decimals: 1
         entities:
-          - sensor.btc
+          - sensor.eth
       - type: entities
         show_header_toggle: false
         entities:
           - entity: sensor.btc_exchange_rate
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.eth_exchange_rate
 
-    icon: 'mdi:currency-btc'
+    icon: 'mdi:ethereum'
     path: coin
     theme: default
     title: Coin
@@ -523,7 +523,7 @@ views:
           - entity: switch.zigbee2mqtt_main_join
           - entity: timer.zigbee_permit_join
 
-    icon: 'mdi:broadcast'
+    icon: 'mdi:zigbee'
     path: zigbee
     theme: default
     title: Zigbee
@@ -558,10 +558,27 @@ views:
             --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
             --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
           }      
-    icon: 'mdi:access-point-network'
-    path: zigbee
+    icon: 'mdi:broadcast'
+    path: zigbee-mesh
     theme: default
-    title: Zigbee
+    title: Zigbee-Mesh
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.poland_coronavirus_current
+          - entity: sensor.poland_coronavirus_deaths
+          - entity: sensor.poland_coronavirus_confirmed
+          - entity: sensor.poland_coronavirus_recovered
+
+    icon: 'mdi:hospital-box'
+    path: covid
+    theme: default
+    title: Covid
 
   - badges: []
     visible:

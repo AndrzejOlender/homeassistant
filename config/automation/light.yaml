@@ -342,13 +342,13 @@
     from: "off"
     to: "on"
   condition:
-    condition: or
-    conditions:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:15:00"
-      - condition: template
-        value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-00:15:00"
+          - condition: template
+            value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
   action: 
     service: light.turn_on
     data:
@@ -371,7 +371,7 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 254
+      brightness: 10
       entity_id:
         - light.lamp_kitchen
 
@@ -453,3 +453,61 @@
       brightness: 254
       entity_id:
         - light.ikeabulbsgroupanteroom1 
+
+# # Auto Light in Kithen Sunset
+# - alias: Turn on Light in Kitchen
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionkitchen2_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: switch.yamaha
+#         state: "on"
+#       - condition: or
+#         conditions:
+#           - condition: sun
+#             after: sunset
+#             after_offset: "-00:15:00"
+#           - condition: template
+#             value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
+#   action: 
+#     service: light.turn_on
+#     data:
+#       brightness: 255
+#       entity_id:
+#         - light.lamp_kitchen
+
+# # Toilet Auto Turn On
+# - alias: Turn On Light In Toilet
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motiontoilet_occupancy
+#     from: "off"
+#     to: "on"
+#   action:
+#     - choose:
+#       - conditions:
+#         - condition: time
+#           after: '23:45:00'
+#           before: '05:00:00'   
+#         - condition: state
+#           entity_id: switch.yamaha
+#           state: "off"
+#         sequence:
+#           service: light.turn_on          
+#           data:
+#             transition: 0
+#             brightness: 20
+#             entity_id:
+#               - light.osrambulbsgrouptoilet
+#       default:
+#         service: light.turn_on          
+#         data:
+#           transition: 0
+#           brightness: 254
+#           entity_id:
+#             - light.osrambulbsgrouptoilet

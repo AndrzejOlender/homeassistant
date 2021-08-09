@@ -464,6 +464,7 @@ views:
   - badges: []
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
+    panel: true
     cards:
       - type: map
         entities:
@@ -539,9 +540,9 @@ views:
         name: Zigbbee2Mqtt
         mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
         force: 2000 # decrease it to get smaller map if you have many devices
-        node_size: 16
+        node_size: 8
         font_size: 12
-        link_width: 2
+        link_width: 1
         height: 800 # height of the card
         # use this css config or use whatever css tech to change look and feel,
         # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes

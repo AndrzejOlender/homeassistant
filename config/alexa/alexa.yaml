@@ -14,6 +14,8 @@ smart_home:
       - switch.light1_relay
       - switch.light2_relay
       - switch.light3_relay
+      - switch.blitzlivingroomcommod
+      - switch.blitzlivingroomrtv
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe
@@ -69,6 +71,12 @@ smart_home:
       display_categories: LIGHT
     switch.light3_relay:
       name: "Light 3"
+      display_categories: LIGHT
+    switch.blitzlivingroomcommod:
+      name: "Light Commode"
+      display_categories: LIGHT
+    switch.blitzlivingroomrtv:
+      name: "Light RTV"
       display_categories: LIGHT
     light.osrambulbsgrouptoilet:
       name: "Light"

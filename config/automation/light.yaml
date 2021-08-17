@@ -2,8 +2,8 @@
 - alias: Switch Light Toilet 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: right
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: single_right
   action:
     entity_id: light.osrambulbsgrouptoilet
     service: light.toggle
@@ -11,8 +11,8 @@
 - alias: Switch Light Toilet 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: left
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: single_left
   action:
     entity_id: light.ikeabulbsgrouptoiletmirror
     service: light.toggle
@@ -20,8 +20,8 @@
 - alias: Turn Off Light Toilet 1 & 2 (right)
   trigger:  
     platform: state
-    entity_id: sensor.aqaraswitchtoilet1_click
-    to: right_double
+    entity_id: sensor.aqaraswitchtoilet1_action
+    to: double_right
   action:
     entity_id:   
       - light.ikeabulbsgrouptoiletmirror
@@ -32,20 +32,55 @@
 - alias: Turn Off Light 1,2,3
   trigger:  
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: right_double
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: double_right
   action:
-    entity_id: 
-      - switch.light1_relay
-      - switch.light2_relay
-      - switch.light3_relay
-    service: switch.turn_off
+    - service: switch.turn_off
+      entity_id: 
+        - switch.light1_relay
+        - switch.light2_relay
+        - switch.light3_relay
+    - service: light.turn_off
+      entity_id:
+        - light.ikeabulblamp_light
+
+- alias: Turn Off All Living Room and Child Room
+  trigger:  
+    platform: state
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: double_left
+  action:
+    - service: switch.turn_off
+      entity_id: 
+        - switch.light1_relay
+        - switch.light2_relay
+        - switch.light3_relay
+        - switch.yamaha
+        - switch.nc
+        - switch.blitzlivingroomrtv
+        - switch.blitzlivingroomglasscase
+        - switch.blitzlivingroomcommod
+    - service: media_player.turn_off
+      entity_id: 
+        - media_player.tv
+    - service: media_player.media_pause
+      entity_id: 
+        - media_player.appletv
+    - service: light.turn_off
+      entity_id: 
+        - light.aqaralampchildroom_light
+        - light.ikeabulbsgroupwardobe
+        - light.ikeabulblamp_light
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.light_childroom
+        option: "OFF"
 
 - alias: Switch Light 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: right
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: single_right
   action:
     entity_id: switch.light1_relay
     service: switch.toggle
@@ -53,8 +88,8 @@
 - alias: Switch Light 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_click
-    to: left
+    entity_id: sensor.aqaraswitchlivingroom1_action
+    to: single_left
   action:
     entity_id: switch.light2_relay
     service: switch.toggle
@@ -62,18 +97,31 @@
 - alias: Switch Light 3 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_click
-    to: right
+    entity_id: sensor.aqaraswitchlivingroom2_action
+    to: single_right
   action:
     entity_id: switch.light3_relay
     service: switch.toggle
+
+- alias: LED RTV
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.aqaraswitchlivingroom3_action
+    to: single
+  action:
+    - service: switch.toggle
+      entity_id: 
+        - switch.blitzlivingroomcommod
+        - switch.blitzlivingroomrtv
+        - switch.blitzlivingroomglasscase
 
 # Anteroom switches   
 - alias: Switch Light Anteroom 1 (right)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: right
+    entity_id: sensor.aqaraswitchanteroom1_action
+    to: single_right
   action:
     entity_id: light.ikeabulbsgroupanteroom1
     service: light.toggle
@@ -81,8 +129,8 @@
 - alias: Switch Light Anteroom 2 (left)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchanteroom1_click
-    to: left
+    entity_id: sensor.aqaraswitchanteroom1_action
+    to: single_left
   action:
     entity_id: light.ikeabulbsgroupanteroom2
     service: light.toggle
@@ -91,18 +139,35 @@
 - alias: Lamp Table Kitchen
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchkitchen1_click
+    entity_id: sensor.aqaraswitchkitchen1_action
     to: single
   action:
     entity_id: light.ikeabulbsgroupkitchen
     service: light.toggle 
 
-- alias: Switch Off Light in the Kitchen & Anteroom
+- alias: Switch Off Light in the Kitchen & Anteroom & Toilet
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchkitchen1_click
-      - sensor.aqaraswitchkitchen2_click
+      - sensor.aqaraswitchkitchen1_action
+      - sensor.aqaraswitchkitchen2_action
+    to: hold
+  action:
+    entity_id: 
+      - light.ikeabulbsgroupkitchen
+      - light.lamp_kitchen
+      - light.ikeabulbsgroupanteroom1
+      - light.ikeabulbsgroupanteroom2
+      - light.ikeabulbsgrouptoiletmirror
+      - light.osrambulbsgrouptoilet
+    service: light.turn_off  
+
+- alias: Switch Off Light in the Kitchen 
+  trigger:
+    platform: state
+    entity_id: 
+      - sensor.aqaraswitchkitchen1_action
+      - sensor.aqaraswitchkitchen2_action
     to: double
   action:
     entity_id: 
@@ -110,7 +175,7 @@
       - light.lamp_kitchen
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
-    service: light.turn_off     
+    service: light.turn_off    
 
 # Auto turnoff lights
 - alias: Switch Off Light in the Kitchen & Anteroom 2
@@ -131,7 +196,7 @@
 - alias: Lamp Kitchen (single)
   trigger:
     platform: state
-    entity_id: sensor.aqaraswitchkitchen2_click
+    entity_id: sensor.aqaraswitchkitchen2_action
     to: single
   action:
     entity_id: light.lamp_kitchen
@@ -142,8 +207,8 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchchildroom_click
-      - sensor.aqaraswitchchildroom2_click
+      - sensor.aqaraswitchchildroom_action
+      - sensor.aqaraswitchchildroom2_action
     to: single
   action:
     - service: light.toggle
@@ -158,8 +223,8 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchwardrobe_click
-      - sensor.aqaraswitchchildroom3_click
+      - sensor.aqaraswitchwardrobe_action
+      - sensor.aqaraswitchchildroom3_action
     to: single
   action:
     - service: light.toggle
@@ -174,10 +239,10 @@
   trigger:
     platform: state
     entity_id: 
-      - sensor.aqaraswitchwardrobe_click
-      - sensor.aqaraswitchchildroom_click
-      - sensor.aqaraswitchchildroom2_click
-      - sensor.aqaraswitchchildroom3_click
+      - sensor.aqaraswitchwardrobe_action
+      - sensor.aqaraswitchchildroom_action
+      - sensor.aqaraswitchchildroom2_action
+      - sensor.aqaraswitchchildroom3_action
     to: double
   action:
     - service: light.turn_off
@@ -277,32 +342,19 @@
     from: "off"
     to: "on"
   condition:
-    condition: sun
-    after: sunset
-    after_offset: "-00:15:00"
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: "-00:15:00"
+          - condition: template
+            value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
   action: 
     service: light.turn_on
     data:
       brightness: 255
       entity_id:
         - light.lamp_kitchen
-
-# Auto Light Off Kithen Sunset
-- alias: Turn off Light in Kitchen
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionkitchen2_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 3
-  condition:
-    condition: sun
-    after: sunset
-    after_offset: "-00:15:00"
-  action: 
-    entity_id: light.lamp_kitchen
-    service: light.turn_off 
 
 # Auto Light in Kithen Day
 - alias: Turn on Light in Kitchen Day
@@ -319,11 +371,11 @@
   action: 
     service: light.turn_on
     data:
-      brightness: 254
+      brightness: 10
       entity_id:
         - light.lamp_kitchen
 
-# Auto Light Off Kithen Day 2
+# Auto Light Off Kithen Day
 - alias: Turn off Light in Kitchen Day
   trigger: 
     platform: state
@@ -331,7 +383,7 @@
     from: "on"
     to: "off"
     for:
-      minutes: 10
+      minutes: 5
   action: 
     entity_id: light.lamp_kitchen
     service: light.turn_off     
@@ -349,9 +401,6 @@
         - condition: time
           after: '23:45:00'
           before: '05:00:00'   
-        - condition: state
-          entity_id: binary_sensor.toiletdoor_contact
-          state:  "on"  
         - condition: state
           entity_id: switch.yamaha
           state: "off"
@@ -404,3 +453,61 @@
       brightness: 254
       entity_id:
         - light.ikeabulbsgroupanteroom1 
+
+# # Auto Light in Kithen Sunset
+# - alias: Turn on Light in Kitchen
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionkitchen2_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: switch.yamaha
+#         state: "on"
+#       - condition: or
+#         conditions:
+#           - condition: sun
+#             after: sunset
+#             after_offset: "-00:15:00"
+#           - condition: template
+#             value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
+#   action: 
+#     service: light.turn_on
+#     data:
+#       brightness: 255
+#       entity_id:
+#         - light.lamp_kitchen
+
+# # Toilet Auto Turn On
+# - alias: Turn On Light In Toilet
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motiontoilet_occupancy
+#     from: "off"
+#     to: "on"
+#   action:
+#     - choose:
+#       - conditions:
+#         - condition: time
+#           after: '23:45:00'
+#           before: '05:00:00'   
+#         - condition: state
+#           entity_id: switch.yamaha
+#           state: "off"
+#         sequence:
+#           service: light.turn_on          
+#           data:
+#             transition: 0
+#             brightness: 20
+#             entity_id:
+#               - light.osrambulbsgrouptoilet
+#       default:
+#         service: light.turn_on          
+#         data:
+#           transition: 0
+#           brightness: 254
+#           entity_id:
+#             - light.osrambulbsgrouptoilet

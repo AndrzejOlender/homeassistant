@@ -4,6 +4,12 @@ switch.light1_relay:
   icon: mdi:wall-sconce-flat
 switch.shelly_03:
   icon: mdi:lightbulb-on-outline
+switch.blitzlivingroomcommod:
+  icon: mdi:led-strip
+switch.blitzlivingroomrtv:
+  icon: mdi:led-strip
+switch.blitzlivingroomglasscase:
+  icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:
   device_class: window
   icon: mdi:window-closed-variant  
@@ -83,6 +89,9 @@ sensor.mi_humidity:
 script.miio_turn_on_nc:
   friendly_name: Canal+
   icon: mdi:remote-tv
+script.play_spotify_1:
+  friendly_name: Spotify
+  icon: mdi:spotify
 script.miio_turn_on_yamaha_hdmi1:
   icon: mdi:remote-tv
 script.miio_turn_on_yamaha_hdmi2:
@@ -129,6 +138,8 @@ device_tracker.redmi_note_4_3:
   entity_picture: /local/ania.jpg
 device_tracker.redmi_note_4:
   entity_picture: /local/ania.jpg
+device_tracker.samsung:
+  entity_picture: /local/ania.jpg
 device_tracker.iphone:
   entity_picture: /local/andrzej.jpg
 device_tracker.macbookpro:
@@ -160,6 +171,10 @@ sensor.airly_aqi:
   icon: mdi:gauge
 switch.airpurifiermax:
   icon: mdi:weather-windy
+sensor.eth:
+  icon: mdi:ethereum
+sensor.btc:
+  icon: mdi:currency-btc
 light.ikeabulbsgroupwardobe:
   icon: mdi:wall-sconce-flat
   supported_features: 41

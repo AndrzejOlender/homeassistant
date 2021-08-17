@@ -1,13 +1,13 @@
-test:
-  stage: test
-  image: homeassistant/amd64-homeassistant:2020.12.0
-  tags: 
-    - master
-  before_script:
-    - python -m homeassistant --version
-    - mv fake_secrets.yaml secrets.yaml
-  script:
-    - python -m homeassistant --version
+# test:
+#   stage: test
+#   image: homeassistant/amd64-homeassistant:2020.12.0
+#   tags: 
+#     - master
+#   before_script:
+#     - python -m homeassistant --version
+#     - mv fake_secrets.yaml secrets.yaml
+#   script:
+#     - python -m homeassistant --version
     # - python -m homeassistant --config . --script check_config
 
 # deploy:

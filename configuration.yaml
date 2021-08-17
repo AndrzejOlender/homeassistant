@@ -1,4 +1,4 @@
-# Configure a default setup
+## Configure a default setup
 default_config:
 # Color Extractor
 color_extractor:

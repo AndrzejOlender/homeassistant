@@ -10,10 +10,10 @@ views:
   - badges: []
     in_card: true
     cards:
-      - type: weather-forecast
-        show_forecast: false
-        entity: weather.home
-        name: 'Siemianowice'
+      # - type: weather-forecast
+      #   show_forecast: false
+      #   entity: weather.home
+      #   name: 'Siemianowice'
         
       - type: entities
         show_header_toggle: false
@@ -69,6 +69,15 @@ views:
             state_color: on
           - entity: switch.light3_relay
             name: Living Room 3
+            state_color: on
+          - entity: switch.blitzlivingroomrtv
+            name: LED Rtv
+            state_color: on
+          - entity: switch.blitzlivingroomcommod
+            name: LED Commode
+            state_color: on
+          - entity: switch.blitzlivingroomglasscase
+            name: LED Glass Case
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table
@@ -256,7 +265,7 @@ views:
           - entity: device_tracker.iphone_luci_andrzej
             name: Andrzej
             state_color: on
-          - entity: device_tracker.xiaomired_luci_ania
+          - entity: device_tracker.samsung_luci_ania
             name: Ania
             state_color: on  
 
@@ -341,7 +350,7 @@ views:
             labels: false
             points: false
           entities:
-            - entity: sensor.airly_aqi
+            - entity: sensor.airly_caqi
               name: Outdoor
               color: green
               show_legend: false
@@ -351,7 +360,6 @@ views:
               show_state: true
         show_header_toggle: false
         entities:
-          - entity: air_quality.airly
           - entity: fan.air_purifier
             state_color: on
           - entity: switch.airpurifiermax
@@ -360,7 +368,7 @@ views:
           - entity: switch.airpurifierled
             name: LED
             state_color: on
-          - entity: sensor.airly_aqi
+          - entity: sensor.airly_caqi
             name: Outdoor
           - entity: sensor.mi_aqi
             name: Home
@@ -415,28 +423,35 @@ views:
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
-                <<: &GRAPH_IN_CARD
-                  name: Download
-                  hour24: true
-                  points_per_hour: 1
-                  animate: false
-                  font_size: 75
-                  font_size_header: 12
-                  show:
-                    fill: false
-                    labels: false
-                    points: false
+                name: Download
+                hour24: true
+                points_per_hour: 1
+                animate: false
+                font_size: 75
+                font_size_header: 12
+                show:
+                  fill: false
+                  labels: false
+                  points: false
                 line_color: "#36a2eb"
                 decimals: 1
                 entities:
                   - sensor.speedtest_download
               - type: custom:mini-graph-card
-                <<: *GRAPH_IN_CARD
                 name: Upload
-                line_color: "#ffce57"
-                decimals: 1
+                hour24: true
+                points_per_hour: 1
+                animate: false
                 font_size: 75
                 font_size_header: 12
+                line_color: "green"
+                decimals: 1
+                show:
+                  fill: false
+                  labels: false
+                  points: false
+                # font_size: 75
+                # font_size_header: 12
                 entities:
                   - sensor.speedtest_upload
 
@@ -449,38 +464,12 @@ views:
   - badges: []
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
+    panel: true
     cards:
-      # - entities:
-      #     - sensor.adguard_average_processing_speed
-      #     - sensor.adguard_dns_queries
-      #     - sensor.adguard_dns_queries_blocked_ratio
-      #     - sensor.adguard_parental_control_blocked
-      #     - sensor.adguard_safe_browsing_blocked
-      #     - sensor.adguard_safe_searches_enforced
-      #     - switch.adguard_protection
-      #     - switch.adguard_safe_browsing
-      #     - switch.adguard_filtering
-      #     - switch.adguard_parental_control
-      #   show_header_toggle: false
-      #   type: entities
-
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.zigbee2mqtt_bridge_state
-          - entity: sensor.zigbee2mqtt_version
-          - entity: switch.zigbee2mqtt_main_join
-          - entity: timer.zigbee_permit_join
-
-      # - type: picture-glance
-      #   title: Camera
-      #   entities: []
-      #   camera_image: camera.front_door
-
       - type: map
         entities:
 #          - device_tracker.iphone
-          - device_tracker.redmi_note_4
+          - device_tracker.samsung
         hours_to_show: 12
         dark_mode: true
 
@@ -492,6 +481,57 @@ views:
   - badges: []
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: custom:mini-graph-card
+        name: ETC / PLN
+        hour24: true
+        points_per_hour: 10
+        line_width: 2
+        animate: true
+        font_size: 75
+        font_size_header: 12
+        show:
+          fill: false
+          labels: true
+          points: false
+        line_color: '#04aaf5'
+        decimals: 1
+        entities:
+          - sensor.eth
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.btc_exchange_rate
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.eth_exchange_rate
+
+    icon: 'mdi:ethereum'
+    path: coin
+    theme: default
+    title: Coin
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.zigbee2mqtt_bridge_state
+          - entity: sensor.zigbee2mqtt_version
+          - entity: switch.zigbee2mqtt_main_join
+          - entity: timer.zigbee_permit_join
+
+    icon: 'mdi:zigbee'
+    path: zigbee
+    theme: default
+    title: Zigbee
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
     panel: true
     cards:
       - type: custom:zigbee2mqtt-networkmap
@@ -499,10 +539,10 @@ views:
         # the following are optional:
         name: Zigbbee2Mqtt
         mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
-        force: 2000 # decrease it to get smaller map if you have many devices
-        node_size: 16
+        # force: 2000 # decrease it to get smaller map if you have many devices
+        node_size: 8
         font_size: 12
-        link_width: 2
+        link_width: 1
         height: 800 # height of the card
         # use this css config or use whatever css tech to change look and feel,
         # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
@@ -519,10 +559,27 @@ views:
             --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
             --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
           }      
-    icon: 'mdi:access-point-network'
-    path: zigbee
+    icon: 'mdi:broadcast'
+    path: zigbee-mesh
     theme: default
-    title: Zigbee
+    title: Zigbee-Mesh
+
+  - badges: []
+    visible:
+      - user: 4b4a93638a344e758538b4f233cb5147
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.poland_coronavirus_current
+          - entity: sensor.poland_coronavirus_deaths
+          - entity: sensor.poland_coronavirus_confirmed
+          - entity: sensor.poland_coronavirus_recovered
+
+    icon: 'mdi:hospital-box'
+    path: covid
+    theme: default
+    title: Covid
 
   - badges: []
     visible:

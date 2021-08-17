@@ -4,9 +4,9 @@
   radius: 250
   icon: mdi:account-hard-hat
 
-- name: Yakudo
-  latitude: !secret latitude_yakudo
-  longitude: !secret longitude_yakudo
+- name: SaintGobain
+  latitude: !secret latitude_sg
+  longitude: !secret longitude_sg
   radius: 250
   icon: mdi:account-hard-hat  
 

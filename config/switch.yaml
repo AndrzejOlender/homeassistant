@@ -83,6 +83,7 @@
       turn_off:
         service: script.miio_turn_on_yamaha_radio
 
+
 - platform: template
   switches:
     hdmi1:

@@ -44,5 +44,5 @@
 #           push:
 #             category: map
 #           action_data:
-#             latitude: "{{ state_attr('device_tracker.redmi_note_4', 'latitude') }}"
-#             longitude: "{{ state_attr('device_tracker.redmi_note_4', 'longitude') }}"
+#             latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+#             longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"

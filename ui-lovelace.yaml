@@ -539,7 +539,7 @@ views:
         # the following are optional:
         name: Zigbbee2Mqtt
         mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
-        force: 2000 # decrease it to get smaller map if you have many devices
+        # force: 2000 # decrease it to get smaller map if you have many devices
         node_size: 8
         font_size: 12
         link_width: 1

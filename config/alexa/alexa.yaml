@@ -19,6 +19,7 @@ smart_home:
       - light.osrambulbsgrouptoilet
       - light.ikeabulbsgrouptoiletmirror
       - light.ikeabulbsgroupwardobe
+      - light.philipsledoffice
       - switch.hdmi1
       - switch.hdmi2
       - light.lamp_kitchen

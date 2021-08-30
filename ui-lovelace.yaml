@@ -91,6 +91,8 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
+          - entity: light.philipsledoffice
+            name: Office Desk
 
       - type: entities
         header:

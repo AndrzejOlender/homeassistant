@@ -10,6 +10,8 @@ switch.blitzlivingroomrtv:
   icon: mdi:led-strip
 switch.blitzlivingroomglasscase:
   icon: mdi:led-strip
+light.philipsledoffice:
+  icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:
   device_class: window
   icon: mdi:window-closed-variant  

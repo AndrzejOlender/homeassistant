@@ -58,6 +58,8 @@
       state: 'off' 
     light.ikeabulbsgroupwardobe:
       state: 'off' 
+    light.philipsledoffice:
+      state: 'off'
     media_player.echo:
       state: standby
     media_player.appletv:

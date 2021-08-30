@@ -1,0 +1,5 @@
+# filter:
+#   include_domains:
+#     - light
+#   include_entity_globs:
+#     - binary_sensor.*_occupancy

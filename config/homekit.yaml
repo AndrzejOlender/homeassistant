@@ -41,6 +41,7 @@ filter:
     - light.ikeabulbsgroupkitchen
     - light.ikeabulbsgroupanteroom1
     - light.ikeabulbsgroupanteroom2
+    - light.philipsledoffice
     - device_tracker.iphone_luci_andrzej
     - device_tracker.xiaomired_luci_ania
     - scene.good_evening

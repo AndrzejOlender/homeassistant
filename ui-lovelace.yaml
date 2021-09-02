@@ -352,11 +352,11 @@ views:
             labels: false
             points: false
           entities:
-            - entity: sensor.airly_caqi
+            - entity: sensor.airly_pm2_5_2
               name: Outdoor
               color: green
               show_legend: false
-            - entity: sensor.mi_aqi
+            - entity: sensor.air_purifier_pm2_5
               name: Home 
               show_legend: false
               show_state: true
@@ -367,12 +367,12 @@ views:
           - entity: switch.airpurifiermax
             name: Air Max 
             state_color: on
-          - entity: switch.airpurifierled
+          - entity: switch.air_purifier_led
             name: LED
             state_color: on
-          - entity: sensor.airly_caqi
+          - entity: sensor.airly_pm2_5_2
             name: Outdoor
-          - entity: sensor.mi_aqi
+          - entity: sensor.air_purifier_pm2_5
             name: Home
 
       - type: entities

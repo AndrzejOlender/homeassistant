@@ -10,7 +10,7 @@
             service: fan.set_speed
             data:
               speed: favorite
-          - service: xiaomi_miio.fan_set_favorite_level    
+          - service: number.air_purifier_favorite_level    
             data_template:
               entity_id: fan.air_purifier
               level: 14

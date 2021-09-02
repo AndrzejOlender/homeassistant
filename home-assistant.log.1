@@ -1,0 +1,49 @@
+2021-09-02 12:21:29 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration feedparser which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-02 12:21:29 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration burze_dzis_net which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-02 12:21:29 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration alexa_media which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-02 12:21:29 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-02 12:21:41 WARNING (MainThread) [homeassistant.components.lovelace] Resources need to be specified in your configuration.yaml. Please see the docs
+2021-09-02 12:21:43 WARNING (MainThread) [homeassistant.components.coinbase] The 'coinbase' option near /config/configuration.yaml:1 is deprecated, please remove it from your configuration
+2021-09-02 12:21:46 WARNING (MainThread) [homeassistant.components.mqtt.sensor] The 'last_reset_topic' option is deprecated, please remove it from your configuration
+2021-09-02 12:21:47 WARNING (MainThread) [homeassistant.components.mqtt.sensor] The 'last_reset_topic' option is deprecated, please remove it from your configuration
+2021-09-02 12:21:47 WARNING (MainThread) [homeassistant.components.mqtt.sensor] The 'last_reset_topic' option is deprecated, please remove it from your configuration
+2021-09-02 12:21:52 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'led' when rendering '{{ states.fan.air_purifier.attributes.led }}'
+2021-09-02 12:21:52 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'led' when rendering '{{ states.fan.air_purifier.attributes.led }}'
+2021-09-02 12:21:53 WARNING (MainThread) [homeassistant.components.homekit] The bridge Home Assistant Bridge has entity media_player.tv. For best performance, and to prevent unexpected unavailability, create and pair a separate HomeKit instance in accessory mode for this entity
+2021-09-02 12:21:53 WARNING (MainThread) [homeassistant.components.homekit] The bridge Home Assistant Bridge has entity lock.maindoorlock. For best performance, and to prevent unexpected unavailability, create and pair a separate HomeKit instance in accessory mode for this entity
+2021-09-02 12:21:55 WARNING (MainThread) [homeassistant.components.sensor] Entity sensor.blitzlivingroomglasscase_energy (<class 'homeassistant.components.mqtt.sensor.MqttSensor'>) with state_class measurement has set last_reset. Setting last_reset is deprecated and will be unsupported from Home Assistant Core 2021.11. Please update your configuration if state_class is manually configured, otherwise create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+mqtt%22
+2021-09-02 12:21:55 WARNING (MainThread) [homeassistant.components.sensor] Entity sensor.blitzlivingroomrtv_energy (<class 'homeassistant.components.mqtt.sensor.MqttSensor'>) with state_class measurement has set last_reset. Setting last_reset is deprecated and will be unsupported from Home Assistant Core 2021.11. Please update your configuration if state_class is manually configured, otherwise create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+mqtt%22
+2021-09-02 12:21:55 WARNING (MainThread) [homeassistant.components.sensor] Entity sensor.blitzlivingroomcommod_energy (<class 'homeassistant.components.mqtt.sensor.MqttSensor'>) with state_class measurement has set last_reset. Setting last_reset is deprecated and will be unsupported from Home Assistant Core 2021.11. Please update your configuration if state_class is manually configured, otherwise create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+mqtt%22
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: dict object has no element Undefined when rendering '{% set values = {'idle':'off','heat':'heating','cool':'cooling','fan only':'fan'} %}{{ values[value_json.running_state] }}'
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: dict object has no element Undefined when rendering '{% set values = {'idle':'off','heat':'heating','cool':'cooling','fan only':'fan'} %}{{ values[value_json.running_state] }}'
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:25 ERROR (MainThread) [homeassistant.util.logging] Exception in state_received when handling msg on 'zigbee2mqtt/OsramBulbToilet3': '{"brightness":254,"color":{"x":0.3825,"y":0.3541},"color_temp":455,"linkquality":9,"state":"OFF","update":{"state":"idle"},"update_available":false}'
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/mqtt/debug_info.py", line 34, in wrapper
+    msg_callback(msg)
+  File "/usr/src/homeassistant/homeassistant/components/mqtt/light/schema_json.py", line 308, in state_received
+    self._update_color(values)
+  File "/usr/src/homeassistant/homeassistant/components/mqtt/light/schema_json.py", line 247, in _update_color
+    color_mode = values["color_mode"]
+KeyError: 'color_mode'
+
+2021-09-02 12:22:26 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:26 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_json] Invalid color mode received
+2021-09-02 12:22:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: dict object has no element Undefined when rendering '{% set values = {'idle':'off','heat':'heating','cool':'cooling','fan only':'fan'} %}{{ values[value_json.running_state] }}'
+2021-09-02 12:22:26 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'dict object' has no attribute 'click' when rendering '{{ value_json.click }}'
+2021-09-02 12:22:28 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: dict object has no element Undefined when rendering '{% set values = {'idle':'off','heat':'heating','cool':'cooling','fan only':'fan'} %}{{ values[value_json.running_state] }}'
+2021-09-02 12:22:28 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: dict object has no element Undefined when rendering '{% set values = {'idle':'off','heat':'heating','cool':'cooling','fan only':'fan'} %}{{ values[value_json.running_state] }}'
+2021-09-02 12:22:38 ERROR (MainThread) [homeassistant.helpers.script.air_max] Air Max: Error executing script. Service not found for call_service at pos 3: Unable to find service number.air_purifier_favorite_level
+2021-09-02 12:22:45 WARNING (MainThread) [homeassistant.helpers.template] Template variable warning: 'mappingproxy object' has no attribute 'led' when rendering '{{ states.fan.air_purifier.attributes.led }}'
+2021-09-02 12:22:49 ERROR (MainThread) [homeassistant.helpers.script.air_max] Air Max: Error executing script. Service not found for call_service at pos 3: Unable to find service number.air_purifier_favorite_level
+2021-09-02 12:22:55 ERROR (MainThread) [homeassistant.helpers.script.air_max] Air Max: Error executing script. Service not found for call_service at pos 3: Unable to find service number.air_purifier_favorite_level
+2021-09-02 12:24:32 WARNING (MainThread) [homeassistant.components.coinbase] The 'coinbase' option is deprecated, please remove it from your configuration

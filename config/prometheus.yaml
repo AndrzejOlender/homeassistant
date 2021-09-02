@@ -1,3 +1,4 @@
+namespace: hass
 # filter:
 #   include_domains:
 #     - light

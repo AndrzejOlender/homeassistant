@@ -11,7 +11,7 @@
       state: 'on'
     light.ikeabulbsgroupanteroom1:
       state: 'on'  
-    switch.airpurifierled:
+    switch.air_purifier_led:
       state: 'on'
     script.play_spotify_1:
       state: 'on'
@@ -26,7 +26,7 @@
       state: 'off'
     switch.light3_relay:
       state: 'off'
-    switch.airpurifierled:
+    switch.air_purifier_led:
       state: 'off'
     light.aqaralampchildroom_light:
       state: 'off'
@@ -80,7 +80,7 @@
       state: 'on'        
     switch.hdmi1: 
       state: 'on'
-    switch.airpurifierled:
+    switch.air_purifier_led:
       state: 'on'
 
 - id: 'cinema'

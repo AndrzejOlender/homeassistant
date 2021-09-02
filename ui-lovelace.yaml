@@ -364,9 +364,6 @@ views:
         entities:
           - entity: fan.air_purifier
             state_color: on
-          - entity: switch.airpurifiermax
-            name: Air Max 
-            state_color: on
           - entity: switch.air_purifier_led
             name: LED
             state_color: on

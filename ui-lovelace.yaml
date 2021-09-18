@@ -232,7 +232,7 @@ views:
           - entity: switch.thermoseason
             name: Heat Season
             state_color: on
-          - entity: sensor.mi_humidity
+          - entity: sensor.air_purifier_humidity
             name: Living Room
             state_color: on
 

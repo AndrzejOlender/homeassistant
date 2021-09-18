@@ -17,8 +17,8 @@ filter:
     - switch.blitzlivingroomcommod
     - switch.blitzlivingroomrtv
     - switch.blitzlivingroomglasscase
-    - sensor.mi_humidity
-    - sensor.mi_temperature
+    - sensor.air_purifier_humidity
+    - sensor.air_purifier_temperature
     - light.osrambulbsgrouptoilet
     - light.ikeabulbsgrouptoiletmirror
     - light.ikeabulbsgroupwardobe

@@ -367,7 +367,7 @@
     - condition: sun
       before: sunrise
     - condition: time
-      after: '05:30:00'
+      after: '04:00:00'
   action: 
     service: light.turn_on
     data:

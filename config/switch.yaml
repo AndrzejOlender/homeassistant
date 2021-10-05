@@ -19,8 +19,7 @@
                 {% else %}
                   mdi:radiator-disabled
                 {% endif %} 
-
-# test light to switches
+# Audio Yamaha
 - platform: template
   switches:
     yamaha:
@@ -35,7 +34,6 @@
   switches:
     radio:
       friendly_name: "Radio"
-      value_template: "{% if states('sensor.yamaha_power') | float > 100 %}True{%else%}False{%endif %}"
       turn_on:
         service: script.miio_turn_on_yamaha_radio
       turn_off:
@@ -46,7 +44,6 @@
   switches:
     hdmi1:
       friendly_name: "HDMI1"
-      value_template: "{% if states('sensor.yamaha_power') | float > 100 %}True{%else%}False{%endif %}"
       turn_on:
         service: script.miio_turn_on_yamaha_hdmi1
       turn_off:
@@ -56,7 +53,6 @@
   switches:
     hdmi2:
       friendly_name: "HDMI2"
-      value_template: "{% if states('sensor.yamaha_power') | float > 100 %}True{%else%}False{%endif %}"
       turn_on:
         service: script.miio_turn_on_yamaha_hdmi2
       turn_off:
@@ -66,7 +62,6 @@
   switches:
     nc:
       friendly_name: "NC"
-      value_template: "{% if states('sensor.yamaha_power') | float > 100 %}True{%else%}False{%endif %}"
       turn_on:
         service: script.miio_turn_on_nc
       turn_off:

@@ -364,10 +364,10 @@
     from: "off"
     to: "on"
   condition:
-    - condition: sun
-      before: sunrise
     - condition: time
-      after: '04:00:00'
+      after: '01:00:00'
+    - condition: time
+      before: '05:00:00'
   action: 
     service: light.turn_on
     data:

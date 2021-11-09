@@ -267,7 +267,7 @@ views:
           - entity: device_tracker.iphone_luci_andrzej
             name: Andrzej
             state_color: on
-          - entity: device_tracker.samsung_luci_ania
+          - entity: device_tracker.xiaomired_luci_ania
             name: Ania
             state_color: on  
 
@@ -468,7 +468,7 @@ views:
       - type: map
         entities:
 #          - device_tracker.iphone
-          - device_tracker.samsung
+          - device_tracker.xiaomi
         hours_to_show: 12
         dark_mode: true
 

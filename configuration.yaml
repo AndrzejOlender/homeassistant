@@ -29,7 +29,7 @@ sensor: !include config/sensor.yaml
 switch: !include config/switch.yaml
 remote: !include config/remote.yaml
 webostv: !include config/webostv.yaml
-#recorder: !include config/recorder.yaml
+recorder: !include config/recorder.yaml
 influxdb: !include config/influxdb.yaml
 prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation

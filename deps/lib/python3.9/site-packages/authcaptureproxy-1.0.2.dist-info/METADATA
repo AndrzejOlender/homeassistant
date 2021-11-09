@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: authcaptureproxy
+Version: 1.0.2
+Summary: A Python project to create a proxy to capture authentication information from a webpage. This is useful to capture oauth login details without access to a third-party oauth.
+Home-page: https://github.com/alandtse/auth_capture_proxy
+License: Apache-2.0
+Author: Alan D. Tse
+Maintainer: Alan D. Tse
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: all
+Requires-Dist: aiohttp (>=3.7.3,<4.0.0)
+Requires-Dist: beautifulsoup4 (>=4.9.3,<5.0.0)
+Requires-Dist: httpx (>=0.17.1,<1.0)
+Requires-Dist: importlib-metadata (>=3.4.0)
+Requires-Dist: multidict (>=5.1.0,<6.0.0)
+Requires-Dist: typer (>=0.3,<1.0)
+Requires-Dist: yarl (>=1.6.3,<2.0.0)
+Project-URL: CI, https://github.com/alandtse/auth_capture_proxy/actions
+Project-URL: Documentation, https://auth_capture_proxy.readthedocs.io
+Project-URL: Download, https://pypi.org/project/authcaptureproxy/
+Project-URL: Issues, https://github.com/alandtse/auth_capture_proxy/issues
+Project-URL: Repository, https://github.com/alandtse/auth_capture_proxy
+Description-Content-Type: text/markdown
+
+# Auth_capture_proxy
+
+[![Version status](https://img.shields.io/pypi/status/authcaptureproxy)](https://pypi.org/project/authcaptureproxy)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python version compatibility](https://img.shields.io/pypi/pyversions/authcaptureproxy)](https://pypi.org/project/authcaptureproxy)
+[![Version on Github](https://img.shields.io/github/v/release/alandtse/auth_capture_proxy?include_prereleases&label=GitHub)](https://github.com/alandtse/auth_capture_proxy/releases)
+[![Version on PyPi](https://img.shields.io/pypi/v/authcaptureproxy)](https://pypi.org/project/authcaptureproxy)
+![PyPI - Downloads](https://img.shields.io/pypi/dd/authcaptureproxy)
+![PyPI - Downloads](https://img.shields.io/pypi/dw/authcaptureproxy)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/authcaptureproxy)
+[![Documentation Status](https://readthedocs.org/projects/auth-capture-proxy/badge/?version=latest)](https://auth-capture-proxy.readthedocs.io/en/latest/?badge=latest)
+[![Build (Github Actions)](https://img.shields.io/github/workflow/status/alandtse/auth_capture_proxy/Build%20&%20test?label=Build%20&%20test)](https://github.com/alandtse/auth_capture_proxy/actions)
+[![Test coverage (coveralls)](https://coveralls.io/repos/github/alandtse/auth_capture_proxy/badge.svg?branch=main&service=github)](https://coveralls.io/github/alandtse/auth_capture_proxy?branch=main)
+
+A Python project to create a proxy to capture authentication information from a webpage. This is useful to capture oauth login details without access to a third-party oauth.
+
+## Install
+
+```bash
+pip install authcaptureproxy
+```
+
+## Using
+
+To see basic usage look at the [proxy-example](authcaptureproxy/cli.py) that logs into Amazon.com and will print out the detected email and password.
+
+```bash
+python authcaptureproxy/cli.py proxy-example
+```
+
+[See the docs 📚](https://auth-capture-proxy.readthedocs.io/en/latest/) for more info.
+
+## License
+
+Licensed under the terms of the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html).
+
+## Contributing
+
+[New issues](https://github.com/alandtse/auth_capture_proxy/issues) and pull requests are welcome.
+Please refer to the [contributing guide](https://github.com/alandtse/auth_capture_proxy/blob/main/CONTRIBUTING.md)
+and [security policy](https://github.com/alandtse/auth_capture_proxy/blob/main/SECURITY.md).
+
+Generated with [Tyrannosaurus](https://github.com/dmyersturnbull/tyrannosaurus).
+

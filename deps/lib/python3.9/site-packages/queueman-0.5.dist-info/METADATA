@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: queueman
+Version: 0.5
+Summary: UNKNOWN
+Home-page: https://github.com/ludeeus/queueman
+Author: Joakim Sorensen
+Author-email: hi@ludeeus.dev
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Queue manager
+
+[![codecov][codecov_img]][codecov_url]
+[![Test action][github_action_test]][github_actions]
+
+WIP
+
+```bash
+python3 -m pip install queueman
+```
+
+<!-- LINKS -->
+[codecov_url]: https://codecov.io/gh/ludeeus/queueman
+[codecov_img]: https://codecov.io/gh/ludeeus/queueman/branch/master/graph/badge.svg
+[github_actions]: https://github.com/ludeeus/queueman/actions
+[github_action_test]: https://github.com/ludeeus/queueman/workflows/Test/badge.svg
+<!-- LINKS -->
+

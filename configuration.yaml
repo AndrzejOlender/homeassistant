@@ -36,5 +36,3 @@ automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 binary_sensor: !include config/binary.yaml
 device_tracker: !include config/tracker.yaml
-# google_assistant: !include config/google-home/google-home.yaml
-# tts: !include config/tts/tts.yaml

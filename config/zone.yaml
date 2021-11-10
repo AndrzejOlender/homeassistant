@@ -4,9 +4,9 @@
   radius: 250
   icon: mdi:account-hard-hat
 
-- name: SaintGobain
-  latitude: !secret latitude_sg
-  longitude: !secret longitude_sg
+- name: eSky
+  latitude: !secret latitude_esky
+  longitude: !secret longitude_esky
   radius: 250
   icon: mdi:account-hard-hat  
 

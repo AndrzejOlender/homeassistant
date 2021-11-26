@@ -478,6 +478,34 @@ views:
     title: Guard
 
   - badges: []
+    cards:
+      - type: custom:mini-graph-card
+        name: BTC / PLN
+        hour24: true
+        points_per_hour: 10
+        line_width: 2
+        animate: true
+        font_size: 75
+        font_size_header: 12
+        show:
+          fill: false
+          labels: true
+          points: false
+        line_color: '#04aaf5'
+        decimals: 1
+        entities:
+          - sensor.btc
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.btc_exchange_rate
+
+    icon: 'mdi:bitcoin'
+    path: btc
+    theme: default
+    title: Bitcoin
+
+  - badges: []
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
@@ -500,16 +528,12 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: sensor.btc_exchange_rate
-      - type: entities
-        show_header_toggle: false
-        entities:
           - entity: sensor.eth_exchange_rate
 
     icon: 'mdi:ethereum'
-    path: coin
+    path: eth
     theme: default
-    title: Coin
+    title: Etherium
 
   - badges: []
     visible:

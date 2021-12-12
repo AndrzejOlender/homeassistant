@@ -74,6 +74,22 @@
     #       push:
     #         sound: default
 
+# - alias: Send Notification Opened Lock
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.lock
+#     from: "off"
+#     to: "on"
+#   action:
+#     - service: notify.mobile_app_iphone
+#       data:
+#         title: Lock
+#         message: "Lock Opened"
+#         data:
+#           push:
+#             category: lock
+#             sound: default
+
 - alias: Send Notification Opened Lock
   trigger:
     platform: state
@@ -83,20 +99,19 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: Lock
         message: "Lock Opened"
         data:
-          push:
-            category: lock
-            sound: default
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: Lock
-    #     message: "Lock Opened"
-    #     data:
-    #       push:
-    #         category: lock
-    #         sound: default
+          actions:
+            - action: "LOCK"
+              title: 'Lock'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "UNLOCK"
+              title: 'Unock'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
 
 - alias: Send Notification Closed Lock
   trigger:
@@ -107,20 +122,19 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        title: Lock
         message: "Lock Closed"
         data:
-          push:
-            category: lock
-            sound: default
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: Lock
-    #     message: "Lock Closed"
-    #     data:
-    #       push:
-    #         category: lock
-    #         sound: default
+          actions:
+            - action: "UNLOCK"
+              title: 'Unock'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "LOCK"
+              title: 'Lock'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
 
 - alias: Send Notification Enter Zone Home
   trigger:

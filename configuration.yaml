@@ -15,7 +15,6 @@ homeassistant:
   allowlist_external_urls:
     - "https://home.olender.me"
 
-ios: !include config/ios.yaml
 zone: !include config/zone.yaml
 http: !include config/http.yaml
 group: !include config/groups.yaml

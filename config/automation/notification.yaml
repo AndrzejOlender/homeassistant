@@ -157,6 +157,8 @@
             sound: default
           action_data:
             shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"  
     # - service: notify.mobile_app_macbook
@@ -224,6 +226,8 @@
             sound: default
           action_data:
             shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
     # - service: notify.mobile_app_macbook
@@ -262,6 +266,8 @@
             sound: default
           action_data:
             shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"      
     # - service: notify.mobile_app_macbook

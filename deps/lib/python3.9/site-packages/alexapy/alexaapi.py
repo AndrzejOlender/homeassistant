@@ -52,7 +52,7 @@ class AlexaAPI:
         self._login = login
         self._session = login.session
         self._url: Text = "https://alexa." + login.url
-        self._login._headers["Referer"] = "{}/spa/index.html".format(self._url)
+        self._login._headers["Referer"] = f"{self._url}/spa/index.html"
         AlexaAPI._sequence_queue[self._login.email] = []
         AlexaAPI._sequence_lock[self._login.email] = asyncio.Lock()
         try:
@@ -87,7 +87,7 @@ class AlexaAPI:
             self._login = login
             self._session = login.session
             self._url: Text = "https://alexa." + login.url
-            self._login._headers["Referer"] = "{}/spa/index.html".format(self._url)
+            self._login._headers["Referer"] = f"{self._url}/spa/index.html"
             try:
                 csrf = self._login._get_cookies_from_session()["csrf"]
                 self._login._headers["csrf"] = csrf.value
@@ -1609,7 +1609,7 @@ class AlexaAPI:
             response = await AlexaAPI._static_request(
                 "delete",
                 login,
-                "/api/activities/{}".format(urllib.parse.quote_plus(activity["id"])),
+                f"/api/activities/{urllib.parse.quote_plus(activity['id'])}",
             )
             if response.status == 404:
                 _LOGGER.warning(

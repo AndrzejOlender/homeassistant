@@ -34,14 +34,7 @@ def hide_email(email: Text) -> Text:
     """Obfuscate email."""
     part = email.split("@")
     if len(part) > 1:
-        return "{}{}{}@{}{}{}".format(
-            part[0][0],
-            "*" * (len(part[0]) - 2),
-            part[0][-1],
-            part[1][0],
-            "*" * (len(part[1]) - 2),
-            part[1][-1],
-        )
+        return f"{part[0][0]}{'*' * (len(part[0]) - 2)}{part[0][-1]}@{part[1][0]}{'*' * (len(part[1]) - 2)}{part[1][-1]}"
     return hide_serial(email)
 
 
@@ -73,7 +66,7 @@ def hide_serial(item: Optional[Union[dict, str, list]]) -> Union[dict, str, list
                 response[key] = hide_serial(value)
     elif isinstance(item, str):
         response = (
-            "{}{}{}".format(item[0], "*" * (len(item) - 4), item[-3:])
+            f"{item[0]}{'*' * (len(item) - 4)}{item[-3:]}"
             if len(item) > 6
             else f"{'*' * len(item)}"
         )

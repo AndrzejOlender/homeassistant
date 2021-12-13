@@ -12,8 +12,10 @@ __all__ = ("FormData",)
 
 
 class FormData:
-    """Helper class for multipart/form-data and
-    application/x-www-form-urlencoded body generation."""
+    """Helper class for form body generation.
+
+    Supports multipart/form-data and application/x-www-form-urlencoded.
+    """
 
     def __init__(
         self,
@@ -45,7 +47,7 @@ class FormData:
         *,
         content_type: Optional[str] = None,
         filename: Optional[str] = None,
-        content_transfer_encoding: Optional[str] = None
+        content_transfer_encoding: Optional[str] = None,
     ) -> None:
 
         if isinstance(value, io.IOBase):
@@ -92,14 +94,14 @@ class FormData:
 
             if isinstance(rec, io.IOBase):
                 k = guess_filename(rec, "unknown")
-                self.add_field(k, rec)  # type: ignore
+                self.add_field(k, rec)  # type: ignore[arg-type]
 
             elif isinstance(rec, (MultiDictProxy, MultiDict)):
                 to_add.extend(rec.items())
 
             elif isinstance(rec, (list, tuple)) and len(rec) == 2:
                 k, fp = rec
-                self.add_field(k, fp)  # type: ignore
+                self.add_field(k, fp)  # type: ignore[arg-type]
 
             else:
                 raise TypeError(

@@ -29,20 +29,3 @@
     service: lock.unlock
     entity_id: lock.maindoorlock
 
-# - alias: test abc
-#   trigger:
-#     platform: state
-#     entity_id: group.household
-#     to: "home"
-#     for:
-#       minutes: "5"
-#   action:
-#     - service: notify.mobile_app_iphone
-#       data:
-#         message: Something happened at home!
-#         data:
-#           push:
-#             category: map
-#           action_data:
-#             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-#             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"

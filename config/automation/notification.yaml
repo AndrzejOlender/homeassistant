@@ -107,11 +107,13 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+              icon: "sfsymbols:lock"
             - action: "UNLOCK"
-              title: 'Unock'
+              title: 'Unlock'
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+              icon: "sfsymbols:lock.open"
 
 - alias: Send Notification Closed Lock
   trigger:
@@ -130,11 +132,13 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+              icon: "sfsymbols:lock.open"
             - action: "LOCK"
               title: 'Lock'
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+              icon: "sfsymbols:lock"
 
 - alias: Send Notification Enter Zone Home
   trigger:

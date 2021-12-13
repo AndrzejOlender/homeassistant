@@ -13,9 +13,8 @@
       state: 'on'  
     switch.air_purifier_led:
       state: 'on'
-    script.play_spotify_1:
-      state: 'on'
-
+    switch.radio:
+      state: 'on' 
 
 - id: '1577085914679'
   name: Good Night
@@ -64,10 +63,6 @@
       state: standby
     media_player.appletv:
       state: paused
-    media_player.spotify:
-      state: paused
-    # lock.maindoorlock:
-    #   state: locked
 
 - id: '1577085924679'
   name: Good Morning

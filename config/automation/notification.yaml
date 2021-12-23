@@ -320,6 +320,7 @@
         rgb_color: [255, 0, 0]
         entity_id:
           - light.ikeabulblamp_light
+          - light.philipsledoffice
     - service: switch.turn_off
       data:
         entity_id: switch.washermachine_relay  
@@ -383,6 +384,7 @@
         rgb_color: [255, 0, 0]
         entity_id:
           - light.ikeabulblamp_light 
+          - light.philipsledoffice2
     - service: switch.turn_off
       data:
         entity_id: switch.dishwasher_relay   

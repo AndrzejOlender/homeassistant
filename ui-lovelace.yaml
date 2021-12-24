@@ -77,7 +77,7 @@ views:
             name: LED Commode
             state_color: on
           - entity: switch.blitzlivingroomglasscase
-            name: LED Glass Case
+            name: Christmas Tree
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table

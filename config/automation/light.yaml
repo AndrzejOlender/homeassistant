@@ -114,7 +114,7 @@
       entity_id: 
         - switch.blitzlivingroomcommod
         - switch.blitzlivingroomrtv
-        - switch.blitzlivingroomglasscase
+        # - switch.blitzlivingroomglasscase
 
 # Anteroom switches   
 - alias: Switch Light Anteroom 1 (right)

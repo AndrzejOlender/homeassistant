@@ -163,6 +163,14 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
+        data:
+          type: tts
+        message: "Clening House started."
 
 - alias: Send Notification Vacuum Stop
   trigger:
@@ -186,6 +194,14 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
+        data:
+          type: tts
+        message: "Cleaning house ended."
 
 - alias: Send Notification Enter Zone Home
   trigger:

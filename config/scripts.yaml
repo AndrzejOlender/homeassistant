@@ -72,18 +72,15 @@ play_spotify_1:
 
 clean_home:
   alias: Clean Home
+  icon: mdi:home
   sequence:
-  - service: vacuum.stop
-    entity_id: vacuum.john
-  - delay: 00:00:01
-  - service: vacuum.send_command
+  - service: vacuum.start
     data:
       entity_id: vacuum.john
-      command: app_segment_clean
-      params: [16,17,18,19,20,21]
 
 clean_office:
   alias: Clean Office
+  icon: mdi:desk
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -93,9 +90,14 @@ clean_office:
       entity_id: vacuum.john
       command: app_segment_clean
       params: [16]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105
 
 clean_kitchen:
   alias: Clean Kitchen
+  icon: mdi:table-chair
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -105,9 +107,14 @@ clean_kitchen:
       entity_id: vacuum.john
       command: app_segment_clean
       params: [17]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105
 
 clean_toilet:
   alias: Clean Toilet
+  icon: mdi:toilet
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -116,10 +123,15 @@ clean_toilet:
     data:
       entity_id: vacuum.john
       command: app_segment_clean
-      params: [18]
+      params: [22]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105
 
 clean_ante_room:
   alias: Clean Ante Room
+  icon: mdi:town-hall
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -129,21 +141,14 @@ clean_ante_room:
       entity_id: vacuum.john
       command: app_segment_clean
       params: [19]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105
 
 clean_living_room:
   alias: Clean Living Room
-  sequence:
-  - service: vacuum.stop
-    entity_id: vacuum.john
-  - delay: 00:00:01
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.john
-      command: app_segment_clean
-      params: [20]
-
-clean_child_room:
-  alias: Clean Child Room
+  icon: mdi:sofa
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -153,3 +158,24 @@ clean_child_room:
       entity_id: vacuum.john
       command: app_segment_clean
       params: [21]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105
+
+clean_child_room:
+  alias: Clean Child Room
+  icon: mdi:teddy-bear
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [18]
+  - service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.john
+      fan_speed: 105

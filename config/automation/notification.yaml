@@ -140,6 +140,53 @@
               destructive: false
               icon: "sfsymbols:lock"
 
+# Vacuum
+- alias: Send Notification Vacuum Start
+  trigger:
+    platform: state
+    entity_id: vacuum.john
+    from: "docked"
+    to: "cleaning"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "John Start Clean"
+        data:
+          actions:
+            - action: "STOP"
+              title: 'Stop'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "START"
+              title: 'Start'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+
+- alias: Send Notification Vacuum Stop
+  trigger:
+    platform: state
+    entity_id: vacuum.john
+    from: "cleaning"
+    to: "docked"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        message: "John Stop Clean"
+        data:
+          actions:
+            - action: "START"
+              title: 'Start'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "STOP"
+              title: 'Stop'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+
 - alias: Send Notification Enter Zone Home
   trigger:
     platform: zone

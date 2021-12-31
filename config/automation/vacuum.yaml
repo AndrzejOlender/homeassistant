@@ -1,0 +1,20 @@
+- alias: Vacum Start Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: STOP
+  action:
+    service: vacuum.stop
+    entity_id: vacuum.john
+
+- alias: Vacum Stop Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: START
+  action:
+    service: vacuum.start
+    entity_id: vacuum.john
+

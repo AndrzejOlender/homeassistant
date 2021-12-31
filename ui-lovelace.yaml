@@ -4,7 +4,10 @@ resources:
     
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
     type: module
-  
+
+  - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+    type: module
+
 title: Home
 views:
   - badges: []
@@ -371,6 +374,10 @@ views:
             name: Outdoor
           - entity: sensor.air_purifier_pm2_5
             name: Home
+          - entity: vacuum.john
+            name: John
+            state_color: on
+          - entity: script.clean_office
 
       - type: entities
         header:
@@ -459,6 +466,32 @@ views:
     path: default_view
     theme: default
     title: Home
+
+  - badges: []
+    cards:
+      - type: custom:xiaomi-vacuum-map-card
+        panel: true
+        preset_name: Live map
+        entity: vacuum.john
+        map_source:
+          camera: camera.xiaomi_cloud_map_extractor
+        calibration_source:
+          camera: true
+        map_modes:
+          - template: vacuum_clean_zone
+          - template: vacuum_goto
+          - template: vacuum_follow_path
+        vacuum_platform: default
+        style: |
+          ha-card {
+            border-radius: 40px;
+            background-color: var(--primary-background-color);
+            }
+
+    icon: 'mdi:robot-vacuum'
+    path: vacuum
+    theme: default
+    title: vacuum
 
   - badges: []
     visible:
@@ -594,23 +627,6 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: sensor.poland_coronavirus_current
-          - entity: sensor.poland_coronavirus_deaths
-          - entity: sensor.poland_coronavirus_confirmed
-          - entity: sensor.poland_coronavirus_recovered
-
-    icon: 'mdi:hospital-box'
-    path: covid
-    theme: default
-    title: Covid
-
-  - badges: []
-    visible:
-      - user: 4b4a93638a344e758538b4f233cb5147
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
           - entity: sensor.motionchildroom_battery
             name: Aqara motion - child room
           - entity: sensor.motionkitchen_battery
@@ -669,6 +685,3 @@ views:
     path: Battery
     theme: default_view
     title: Battery
-
-
-    

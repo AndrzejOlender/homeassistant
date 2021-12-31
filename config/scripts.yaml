@@ -69,3 +69,87 @@ play_spotify_1:
       data:
         media_content_id: "https://open.spotify.com/playlist/37i9dQZF1DWVoMrfBJGgYD?si=IOK4tvRISH6UnDwAC98d8Q"
         media_content_type: playlist
+
+clean_home:
+  alias: Clean Home
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [16,17,18,19,20,21]
+
+clean_office:
+  alias: Clean Office
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [16]
+
+clean_kitchen:
+  alias: Clean Kitchen
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [17]
+
+clean_toilet:
+  alias: Clean Toilet
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [18]
+
+clean_ante_room:
+  alias: Clean Ante Room
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [19]
+
+clean_living_room:
+  alias: Clean Living Room
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [20]
+
+clean_child_room:
+  alias: Clean Child Room
+  sequence:
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
+    data:
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [21]

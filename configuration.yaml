@@ -22,6 +22,7 @@ script: !include config/scripts.yaml
 scene: !include config/scenes.yaml
 alexa: !include config/alexa/alexa.yaml
 light: !include config/light.yaml
+camera: !include config/camera.yaml
 homekit: !include config/homekit.yaml
 coinbase: !include config/coinbase.yaml
 sensor: !include config/sensor.yaml

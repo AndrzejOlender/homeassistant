@@ -47,7 +47,15 @@ smart_home:
       # - climate.thermochildroom_climate
       # - climate.thermolivingroom_climate
       # - climate.thermokitchen_climate
+      - vacuum.john
       - lock.maindoorlock
+      - script.clean_home
+      - script.clean_office
+      - script.clean_kitchen
+      - script.clean_toilet
+      - script.clean_ante_room
+      - script.clean_living_room
+      - script.clean_child_room
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -81,18 +89,28 @@ smart_home:
       display_categories: LIGHT
     light.osrambulbsgrouptoilet:
       name: "Light"
+      display_categories: LIGHT
     light.ikeabulbsgrouptoiletmirror:
       name: "Mirror"
+      display_categories: LIGHT
     light.ikeabulbsgroupwardobe:
       name: "Light"
+      display_categories: LIGHT
     light.lamp_kitchen:
       name: "Light"
+      display_categories: LIGHT
     light.ikeabulbsgroupkitchen:
       name: "Table"
+      display_categories: LIGHT
     light.ikeabulbsgroupanteroom1:
       name: "Light 1"
+      display_categories: LIGHT
     light.ikeabulbsgroupanteroom2:
       name: "Light 2"
+      display_categories: LIGHT
+    light.philipsledoffice:
+      name: "Office Desk"
+      display_categories: LIGHT
     switch.hdmi1:
       name: "HDMI1"
       display_categories: SWITCH
@@ -111,6 +129,30 @@ smart_home:
     scene.cinema:
       name: "Cinema"
       display_categories: SCENE
+    script.clean_home:
+      name: "Clean Home"
+      display_categories: SCENE
+    script.clean_office:
+      name: "Clean Office"
+      display_categories: SCENE
+    script.clean_kitchen:
+      name: "Clean Kitchen"
+      display_categories: SCENE
+    script.clean_toilet:
+      name: "Clean Toilet"
+      display_categories: SCENE
+    script.clean_ante_room:
+      name: "Clean Ante Room"
+      display_categories: SCENE
+    script.clean_living_room:
+      name: "Clean Living Room"
+      display_categories: SCENE
+    script.clean_child_room:
+      name: "Clean Child Room"
+      display_categories: SCENE
+    vacuum.john:
+      name: "Vacuum Cleaner"
+      display_categories: VACUUM_CLEANER
     # climate.thermochildroom_climate:
     #   name: "Thermo Child"
     #   display_categories: THERMOSTAT
@@ -122,8 +164,10 @@ smart_home:
     #   display_categories: THERMOSTAT
     media_player.tv:
       name: TV
+      display_categories: TV
     fan.air_purifier:
       name: Airpurifier
+      display_categories: AIR_PURIFIER
     binary_sensor.toiletdoor_contact:
       name: Toilet Door
       display_categories: DOOR

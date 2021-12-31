@@ -180,3 +180,6 @@ sensor.btc:
 light.ikeabulbsgroupwardobe:
   icon: mdi:wall-sconce-flat
   supported_features: 41
+media_player.tv:
+  device_class: tv
+  source_list: [DTV,HDMI 1]

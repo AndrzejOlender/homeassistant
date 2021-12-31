@@ -128,7 +128,7 @@
         data:
           actions:
             - action: "UNLOCK"
-              title: 'Unock'
+              title: 'Unlock'
               activationMode: 'background'
               authenticationRequired: false
               destructive: false

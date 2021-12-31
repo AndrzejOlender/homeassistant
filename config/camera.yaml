@@ -1,0 +1,20 @@
+platform: xiaomi_cloud_map_extractor
+host: !secret xiaomi_vacuum_host
+token: !secret xiaomi_vacuum_token
+username: !secret xiaomi_cloud_username
+password: !secret xiaomi_cloud_password
+colors:
+  color_path: [255, 255, 255]
+draw: ['all']
+map_transformation:
+  scale: 1
+  trim:
+    top: 20
+    bottom: 20
+    left: 20
+    right: 20
+auto_update: true
+scan_interval:
+  seconds: 300 #10minutes
+attributes:
+  - calibration_points

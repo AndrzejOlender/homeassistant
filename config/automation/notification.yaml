@@ -176,7 +176,7 @@
   trigger:
     platform: state
     entity_id: vacuum.john
-    from: "cleaning"
+    from: "idle"
     to: "docked"
   action:
     - service: notify.mobile_app_iphone

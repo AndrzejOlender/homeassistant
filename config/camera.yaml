@@ -3,6 +3,7 @@ host: !secret xiaomi_vacuum_host
 token: !secret xiaomi_vacuum_token
 username: !secret xiaomi_cloud_username
 password: !secret xiaomi_cloud_password
+country: "de"
 colors:
   color_path: [255, 255, 255]
 draw: ['all']
@@ -18,7 +19,7 @@ auto_update: true
 store_map_raw: true
 store_map_image: true
 scan_interval:
-  seconds: 300
+  seconds: 400
 attributes:
   - calibration_points
 colors:
@@ -55,7 +56,6 @@ room_colors:
   19: [148, 166, 180] # ante room
   21: [61, 93, 154]   # living room
   22: [255, 196, 56]  # toilet
-
 draw:
   - charger
   - cleaned_area

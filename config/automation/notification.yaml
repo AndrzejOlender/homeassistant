@@ -150,7 +150,7 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        message: "John Start Clean"
+        message: "John Started Cleaning"
         data:
           actions:
             - action: "STOP"
@@ -176,12 +176,15 @@
   trigger:
     platform: state
     entity_id: vacuum.john
-    from: "idle"
+    from:
+      - "cleaning"
+      - "returning"
+      - "idle"
     to: "docked"
   action:
     - service: notify.mobile_app_iphone
       data:
-        message: "John Stop Clean"
+        message: "John Finished Cleaning"
         data:
           actions:
             - action: "START"

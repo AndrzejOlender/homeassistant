@@ -56,6 +56,7 @@ smart_home:
       - script.clean_ante_room
       - script.clean_living_room
       - script.clean_child_room
+      - script.stop_clean_home
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -149,6 +150,9 @@ smart_home:
       display_categories: SCENE
     script.clean_child_room:
       name: "Clean Child Room"
+      display_categories: SCENE
+    script.stop_clean_home:
+      name: "Stop Cleaning"
       display_categories: SCENE
     vacuum.john:
       name: "Vacuum Cleaner"

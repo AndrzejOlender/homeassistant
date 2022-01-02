@@ -206,6 +206,25 @@
           type: tts
         message: "Cleaning house ended."
 
+- alias: "Very Bad Air"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.air_purifier_pm2_5
+      above: 100
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Air"
+        message: "Very Bad Air"
+    - service: notify.alexa_media
+      data:
+        target: 
+          - media_player.echo_dot_3
+          - media_player.echo_dot_4
+        data:
+          type: tts
+        message: "Warning, very bad air in all House."
+
 - alias: Send Notification Enter Zone Home
   trigger:
     platform: zone

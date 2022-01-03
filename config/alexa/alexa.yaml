@@ -44,9 +44,9 @@ smart_home:
       - binary_sensor.kitchenwindow_contact
       - binary_sensor.wardobewindow_contact
       - binary_sensor.doorbell
-      # - climate.thermochildroom_climate
-      # - climate.thermolivingroom_climate
-      # - climate.thermokitchen_climate
+      - climate.thermochildroom_climate
+      - climate.thermolivingroom_climate
+      - climate.thermokitchen_climate
       - vacuum.john
       - lock.maindoorlock
       - script.clean_home
@@ -157,15 +157,15 @@ smart_home:
     vacuum.john:
       name: "Vacuum Cleaner"
       display_categories: VACUUM_CLEANER
-    # climate.thermochildroom_climate:
-    #   name: "Thermo Child"
-    #   display_categories: THERMOSTAT
-    # climate.thermolivingroom_climate:
-    #   name: "Thermo Living Room"
-    #   display_categories: THERMOSTAT
-    # climate.thermokitchen_climate:
-    #   name: "Thermo Kitchen"
-    #   display_categories: THERMOSTAT
+    climate.thermochildroom_climate:
+      name: "Thermo Child"
+      display_categories: THERMOSTAT
+    climate.thermolivingroom_climate:
+      name: "Thermo Living Room"
+      display_categories: THERMOSTAT
+    climate.thermokitchen_climate:
+      name: "Thermo Kitchen"
+      display_categories: THERMOSTAT
     media_player.tv:
       name: TV
       display_categories: TV

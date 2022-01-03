@@ -150,7 +150,22 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        message: "John Started Cleaning"
+        message: "Vacuum Started Cleaning"
+        data:
+          actions:
+            - action: "STOP"
+              title: 'Stop'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "START"
+              title: 'Start'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+    - service: notify.mobile_app_macbook_pro
+      data:
+        message: "Vacuum Started Cleaning"
         data:
           actions:
             - action: "STOP"
@@ -184,7 +199,22 @@
   action:
     - service: notify.mobile_app_iphone
       data:
-        message: "John Finished Cleaning"
+        message: "Vacuum Finished Cleaning"
+        data:
+          actions:
+            - action: "START"
+              title: 'Start'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "STOP"
+              title: 'Stop'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+    - service: notify.mobile_app_macbook_pro
+      data:
+        message: "Vacuum Finished Cleaning"
         data:
           actions:
             - action: "START"

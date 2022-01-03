@@ -50,12 +50,18 @@ colors:
   color_unknown: [0, 0, 0]
   color_scan: [0xDF, 0xDF, 0xDF]
 room_colors:
-  16: [1, 128, 181]   # office
-  17: [179, 247, 154] # kitchen
-  18: [253, 154, 251] # child room
-  19: [148, 166, 180] # ante room
-  21: [61, 93, 154]   # living room
-  22: [255, 196, 56]  # toilet
+  16: [0, 140, 236]   # office
+  17: [0, 140, 236] # kitchen
+  18: [0, 140, 236] # child room
+  19: [0, 140, 236] # ante room
+  21: [0, 140, 236]   # living room
+  22: [0, 140, 236]  # toilet 
+  # 16: [1, 128, 181]   # office
+  # 17: [179, 247, 154] # kitchen
+  # 18: [253, 154, 251] # child room
+  # 19: [148, 166, 180] # ante room
+  # 21: [61, 93, 154]   # living room
+  # 22: [255, 196, 56]  # toilet
 draw:
   - charger
   - cleaned_area

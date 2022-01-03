@@ -466,31 +466,11 @@ views:
 
   - badges: []
     cards:     
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
-      #     - entity: vacuum.john
-      #       name: John
-      #     - entity: script.clean_home
-      #       name: Home
-      #     - entity: script.clean_office
-      #       name: Office
-      #     - entity: script.clean_kitchen
-      #       name: Kitchen
-      #     - entity: script.clean_toilet
-      #       name: Toilet
-      #     - entity: script.clean_ante_room
-      #       name: Ante Room
-      #     - entity: script.clean_living_room
-      #       name: Living Room
-      #     - entity: script.clean_child_room
-      #       name: Child Room
-
       - type: entities
         header:
           type: 'custom:mini-graph-card'
           name: Vacuum 
-          line_width: 3
+          line_width: 2
           font_size: 75
           decimals: 1
           hours_to_show: 24

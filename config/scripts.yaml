@@ -120,7 +120,7 @@ appletv_youtube:
           - down
           - select
 
-appletv_youtube:
+appletv_music:
   alias: "Music"
   sequence:
     - service: remote.send_command

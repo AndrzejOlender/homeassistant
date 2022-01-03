@@ -5,8 +5,8 @@ resources:
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
     type: module
 
-  - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
-    type: module
+  # - url: /hacsfiles/lovelace-xiaomi-vacuum-map-card/xiaomi-vacuum-map-card.js
+  #   type: module
 
 title: Home
 views:
@@ -375,9 +375,6 @@ views:
             name: Outdoor
           - entity: sensor.air_purifier_pm2_5
             name: Home
-          - entity: vacuum.john
-            name: John
-            state_color: on
 
       - type: entities
         header:
@@ -469,7 +466,46 @@ views:
 
   - badges: []
     cards:     
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - entity: vacuum.john
+      #       name: John
+      #     - entity: script.clean_home
+      #       name: Home
+      #     - entity: script.clean_office
+      #       name: Office
+      #     - entity: script.clean_kitchen
+      #       name: Kitchen
+      #     - entity: script.clean_toilet
+      #       name: Toilet
+      #     - entity: script.clean_ante_room
+      #       name: Ante Room
+      #     - entity: script.clean_living_room
+      #       name: Living Room
+      #     - entity: script.clean_child_room
+      #       name: Child Room
+
       - type: entities
+        header:
+          type: 'custom:mini-graph-card'
+          name: Vacuum 
+          line_width: 3
+          font_size: 75
+          decimals: 1
+          hours_to_show: 24
+          font_size_header: 12
+          line_color: '#04aaf5'
+          points_per_hour: 2
+          show:
+            fill: false
+            labels: false
+            points: false
+          entities:
+            - entity: sensor.john_clean_duration
+              name: TV
+              show_legend: false
+              show_state: true
         show_header_toggle: false
         entities:
           - entity: vacuum.john
@@ -488,7 +524,7 @@ views:
             name: Living Room
           - entity: script.clean_child_room
             name: Child Room
-          
+
       - type: picture-entity
         entity: camera.xiaomi_cloud_map_extractor
         name: John

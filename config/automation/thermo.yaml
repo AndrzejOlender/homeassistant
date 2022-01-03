@@ -110,3 +110,106 @@
         temperature: 23
         hvac_mode: auto  
 
+# Disable climate for open window - Kitchen
+- alias: "Window opened Kitchen"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchenwindow_contact
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: scene.create
+    data:
+      scene_id: before
+      snapshot_entities:
+      - climate.thermokitchen_climate
+  - service: climate.set_temperature
+    data:
+      entity_id: 
+        - climate.thermokitchen_climate
+      temperature: 5
+      hvac_mode: auto  
+
+- alias: "Window closed Kitechen"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchenwindow_contact
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.before
+
+# Disable climate for open window - Living Room
+- alias: "Window opened Living Room"
+  trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.livingroomwindow_contact
+      - binary_sensor.livingroombalconywindow_contact
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: scene.create
+    data:
+      scene_id: before
+      snapshot_entities:
+      - climate.thermolivingroom_climate
+  - service: climate.set_temperature
+    data:
+      entity_id: 
+        - climate.thermolivingroom_climate
+      temperature: 5
+      hvac_mode: auto  
+
+- alias: "Window closed Living Room"
+  trigger:
+  - platform: state
+    entity_id: 
+      - binary_sensor.livingroomwindow_contact
+      - binary_sensor.livingroombalconywindow_contact
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.before
+
+# Disable climate for open window - Child Room
+- alias: "Window opened Child Room"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.childroomwindow_contact
+    from: "off"
+    to: "on"
+  condition: []
+  action:
+  - service: scene.create
+    data:
+      scene_id: before
+      snapshot_entities:
+      - climate.thermochildroom_climate
+  - service: climate.set_temperature
+    data:
+      entity_id: 
+        - climate.thermochildroom_climate
+      temperature: 5
+      hvac_mode: auto  
+
+- alias: "Window closed Child Room"
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.childroomwindow_contact
+    from: "on"
+    to: "off"
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.before
+

@@ -5,8 +5,9 @@
     event_data:
       actionName: STOP
   action:
-    service: vacuum.stop
-    entity_id: vacuum.john
+    service: script.turn_on
+    target:
+      entity_id: script.stop_clean_home
 
 - alias: Vacum Stop Actions iOS 
   trigger:
@@ -15,6 +16,7 @@
     event_data:
       actionName: START
   action:
-    service: vacuum.start
-    entity_id: vacuum.john
+    service: script.turn_on
+    target:
+      entity_id: script.clean_home
 

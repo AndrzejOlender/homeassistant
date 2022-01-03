@@ -24,7 +24,8 @@ views:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
-          - entity: scene.cinema
+          - entity: script.appletv_netflix
+            name: Cinema Netflix
 
       - type: entities
         show_header_toggle: false

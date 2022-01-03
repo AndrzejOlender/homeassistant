@@ -81,18 +81,12 @@
 - id: 'cinema'
   name: Cinema
   entities:
-    switch.yamaha:
-      state: 'on'   
-    media_player.tv:
-      state: 'on'
-    switch.nc:
-      state: 'off'        
-    switch.hdmi2: 
-      state: 'on' 
-    switch.light3_relay: 
-      state: 'off'
-    switch.light2_relay:
-      state: 'off'
-    switch.light1_relay:
+    # switch.yamaha:
+    #   state: 'on'   
+    # media_player.tv:
+    #   state: 'on'      
+    # switch.hdmi2: 
+    #   state: 'on' 
+    script.appletv_tv:
       state: 'on'
 

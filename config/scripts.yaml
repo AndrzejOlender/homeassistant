@@ -52,23 +52,89 @@ miio_turn_on_yamaha:
     service: remote.send_command
   alias: Yamaha
 
-play_spotify_1:
+appletv_netflix:
+  alias: "Netflix"
+  icon: mdi:netflix
+  sequence:
+    - service: switch.turn_on
+      entity_id: 
+        - media_player.tv
+        - switch.hdmi2
+    - delay: 00:00:02
+    - service: remote.send_command
+      target:
+        entity_id: remote.appletv
+      data:
+        delay_secs: 1.0
+        command:
+          - top_menu
+          - home
+          - right
+          - right
+          - select
+
+appletv_player:
+  alias: "Player"
+  icon: mdi:television-shimmer
   sequence:
     - service: remote.send_command
       target:
         entity_id: remote.appletv
       data:
-        delay_secs: 3.0
+        delay_secs: 1.0
         command:
-          - menu
-          - menu
+          - top_menu
+          - home
+          - right
+          - right
+          - right
           - select
-    - service: media_player.play_media
+
+appletv_tv:
+  alias: "TV"
+  icon: mdi:apple
+  sequence:
+    - service: remote.send_command
       target:
-        entity_id: media_player.spotify
+        entity_id: remote.appletv
       data:
-        media_content_id: "https://open.spotify.com/playlist/37i9dQZF1DWVoMrfBJGgYD?si=IOK4tvRISH6UnDwAC98d8Q"
-        media_content_type: playlist
+        delay_secs: 1.0
+        command:
+          - top_menu
+          - home
+          - right
+          - select
+
+appletv_youtube:
+  alias: "Youtube"
+  icon: mdi:youtube-tv
+  sequence:
+    - service: remote.send_command
+      target:
+        entity_id: remote.appletv
+      data:
+        delay_secs: 1.0
+        command:
+          - top_menu
+          - home
+          - down
+          - select
+
+appletv_youtube:
+  alias: "Music"
+  sequence:
+    - service: remote.send_command
+      target:
+        entity_id: remote.appletv
+      data:
+        delay_secs: 1.0
+        command:
+          - top_menu
+          - home
+          - down
+          - down
+          - select
+          - play
 
 clean_home:
   alias: Clean Home

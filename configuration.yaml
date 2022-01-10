@@ -12,9 +12,11 @@ frontend:
 homeassistant:
   packages: !include_dir_named config/packages
   customize: !include config/customize.yaml
+  internal_url: "http://192.168.1.2:8123"
   allowlist_external_urls:
     - "https://home.olender.me"
 
+tts: !include config/tts.yaml
 zone: !include config/zone.yaml
 http: !include config/http.yaml
 group: !include config/groups.yaml
@@ -23,6 +25,7 @@ scene: !include config/scenes.yaml
 alexa: !include config/alexa/alexa.yaml
 light: !include config/light.yaml
 camera: !include config/camera.yaml
+notify: !include config/notify.yaml
 homekit: !include config/homekit.yaml
 coinbase: !include config/coinbase.yaml
 sensor: !include config/sensor.yaml

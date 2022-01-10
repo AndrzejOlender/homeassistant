@@ -18,6 +18,7 @@ www/
 docker-compose.yaml
 homeassistant-ec281e42879c.json
 homeassistant-google.json
+googlecloud.json
 *.log.*
 home-assistant.log.1
 tts/

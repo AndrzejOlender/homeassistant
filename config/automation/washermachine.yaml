@@ -15,3 +15,26 @@
   action:
     entity_id: switch.washermachine_relay
     service: switch.turn_off
+
+# iOS Notification
+- alias: Washermachine Start Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: STOP-WASHERMACHINE
+  action:
+    service: switch.turn_on
+    target:
+      entity_id: switch.washermachine_relay
+
+- alias: Washermachine Stop Actions iOS 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: START-WASHERMACHINE
+  action:
+    service: switch.turn_off
+    target:
+      entity_id: switch.washermachine_relay

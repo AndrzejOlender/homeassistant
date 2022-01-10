@@ -25,6 +25,13 @@
           mdi:bell
         {% endif %}
 
+- platform: template
+  sensors:
+    vacuum_cleaning:
+      friendly_name: "Vacuum Cleaning"
+      value_template: >-
+        {{ is_state('vacuum.john', 'cleaning') }}
+
 # Lock
 - platform: template
   sensors:

@@ -452,8 +452,11 @@
         entity_id: binary_sensor.motionkitchen_occupancy
         state: "off"   
   action: 
-    service: light.turn_on
-    data:
-      brightness: 254
-      entity_id:
-        - light.ikeabulbsgroupanteroom1 
+    - service: notify.sonos
+      data:
+        message: "Dobry wieczór Wam, moi mili domownicy. Króliczek się stęsknił."
+    - service: light.turn_on
+      data:
+        brightness: 254
+        entity_id:
+          - light.ikeabulbsgroupanteroom1 

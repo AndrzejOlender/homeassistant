@@ -57,6 +57,9 @@ switch.yamaha:
   icon: mdi:speaker
 sensor.yamaha_current:
   icon: mdi:speaker
+binary_sensor.vacuum_cleaning:
+  icon: mdi:robot-vacuum
+
 switch.tvn:
   assumed_state: true
   icon: mdi:remote-tv

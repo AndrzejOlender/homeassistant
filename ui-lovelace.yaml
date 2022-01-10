@@ -26,6 +26,14 @@ views:
           - entity: scene.good_night
           - entity: script.appletv_netflix
             name: Cinema Netflix
+          
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: media_player.appletv
+            name: AppleTV
+          - entity: media_player.office_2
+            name: Sonos
 
       - type: entities
         show_header_toggle: false
@@ -468,24 +476,30 @@ views:
     cards:     
       - type: entities
         header:
-          type: 'custom:mini-graph-card'
-          name: Vacuum 
-          line_width: 2
-          font_size: 75
-          decimals: 1
+          type: custom:mini-graph-card
+          entities:
+            - entity: binary_sensor.vacuum_cleaning
+              name: Vacuum
+              show_legend: false
+          name: Vacuum
           hours_to_show: 24
-          font_size_header: 12
-          line_color: '#04aaf5'
           points_per_hour: 2
+          font_size: 75
+          font_size_header: 12
+          decimals: 1
+          update_interval: 30
+          aggregate_func: max
+          line_width: 2
+          smoothing: false
           show:
             fill: false
             labels: false
             points: false
-          entities:
-            - entity: sensor.john_clean_duration
-              name: TV
-              show_legend: false
-              show_state: true
+          state_map:
+            - value: "off"
+              label: Docked
+            - value: "on"
+              label: Cleaning 
         show_header_toggle: false
         entities:
           - entity: vacuum.john
@@ -504,6 +518,8 @@ views:
             name: Living Room
           - entity: script.clean_child_room
             name: Child Room
+          - entity: script.clean_white_floor
+            name: White Floor
 
       - type: picture-entity
         entity: camera.xiaomi_cloud_map_extractor

@@ -7,6 +7,9 @@
       for:
         minutes: 1
   action:
+    - service: notify.sonos
+      data:
+        message: "Uwaga! otwarte drzwi wejściowe."
     - service: notify.mobile_app_iphone
       data:
         title: "Door"
@@ -14,34 +17,27 @@
         data:
           push:
             sound: default
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Door"
-    #     message: "Open Main Door"
-    #     data:
-    #       push:
-    #         sound: default    
     - service: notify.tv
       data:
         message: "Open Main Door"
     - service: notify.mobile_app_xiaomi
       data:
         message: "Open Main Door"
-    - service: media_player.play_media
-      data:
-        entity_id: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        media_content_type: sound
-        media_content_id: amzn_sfx_doorbell_chime_01
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Open Main Door"
+    # - service: media_player.play_media
+    #   data:
+    #     entity_id: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     media_content_type: sound
+    #     media_content_id: amzn_sfx_doorbell_chime_01
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Open Main Door"
 
 - alias: Send Notification Enter Home
   trigger:
@@ -66,29 +62,6 @@
         data:
           push:
             sound: default
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Home"
-    #     message: "Enter Home"
-    #     data:
-    #       push:
-    #         sound: default
-
-# - alias: Send Notification Opened Lock
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.lock
-#     from: "off"
-#     to: "on"
-#   action:
-#     - service: notify.mobile_app_iphone
-#       data:
-#         title: Lock
-#         message: "Lock Opened"
-#         data:
-#           push:
-#             category: lock
-#             sound: default
 
 - alias: Send Notification Opened Lock
   trigger:
@@ -148,6 +121,9 @@
     from: "docked"
     to: "cleaning"
   action:
+    - service: notify.sonos
+      data:
+        message: "Odkurzacz rozpoczął sprzątanie mieszkania."
     - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Started Cleaning"
@@ -163,29 +139,15 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    - service: notify.mobile_app_macbook_pro
-      data:
-        message: "Vacuum Started Cleaning"
-        data:
-          actions:
-            - action: "STOP"
-              title: 'Stop'
-              activationMode: 'background'
-              authenticationRequired: false
-              destructive: false
-            - action: "START"
-              title: 'Start'
-              activationMode: 'background'
-              authenticationRequired: false
-              destructive: false
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Clening House started."
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Clening House started."
+
 
 - alias: Send Notification Vacuum Stop
   trigger:
@@ -197,6 +159,9 @@
       - "idle"
     to: "docked"
   action:
+    - service: notify.sonos
+      data:
+        message: "Odkurzacz skończył odkurzanie mieszkania."
     - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Finished Cleaning"
@@ -212,29 +177,14 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    - service: notify.mobile_app_macbook_pro
-      data:
-        message: "Vacuum Finished Cleaning"
-        data:
-          actions:
-            - action: "START"
-              title: 'Start'
-              activationMode: 'background'
-              authenticationRequired: false
-              destructive: false
-            - action: "STOP"
-              title: 'Stop'
-              activationMode: 'background'
-              authenticationRequired: false
-              destructive: false
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Cleaning house ended."
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Cleaning house ended."
 
 - alias: "Very Bad Air"
   trigger:
@@ -242,18 +192,21 @@
       entity_id: sensor.air_purifier_pm2_5
       above: 100
   action:
+    - service: notify.sonos
+      data:
+        message: "Uwaga! bardzo zła jakość powietrza w mieszkaniu."
     - service: notify.mobile_app_iphone
       data:
         title: "Air"
         message: "Very Bad Air"
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Warning, very bad air in all House."
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Warning, very bad air in all House."
 
 - alias: Send Notification Enter Zone Home
   trigger:
@@ -280,18 +233,6 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"  
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Location"
-    #     message: "Anna went into zone Home"
-    #     data:
-    #       push:
-    #         category: map
-    #         sound: default
-    #       action_data:
-    #         shows_traffic: true
-    #         latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-    #         longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"  
 
 - alias: Send Notification Exit Home
   trigger:
@@ -314,13 +255,6 @@
         data:
           push:
             sound: default 
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Home"
-    #     message: "Exit Home"
-    #     data:
-    #       push:
-    #         sound: default 
     - delay:
         seconds: 10
     
@@ -330,10 +264,6 @@
     entity_id: person.ania
     zone: zone.wpkiw
     event: leave
-  # condition:
-  #   condition: state
-  #   entity_id: device_tracker.iphone
-  #   state: "not_wpkiw" 
   action:
     - service: notify.mobile_app_iphone
       data:
@@ -349,18 +279,6 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Location"
-    #     message: "Anna left the WPKiW"
-    #     data:
-    #       push:
-    #         category: map
-    #         sound: default
-    #       action_data:
-    #         shows_traffic: true
-    #         latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-    #         longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
     - delay:
         seconds: 10
 
@@ -370,10 +288,6 @@
     entity_id: person.ania
     zone: zone.wpkiw
     event: enter
-  # condition:
-  #   condition: state
-  #   entity_id: device_tracker.iphone
-  #   state: "not_wpkiw"
   action: 
     - service: notify.mobile_app_iphone
       data:
@@ -388,19 +302,7 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"      
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Location"
-    #     message: "Anna went into the WPKiW"
-    #     data:
-    #       push:
-    #         category: map
-    #         sound: default
-    #       action_data:
-    #         shows_traffic: true
-    #         latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-    #         longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"                         
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"                          
 
 - alias: Send Notification Leak Toilet
   trigger:
@@ -409,6 +311,9 @@
     from: "off"
     to: "on"
   action:
+    - service: notify.sonos
+      data:
+        message: "Uwaga! Uwaga! Uwaga!, zalało łazienkę!."
     - service: notify.mobile_app_iphone
       data:
         title: "Leak!"
@@ -419,16 +324,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Leak!"
-    #     message: "Leak in toilet"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
     - service: light.turn_on
       data:
         brightness: 255
@@ -450,21 +345,21 @@
           ttl: 0
           priority: high        
           action:
-    - service: media_player.play_media
-      data:
-        entity_id: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        media_content_type: sound
-        media_content_id: amzn_sfx_doorbell_chime_01
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Warning! Warning! Warning!. Leak in toilet."
+    # - service: media_player.play_media
+    #   data:
+    #     entity_id: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     media_content_type: sound
+    #     media_content_id: amzn_sfx_doorbell_chime_01
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Warning! Warning! Warning!. Leak in toilet."
 
 - alias: Send Notification Leak Kitchen
   trigger:
@@ -473,6 +368,9 @@
     from: "off"
     to: "on"
   action:
+    - service: notify.sonos
+      data:
+        message: "Uwaga! Uwaga! Uwaga!, zalało kuchnię!."
     - service: notify.mobile_app_iphone
       data:
         title: "Leak!"
@@ -483,16 +381,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Leak!"
-    #     message: "Leak in kitchen"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
     - service: light.turn_on
       data:
         brightness: 255
@@ -513,14 +401,14 @@
         data:
           ttl: 0
           priority: high 
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Warning! Warning! Warning!. Leak in kitchen."   
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Warning! Warning! Warning!. Leak in kitchen."   
 
 # Notification End Dishwasher
 - alias: "Notification Dishwasher End"
@@ -532,6 +420,9 @@
       for:
         minutes: 20
   action:
+    - service: notify.sonos
+      data:
+        message: "Zmywarka zakończyła zmywanie."
     - service: notify.mobile_app_iphone
       data:
         title: "AGD"
@@ -539,34 +430,27 @@
         data:
           push:
             sound: default   
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "AGD"
-    #     message: "Dishwasher Ended"
-    #     data:
-    #       push:
-    #         sound: default 
     - service: notify.tv
       data:
         message: "Dishwasher Ended"
     - service: notify.mobile_app_xiaomi
       data:
         message: "Dishwasher Ended"
-    - service: media_player.play_media
-      data:
-        entity_id: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        media_content_type: sound
-        media_content_id: amzn_sfx_doorbell_chime_01
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Dishwasher ended."
+    # - service: media_player.play_media
+    #   data:
+    #     entity_id: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     media_content_type: sound
+    #     media_content_id: amzn_sfx_doorbell_chime_01
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Dishwasher ended."
 
 - alias: "Notification Washermachine End"
   trigger:
@@ -577,41 +461,45 @@
       for:
         minutes: 5
   action:
+    - service: notify.sonos
+      data:
+        message: "Pralka zakończyła pranie."
     - service: notify.mobile_app_iphone
       data:
-        title: "AGD"
         message: "Washermachine Ended"
         data:
-          push:
-            sound: default   
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "AGD"
-    #     message: "Washermachine Ended"
-    #     data:
-    #       push:
-    #         sound: default 
+          actions:
+            - action: "STOP-WASHERMACHINE"
+              title: 'Disable'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+            - action: "START-WASHERMACHINE"
+              title: 'Enable'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
     - service: notify.tv
       data:
         message: "Washermachine Ended"
     - service: notify.mobile_app_xiaomi
       data:
         message: "Washermachine Ended"
-    - service: media_player.play_media
-      data:
-        entity_id: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        media_content_type: sound
-        media_content_id: amzn_sfx_doorbell_chime_01
-    - service: notify.alexa_media
-      data:
-        target: 
-          - media_player.echo_dot_3
-          - media_player.echo_dot_4
-        data:
-          type: tts
-        message: "Washermachine ended."
+    # - service: media_player.play_media
+    #   data:
+    #     entity_id: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     media_content_type: sound
+    #     media_content_id: amzn_sfx_doorbell_chime_01
+    # - service: notify.alexa_media
+    #   data:
+    #     target: 
+    #       - media_player.echo_dot_3
+    #       - media_player.echo_dot_4
+    #     data:
+    #       type: tts
+    #     message: "Washermachine ended."
 
 - alias: "Notification Storm Nearby"
   trigger:
@@ -630,16 +518,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Weather"
-    #     message: "Storm nearby"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
 
 - alias: "Notification Storm Warning"
   trigger:
@@ -658,16 +536,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Storm"
-    #     message: "Storm warning"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
 
 - alias: "Notification Heat Warning"
   trigger:
@@ -686,16 +554,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Weather"
-    #     message: "Heat warning"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
 
 - alias: "Notification Wind Warning"
   trigger:
@@ -714,16 +572,6 @@
               name: default
               critical: 1
               volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Weather"
-    #     message: "Wind warning"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           critical: 1
-    #           volume: 1.0
 
 - alias: Doorbell
   trigger:  
@@ -739,18 +587,6 @@
           push:
             sound: 
               name: default
-              # critical: 1
-              # volume: 1.0
-    # - service: notify.mobile_app_macbook
-    #   data:
-    #     title: "Doorbell"
-    #     message: "Ring ring maindoor"
-    #     data:
-    #       push:
-    #         sound: 
-    #           name: default
-    #           # critical: 1
-    #           # volume: 1.0
     - service: notify.mobile_app_xiaomi
       data:
         message: "Ring ring maindoor"
@@ -800,3 +636,5 @@
       data:
         push:
           sound: default 
+
+

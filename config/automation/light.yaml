@@ -452,9 +452,6 @@
         entity_id: binary_sensor.motionkitchen_occupancy
         state: "off"   
   action: 
-    - service: notify.sonos
-      data:
-        message: "Dobry wieczór Wam, moi mili domownicy. Króliczek się stęsknił."
     - service: light.turn_on
       data:
         brightness: 254

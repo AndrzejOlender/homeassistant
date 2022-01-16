@@ -1,0 +1,75 @@
+# Anteroom Auto Turn On       
+- alias: TTS Home 1
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
+      - condition: state
+        entity_id: binary_sensor.motionkitchen_occupancy
+        state: "off"   
+      - condition: state
+        entity_id:
+          - device_tracker.iphone_luci_andrzej
+          - device_tracker.samsung_luci_ania
+        state: not_home
+  action: 
+    - service: notify.sonos
+      data:
+        message: "Dobry wieczór Wam, moi mili domownicy. Króliczek się stęsknił."
+
+- alias: TTS Home 2
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
+      - condition: state
+        entity_id: binary_sensor.motionkitchen_occupancy
+        state: "off"   
+      - condition: state
+        entity_id:
+          - device_tracker.xiaomired_luci_ania
+        state: not_home
+      - condition: state
+        entity_id:
+          - device_tracker.iphone_luci_andrzej
+        state: home
+  action: 
+    - service: notify.sonos
+      data:
+        message: "Dobry wieczór Aneczko."
+
+- alias: TTS Home 3
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.maindoor_contact
+    from: "off"
+    to: "on"
+  condition:
+      - condition: sun
+        after: sunset
+        after_offset: "-00:15:00"
+      - condition: state
+        entity_id: binary_sensor.motionkitchen_occupancy
+        state: "off"   
+      - condition: state
+        entity_id:
+          - device_tracker.xiaomired_luci_ania
+        state: home
+      - condition: state
+        entity_id:
+          - device_tracker.iphone_luci_andrzej
+        state: not_home
+  action: 
+    - service: notify.sonos
+      data:
+        message: "Dobry wieczór Andrzejku."

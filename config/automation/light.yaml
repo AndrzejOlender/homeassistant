@@ -457,3 +457,29 @@
         brightness: 254
         entity_id:
           - light.ikeabulbsgroupanteroom1 
+
+# Office Desk Auto Turn On and Off       
+- alias: Turn on Light In The Office
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.macbook_pro_active
+    from: "off"
+    to: "on" 
+  action: 
+    - service: light.turn_on
+      data:
+        brightness: 254
+        entity_id:
+          - light.philipsledoffice
+
+- alias: Turn off Light In The Office
+  trigger: 
+    platform: state
+    entity_id: binary_sensor.macbook_pro_active
+    from: "on"
+    to: "off" 
+  action: 
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.philipsledoffice

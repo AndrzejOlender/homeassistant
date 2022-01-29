@@ -46,7 +46,7 @@
   action: 
     - service: notify.sonos
       data:
-        message: "Dobry wieczór Aneczko."
+        message: "Dobry wieczór Aneczko. Bardzo Cię kochamy i mocno tęskniliśmy. Opętany sierściuch również"
 
 - alias: TTS Home 3
   trigger: 

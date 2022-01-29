@@ -21,3 +21,11 @@ thermo_season:
         - 'OFF'
     # initial: 'OFF'
     icon: mdi:radiator
+
+sre_alerts:
+    name: "Sre Alerts"
+    options:
+        - 'ON'
+        - 'OFF'
+    # initial: 'OFF'
+    icon: mdi:alert-decagram

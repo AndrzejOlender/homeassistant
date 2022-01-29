@@ -244,6 +244,9 @@ views:
           - entity: switch.thermoseason
             name: Heat Season
             state_color: on
+          - entity: switch.srealerts
+            name: SRE Alerts
+            state_color: on
           - entity: sensor.air_purifier_humidity
             name: Living Room
             state_color: on

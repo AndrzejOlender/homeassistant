@@ -4,8 +4,6 @@ token: !secret xiaomi_vacuum_token
 username: !secret xiaomi_cloud_username
 password: !secret xiaomi_cloud_password
 country: "de"
-colors:
-  color_path: [255, 255, 255]
 draw: ['all']
 map_transformation:
   scale: 3

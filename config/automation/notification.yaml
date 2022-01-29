@@ -7,9 +7,15 @@
       for:
         minutes: 1
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Uwaga! otwarte drzwi wejściowe."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         title: "Door"
@@ -121,9 +127,15 @@
     from: "docked"
     to: "cleaning"
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Odkurzacz rozpoczął sprzątanie mieszkania."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Started Cleaning"
@@ -159,9 +171,15 @@
       - "idle"
     to: "docked"
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Odkurzacz skończył odkurzanie mieszkania."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Finished Cleaning"
@@ -192,9 +210,15 @@
       entity_id: sensor.air_purifier_pm2_5
       above: 100
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Uwaga! bardzo zła jakość powietrza w mieszkaniu."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         title: "Air"
@@ -311,9 +335,15 @@
     from: "off"
     to: "on"
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Uwaga! Uwaga! Uwaga!, zalało łazienkę!."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         title: "Leak!"
@@ -368,9 +398,15 @@
     from: "off"
     to: "on"
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Uwaga! Uwaga! Uwaga!, zalało kuchnię!."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         title: "Leak!"
@@ -420,9 +456,15 @@
       for:
         minutes: 20
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Zmywarka zakończyła zmywanie."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         title: "AGD"
@@ -461,9 +503,15 @@
       for:
         minutes: 5
   action:
+    - service: sonos.snapshot
+      entity_id: all
     - service: notify.sonos
       data:
         message: "Pralka zakończyła pranie."
+    - delay:
+        seconds: 5
+    - service: sonos.restore
+      entity_id: all
     - service: notify.mobile_app_iphone
       data:
         message: "Washermachine Ended"

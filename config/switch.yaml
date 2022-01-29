@@ -1,3 +1,4 @@
+# Thermo
 - platform: template
   switches:
     thermoseason:
@@ -19,6 +20,30 @@
                 {% else %}
                   mdi:radiator-disabled
                 {% endif %} 
+
+# SRE Alerts
+- platform: template
+  switches:
+    srealerts:
+      friendly_name: "SRE Alerts"
+      value_template: "{{ is_state('input_select.sre_alerts', 'ON') }}"
+      turn_on:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.sre_alerts
+            option: "ON"
+      turn_off:
+        - service: input_select.select_option
+          data:
+            entity_id: input_select.sre_alerts
+            option: "OFF"
+      icon_template: >-
+                {% if is_state('input_select.sre_alerts', 'ON') %}
+                  mdi:alert-decagram
+                {% else %}
+                  mdi:alert-decagram-outline
+                {% endif %} 
+
 # Audio Yamaha
 - platform: template
   switches:

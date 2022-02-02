@@ -22,8 +22,6 @@
                 {% endif %} 
 
 # SRE Alerts
-- platform: template
-  switches:
     srealerts:
       friendly_name: "SRE Alerts"
       value_template: "{{ is_state('input_select.sre_alerts', 'ON') }}"
@@ -45,8 +43,6 @@
                 {% endif %} 
 
 # Audio Yamaha
-- platform: template
-  switches:
     yamaha:
       friendly_name: "Yamaha"
       value_template: "{% if states('sensor.yamaha_power') | float > 20 %}True{%else%}False{%endif %}"
@@ -55,8 +51,6 @@
       turn_off:
         service: script.miio_turn_on_yamaha  
 
-- platform: template
-  switches:
     radio:
       friendly_name: "Radio"
       value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
@@ -65,9 +59,6 @@
       turn_off:
         service: script.miio_turn_on_yamaha_radio
 
-
-- platform: template
-  switches:
     hdmi1:
       friendly_name: "HDMI1"
       value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
@@ -76,8 +67,6 @@
       turn_off:
         service: script.miio_turn_on_yamaha_hdmi1
 
-- platform: template
-  switches:
     hdmi2:
       friendly_name: "HDMI2"
       value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
@@ -85,9 +74,7 @@
         service: script.miio_turn_on_yamaha_hdmi2
       turn_off:
         service: script.miio_turn_on_yamaha_hdmi2
-
-- platform: template
-  switches:
+        
     nc:
       friendly_name: "NC"
       value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"

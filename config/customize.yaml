@@ -9,7 +9,7 @@ switch.blitzlivingroomcommod:
 switch.blitzlivingroomrtv:
   icon: mdi:led-strip
 switch.blitzlivingroomglasscase:
-  icon: mdi:pine-tree
+  icon: mdi:led-strip
 light.philipsledoffice:
   icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:

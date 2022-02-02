@@ -27,6 +27,7 @@ views:
           - entity: script.appletv_netflix
             name: Cinema Netflix
           
+
       - type: entities
         show_header_toggle: false
         entities:
@@ -89,7 +90,7 @@ views:
             name: LED Commode
             state_color: on
           - entity: switch.blitzlivingroomglasscase
-            name: Christmas Tree
+            name: LED Witryn
             state_color: on
           - entity: light.ikeabulbsgroupkitchen
             name: Kitchen Table

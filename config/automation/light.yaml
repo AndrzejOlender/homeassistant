@@ -114,7 +114,7 @@
       entity_id: 
         - switch.blitzlivingroomcommod
         - switch.blitzlivingroomrtv
-        # - switch.blitzlivingroomglasscase
+        - switch.blitzlivingroomglasscase
 
 # Anteroom switches   
 - alias: Switch Light Anteroom 1 (right)
@@ -458,78 +458,78 @@
         entity_id:
           - light.ikeabulbsgroupanteroom1 
 
-# Office Desk Auto Turn On and Off   
-- alias: Turn on Light In The Office
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.macbook_pro_active
-    to: "on" 
-    for:
-      seconds: 3
-  action: 
-    - service: light.turn_on
-      data:
-        brightness: 254
-        rgb_color: [0, 0, 255]
-        entity_id:
-          - light.philipsledoffice
+# # Office Desk Auto Turn On and Off   
+# - alias: Turn on Light In The Office
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.macbook_pro_active
+#     to: "on" 
+#     for:
+#       seconds: 3
+#   action: 
+#     - service: light.turn_on
+#       data:
+#         brightness: 254
+#         rgb_color: [0, 0, 255]
+#         entity_id:
+#           - light.philipsledoffice
 
-# Office Desk Auto Turn On and Off       
-- alias: Turn off Light In The Office
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.macbook_pro_active
-    to: "off" 
-    for:
-      seconds: 3
-  action: 
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.philipsledoffice
+# # Office Desk Auto Turn On and Off       
+# - alias: Turn off Light In The Office
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.macbook_pro_active
+#     to: "off" 
+#     for:
+#       seconds: 3
+#   action: 
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.philipsledoffice
 
-# Office Desk Auto Turn On and Off if Camera Usage      
-- alias: Turn on Light In The Office if Camera Ussage
-  trigger: 
-    platform: state
-    entity_id: sensor.macbook_pro_active_camera
-    from: "Inactive"
-    to: "FaceTime HD Camera"
-    for:
-      seconds: 3
-  condition:
-    - condition: state
-      entity_id:
-        - binary_sensor.macbook_pro_active
-      state: "on"
-  action: 
-    - service: light.turn_on
-      data:
-        brightness: 254
-        rgb_color: [255, 153, 51]        
-        entity_id:
-          - light.philipsledoffice
+# # Office Desk Auto Turn On and Off if Camera Usage      
+# - alias: Turn on Light In The Office if Camera Ussage
+#   trigger: 
+#     platform: state
+#     entity_id: sensor.macbook_pro_active_camera
+#     from: "Inactive"
+#     to: "FaceTime HD Camera"
+#     for:
+#       seconds: 3
+#   condition:
+#     - condition: state
+#       entity_id:
+#         - binary_sensor.macbook_pro_active
+#       state: "on"
+#   action: 
+#     - service: light.turn_on
+#       data:
+#         brightness: 254
+#         rgb_color: [255, 153, 51]        
+#         entity_id:
+#           - light.philipsledoffice
 
-- alias: Turn off Light In The Office if Camera Ussage
-  trigger: 
-    platform: state
-    entity_id: sensor.macbook_pro_active_camera
-    from: "FaceTime HD Camera"
-    to: "Inactive"
-    for:
-      seconds: 3
-  condition:
-    - condition: state
-      entity_id:
-        - binary_sensor.macbook_pro_active
-      state: "on"
-  action: 
-    - service: light.turn_on
-      data:
-        brightness: 254
-        rgb_color: [0, 0, 255]        
-        entity_id:
-          - light.philipsledoffice
+# - alias: Turn off Light In The Office if Camera Ussage
+#   trigger: 
+#     platform: state
+#     entity_id: sensor.macbook_pro_active_camera
+#     from: "FaceTime HD Camera"
+#     to: "Inactive"
+#     for:
+#       seconds: 3
+#   condition:
+#     - condition: state
+#       entity_id:
+#         - binary_sensor.macbook_pro_active
+#       state: "on"
+#   action: 
+#     - service: light.turn_on
+#       data:
+#         brightness: 254
+#         rgb_color: [0, 0, 255]        
+#         entity_id:
+#           - light.philipsledoffice
 
 # Using a PagerDuty webhook
 - alias: "PagerDuty Webhook"

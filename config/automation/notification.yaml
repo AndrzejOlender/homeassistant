@@ -16,7 +16,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Door"
         message: "Open Main Door"
@@ -61,7 +61,7 @@
       entity_id: binary_sensor.motionkitchen_occupancy
       state: "off"
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Home"
         message: "Enter Home"
@@ -76,7 +76,7 @@
     from: "off"
     to: "on"
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         message: "Lock Opened"
         data:
@@ -101,7 +101,7 @@
     from: "on"
     to: "off"
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         message: "Lock Closed"
         data:
@@ -136,7 +136,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         message: "Vacuum Started Cleaning"
         data:
@@ -180,7 +180,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         message: "Vacuum Finished Cleaning"
         data:
@@ -219,7 +219,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Air"
         message: "Very Bad Air"
@@ -243,7 +243,7 @@
       entity_id: device_tracker.iphone_luci_andrzej
       state: "home" 
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Location"
         message: "Anna went into zone Home"
@@ -272,7 +272,7 @@
       entity_id: binary_sensor.motionkitchen_occupancy
       state: "on"
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Home"
         message: "Exit Home"
@@ -289,7 +289,7 @@
     zone: zone.wpkiw
     event: leave
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Location"
         message: Anna left the WPKiW
@@ -313,7 +313,7 @@
     zone: zone.wpkiw
     event: enter
   action: 
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Location"
         message: "Anna went into the WPKiW"
@@ -326,7 +326,99 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"                          
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"                  
+
+- alias: CityFit Exit
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.cityfit
+    event: leave
+  action:
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: Anna left the Gym
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
+    - delay:
+        seconds: 50
+
+- alias: CityFit Enter
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.cityfit
+    event: enter
+  action: 
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: "Anna went into the Gym"
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"            
+
+- alias: Preschool Exit
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.preschool
+    event: leave
+  action:
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: Anna left the Preschool
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
+    - delay:
+        seconds: 50
+
+- alias: Preschool Enter
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.preschool
+    event: enter
+  action: 
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: "Anna went into the Preschool"
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"      
 
 - alias: Send Notification Leak Toilet
   trigger:
@@ -344,7 +436,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Leak!"
         message: "Leak in toilet"
@@ -407,7 +499,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Leak!"
         message: "Leak in kitchen"
@@ -465,7 +557,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "AGD"
         message: "Dishwasher Ended"
@@ -512,7 +604,7 @@
         seconds: 5
     - service: sonos.restore
       entity_id: all
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         message: "Washermachine Ended"
         data:
@@ -556,7 +648,7 @@
       from: 'off'
       to: 'on'  
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Storm"
         message: "Storm nearby"
@@ -574,7 +666,7 @@
       from: 'off'
       to: 'on'   
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Weather"
         message: "Storm warning"
@@ -592,7 +684,7 @@
       from: 'off'
       to: 'on'    
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Weather"
         message: "Heat warning"
@@ -610,7 +702,7 @@
       from: 'off'
       to: 'on'  
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Weather"
         message: "Wind warning"
@@ -627,7 +719,7 @@
     entity_id: sensor.ringvibration_action
     to: vibration   
   action:
-    - service: notify.mobile_app_iphone
+    - service:  notify.mobile_app_iphone
       data:
         title: "Doorbell"
         message: "Ring ring maindoor"
@@ -665,7 +757,7 @@
       {% endmacro %}
       {{ battery_level() | trim != '' }}
   action:
-    service: notify.mobile_app_iphone
+    service:  notify.mobile_app_iphone
     data:
       message: >
           {% macro battery_level() %}

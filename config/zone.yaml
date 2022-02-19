@@ -15,3 +15,15 @@
   longitude: !secret longitude_home
   radius: 350
   icon: mdi:home
+
+- name: CityFit
+  latitude: !secret latitude_city_fit
+  longitude: !secret longitude_city_fit
+  radius: 150
+  icon: mdi:dumbbell
+
+- name: Preschool
+  latitude: !secret latitude_preschool
+  longitude: !secret longitude_preschool
+  radius: 150
+  icon: mdi:teddy-bear

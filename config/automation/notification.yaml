@@ -255,8 +255,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"  
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"  
 
 - alias: Send Notification Exit Home
   trigger:
@@ -301,8 +301,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - delay:
         seconds: 10
 
@@ -325,8 +325,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"                  
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"                  
 
 - alias: CityFit Exit
   trigger:
@@ -347,8 +347,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - delay:
         seconds: 50
 
@@ -371,8 +371,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"            
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"            
 
 - alias: Preschool Exit
   trigger:
@@ -393,8 +393,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - delay:
         seconds: 50
 
@@ -417,8 +417,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.xiaomi', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.xiaomi', 'longitude') }}"      
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"      
 
 - alias: Send Notification Leak Toilet
   trigger:

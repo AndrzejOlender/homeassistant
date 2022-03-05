@@ -2,4 +2,4 @@ household:
   name: "Household"
   entities:
     - device_tracker.iphone_luci_andrzej
-    - device_tracker.xiaomired_luci_ania
+    - device_tracker.samsung

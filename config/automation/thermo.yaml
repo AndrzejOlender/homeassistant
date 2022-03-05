@@ -38,7 +38,7 @@
             entity_id: device_tracker.iphone_luci_andrzej
             state: "home"
           - condition: state
-            entity_id: device_tracker.xiaomired_luci_ania
+            entity_id: device_tracker.samsung_luci_ania
             state: "home"  
   action:
     - service: climate.set_temperature

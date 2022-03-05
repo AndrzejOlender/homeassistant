@@ -37,7 +37,7 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.xiaomired_luci_ania
+          - device_tracker.samsung_luci_ania
         state: not_home
       - condition: state
         entity_id:
@@ -63,7 +63,7 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.xiaomired_luci_ania
+          - device_tracker.samsung_luci_ania
         state: home
       - condition: state
         entity_id:

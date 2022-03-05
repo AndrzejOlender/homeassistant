@@ -30,7 +30,7 @@
 #     platform: state
 #     entity_id: 
 #       - device_tracker.iphone_luci_andrzej
-#       - device_tracker.xiaomired_luci_ania
+#       - device_tracker.samsung
 #     to: "home"
 #   action: 
 #     entity_id: switch.airpurifiermax

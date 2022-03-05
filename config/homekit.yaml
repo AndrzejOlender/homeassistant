@@ -43,7 +43,7 @@ filter:
     - light.ikeabulbsgroupanteroom2
     - light.philipsledoffice
     - device_tracker.iphone_luci_andrzej
-    - device_tracker.xiaomired_luci_ania
+    - device_tracker.samsung_luci_ania
     - scene.good_evening
     - scene.good_morning
     - scene.good_night

@@ -74,7 +74,7 @@ views:
             name: Child Room 2
           - entity: light.ikeabulblamp_light
             name: Living Room 
-          - entity: switch.light1_relay
+          - entity: light.group_livingroom_1
             name: Living Room 1
             state_color: on
           - entity: switch.light2_relay
@@ -106,6 +106,10 @@ views:
             name: Toilet Mirror
           - entity: light.philipsledoffice
             name: Office Desk
+          - entity: light.philipsledofficeleft
+            name: Office Left
+          - entity: light.philipsledofficeright
+            name: Office Right
 
       - type: entities
         header:

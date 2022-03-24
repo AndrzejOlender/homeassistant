@@ -59,6 +59,10 @@
       state: 'off' 
     light.philipsledoffice:
       state: 'off'
+    light.philipsledofficeleft:
+      state: 'off'
+    light.philipsledofficeright:
+      state: 'off'
     media_player.echo:
       state: standby
     media_player.appletv:

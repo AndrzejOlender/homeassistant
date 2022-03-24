@@ -135,6 +135,8 @@ light.group_anteroom_1:
   icon: mdi:wall-sconce-flat
 light.group_anteroom_2:
   icon: mdi:track-light
+light.group_livingroom_1:
+  icon: mdi:wall-sconce-flat
 person.ania:
   entity_picture: /local/ania.jpg
 person.andrzej:

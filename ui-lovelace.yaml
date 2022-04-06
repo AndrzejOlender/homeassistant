@@ -54,9 +54,6 @@ views:
             labels: false
             points: false
           entities:
-            - entity: sensor.light1_power
-              name: Light 1
-              show_legend: false
             - entity: sensor.light2_power
               name: Light 2
               show_legend: false

@@ -9,7 +9,7 @@ filter:
     - switch.washermachine_relay
     - switch.radio
     - script.miio_turn_on_nc
-    - switch.light1_relay
+    - light.group_livingroom_1
     - switch.light2_relay
     - switch.light3_relay
     - switch.yamaha

@@ -21,7 +21,7 @@
   entities:
     switch.light2_relay:
       state: 'off'
-    switch.light1_relay:
+    light.group_livingroom_1:
       state: 'off'
     switch.light3_relay:
       state: 'off'

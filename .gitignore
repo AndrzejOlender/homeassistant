@@ -1,5 +1,6 @@
 .cloud/*
 .storage/*
+backups/*
 .vscode/*
 .homekit.state
 *.pem

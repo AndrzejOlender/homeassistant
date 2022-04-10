@@ -55,7 +55,7 @@
     #   minutes: 1
   condition:
     - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
+      entity_id: device_tracker.iphone
       state: "not_home"
     - condition: state
       entity_id: binary_sensor.motionkitchen_occupancy
@@ -240,7 +240,7 @@
     event: enter
   condition:
     - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
+      entity_id: device_tracker.iphone
       state: "home" 
   action:
     - service:  notify.mobile_app_iphone
@@ -266,7 +266,7 @@
     to: "on"
   condition:
     - condition: state
-      entity_id: device_tracker.iphone_luci_andrzej
+      entity_id: device_tracker.iphone
       state: "not_home"
     - condition: state
       entity_id: binary_sensor.motionkitchen_occupancy

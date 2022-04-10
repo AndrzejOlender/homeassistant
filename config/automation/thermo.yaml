@@ -35,10 +35,10 @@
       - condition: or
         conditions:
           - condition: state
-            entity_id: device_tracker.iphone_luci_andrzej
+            entity_id: device_tracker.iphone
             state: "home"
           - condition: state
-            entity_id: device_tracker.samsung_luci_ania
+            entity_id: device_tracker.samsung_ania
             state: "home"  
   action:
     - service: climate.set_temperature

@@ -14,8 +14,8 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.iphone_luci_andrzej
-          - device_tracker.samsung_luci_ania
+          - device_tracker.iphone
+          - device_tracker.samsung
         state: not_home
   action: 
     - service: notify.sonos
@@ -37,11 +37,11 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.samsung_luci_ania
+          - device_tracker.samsung
         state: not_home
       - condition: state
         entity_id:
-          - device_tracker.iphone_luci_andrzej
+          - device_tracker.iphone
         state: home
   action: 
     - service: notify.sonos
@@ -63,11 +63,11 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.samsung_luci_ania
+          - device_tracker.samsung
         state: home
       - condition: state
         entity_id:
-          - device_tracker.iphone_luci_andrzej
+          - device_tracker.iphone
         state: not_home
   action: 
     - service: notify.sonos

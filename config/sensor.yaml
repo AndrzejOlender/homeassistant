@@ -93,3 +93,6 @@
       unit_of_measurement: ""
       value_template: "{{ state_attr('sensor.coinbase_btc_wallet', 'Balance in native currency') }}"
 
+- platform: pgnig_gas_sensor
+  username: !secret pgnig_user
+  password: !secret pgnig_password

@@ -4,3 +4,4 @@
   password: !secret luci  
   new_device_defaults:
     track_new_devices: false
+

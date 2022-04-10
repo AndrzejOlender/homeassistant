@@ -1,5 +1,5 @@
 household:
   name: "Household"
   entities:
-    - device_tracker.iphone_luci_andrzej
+    - device_tracker.iphone
     - device_tracker.samsung

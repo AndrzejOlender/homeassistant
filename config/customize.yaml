@@ -145,6 +145,10 @@ device_tracker.iphone_luci_andrzej:
   entity_picture: /local/andrzej.jpg
 device_tracker.samsung:
   entity_picture: /local/ania.jpg
+sensor.home_ania:
+  entity_picture: /local/ania.jpg
+sensor.home_andrzej:
+  entity_picture: /local/andrzej.jpg
 device_tracker.samsung_luci_ania:
   entity_picture: /local/ania.jpg
 device_tracker.iphone:

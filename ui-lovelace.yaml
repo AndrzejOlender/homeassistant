@@ -282,10 +282,10 @@ views:
             state_color: on
           - entity: binary_sensor.toiletdoor_contact
             state_color: on
-          - entity: device_tracker.iphone_luci_andrzej
+          - entity: sensor.home_andrzej
             name: Andrzej
-            state_color: on
-          - entity: device_tracker.samsung_luci_ania
+            state_color: on  
+          - entity: sensor.home_ania
             name: Ania
             state_color: on  
 

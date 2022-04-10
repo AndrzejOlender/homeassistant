@@ -96,3 +96,17 @@
 - platform: pgnig_gas_sensor
   username: !secret pgnig_user
   password: !secret pgnig_password
+
+
+# Device Tracker
+- platform: template
+  sensors:
+    home_ania:
+      friendly_name: "Tracker Ania"
+      value_template: "{% if is_state('device_tracker.samsung', 'home') %}Home{% else %}Away{% endif %}"
+
+- platform: template
+  sensors:
+    home_andrzej:
+      friendly_name: "Tracker Andrzej"
+      value_template: "{% if is_state('device_tracker.iphone', 'home') %}Home{% else %}Away{% endif %}"

@@ -111,9 +111,9 @@ switch.hdmi2:
   icon: mdi:remote-tv
 switch.nc:
   icon: mdi:remote-tv
-light.group_kitchen_desk:
-  friendly_name: Table
-  icon: mdi:vanity-light
+light.group_4_kitchen_1:
+  friendly_name: Office
+  icon: mdi:track-light
 light.lamp_kitchen:
   friendly_name: Lamp Kitchen
   icon: mdi:ceiling-light

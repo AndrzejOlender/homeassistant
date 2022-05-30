@@ -47,7 +47,6 @@ filter:
     - scene.good_evening
     - scene.good_morning
     - scene.good_night
-    - scene.cinema
     - climate.thermochildroom_climate
     - climate.thermolivingroom_climate
     - climate.thermokitchen_climate

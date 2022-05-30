@@ -25,8 +25,6 @@
       state: 'off'
     switch.light3_relay:
       state: 'off'
-    switch.air_purifier_led:
-      state: 'off'
     light.aqaralampchildroom_light:
       state: 'off'
     light.ikeabulblamp_light:
@@ -65,8 +63,6 @@
       state: 'off'
     media_player.echo:
       state: standby
-    media_player.appletv:
-      state: paused
 
 - id: '1577085924679'
   name: Good Morning
@@ -79,18 +75,5 @@
       state: 'on'        
     switch.hdmi1: 
       state: 'on'
-    switch.air_purifier_led:
-      state: 'on'
 
-- id: 'cinema'
-  name: Cinema
-  entities:
-    # switch.yamaha:
-    #   state: 'on'   
-    # media_player.tv:
-    #   state: 'on'      
-    # switch.hdmi2: 
-    #   state: 'on' 
-    script.appletv_tv:
-      state: 'on'
 

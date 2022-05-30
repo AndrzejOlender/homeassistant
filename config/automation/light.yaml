@@ -62,9 +62,6 @@
     - service: media_player.turn_off
       entity_id: 
         - media_player.tv
-    - service: media_player.media_pause
-      entity_id: 
-        - media_player.appletv
     - service: light.turn_off
       entity_id: 
         - light.aqaralampchildroom_light
@@ -135,8 +132,8 @@
     entity_id: light.ikeabulbsgroupanteroom2
     service: light.toggle
 
-# Kitchen Switches    
-- alias: Lamp Table Kitchen
+# Offcie Switches    
+- alias: Lamp Desk Office
   trigger:
     platform: state
     entity_id: sensor.aqaraswitchkitchen1_action
@@ -175,6 +172,9 @@
       - light.lamp_kitchen
       - light.ikeabulbsgroupanteroom1
       - light.ikeabulbsgroupanteroom2
+      - light.philipsledoffice
+      - light.philipsledofficeleft
+      - light.philipsledofficeright
     service: light.turn_off    
 
 # Auto turnoff lights

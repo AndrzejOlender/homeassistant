@@ -4,7 +4,6 @@ token: !secret xiaomi_vacuum_token
 username: !secret xiaomi_cloud_username
 password: !secret xiaomi_cloud_password
 country: "de"
-draw: ['all']
 map_transformation:
   scale: 3
   rotate: 90
@@ -18,8 +17,6 @@ store_map_raw: true
 store_map_image: true
 scan_interval:
   seconds: 400
-attributes:
-  - calibration_points
 colors:
   color_map_inside: [29, 29, 28]
   color_map_outside: [29, 29, 28]

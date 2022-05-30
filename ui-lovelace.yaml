@@ -24,15 +24,15 @@ views:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
-          - entity: script.appletv_netflix
-            name: Cinema Netflix
           
+      # - type: entities
+      #   show_header_toggle: false
+      #   entities:
+      #     - entity: media_player.office_2
+      #       name: Sonos
 
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: media_player.office_2
-            name: Sonos
+      - type: media-control
+        entity: media_player.office_2
 
       - type: entities
         show_header_toggle: false
@@ -87,8 +87,6 @@ views:
           - entity: switch.blitzlivingroomglasscase
             name: LED Witryn
             state_color: on
-          - entity: light.ikeabulbsgroupkitchen
-            name: Kitchen Table
           - entity: light.lamp_kitchen
             name: Kitchen 
           - entity: light.ikeabulbsgroupanteroom1
@@ -99,6 +97,8 @@ views:
             name: Toilet
           - entity: light.ikeabulbsgrouptoiletmirror
             name: Toilet Mirror
+          - entity: light.group_4_kitchen_1
+            name: Office
           - entity: light.philipsledoffice
             name: Office Desk
           - entity: light.philipsledofficeleft
@@ -435,7 +435,7 @@ views:
             state_color: on
 
       - type: vertical-stack
-        in_card: true
+        in_card: false
         cards:
           - type: horizontal-stack
             cards:

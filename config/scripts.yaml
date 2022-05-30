@@ -52,115 +52,6 @@ miio_turn_on_yamaha:
     service: remote.send_command
   alias: Yamaha
 
-appletv_netflix:
-  alias: "Netflix"
-  icon: mdi:netflix
-  sequence:
-    - service: switch.turn_on
-      entity_id: 
-        - media_player.tv
-        - switch.hdmi2
-    - delay: 00:00:02
-    - service: remote.send_command
-      target:
-        entity_id: remote.appletv
-      data:
-        delay_secs: 1.0
-        command:
-          - top_menu
-          - home
-          - right
-          - right
-          - select
-    - service: switch.turn_on
-      target:
-        entity_id:
-          - switch.blitzlivingroomrtv
-    - delay: 00:00:02
-    - service: switch.turn_off
-      target:
-        entity_id:
-          - switch.blitzlivingroomcommod
-          - switch.blitzlivingroomglasscase
-    - delay: 00:00:02
-    - service: switch.turn_off
-      target:
-        entity_id:
-          - switch.light1_relay
-          - switch.light2_relay
-          - switch.light3_relay
-    - delay: 00:00:05
-    - service: light.turn_off
-      target:
-        entity_id:
-          - light.group_4_kitchen_1
-          - light.group_2_anteroom_1
-          - light.group_3_anteroom_2
-          - light.lamp_kitchen
-
-appletv_player:
-  alias: "Player"
-  icon: mdi:television-shimmer
-  sequence:
-    - service: remote.send_command
-      target:
-        entity_id: remote.appletv
-      data:
-        delay_secs: 1.0
-        command:
-          - top_menu
-          - home
-          - right
-          - right
-          - right
-          - select
-
-appletv_tv:
-  alias: "TV"
-  icon: mdi:apple
-  sequence:
-    - service: remote.send_command
-      target:
-        entity_id: remote.appletv
-      data:
-        delay_secs: 1.0
-        command:
-          - top_menu
-          - home
-          - right
-          - select
-
-appletv_youtube:
-  alias: "Youtube"
-  icon: mdi:youtube-tv
-  sequence:
-    - service: remote.send_command
-      target:
-        entity_id: remote.appletv
-      data:
-        delay_secs: 1.0
-        command:
-          - top_menu
-          - home
-          - down
-          - select
-
-appletv_music:
-  alias: "Music"
-  sequence:
-    - service: remote.send_command
-      target:
-        entity_id: remote.appletv
-      data:
-        delay_secs: 1.0
-        command:
-          - top_menu
-          - home
-          - down
-          - down
-          - select
-          - play
-
 clean_home:
   alias: Clean Home
   icon: mdi:home
@@ -221,6 +112,7 @@ clean_kitchen:
     data:
       entity_id: vacuum.john
       fan_speed: Auto
+      repeats: 2
 
 clean_toilet:
   alias: Clean Toilet
@@ -233,7 +125,7 @@ clean_toilet:
     data:
       entity_id: vacuum.john
       command: app_segment_clean
-      params: [22]
+      params: [22] 
   - service: vacuum.set_fan_speed
     data:
       entity_id: vacuum.john

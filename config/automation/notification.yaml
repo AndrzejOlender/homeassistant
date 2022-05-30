@@ -118,6 +118,11 @@
               authenticationRequired: false
               destructive: false
               icon: "sfsymbols:lock"
+            - action: "START_WHITE_FLOOR"
+              title: 'Clean Anteroom'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
 
 # Vacuum
 - alias: Send Notification Vacuum Start

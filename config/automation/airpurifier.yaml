@@ -36,14 +36,14 @@
 #     entity_id: switch.airpurifiermax
 #     service: switch.turn_off 
 
-- alias: 'Turn On LED AirPurifier'
-  trigger:
-    platform: time
-    at: "06:00:00"
-  action:
-    entity_id: 
-      - switch.air_purifier_led
-    service: switch.turn_on        
+# - alias: 'Turn On LED AirPurifier'
+#   trigger:
+#     platform: time
+#     at: "06:00:00"
+#   action:
+#     entity_id: 
+#       - switch.air_purifier_led
+#     service: switch.turn_on        
 
 # - alias: AQI Air Ok 
 #   trigger:

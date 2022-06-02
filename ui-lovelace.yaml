@@ -585,36 +585,6 @@ views:
     visible:
       - user: 4b4a93638a344e758538b4f233cb5147
     cards:
-      - type: custom:mini-graph-card
-        name: ETC / PLN
-        hour24: true
-        points_per_hour: 10
-        line_width: 2
-        animate: true
-        font_size: 75
-        font_size_header: 12
-        show:
-          fill: false
-          labels: true
-          points: false
-        line_color: '#04aaf5'
-        decimals: 1
-        entities:
-          - sensor.eth
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.eth_exchange_rate
-
-    icon: 'mdi:ethereum'
-    path: eth
-    theme: default
-    title: Etherium
-
-  - badges: []
-    visible:
-      - user: 4b4a93638a344e758538b4f233cb5147
-    cards:
       - type: entities
         show_header_toggle: false
         entities:
@@ -728,3 +698,18 @@ views:
     path: Battery
     theme: default_view
     title: Battery
+
+  - badges: []
+    cards:
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.geocaching_siemionki_total_finds
+            name: Total finds
+          - entity: sensor.geocaching_siemionki_total_souvenirs
+            name: Total souvenirs
+
+    icon: 'mdi:google-maps'
+    path: geocaching
+    theme: default
+    title: Geocaching

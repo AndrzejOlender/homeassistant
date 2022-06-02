@@ -1,4 +1,4 @@
-db_url: postgresql://postgres:v2PXHM6X2x@postgresql.postgresql.svc.cluster.local/postgres
+db_url: postgresql://postgres:k2JIGuP3KJ@postgresql.postgresql.svc.cluster.local/postgres
 auto_purge: true
 exclude:
   domains:

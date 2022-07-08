@@ -1,6 +1,0 @@
-api_key: !secret coinbase_api 
-api_secret: !secret coinbase_secret
-exchange_rate_currencies:
-  - BTC
-account_balance_currencies:
-  - BTC

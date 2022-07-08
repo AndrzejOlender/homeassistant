@@ -97,7 +97,6 @@
   username: !secret pgnig_user
   password: !secret pgnig_password
 
-
 # Device Tracker
 - platform: template
   sensors:

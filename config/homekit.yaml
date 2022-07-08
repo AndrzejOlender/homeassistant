@@ -53,6 +53,7 @@ filter:
     - media_player.tv
     - fan.air_purifier
     - lock.maindoorlock
+    - cover.blindslivingroomwindow2
 # entity_config:
 #   media_player.tv:
 #     feature_list:

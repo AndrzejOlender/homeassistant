@@ -201,6 +201,11 @@ views:
             state_color: on
 
       - type: entities
+        entities:
+          - entity: cover.blindslivingroomwindow2
+            name: BlindsLivingRoom1
+
+      - type: entities
         header:
           type: 'custom:mini-graph-card'
           name: Temperature 
@@ -581,57 +586,57 @@ views:
     theme: default
     title: Bitcoin
 
-  - badges: []
-    visible:
-      - user: 4b4a93638a344e758538b4f233cb5147
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.zigbee2mqtt_bridge_state
-          - entity: sensor.zigbee2mqtt_version
-          - entity: switch.zigbee2mqtt_main_join
-          - entity: timer.zigbee_permit_join
+  # - badges: []
+  #   visible:
+  #     - user: 4b4a93638a344e758538b4f233cb5147
+  #   cards:
+  #     - type: entities
+  #       show_header_toggle: false
+  #       entities:
+  #         - entity: sensor.zigbee2mqtt_bridge_state
+  #         - entity: sensor.zigbee2mqtt_version
+  #         - entity: switch.zigbee2mqtt_main_join
+  #         - entity: timer.zigbee_permit_join
 
-    icon: 'mdi:zigbee'
-    path: zigbee
-    theme: default
-    title: Zigbee
+  #   icon: 'mdi:zigbee'
+  #   path: zigbee
+  #   theme: default
+  #   title: Zigbee
 
-  - badges: []
-    visible:
-      - user: 4b4a93638a344e758538b4f233cb5147
-    panel: true
-    cards:
-      - type: custom:zigbee2mqtt-networkmap
-        entity: sensor.zigbee2mqtt_networkmap
-        # the following are optional:
-        name: Zigbbee2Mqtt
-        mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
-        # force: 2000 # decrease it to get smaller map if you have many devices
-        node_size: 8
-        font_size: 12
-        link_width: 1
-        height: 800 # height of the card
-        # use this css config or use whatever css tech to change look and feel,
-        # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
-        css: |
-          :host {
-            --zigbee2mqtt-networkmap-node-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-node-fill-color: #92d5f4;
-            --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
-            --zigbee2mqtt-networkmap-link-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-hover-color: #be385d;
-            --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
-            --zigbee2mqtt-networkmap-label-color: #03A9F4;
-            --zigbee2mqtt-networkmap-arrow-color: rgba(3, 169, 244, .7);
-            --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
-            --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
-          }      
-    icon: 'mdi:broadcast'
-    path: zigbee-mesh
-    theme: default
-    title: Zigbee-Mesh
+  # - badges: []
+  #   visible:
+  #     - user: 4b4a93638a344e758538b4f233cb5147
+  #   panel: true
+  #   cards:
+  #     - type: custom:zigbee2mqtt-networkmap
+  #       entity: sensor.zigbee2mqtt_networkmap
+  #       # the following are optional:
+  #       name: Zigbbee2Mqtt
+  #       mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
+  #       # force: 2000 # decrease it to get smaller map if you have many devices
+  #       node_size: 8
+  #       font_size: 12
+  #       link_width: 1
+  #       height: 800 # height of the card
+  #       # use this css config or use whatever css tech to change look and feel,
+  #       # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
+  #       css: |
+  #         :host {
+  #           --zigbee2mqtt-networkmap-node-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-node-fill-color: #92d5f4;
+  #           --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
+  #           --zigbee2mqtt-networkmap-link-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-hover-color: #be385d;
+  #           --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
+  #           --zigbee2mqtt-networkmap-label-color: #03A9F4;
+  #           --zigbee2mqtt-networkmap-arrow-color: rgba(3, 169, 244, .7);
+  #           --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
+  #           --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
+  #         }      
+  #   icon: 'mdi:broadcast'
+  #   path: zigbee-mesh
+  #   theme: default
+  #   title: Zigbee-Mesh
 
   - badges: []
     visible:
@@ -682,8 +687,8 @@ views:
             name: Aqara door - anteroom
           - entity: sensor.toiletdoor_battery
             name: Aqara door - toilet
-          - entity: sensor.ringvibration_battery
-            name: Aqara Doorbell - anteroom
+          # - entity: sensor.ringvibration_battery
+          #   name: Aqara Doorbell - anteroom
           - entity: sensor.thermochildroom_battery
             name: Eurotronic thermo - child room
           - entity: sensor.thermolivingroom_battery
@@ -698,18 +703,3 @@ views:
     path: Battery
     theme: default_view
     title: Battery
-
-  - badges: []
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.geocaching_siemionki_total_finds
-            name: Total finds
-          - entity: sensor.geocaching_siemionki_total_souvenirs
-            name: Total souvenirs
-
-    icon: 'mdi:google-maps'
-    path: geocaching
-    theme: default
-    title: Geocaching

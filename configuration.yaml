@@ -28,7 +28,6 @@ sonos: !include config/sonos.yaml
 camera: !include config/camera.yaml
 notify: !include config/notify.yaml
 homekit: !include config/homekit.yaml
-coinbase: !include config/coinbase.yaml
 sensor: !include config/sensor.yaml
 switch: !include config/switch.yaml
 remote: !include config/remote.yaml

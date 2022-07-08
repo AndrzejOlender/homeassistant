@@ -54,6 +54,7 @@ smart_home:
       - script.clean_living_room
       - script.clean_child_room
       - script.stop_clean_home
+      - cover.blindslivingroomwindow2
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -199,4 +200,7 @@ smart_home:
     lock.maindoorlock:
       name: Door
       display_categories: SMARTLOCK
+    cover.blindslivingroomwindow2:
+      name: Blind2
+      display_categories: INTERIOR_BLIND
 

@@ -249,6 +249,9 @@
       entity_id:
         - light.aqaralampchildroom_light
         - light.ikeabulbsgroupwardobe
+    - service: cover.close_cover
+      entity_id:
+        - cover.blindschildroomwindow1
     - service: input_select.select_option
       data:
         entity_id: 

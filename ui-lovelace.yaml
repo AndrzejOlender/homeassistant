@@ -24,12 +24,12 @@ views:
           - entity: scene.good_morning
           - entity: scene.good_evening
           - entity: scene.good_night
-          
-      # - type: entities
-      #   show_header_toggle: false
-      #   entities:
-      #     - entity: media_player.office_2
-      #       name: Sonos
+          - entity: script.covers_open
+            name: Blinds Open
+          - entity: script.covers_close
+            name: Blinds Close
+          - entity: script.work_day
+            name: Work Days
 
       - type: media-control
         entity: media_player.office_2
@@ -202,8 +202,27 @@ views:
 
       - type: entities
         entities:
+          - entity: cover.blindslivingroomwindow1
+            state_color: on
+            name: Living Room 1
           - entity: cover.blindslivingroomwindow2
-            name: BlindsLivingRoom1
+            state_color: on
+            name: Living Room 2
+          - entity: cover.blindslivingroomwindow3
+            state_color: on
+            name: Living Room 3
+          - entity: cover.blindschildroomwindow1
+            state_color: on
+            name: Child Room 
+          - entity: cover.blindsofficewindow1
+            state_color: on
+            name: Office 1
+          - entity: cover.blindsofficewindow2
+            state_color: on
+            name: Office 2
+          - entity: cover.blindskitchenwindow1
+            state_color: on
+            name: Kitchen
 
       - type: entities
         header:
@@ -255,6 +274,12 @@ views:
           - entity: sensor.air_purifier_humidity
             name: Living Room
             state_color: on
+          - entity: script.miio_turn_on_climate
+            name: Climate ON/OFF
+          - entity: script.miio_speed_climate
+            name: Climate Speed
+          - entity: script.miio_osc_climate
+            name: Climate OSC
           - entity: sensor.pgnig_gas_sensor
             name: PGNiG
             state_color: on
@@ -536,6 +561,8 @@ views:
         entity: camera.xiaomi_cloud_map_extractor
         name: John
 
+
+
     icon: 'mdi:robot-vacuum'
     path: vacuum
     theme: default
@@ -703,3 +730,4 @@ views:
     path: Battery
     theme: default_view
     title: Battery
+

@@ -1,3 +1,4 @@
+# RTV
 miio_turn_on_tv:
   sequence:
   - data:
@@ -52,6 +53,34 @@ miio_turn_on_yamaha:
     service: remote.send_command
   alias: Yamaha
 
+miio_turn_on_climate:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLABwCAABxAgAASAYAAIIIAABKEQAAACQAALyYAABEdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAQEBAQEBAQEhISEhISEhISEhAQEBASEBAQEhISEhASFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: Climate-ON
+
+miio_speed_climate:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAEoCAABsBgAApwgAAG0RAAD8IwAAIJkAAKh0AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAQEBAQEBAQEBAAEAAAABAAABAAEBAQABBQJGAkAA==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: Climate-Speed
+
+miio_osc_climate:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VPABcCAAByAgAARwYAAH8IAABGEQAA6CMAALyYAABEdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAQEBAQEBAQEhISEhISEhIQEBAQEBASEBISEhISEhASFhNXE1cTUB
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: Climate-OSC
+
+# Vacuum
 clean_home:
   alias: Clean Home
   icon: mdi:home
@@ -198,3 +227,53 @@ clean_white_floor:
     data:
       entity_id: vacuum.john
       fan_speed: Auto
+
+# Blinds
+covers_open:
+  alias: All Covers Open
+  icon: mdi:blinds-horizontal
+  sequence:
+  - service: cover.open_cover
+    entity_id: 
+    - cover.blindslivingroomwindow1
+    - cover.blindslivingroomwindow2
+    - cover.blindslivingroomwindow3
+    - cover.blindschildroomwindow1
+    - cover.blindsofficewindow1
+    - cover.blindsofficewindow2
+    - cover.blindskitchenwindow1
+
+covers_close:
+  alias: All Covers Close
+  icon: mdi:blinds-horizontal
+  sequence:
+  - service: cover.close_cover
+    entity_id: 
+    - cover.blindslivingroomwindow1
+    - cover.blindslivingroomwindow2
+    - cover.blindslivingroomwindow3
+    - cover.blindschildroomwindow1
+    - cover.blindsofficewindow1
+    - cover.blindsofficewindow2
+    - cover.blindskitchenwindow1
+
+# Work Day
+work_day:
+  alias: Work Day
+  icon: mdi:blinds-horizontal
+  sequence:
+  - service: cover.close_cover
+    entity_id: 
+    - cover.blindslivingroomwindow1
+    - cover.blindslivingroomwindow2
+    - cover.blindslivingroomwindow3
+    - cover.blindschildroomwindow1
+    - cover.blindsofficewindow1
+    - cover.blindsofficewindow2
+    - cover.blindskitchenwindow1
+  - service: light.turn_on
+    entity_id: 
+    - light.group_4_kitchen_1
+    - light.philipsledoffice
+    - light.philipsledofficeleft
+    - light.philipsledofficeright

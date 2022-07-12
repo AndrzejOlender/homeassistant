@@ -54,7 +54,14 @@ smart_home:
       - script.clean_living_room
       - script.clean_child_room
       - script.stop_clean_home
+      - script.covers_close
+      - script.covers_open
       - cover.blindslivingroomwindow2
+      - cover.blindslivingroomwindow3
+      - cover.blindschildroomwindow1
+      - cover.blindsofficewindow1
+      - cover.blindsofficewindow2
+      - cover.blindskitchenwindow1
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -152,6 +159,12 @@ smart_home:
     script.stop_clean_home:
       name: "Stop Cleaning"
       display_categories: SCENE
+    script.covers_open:
+      name: "Open Blinds"
+      display_categories: SCENE
+    script.covers_close:
+      name: "Close Blinds"
+      display_categories: SCENE
     vacuum.john:
       name: "Vacuum Cleaner"
       display_categories: VACUUM_CLEANER
@@ -168,10 +181,10 @@ smart_home:
       name: Main Door
       display_categories: DOOR
     binary_sensor.motionkitchen_occupancy:
-      name: Motion 
+      name: Motion
       display_categories: MOTION_SENSOR
     binary_sensor.motionkitchen2_occupancy:
-      name: Motion
+      name: Motion 
       display_categories: MOTION_SENSOR
     binary_sensor.motiontoilet_occupancy: 
       name: Motion
@@ -200,7 +213,24 @@ smart_home:
     lock.maindoorlock:
       name: Door
       display_categories: SMARTLOCK
-    cover.blindslivingroomwindow2:
-      name: Blind2
+    cover.blindslivingroomwindow1:
+      name: Living Room 1
       display_categories: INTERIOR_BLIND
-
+    cover.blindslivingroomwindow2:
+      name: Living Room 2
+      display_categories: INTERIOR_BLIND
+    cover.blindslivingroomwindow3:
+      name: Living Room 3
+      display_categories: INTERIOR_BLIND
+    cover.blindschildroomwindow1:
+      name: Child Room
+      display_categories: INTERIOR_BLIND
+    cover.blindsofficewindow1:
+      name: Office 1
+      display_categories: INTERIOR_BLIND
+    cover.blindsofficewindow2:
+      name: Office 2
+      display_categories: INTERIOR_BLIND
+    cover.blindskitchenwindow1:
+      name: Kitchen
+      display_categories: INTERIOR_BLIND

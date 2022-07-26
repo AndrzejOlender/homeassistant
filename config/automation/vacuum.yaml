@@ -14,7 +14,7 @@
     platform: event
     event_type: ios.notification_action_fired
     event_data:
-      actionName: START
+      actionName: START_HOME
   action:
     service: script.turn_on
     target:

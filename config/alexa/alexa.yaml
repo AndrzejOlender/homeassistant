@@ -56,6 +56,7 @@ smart_home:
       - script.stop_clean_home
       - script.covers_close
       - script.covers_open
+      - script.work_day
       - cover.blindslivingroomwindow2
       - cover.blindslivingroomwindow3
       - cover.blindschildroomwindow1
@@ -164,6 +165,9 @@ smart_home:
       display_categories: SCENE
     script.covers_close:
       name: "Close Blinds"
+      display_categories: SCENE
+    script.work_day:
+      name: "Work Day"
       display_categories: SCENE
     vacuum.john:
       name: "Vacuum Cleaner"

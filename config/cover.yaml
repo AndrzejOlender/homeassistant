@@ -1,0 +1,12 @@
+- platform: group
+  name: "Covers Living Room"
+  entities:
+    - cover.blindslivingroomwindow1
+    - cover.blindslivingroomwindow2
+    - cover.blindslivingroomwindow3
+
+- platform: group
+  name: "Covers Office Room"
+  entities:
+    - cover.blindsofficewindow1
+    - cover.blindsofficewindow2

@@ -118,11 +118,18 @@
               authenticationRequired: false
               destructive: false
               icon: "sfsymbols:lock"
-            - action: "START_WHITE_FLOOR"
-              title: 'Clean Anteroom'
+            - action: "START_HOME"
+              title: 'Clean Home'
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+              icon: "sfsymbols:lifepreserver"
+            - action: "START_WORK_DAY"
+              title: 'Work Day'
+              activationMode: 'background'
+              authenticationRequired: false
+              destructive: false
+              icon: "sfsymbols:desktopcomputer"
 
 # Vacuum
 - alias: Send Notification Vacuum Start
@@ -782,4 +789,14 @@
         push:
           sound: default 
 
-
+# Work Day
+- alias: Work Day Script 
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: START_WORK_DAY
+  action:
+    service: script.turn_on
+    target:
+      entity_id: script.work_day

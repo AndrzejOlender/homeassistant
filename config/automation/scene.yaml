@@ -29,4 +29,48 @@
       entity_id: 
         - scene.good_night
 
+- alias: Switch DoorBell
+  trigger:
+    platform: state
+    entity_id: sensor.anteroomdoorbell_action
+    to: single
+  action:
+    - service: media_player.volume_set
+      data:
+        volume_level: 0.4
+      target:
+        entity_id: media_player.office_2
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.office_2
+      data:
+        media_content_type: "music"
+        media_content_id: "https://home.olender.me/local/audio/doorbell.mp3"
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Doorbell"
+        message: "Ring ring maindoor"
+        data:
+          push:
+            sound: 
+              name: default
+    - service: notify.mobile_app_xiaomi
+      data:
+        message: "Ring ring maindoor"
+    - service: notify.tv
+      data:
+        message: "Ring ring maindoor" 
+    - delay:
+        seconds: 10
+
+- alias: Switch DoorBell Double
+  trigger:
+    platform: state
+    entity_id: sensor.anteroomdoorbell_action
+    to: double
+  action:
+    - service: lock.lock
+      entity_id: 
+        - lock.maindoorlock
+
 

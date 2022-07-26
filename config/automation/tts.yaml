@@ -15,7 +15,7 @@
       - condition: state
         entity_id:
           - device_tracker.iphone
-          - device_tracker.samsung
+          - device_tracker.xiaomi
         state: not_home
   action: 
     - service: notify.sonos
@@ -37,7 +37,7 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.samsung
+          - device_tracker.xiaomi
         state: not_home
       - condition: state
         entity_id:
@@ -63,7 +63,7 @@
         state: "off"   
       - condition: state
         entity_id:
-          - device_tracker.samsung
+          - device_tracker.xiaomi
         state: home
       - condition: state
         entity_id:

@@ -7,7 +7,7 @@ lovelace:
   mode: yaml
 
 frontend:
-  themes: !include_dir_merge_named config/themes
+  themes: !include_dir_merge_named themes
 
 homeassistant:
   packages: !include_dir_named config/packages
@@ -19,10 +19,10 @@ homeassistant:
 tts: !include config/tts.yaml
 zone: !include config/zone.yaml
 http: !include config/http.yaml
-group: !include config/groups.yaml
+cover: !include config/cover.yaml
 script: !include config/scripts.yaml
 scene: !include config/scenes.yaml
-alexa: !include config/alexa/alexa.yaml
+# alexa: !include config/alexa/alexa.yaml
 light: !include config/light.yaml
 sonos: !include config/sonos.yaml
 camera: !include config/camera.yaml
@@ -39,3 +39,4 @@ automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 binary_sensor: !include config/binary.yaml
 device_tracker: !include config/tracker.yaml
+

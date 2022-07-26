@@ -17,6 +17,123 @@ miio_turn_on_nc:
     service: remote.send_command
   alias: Canal+
 
+miio_turn_1_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VPADECAACeBgAA4QgAAKkRAABWIwAAvJgAAOh6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0EBAQAAAAABAAEBAQEAAQABAAAAAAAAAAABAQEBAQEBBQJGAkYCQA
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 1
+
+miio_turn_2_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAO0BAABwAgAAZgYAAKYIAACCEQAAkiMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEhAQEBAQEBIQEhISEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 2
+
+miio_turn_3_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VPAOsBAABwAgAAZAYAAKYIAAB+EQAAjyMAAFiYAACEegEA6HoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEhAQEBAQEBAQEhISEhISFhNXE1gTUB
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 3
+
+miio_turn_4_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VPAO8BAABtAgAAZwYAAKYIAACcEQAAhyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBIQEBAQEBISEBISEhISFhNXE1cTUB
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 4
+
+miio_turn_5_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAPwBAABiAgAAcQYAAKoIAACgEQAAgyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBIQEBAQEBASEBISEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 5
+
+miio_turn_6_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAPMBAABoAgAAbgYAAKcIAADDCAAAghEAAHAjAACMIwAAWJgAAIR6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXISEhAQEBASEBISEhIQEhAQEhIQEBAQEBIQEBISEhISGBN5FGAQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 6
+
+miio_turn_7_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAPABAABtAgAAZgYAAKYIAACaEQAAhSMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEhIQEBAQEBAQEBISEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 7
+
+miio_turn_8_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VPAPMBAABqAgAAawYAAKgIAACdEQAAhyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBASEBAQEBISEhASEhISFhNXE1cTUB
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 8
+
+miio_turn_9_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAOwBAABwAgAAZAYAAKYIAAB+EQAAkSMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBASEBAQEBASEhASEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 9
+
+miio_turn_0_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VRAKoAAADuAQAAbQIAAGcGAACAEQAA3hUAAI4jAACwgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1RjIyMnBwRjIyMhISEhIyEjIyMjISMhISEhISEhISEjIyMjIyMjIyAg==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC 0
+
+miio_turn_menu_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAOwBAABvAgAAZgYAAKUIAACBEQAAjyMAALyYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBIQEhAQEBISEBIQEhISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC Menu
+
+miio_turn_up_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VLAO0BAABtAgAAaQYAALUIAAB/EQAAgyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBAQEhIQEBISEhIQEBISFhNXE1AQ==
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC Up
+
+miio_turn_down_nc:
+  sequence:
+  - data:
+      command:
+      - raw:Z6VHAO4BAABtAgAAZwYAAKgIAACAEQAAjyMAAFiYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBAQEhIQEBASEhIQEBISFhNQE=
+    entity_id: remote.xiaomi_miio
+    service: remote.send_command
+  alias: NC Down
+
 miio_turn_on_yamaha_hdmi1:
   sequence:
   - data:
@@ -242,6 +359,14 @@ covers_open:
     - cover.blindsofficewindow1
     - cover.blindsofficewindow2
     - cover.blindskitchenwindow1
+  - service: sonos.snapshot
+    entity_id: all
+  - service: notify.sonos
+    data:
+      message: "Rolety we wszystkich oknach zostaną otwarte"
+  - delay: 00:00:05
+  - service: sonos.restore
+    entity_id: all
 
 covers_close:
   alias: All Covers Close
@@ -256,6 +381,14 @@ covers_close:
     - cover.blindsofficewindow1
     - cover.blindsofficewindow2
     - cover.blindskitchenwindow1
+  - service: sonos.snapshot
+    entity_id: all
+  - service: notify.sonos
+    data:
+      message: "Rolety we wszystkich oknach zostaną zamknięte"
+  - delay: 00:00:05
+  - service: sonos.restore
+    entity_id: all
 
 # Work Day
 work_day:
@@ -273,7 +406,32 @@ work_day:
     - cover.blindskitchenwindow1
   - service: light.turn_on
     entity_id: 
-    - light.group_4_kitchen_1
     - light.philipsledoffice
     - light.philipsledofficeleft
     - light.philipsledofficeright
+  - service: sonos.snapshot
+    entity_id: all
+  - service: notify.sonos
+    data:
+      message: "Uruchamiam tryb 'Work Day'. Miłego dnia w pracy Andrzej"
+  - delay: 00:00:05
+  - service: sonos.restore
+    entity_id: all
+
+# Flash Lights Alarm
+# flash_lights:
+#   sequence:
+#     - repeat:
+#         while:
+#         sequence:
+#           - service: light.toggle
+#             data:
+#               brightness_pct: 100
+#             target:
+#               entity_id:
+#                 - light.group_4_kitchen_1
+#           - delay:
+#               hours: 0
+#               minutes: 0
+#               seconds: 1
+#               milliseconds: 0

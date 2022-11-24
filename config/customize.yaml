@@ -1,4 +1,4 @@
-switch.light2_relay:
+light.lightlivingroomleftright_l1:
   icon: mdi:wall-sconce-flat
 switch.light1_relay:
   icon: mdi:wall-sconce-flat
@@ -32,7 +32,7 @@ light.aqaralampchildroom_light:
 light.ikeabulblamp_light:
   icon: mdi:floor-lamp
   supported_features: 57
-switch.light3_relay:
+light.lightlivingroomleftright_l2:
   icon: mdi:wall-sconce-flat
 switch.washermachine_relay:
   icon: mdi:washing-machine

@@ -35,14 +35,12 @@
     entity_id: sensor.aqaraswitchlivingroom1_action
     to: double_right
   action:
-    - service: switch.turn_off
-      entity_id: 
-        - switch.light2_relay
-        - switch.light3_relay
     - service: light.turn_off
       entity_id:
         - light.ikeabulblamp_light
         - light.group_livingroom_1
+        - light.lightlivingroomleftright_l1
+        - light.lightlivingroomleftright_l2
 
 - alias: Turn Off All Living Room and Child Room
   trigger:  
@@ -52,8 +50,6 @@
   action:
     - service: switch.turn_off
       entity_id: 
-        - switch.light2_relay
-        - switch.light3_relay
         - switch.yamaha
         - switch.nc
         - switch.blitzlivingroomrtv
@@ -65,6 +61,8 @@
     - service: light.turn_off
       entity_id: 
         - light.aqaralampchildroom_light
+        - light.lightlivingroomleftright_l1
+        - light.lightlivingroomleftright_l2
         - light.ikeabulbsgroupwardobe
         - light.ikeabulblamp_light
         - light.group_livingroom_1
@@ -88,8 +86,8 @@
     entity_id: sensor.aqaraswitchlivingroom1_action
     to: single_left
   action:
-    entity_id: switch.light2_relay
-    service: switch.toggle
+    entity_id: light.lightlivingroomleftright_l1
+    service: light.toggle
 
 - alias: Switch Light 3 (right)
   trigger:
@@ -97,8 +95,8 @@
     entity_id: sensor.aqaraswitchlivingroom2_action
     to: single_right
   action:
-    entity_id: switch.light3_relay
-    service: switch.toggle
+    entity_id: light.lightlivingroomleftright_l2
+    service: light.toggle
 
 - alias: LED RTV
   trigger:

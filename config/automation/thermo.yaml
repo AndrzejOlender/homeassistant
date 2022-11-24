@@ -44,10 +44,15 @@
     - service: climate.set_temperature
       data:
         entity_id: 
-          - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
           - climate.thermokitchen_climate
         temperature: 23
+        hvac_mode: auto  
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+        temperature: 25
         hvac_mode: auto  
 
 - alias: Set Auto 23 Day Mode In Weekdays
@@ -65,11 +70,16 @@
     - service: climate.set_temperature
       data:
         entity_id: 
-          - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
           - climate.thermokitchen_climate
         temperature: 23
         hvac_mode: auto  
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+        temperature: 25
+        hvac_mode: auto 
 
 - alias: Set Auto 20 Night Mode 
   trigger:
@@ -83,10 +93,15 @@
     - service: climate.set_temperature
       data:
         entity_id: 
-          - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
           - climate.thermokitchen_climate
         temperature: 20
+        hvac_mode: auto  
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+        temperature: 22
         hvac_mode: auto  
 
 - alias: Set Auto 23 Day Mode Weekends
@@ -104,10 +119,15 @@
     - service: climate.set_temperature
       data:
         entity_id: 
-          - climate.thermochildroom_climate
           - climate.thermolivingroom_climate
           - climate.thermokitchen_climate
         temperature: 23
+        hvac_mode: auto
+    - service: climate.set_temperature
+      data:
+        entity_id: 
+          - climate.thermochildroom_climate
+        temperature: 25
         hvac_mode: auto  
 
 # Disable climate for open window - Kitchen

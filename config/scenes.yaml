@@ -19,11 +19,11 @@
 - id: '1577085914679'
   name: Good Night
   entities:
-    switch.light2_relay:
+    light.lightlivingroomleftright_l1:
       state: 'off'
     light.group_livingroom_1:
       state: 'off'
-    switch.light3_relay:
+    light.lightlivingroomleftright_l2:
       state: 'off'
     light.aqaralampchildroom_light:
       state: 'off'

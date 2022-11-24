@@ -178,11 +178,11 @@ views:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-entity-card
-            entity: switch.light2_relay
+            entity: light.lightlivingroomleftright_l1
             name: Left
             layout: horizontal
           - type: custom:mushroom-entity-card
-            entity: switch.light3_relay
+            entity: light.lightlivingroomleftright_l2
             name: Right
       - type: custom:mushroom-entity-card
         entity: light.living_room_rtv

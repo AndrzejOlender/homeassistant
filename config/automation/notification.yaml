@@ -293,7 +293,29 @@
             sound: default 
     - delay:
         seconds: 10
-    
+
+- alias: Wpkiw Enter
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.wpkiw
+    event: enter
+  action: 
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: "Anna went into the WPKiW"
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"   
+
 - alias: Wpkiw Exit
   trigger:
     platform: zone
@@ -316,29 +338,7 @@
             latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
     - delay:
-        seconds: 10
-
-- alias: Wpkiw Enter
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.wpkiw
-    event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna went into the WPKiW"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"                  
+        seconds: 10               
 
 - alias: CityFit Exit
   trigger:
@@ -430,7 +430,53 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"      
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"     
+
+- alias: Grandfathers Enter
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.grandfathers
+    event: enter
+  action: 
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: "Anna went into the Grandfathers"
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"   
+
+- alias: Grandfathers Exit
+  trigger:
+    platform: zone
+    entity_id: person.ania
+    zone: zone.grandfathers
+    event: leave
+  action:
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Location"
+        message: Anna left the Grandfathers
+        data:
+          push:
+            category: map
+            sound: default
+          action_data:
+            shows_traffic: true
+            shows_compass: true
+            shows_points_of_interest: true
+            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
+    - delay:
+        seconds: 10   
 
 - alias: Send Notification Leak Toilet
   trigger:

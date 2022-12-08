@@ -27,3 +27,9 @@
   longitude: !secret longitude_preschool
   radius: 150
   icon: mdi:teddy-bear
+
+- name: Grandfathers
+  latitude: !secret latitude_grandfathers
+  longitude: !secret longitude_grandfathers
+  radius: 250
+  icon: mdi:account-multiple-outline

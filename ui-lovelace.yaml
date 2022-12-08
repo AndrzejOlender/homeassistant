@@ -37,36 +37,10 @@ views:
 
       - type: entities
         show_header_toggle: false
-        header:
-          type: custom:mini-graph-card
-          name: Lights
-          animate: false
-          line_width: 3
-          font_size: 75
-          decimals: 1
-          hours_to_show: 24
-          font_size_header: 12
-          line_color: '#04aaf5'
-          points_per_hour: 1
-          show:
-            fill: false
-            labels: false
-            points: false
-          entities:
-            - entity: sensor.light2_power
-              name: Light 2
-              show_legend: false
-              show_state: true
-              color: green
-            - entity: sensor.light3_power
-              name: Light 3 
-              show_legend: false
-              show_state: false
-              color: purple 
         entities:
           - entity: light.aqaralampchildroom_light
             name: Child Room 1
-          - entity: light.ikeabulbsgroupwardobe
+          - entity: light.group_6_wardobe_1
             name: Child Room 2
           - entity: light.ikeabulblamp_light
             name: Living Room 
@@ -90,13 +64,13 @@ views:
             state_color: on
           - entity: light.lamp_kitchen
             name: Kitchen 
-          - entity: light.ikeabulbsgroupanteroom1
+          - entity: light.group_2_anteroom_1
             name: Ante Room 1
-          - entity: light.ikeabulbsgroupanteroom2
+          - entity: light.group_3_anteroom_2
             name: Ante Room 2  
-          - entity: light.osrambulbsgrouptoilet
+          - entity: light.group_1_toilet_1
             name: Toilet
-          - entity: light.ikeabulbsgrouptoiletmirror
+          - entity: light.group_5_toilet_2
             name: Toilet Mirror
           - entity: light.group_4_kitchen_1
             name: Office

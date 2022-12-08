@@ -19,9 +19,9 @@ filter:
     - switch.blitzlivingroomglasscase
     - sensor.air_purifier_humidity
     - sensor.air_purifier_temperature
-    - light.osrambulbsgrouptoilet
-    - light.ikeabulbsgrouptoiletmirror
-    - light.ikeabulbsgroupwardobe
+    - light.group_1_toilet_1
+    - light.group_5_toilet_2
+    - light.group_6_wardobe_1
     - air_quality.airly
     - binary_sensor.toiletdoor_contact
     - binary_sensor.livingroomwindow_contact
@@ -38,9 +38,9 @@ filter:
     - binary_sensor.motionchildroom_occupancy
     - binary_sensor.motionchildroom2_occupancy
     - light.lamp_kitchen
-    - light.ikeabulbsgroupkitchen
-    - light.ikeabulbsgroupanteroom1
-    - light.ikeabulbsgroupanteroom2
+    - light.group_4_kitchen_1
+    - light.group_2_anteroom_1
+    - light.group_3_anteroom_2
     - light.philipsledoffice
     - device_tracker.iphone
     - device_tracker.samsung

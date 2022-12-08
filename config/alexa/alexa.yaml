@@ -16,16 +16,16 @@ smart_home:
       - light.lightlivingroomleftright_l2
       - switch.blitzlivingroomcommod
       - switch.blitzlivingroomrtv
-      - light.osrambulbsgrouptoilet
-      - light.ikeabulbsgrouptoiletmirror
-      - light.ikeabulbsgroupwardobe
+      - light.group_1_toilet_1
+      - light.group_5_toilet_2
+      - light.group_6_wardobe_1
       - light.philipsledoffice
       - switch.hdmi1
       - switch.hdmi2
       - light.lamp_kitchen
-      - light.ikeabulbsgroupkitchen
-      - light.ikeabulbsgroupanteroom1
-      - light.ikeabulbsgroupanteroom2
+      - light.group_4_kitchen_1
+      - light.group_2_anteroom_1
+      - light.group_3_anteroom_2
       - scene.good_evening
       - scene.good_morning
       - scene.good_night
@@ -94,25 +94,25 @@ smart_home:
     switch.blitzlivingroomrtv:
       name: "Light RTV"
       display_categories: LIGHT
-    light.osrambulbsgrouptoilet:
+    light.group_1_toilet_1:
       name: "Light"
       display_categories: LIGHT
-    light.ikeabulbsgrouptoiletmirror:
+    light.group_5_toilet_2:
       name: "Mirror"
       display_categories: LIGHT
-    light.ikeabulbsgroupwardobe:
+    light.group_6_wardobe_1:
       name: "Light"
       display_categories: LIGHT
     light.lamp_kitchen:
       name: "Light"
       display_categories: LIGHT
-    light.ikeabulbsgroupkitchen:
+    light.group_4_kitchen_1:
       name: "Table"
       display_categories: LIGHT
-    light.ikeabulbsgroupanteroom1:
+    light.group_2_anteroom_1:
       name: "Light 1"
       display_categories: LIGHT
-    light.ikeabulbsgroupanteroom2:
+    light.group_3_anteroom_2:
       name: "Light 2"
       display_categories: LIGHT
     light.philipsledoffice:

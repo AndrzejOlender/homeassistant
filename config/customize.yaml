@@ -155,7 +155,7 @@ device_tracker.iphone:
   entity_picture: /local/andrzej.jpg
 device_tracker.macbookpro:
   entity_picture: /local/andrzej.jpg
-light.ikeabulbsgrouptoiletmirror:
+light.group_5_toilet_2:
   icon: mdi:track-light
   supported_features: 41
 light.ikeabulbtoiletleft_light:
@@ -164,13 +164,13 @@ light.ikeabulbtoiletright_light:
   icon: mdi:wall-sconce-flat
 light.group_toilet_1:
   icon: mdi:wall-sconce-flat
-light.ikeabulbsgroupanteroom2:
+light.group_3_anteroom_2:
   icon: mdi:track-light
-light.ikeabulbsgroupanteroom1:
+light.group_2_anteroom_1:
   icon: mdi:wall-sconce-flat
-light.ikeabulbsgroupkitchen:
+light.group_4_kitchen_1:
   icon: mdi:vanity-light
-light.osrambulbsgrouptoilet:
+light.group_1_toilet_1:
   icon: mdi:wall-sconce-flat
 sensor.fridge_power:
   icon: mdi:fridge
@@ -186,7 +186,7 @@ sensor.eth:
   icon: mdi:ethereum
 sensor.btc:
   icon: mdi:currency-btc
-light.ikeabulbsgroupwardobe:
+light.group_6_wardobe_1:
   icon: mdi:wall-sconce-flat
   supported_features: 41
 media_player.tv:

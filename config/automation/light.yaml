@@ -109,7 +109,7 @@
       entity_id: 
         - switch.blitzlivingroomcommod
         - switch.blitzlivingroomrtv
-        - switch.blitzlivingroomglasscase
+        # - switch.blitzlivingroomglasscase
 
 # Anteroom switches   
 - alias: Switch Light Anteroom 1 (right)
@@ -250,6 +250,9 @@
     - service: cover.close_cover
       entity_id:
         - cover.blindschildroomwindow1
+    - service: switch.turn_off
+      entity_id: 
+        - switch.blitzlivingroomglasscase
     - service: input_select.select_option
       data:
         entity_id: 

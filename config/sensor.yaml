@@ -21,7 +21,7 @@
       friendly_name: "Dishwasher"
       value_template: >-
         {% if states('sensor.dishwasher_power') != ('unavailable' or 'unknown') %}
-          {% if states('sensor.dishwasher_power') | int > 3 %}
+          {% if states('sensor.dishwasher_power') | int > 5 %}
             washing
           {% else %}
             disable

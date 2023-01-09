@@ -10,16 +10,18 @@ smart_home:
       - switch.washermachine_relay
       - switch.yamaha
       - switch.radio
-      - switch.nc
       - light.group_livingroom_1
       - light.lightlivingroomleftright_l1
       - light.lightlivingroomleftright_l2
       - switch.blitzlivingroomcommod
       - switch.blitzlivingroomrtv
+      - switch.blitzlivingroomglasscase
       - light.group_1_toilet_1
       - light.group_5_toilet_2
       - light.group_6_wardobe_1
       - light.philipsledoffice
+      - light.philipsledofficeleft
+      - light.philipsledofficeright
       - switch.hdmi1
       - switch.hdmi2
       - light.lamp_kitchen
@@ -32,18 +34,6 @@ smart_home:
       - scene.cinema
       - media_player.tv
       - fan.air_purifier
-      - binary_sensor.toiletdoor_contact
-      - binary_sensor.maindoor_contact
-      - binary_sensor.motionkitchen_occupancy
-      - binary_sensor.motionkitchen2_occupancy
-      - binary_sensor.motiontoilet_occupancy
-      - binary_sensor.motionchildroom_occupancy
-      - binary_sensor.livingroomwindow_contact
-      - binary_sensor.livingroombalconywindow_contact
-      - binary_sensor.childroomwindow_contact
-      - binary_sensor.kitchenwindow_contact
-      - binary_sensor.wardobewindow_contact
-      - binary_sensor.doorbell
       - vacuum.john
       - lock.maindoorlock
       - script.clean_home
@@ -53,16 +43,16 @@ smart_home:
       - script.clean_ante_room
       - script.clean_living_room
       - script.clean_child_room
+      - script.clean_white_floor
       - script.stop_clean_home
       - script.covers_close
       - script.covers_open
       - script.work_day
-      - cover.blindslivingroomwindow2
-      - cover.blindslivingroomwindow3
       - cover.blindschildroomwindow1
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
       - cover.blindskitchenwindow1
+      - cover.covers_office_room
+      - cover.covers_living_room
+
   entity_config:
     light.aqaralampchildroom_light:
       name: "Lamp"
@@ -76,10 +66,7 @@ smart_home:
     switch.radio:
       name: "Radio"
       display_categories: SWITCH
-    switch.nc:
-      name: "NC"
-      display_categories: SWITCH
-    switch.light1_relay:
+    light.group_livingroom_1:
       name: "Light 1"
       display_categories: LIGHT
     light.lightlivingroomleftright_l1:
@@ -94,6 +81,9 @@ smart_home:
     switch.blitzlivingroomrtv:
       name: "Light RTV"
       display_categories: LIGHT
+    switch.blitzlivingroomglasscase:
+      name: "Light Glass"
+      display_categories: LIGHT
     light.group_1_toilet_1:
       name: "Light"
       display_categories: LIGHT
@@ -107,7 +97,7 @@ smart_home:
       name: "Light"
       display_categories: LIGHT
     light.group_4_kitchen_1:
-      name: "Table"
+      name: "Office"
       display_categories: LIGHT
     light.group_2_anteroom_1:
       name: "Light 1"
@@ -117,6 +107,12 @@ smart_home:
       display_categories: LIGHT
     light.philipsledoffice:
       name: "Office Desk"
+      display_categories: LIGHT
+    light.philipsledofficeleft:
+      name: "Office Desk Left"
+      display_categories: LIGHT
+    light.philipsledofficeright:
+      name: "Office Desk Right"
       display_categories: LIGHT
     switch.hdmi1:
       name: "HDMI1"
@@ -157,6 +153,9 @@ smart_home:
     script.clean_child_room:
       name: "Clean Child Room"
       display_categories: SCENE
+    script.clean_white_floor:
+      name: "Clean White Floor"
+      display_categories: SCENE
     script.stop_clean_home:
       name: "Stop Cleaning"
       display_categories: SCENE
@@ -178,62 +177,17 @@ smart_home:
     fan.air_purifier:
       name: Airpurifier
       display_categories: AIR_PURIFIER
-    binary_sensor.toiletdoor_contact:
-      name: Toilet Door
-      display_categories: DOOR
-    binary_sensor.maindoor_contact:
-      name: Main Door
-      display_categories: DOOR
-    binary_sensor.motionkitchen_occupancy:
-      name: Motion
-      display_categories: MOTION_SENSOR
-    binary_sensor.motionkitchen2_occupancy:
-      name: Motion 
-      display_categories: MOTION_SENSOR
-    binary_sensor.motiontoilet_occupancy: 
-      name: Motion
-      display_categories: MOTION_SENSOR
-    binary_sensor.motionchildroom_occupancy:  
-      name: Motion
-      display_categories: MOTION_SENSOR
-    binary_sensor.livingroomwindow_contact:
-      name: Window
-      display_categories: CONTACT_SENSOR
-    binary_sensor.livingroombalconywindow_contact:
-      name: Balcony
-      display_categories: CONTACT_SENSOR
-    binary_sensor.childroomwindow_contact:
-      name: Window
-      display_categories: CONTACT_SENSOR
-    binary_sensor.kitchenwindow_contact:
-      name: Window
-      display_categories: CONTACT_SENSOR
-    binary_sensor.wardobewindow_contact:
-      name: Window
-      display_categories: CONTACT_SENSOR
-    binary_sensor.doorbell:
-      name: Doorbell
-      display_categories: DOORBELL
     lock.maindoorlock:
       name: Door
       display_categories: SMARTLOCK
-    cover.blindslivingroomwindow1:
-      name: Living Room 1
-      display_categories: INTERIOR_BLIND
-    cover.blindslivingroomwindow2:
-      name: Living Room 2
-      display_categories: INTERIOR_BLIND
-    cover.blindslivingroomwindow3:
-      name: Living Room 3
+    cover.covers_living_room:
+      name: Living Room 
       display_categories: INTERIOR_BLIND
     cover.blindschildroomwindow1:
       name: Child Room
       display_categories: INTERIOR_BLIND
-    cover.blindsofficewindow1:
-      name: Office 1
-      display_categories: INTERIOR_BLIND
-    cover.blindsofficewindow2:
-      name: Office 2
+    cover.covers_office_room:
+      name: Office
       display_categories: INTERIOR_BLIND
     cover.blindskitchenwindow1:
       name: Kitchen

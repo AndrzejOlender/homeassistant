@@ -22,6 +22,9 @@ smart_home:
       - light.philipsledoffice
       - light.philipsledofficeleft
       - light.philipsledofficeright
+      - climate.thermolivingroom_climate
+      - climate.thermochildroom_climate
+      - climate.thermokitchen_climate
       - switch.hdmi1
       - switch.hdmi2
       - light.lamp_kitchen
@@ -192,3 +195,12 @@ smart_home:
     cover.blindskitchenwindow1:
       name: Kitchen
       display_categories: INTERIOR_BLIND
+    climate.thermolivingroom_climate:
+      name: Living Room
+      display_categories: THERMOSTAT
+    climate.thermochildroom_climate:
+      name: Child Room
+      display_categories: THERMOSTAT
+    climate.thermokitchen_climate:
+      name: Kitchen
+      display_categories: THERMOSTAT

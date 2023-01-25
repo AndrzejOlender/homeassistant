@@ -1,75 +1,75 @@
-# Anteroom Auto Turn On       
-- alias: TTS Home 1
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:15:00"
-      - condition: state
-        entity_id: binary_sensor.motionkitchen_occupancy
-        state: "off"   
-      - condition: state
-        entity_id:
-          - device_tracker.iphone
-          - device_tracker.xiaomi
-        state: not_home
-  action: 
-    - service: notify.sonos
-      data:
-        message: "Dobry wieczór Wam, moi mili domownicy. Króliczek się stęsknił."
+# # Anteroom Auto Turn On       
+# - alias: TTS Home 1
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.maindoor_contact
+#     from: "off"
+#     to: "on"
+#   condition:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-00:15:00"
+#       - condition: state
+#         entity_id: binary_sensor.motionkitchen_occupancy
+#         state: "off"   
+#       - condition: state
+#         entity_id:
+#           - device_tracker.iphone
+#           - device_tracker.xiaomi
+#         state: not_home
+#   action: 
+#     - service: notify.sonos
+#       data:
+#         message: "Dobry wieczór Wam, moi mili domownicy. Króliczek się stęsknił."
 
-- alias: TTS Home 2
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:15:00"
-      - condition: state
-        entity_id: binary_sensor.motionkitchen_occupancy
-        state: "off"   
-      - condition: state
-        entity_id:
-          - device_tracker.xiaomi
-        state: not_home
-      - condition: state
-        entity_id:
-          - device_tracker.iphone
-        state: home
-  action: 
-    - service: notify.sonos
-      data:
-        message: "Dobry wieczór Aneczko. Bardzo Cię kochamy i mocno tęskniliśmy. Opętany sierściuch również"
+# - alias: TTS Home 2
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.maindoor_contact
+#     from: "off"
+#     to: "on"
+#   condition:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-00:15:00"
+#       - condition: state
+#         entity_id: binary_sensor.motionkitchen_occupancy
+#         state: "off"   
+#       - condition: state
+#         entity_id:
+#           - device_tracker.xiaomi
+#         state: not_home
+#       - condition: state
+#         entity_id:
+#           - device_tracker.iphone
+#         state: home
+#   action: 
+#     - service: notify.sonos
+#       data:
+#         message: "Dobry wieczór Aneczko. Bardzo Cię kochamy i mocno tęskniliśmy. Opętany sierściuch również"
 
-- alias: TTS Home 3
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:15:00"
-      - condition: state
-        entity_id: binary_sensor.motionkitchen_occupancy
-        state: "off"   
-      - condition: state
-        entity_id:
-          - device_tracker.xiaomi
-        state: home
-      - condition: state
-        entity_id:
-          - device_tracker.iphone
-        state: not_home
-  action: 
-    - service: notify.sonos
-      data:
-        message: "Dobry wieczór Andrzejku."
+# - alias: TTS Home 3
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.maindoor_contact
+#     from: "off"
+#     to: "on"
+#   condition:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-00:15:00"
+#       - condition: state
+#         entity_id: binary_sensor.motionkitchen_occupancy
+#         state: "off"   
+#       - condition: state
+#         entity_id:
+#           - device_tracker.xiaomi
+#         state: home
+#       - condition: state
+#         entity_id:
+#           - device_tracker.iphone
+#         state: not_home
+#   action: 
+#     - service: notify.sonos
+#       data:
+#         message: "Dobry wieczór Andrzejku."

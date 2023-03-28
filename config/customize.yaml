@@ -9,7 +9,7 @@ switch.blitzlivingroomcommod:
 switch.blitzlivingroomrtv:
   icon: mdi:led-strip
 switch.blitzlivingroomglasscase:
-  icon: mdi:pine-tree
+  icon: mdi:led-strip
 light.philipsledoffice:
   icon: mdi:led-strip
 binary_sensor.childroomwindow_contact:
@@ -59,7 +59,6 @@ sensor.yamaha_current:
   icon: mdi:speaker
 binary_sensor.vacuum_cleaning:
   icon: mdi:robot-vacuum
-
 switch.tvn:
   assumed_state: true
   icon: mdi:remote-tv

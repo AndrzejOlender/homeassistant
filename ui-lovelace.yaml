@@ -577,7 +577,7 @@ views:
         line_color: '#04aaf5'
         decimals: 1
         entities:
-          - sensor.btc
+          - sensor.pln_wallet
       - type: entities
         show_header_toggle: false
         entities:

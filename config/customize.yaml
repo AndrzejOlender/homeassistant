@@ -183,7 +183,7 @@ switch.airpurifiermax:
   icon: mdi:weather-windy
 sensor.eth:
   icon: mdi:ethereum
-sensor.btc:
+sensor.pln_wallet:
   icon: mdi:currency-btc
 light.group_6_wardobe_1:
   icon: mdi:wall-sconce-flat

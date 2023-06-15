@@ -375,7 +375,7 @@ views:
             labels: false
             points: false
           entities:
-            - entity: sensor.airly_pm2_5_2
+            - entity: sensor.i_lo_siemianowice_slaskie_pm2_5
               name: Outdoor
               color: green
               show_legend: false
@@ -390,7 +390,7 @@ views:
           - entity: switch.air_purifier_led
             name: LED
             state_color: on
-          - entity: sensor.airly_pm2_5_2
+          - entity: sensor.i_lo_siemianowice_slaskie_pm2_5
             name: Outdoor
           - entity: sensor.air_purifier_pm2_5
             name: Home

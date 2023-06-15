@@ -10,7 +10,6 @@ frontend:
   themes: !include_dir_merge_named themes
 
 homeassistant:
-  packages: !include_dir_named config/packages
   customize: !include config/customize.yaml
   internal_url: "http://192.168.1.2:8123"
   allowlist_external_urls:
@@ -30,9 +29,7 @@ homekit: !include config/homekit.yaml
 sensor: !include config/sensor.yaml
 switch: !include config/switch.yaml
 remote: !include config/remote.yaml
-webostv: !include config/webostv.yaml
 recorder: !include config/recorder.yaml
-# influxdb: !include config/influxdb.yaml
 prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml

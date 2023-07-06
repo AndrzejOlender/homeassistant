@@ -475,26 +475,26 @@
 #         entity_id:
 #           - light.philipsledoffice
 
-# Office Desk Auto Turn Off    
-- alias: Turn off Light In The Office
-  trigger:
-    platform: zone
-    entity_id: person.arsen
-    zone: zone.home
-    event: leave
-  action: 
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.philipsledoffice
-          - light.philipsledofficeleft
-          - light.philipsledofficeright
-          - light.philipsledoffice1
-          - light.philipsledoffice2
-    - service: cover.open_cover
-      entity_id: 
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
+# # Office Desk Auto Turn Off    
+# - alias: Turn off Light In The Office
+#   trigger:
+#     platform: zone
+#     entity_id: person.arsen
+#     zone: zone.home
+#     event: leave
+#   action: 
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.philipsledoffice
+#           - light.philipsledofficeleft
+#           - light.philipsledofficeright
+#           - light.philipsledoffice1
+#           - light.philipsledoffice2
+#     - service: cover.open_cover
+#       entity_id: 
+#       - cover.blindsofficewindow1
+#       - cover.blindsofficewindow2
 
 # # Office Desk Auto Turn On and Off if Camera Usage      
 # - alias: Turn on Light In The Office if Camera Ussage

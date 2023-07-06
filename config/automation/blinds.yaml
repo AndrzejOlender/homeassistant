@@ -17,6 +17,20 @@
 #     - service: script.turn_on
 #       entity_id: 
 #       - script.covers_open
+- alias: Auto Blinds Up Down
+  trigger: 
+    - platform: time
+      at: "22:30:00"
+  action:
+    - service: cover.close_cover
+      entity_id: 
+      - cover.blindslivingroomwindow1
+      - cover.blindslivingroomwindow2
+      - cover.blindslivingroomwindow3
+      - cover.blindschildroomwindow1
+      - cover.blindsofficewindow1
+      - cover.blindsofficewindow2
+      - cover.blindskitchenwindow1
 
 - alias: Auto Blinds Up Sunrise
   trigger: 

@@ -44,17 +44,3 @@
         {% else %}
           mdi:lock
         {% endif %}
-
-# Storm day
-- platform: burze_dzis_net
-  api_key: !secret burze_dzis_net.api_key
-  latitude: 50.2985936
-  longitude: 19.04179
-  warnings:
-    - frost_warning
-    - heat_warning
-    - wind_warning
-    - precipitation_warning
-    - storm_warning
-  storms_nearby:
-    radius: 15

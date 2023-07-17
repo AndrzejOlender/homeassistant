@@ -232,4 +232,3 @@
   - service: scene.turn_on
     target:
       entity_id: scene.before
-

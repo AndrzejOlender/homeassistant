@@ -262,16 +262,16 @@ views:
       - type: entities
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.burze_dzis_net_heat_warning
+          - entity: binary_sensor.burze_dzis_net_ostrzezenie_upal
             name: Heat warning
             state_color: on
-          - entity: binary_sensor.burze_dzis_net_wind_warning
+          - entity: binary_sensor.burze_dzis_net_ostrzezenie_wiatr
             name: Wind warning
             state_color: on
-          - entity: binary_sensor.burze_dzis_net_storm_warning
+          - entity: binary_sensor.burze_dzis_net_ostrzezenie_burza
             name: Storm warning
             state_color: on
-          - entity: binary_sensor.burze_dzis_net_storms_nearby
+          - entity: binary_sensor.burze_dzis_net_ostrzezenie_aktywne_burza
             name: Storms nearby
             state_color: on
 

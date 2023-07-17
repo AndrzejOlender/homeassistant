@@ -702,7 +702,7 @@
 - alias: "Notification Storm Nearby"
   trigger:
     - platform: state
-      entity_id: binary_sensor.burze_dzis_net_storms_nearby
+      entity_id: binary_sensor.burze_dzis_net_wyladowania_w_poblizu
       from: 'off'
       to: 'on'  
   action:
@@ -720,7 +720,7 @@
 - alias: "Notification Storm Warning"
   trigger:
     - platform: state
-      entity_id: binary_sensor.burze_dzis_net_storm_warning
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_burza
       from: 'off'
       to: 'on'   
   action:
@@ -738,7 +738,7 @@
 - alias: "Notification Heat Warning"
   trigger:
     - platform: state
-      entity_id: binary_sensor.burze_dzis_net_heat_warning
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_upal
       from: 'off'
       to: 'on'    
   action:
@@ -756,7 +756,7 @@
 - alias: "Notification Wind Warning"
   trigger:
     - platform: state
-      entity_id: binary_sensor.burze_dzis_net_wind_warning
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_wiatr
       from: 'off'
       to: 'on'  
   action:

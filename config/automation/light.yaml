@@ -450,8 +450,8 @@
         after: sunset
         after_offset: "-00:15:00"
       - condition: state
-        entity_id: binary_sensor.motionkitchen_occupancy
-        state: "off"   
+        entity_id: device_tracker.iphone
+        state: "not_home"
   action: 
     - service: light.turn_on
       data:

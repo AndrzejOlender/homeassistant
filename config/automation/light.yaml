@@ -450,7 +450,7 @@
         after: sunset
         after_offset: "-00:15:00"
       - condition: state
-        entity_id: device_tracker.iphone
+        entity_id: device_tracker.iphone_luci_andrzej
         state: "not_home"
   action: 
     - service: light.turn_on

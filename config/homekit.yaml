@@ -56,7 +56,3 @@ filter:
     - cover.blindskitchenwindow1
     - script.covers_close
     - script.covers_open
-# entity_config:
-#   media_player.tv:
-#     feature_list:
-#       - feature: on_off

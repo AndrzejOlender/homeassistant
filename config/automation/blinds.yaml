@@ -32,11 +32,33 @@
       - cover.blindsofficewindow2
       - cover.blindskitchenwindow1
 
+- alias: Auto Blinds Up Down - 24C
+  trigger: 
+    - platform: time
+      at: "08:00:00"
+  condition:
+    - condition: numeric_state
+      entity_id: weather.home
+      attribute: temperature
+      above: 24
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+  action:
+    - service: cover.close_cover
+      entity_id: 
+      - cover.blindslivingroomwindow1
+      - cover.blindslivingroomwindow2
+      - cover.blindslivingroomwindow3
+      - cover.blindschildroomwindow1
+      - cover.blindsofficewindow1
+      - cover.blindsofficewindow2
+      - cover.blindskitchenwindow1
+
 - alias: Auto Blinds Up Sunrise
   trigger: 
-    - platform: sun
-      event: sunrise
-      offset: "+03:00:00"
+    - platform: time
+      at: "07:00:00"
   action:
     - service: cover.open_cover
       entity_id: 

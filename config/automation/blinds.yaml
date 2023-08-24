@@ -15,6 +15,9 @@
       entity_id: weather.home
       attribute: temperature
       above: 25
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_upal
+      to: 'on'
   condition:
     condition: and
     conditions:
@@ -27,11 +30,6 @@
       - condition: state
         entity_id: cover.covers_all
         state: 'open'
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: binary_sensor.burze_dzis_net_ostrzezenie_upal
-            state: 'on'
   action:
     - service: cover.close_cover
       entity_id: 

@@ -29,3 +29,11 @@ sre_alerts:
         - 'OFF'
     # initial: 'OFF'
     icon: mdi:alert-decagram
+    
+covers_sun:
+    name: "Covers Sun"
+    options:
+        - 'ON'
+        - 'OFF'
+    initial: 'OFF'
+    icon: mdi:blinds-horizontal

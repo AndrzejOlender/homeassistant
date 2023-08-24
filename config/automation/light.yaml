@@ -256,6 +256,12 @@
           - input_select.light_childroom
           - input_select.light_childroom2
         option: "OFF"
+    - service: input_select.select_option
+      data:
+        entity_id: 
+          - input_select.covers_sun
+        option: "ON"
+
 
 # Auto on child room 1
 - alias: Turn On Light Childroom if auto light off

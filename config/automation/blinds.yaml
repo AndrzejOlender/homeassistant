@@ -30,6 +30,9 @@
       - condition: state
         entity_id: cover.covers_all
         state: 'open'
+      - condition: state
+        entity_id: input_select.covers_sun
+        state: "OFF"
   action:
     - service: cover.close_cover
       entity_id: 
@@ -42,6 +45,17 @@
     - delay: 00:00:05
     - service: sonos.restore
       entity_id: all
+
+- alias: Reset Condition Blinds (Turn On Automation)
+  trigger: 
+    - platform: time
+      at: "07:30:00"
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: 
+          - input_select.covers_sun
+        option: "OFF"
 
 - alias: Auto Blinds Up Sunrise
   trigger: 

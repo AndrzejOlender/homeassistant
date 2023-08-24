@@ -389,6 +389,11 @@ covers_close:
   - delay: 00:00:05
   - service: sonos.restore
     entity_id: all
+  - service: input_select.select_option
+    data:
+      entity_id: 
+        - input_select.covers_sun
+      option: "ON"
 
 # Work Day
 work_day:

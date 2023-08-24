@@ -1,22 +1,3 @@
-# - alias: Auto Blinds Up
-#   trigger: 
-#     - platform: state
-#       entity_id: 
-#         - weather.home
-#       to: 
-#       - "cloudy"
-#       - "rainy"
-#     - platform: sun
-#       event: sunset
-#       offset: "-02:00:00"
-#   condition:
-#     - condition: time
-#       after: '16:00:00'
-#       before: '19:30:00'
-#   action:
-#     - service: script.turn_on
-#       entity_id: 
-#       - script.covers_open
 - alias: Auto Blinds Up Down
   trigger: 
     - platform: time
@@ -24,36 +5,45 @@
   action:
     - service: cover.close_cover
       entity_id: 
-      - cover.blindslivingroomwindow1
-      - cover.blindslivingroomwindow2
-      - cover.blindslivingroomwindow3
-      - cover.blindschildroomwindow1
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
-      - cover.blindskitchenwindow1
+      - cover.covers_all
 
-- alias: Auto Blinds Up Down - 24C
-  trigger: 
-    - platform: time
-      at: "08:00:00"
-  condition:
-    - condition: numeric_state
+- alias: Auto Blinds Up Down - Sunny
+  trigger:
+    - platform: time_pattern
+      hours: "/1"
+    - platform: numeric_state
       entity_id: weather.home
       attribute: temperature
-      above: 24
-    - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
-      state: 'on'
+      above: 25
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: 'binary_sensor.workday_sensor'
+        state: 'on'
+      - condition: time
+        after: '08:00:00'
+        before: '15:00:00'
+      - condition: state
+        entity_id: cover.covers_all
+        state: 'open'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: binary_sensor.burze_dzis_net_ostrzezenie_upal
+            state: 'on'
   action:
     - service: cover.close_cover
       entity_id: 
-      - cover.blindslivingroomwindow1
-      - cover.blindslivingroomwindow2
-      - cover.blindslivingroomwindow3
-      - cover.blindschildroomwindow1
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
-      - cover.blindskitchenwindow1
+      - cover.covers_all
+    - service: sonos.snapshot
+      entity_id: all
+    - service: notify.sonos
+      data:
+        message: "Robi się upalnie i słonecznie, zasłaniam wszystkie rolety w mieszkaniu"
+    - delay: 00:00:05
+    - service: sonos.restore
+      entity_id: all
 
 - alias: Auto Blinds Up Sunrise
   trigger: 
@@ -62,10 +52,4 @@
   action:
     - service: cover.open_cover
       entity_id: 
-      - cover.blindslivingroomwindow1
-      - cover.blindslivingroomwindow2
-      - cover.blindslivingroomwindow3
-      - cover.blindschildroomwindow1
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
-      - cover.blindskitchenwindow1
+      - cover.covers_all

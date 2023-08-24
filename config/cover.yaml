@@ -10,3 +10,14 @@
   entities:
     - cover.blindsofficewindow1
     - cover.blindsofficewindow2
+
+- platform: group
+  name: "Covers All"
+  entities:
+    - cover.blindslivingroomwindow1
+    - cover.blindslivingroomwindow2
+    - cover.blindslivingroomwindow3
+    - cover.blindschildroomwindow1
+    - cover.blindsofficewindow1
+    - cover.blindsofficewindow2
+    - cover.blindskitchenwindow1

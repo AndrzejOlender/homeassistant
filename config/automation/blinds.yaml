@@ -7,7 +7,7 @@
       entity_id: 
       - cover.covers_all
 
-- alias: Auto Blinds Up Down - Sunny
+- alias: Auto Blinds Up Down - Sunny Day
   trigger:
     - platform: time_pattern
       hours: "/1"

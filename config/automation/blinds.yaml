@@ -27,6 +27,14 @@
       - condition: time
         after: '08:00:00'
         before: '15:00:00'
+      - condition: numeric_state
+        entity_id: weather.home
+        attribute: temperature
+        above: 25
+      - condition: numeric_state
+        entity_id: weather.home
+        attribute: cloud_coverage
+        below: 80
       - condition: state
         entity_id: cover.covers_all
         state: 'open'

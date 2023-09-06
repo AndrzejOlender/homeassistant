@@ -36,7 +36,7 @@ jobs:
         changed_files=$(git diff HEAD~1 --name-only)
         for file in $changed_files; do
           dest_path="/config/$(dirname $file)"
-          echo "Copying file: $full_path"
+          echo "Copying file to: $dest_path/$file"
           kubectl exec -it $POD_NAME -c homeassistant -- mkdir -p $dest_path
           kubectl cp $file smart-home/$POD_NAME:$dest_path -c homeassistant || exit 1
         done

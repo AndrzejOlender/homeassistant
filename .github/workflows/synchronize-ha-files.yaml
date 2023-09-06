@@ -59,7 +59,7 @@ jobs:
 
       - name: Install hass-cli
         run: |
-          curl -Lo hass-cli https://github.com/home-assistant/cli/releases/download/4.27.0/ha_amd64
+          curl https://raw.githubusercontent.com/home-assistant/home-assistant-cli/master/docker-hass-cli > hass-cli
           chmod +x hass-cli
           sudo mv hass-cli /usr/local/bin/
       
@@ -76,4 +76,4 @@ jobs:
       
       - name: Identify and Copy Changed Files to Volume
         run: |
-            hass-cli --help
+            hass-cli service call homeassistant.reload_core_config

@@ -21,8 +21,8 @@ jobs:
 
     - name: Configure kubectl
       run: |
-        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > config
-        cat config
+        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kube_config
+        cat kube_config
 
     - name: Test
       run: |

@@ -59,13 +59,11 @@ jobs:
       
       - name: Validate configuration
         run: |
-          echo HASS_TOKEN="${{ secrets.HASS_TOKEN }}" >> $GITHUB_ENV
-          hass-cli -s $HASS_SERVER config check
-          
+          curl -X POST -H "Authorization: Bearer ${{ secrets.HASS_TOKEN }}" -H "Content-Type: application/json" $HASS_SERVER }}/api/config/core/check
+      
       - name: Reload configuration
         run: |
-          export HASS_TOKEN=YOUR_LONG_LIVED_ACCESS_TOKEN
-          hass-cli -s $HASS_SERVER config reload
+          curl -X POST -H "Authorization: Bearer ${{ secrets.HASS_TOKEN }}" -H "Content-Type: application/json" $HASS_SERVER }}/api/services/homeassistant/reload
 
 
 # # przełądowanie konfiguracji za pomocą hass-cli

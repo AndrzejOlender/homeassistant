@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         fetch-depth: 2
 
@@ -50,12 +50,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       
       - name: Set environment variables
         run: |
           echo "HASS_SERVER=${{ secrets.HASS_SERVER }}" >> $GITHUB_ENV
-          echo "HASS_TOKEN=${{ secrets.TOKEN }}" >> $GITHUB_ENV
+          echo "HASS_TOKEN=${{ secrets.HASS_TOKEN }}" >> $GITHUB_ENV
 
       - name: Install hass-cli
         run: |
@@ -76,4 +76,4 @@ jobs:
       
       - name: Identify and Copy Changed Files to Volume
         run: |
-            hass-cli service list
+            hass-cli --help

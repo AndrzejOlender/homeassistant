@@ -33,14 +33,14 @@ jobs:
 
     - name: Identify and Copy Changed Files to Volume
       run: |
+        current_dir=$(pwd)
         changed_files=$(git diff HEAD~1 --name-only)
         for file in $changed_files; do
           dest_path="/config/$(dirname $file)"
-          echo "Copying file to: $dest_path/$file"
-          kubectl exec -it $POD_NAME -c homeassistant -- mkdir -p $dest_path
-          kubectl cp $file smart-home/$POD_NAME:$dest_path -c homeassistant || exit 1
+          full_path="$current_dir/$file"
+          echo "Copying file from: $full_path to: $dest_path"
+          kubectl cp $full_path smart-home/$POD_NAME:$dest_path -c homeassistant -n smart-home || exit 1
         done
-
 
 # # przełądowanie konfiguracji za pomocą hass-cli
 #     - name: Identify and Copy Changed Files to Volume

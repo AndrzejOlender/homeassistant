@@ -1,0 +1,36 @@
+name: Synchronize Modified Files to Kubernetes Volume
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  sync_files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - uses: actions-hub/kubectl@master
+      env:
+        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      with:
+        args: get pods
+
+    - uses: actions-hub/kubectl@master
+      with:
+        args: echo "POD_NAME=$(kubectl get pods -l app=my-app -n namespace -o jsonpath='{.items[0].metadata.name}') >> $GITHUB_ENV
+
+    - uses: actions-hub/kubectl@master
+      with:
+        args: get pod -A
+
+    # - name: Identify and Copy Changed Files to Volume
+    #   run: |
+    #     changed_files=$(git diff HEAD~1 --name-only)
+    #     for file in $changed_files; do
+    #       # Customize the following line with your actual paths and details
+    #       kubectl cp $file namespace/$POD_NAME:/path/in/volume -c homeassistant
+    #     done

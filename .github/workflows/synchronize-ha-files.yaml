@@ -55,6 +55,7 @@ jobs:
       - name: Set environment variables
         run: |
           echo "HASS_SERVER=${{ secrets.HASS_SERVER }}" >> $GITHUB_ENV
+          echo "HASS_TOKEN=${{ secrets.TOKEN }}" >> $GITHUB_ENV
 
       - name: Install hass-cli
         run: |
@@ -75,4 +76,4 @@ jobs:
       
       - name: Identify and Copy Changed Files to Volume
         run: |
-            hass-cli service call homeassistant.reload_core_config
+            hass-cli service list

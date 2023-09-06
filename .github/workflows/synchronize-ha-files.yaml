@@ -27,6 +27,7 @@ jobs:
     - name: Test
       run: |
         kubectl get pod -A
+        
 
     # - uses: actions-hub/kubectl@master
     #   with:

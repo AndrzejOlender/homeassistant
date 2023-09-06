@@ -26,6 +26,11 @@ jobs:
         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
         echo "KUBECONFIG=$(pwd)/kubeconfig.yaml" >> $GITHUB_ENV
 
+    - name: Get Pod Name
+      run: |
+        export POD_NAME=$(kubectl get pods -l app=homeassistant -n smart-home -o jsonpath='{.items[0].metadata.name}')
+        echo "POD_NAME=$POD_NAME" >> $GITHUB_ENV
+
     - name: Print POD_NAME
       run: echo "POD_NAME=$POD_NAME"
 

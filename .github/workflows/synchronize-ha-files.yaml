@@ -34,3 +34,4 @@ jobs:
     #       # Customize the following line with your actual paths and details
     #       kubectl cp $file namespace/$POD_NAME:/path/in/volume -c homeassistant
     #     done
+

@@ -65,15 +65,8 @@ jobs:
       
       - name: Validate configuration
         run: |
-          response=$(curl -s -X POST -H "Authorization: Bearer ${{ secrets.HASS_TOKEN }}" -H "Content-Type: application/json" ${{ secrets.HASS_SERVER }}/api/config/core/check_config)
-          echo "Validation Response: $response"
-          if [[ $response == *'"result":"valid"'* ]]; then
-            echo "Configuration is valid, proceeding to reload."
-          else
-            echo "Configuration validation failed, aborting."
-            exit 1
-          fi
-      
+            hass-cli service call homeassistant.check_config     
+
       - name: Identify and Copy Changed Files to Volume
         run: |
-            hass-cli service call homeassistant.reload_core_config
+            hass-cli service call homeassistant.reload_all

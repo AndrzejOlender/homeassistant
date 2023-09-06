@@ -75,4 +75,4 @@ jobs:
       
       - name: Identify and Copy Changed Files to Volume
         run: |
-            hass-cli --token ${{ secrets.HASS_TOKEN }} --host ${{ secrets.HASS_SERVER }} --ssl --output=json service call homeassistant.reload_core_config
+            hass-cli service call homeassistant.reload_core_config

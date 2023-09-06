@@ -24,13 +24,13 @@ jobs:
         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
         echo "KUBECONFIG=$(pwd)/kubeconfig.yaml" >> $GITHUB_ENV
 
-    # - name: Identify and Copy Changed Files to Volume
-    #   run: |
-    #     changed_files=$(git diff HEAD~1 --name-only)
-    #     for file in $changed_files; do
-    #       # Customize the following line with your actual paths and details
-    #       kubectl cp $file smart-home/$POD_NAME:/config -c homeassistant || exit 1
-    #     done
+    - name: Identify and Copy Changed Files to Volume
+      run: |
+        changed_files=$(git diff HEAD~1 --name-only)
+        for file in $changed_files; do
+          # Customize the following line with your actual paths and details
+          kubectl cp $file smart-home/$POD_NAME:/config -c homeassistant || exit 1
+        done
 
 # # przełądowanie konfiguracji za pomocą hass-cli
 #     - name: Identify and Copy Changed Files to Volume

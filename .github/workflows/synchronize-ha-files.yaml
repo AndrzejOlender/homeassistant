@@ -31,16 +31,14 @@ jobs:
         export POD_NAME=$(kubectl get pods -l app=homeassistant -n smart-home -o jsonpath='{.items[0].metadata.name}')
         echo "POD_NAME=$POD_NAME" >> $GITHUB_ENV
 
-    - name: Print POD_NAME
-      run: echo "POD_NAME=$POD_NAME"
-
     - name: Identify and Copy Changed Files to Volume
       run: |
         changed_files=$(git diff HEAD~1 --name-only)
         for file in $changed_files; do
-          full_path=$(pwd)/$file
+          dest_path="/config/$(dirname $file)"
           echo "Copying file: $full_path"
-          kubectl cp $full_path smart-home/$POD_NAME:/config -c homeassistant || exit 1
+          kubectl exec -it $POD_NAME -c homeassistant -- mkdir -p $dest_path
+          kubectl cp $file smart-home/$POD_NAME:$dest_path -c homeassistant || exit 1
         done
 
 

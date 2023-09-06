@@ -21,13 +21,13 @@ jobs:
 
     - name: Configure kubectl
       run: |
-        echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
+        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
         export KUBECONFIG=kubeconfig.yaml
 
     - name: Test
       run: |
         kubectl get pod -A
-        
+
 
     # - uses: actions-hub/kubectl@master
     #   with:

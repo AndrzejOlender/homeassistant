@@ -19,10 +19,10 @@ jobs:
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin/
 
-    - name: Configure kubectl
-      run: |
-        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
-        export KUBECONFIG=kubeconfig.yaml
+    # - name: Configure kubectl
+    #   run: |
+    #     echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
+    #     export KUBECONFIG=kubeconfig.yaml
 
     - name: Test
       run: |

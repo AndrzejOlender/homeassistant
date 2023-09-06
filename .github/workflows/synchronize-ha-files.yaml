@@ -1,4 +1,4 @@
-name: Synchronize Modified Files to Kubernetes Volume
+name: Sync Home Assistant Config
 
 on:
   push:

@@ -359,6 +359,13 @@ covers_open:
     - cover.blindsofficewindow1
     - cover.blindsofficewindow2
     - cover.blindskitchenwindow1
+  - service:  notify.mobile_app_iphone
+    data:
+      title: "Blinds"
+      message: "All Blinds Open"
+      data:
+        push:
+          sound: default
   - service: sonos.snapshot
     entity_id: all
   - service: notify.sonos
@@ -381,6 +388,13 @@ covers_close:
     - cover.blindsofficewindow1
     - cover.blindsofficewindow2
     - cover.blindskitchenwindow1
+  - service:  notify.mobile_app_iphone
+    data:
+      title: "Blinds"
+      message: "All Blinds Close"
+      data:
+        push:
+          sound: default
   - service: sonos.snapshot
     entity_id: all
   - service: notify.sonos

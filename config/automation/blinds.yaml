@@ -6,6 +6,13 @@
     - service: cover.close_cover
       entity_id: 
       - cover.covers_all
+  - service:  notify.mobile_app_iphone
+    data:
+      title: "Blinds"
+      message: "All Blinds Close"
+      data:
+        push:
+          sound: default
 
 - alias: Auto Blinds Up Down - Sunny Day
   trigger:
@@ -53,6 +60,13 @@
     - delay: 00:00:05
     - service: sonos.restore
       entity_id: all
+    - service:  notify.mobile_app_iphone
+      data:
+        title: "Blinds"
+        message: "All Blinds Close"
+        data:
+          push:
+          sound: default
 
 - alias: Reset Condition Blinds (Turn On Automation)
   trigger: 
@@ -73,3 +87,10 @@
     - service: cover.open_cover
       entity_id: 
       - cover.covers_all
+  - service:  notify.mobile_app_iphone
+    data:
+      title: "Blinds"
+      message: "All Blinds Open"
+      data:
+        push:
+          sound: default

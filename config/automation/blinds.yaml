@@ -6,13 +6,13 @@
     - service: cover.close_cover
       entity_id: 
       - cover.covers_all
-  - service:  notify.mobile_app_iphone
-    data:
-      title: "Blinds"
-      message: "All Blinds Close"
+    - service:  notify.mobile_app_iphone
       data:
-        push:
-          sound: default
+        title: "Blinds"
+        message: "All Blinds Close"
+        data:
+          push:
+            sound: default
 
 - alias: Auto Blinds Up Down - Sunny Day
   trigger:
@@ -87,10 +87,10 @@
     - service: cover.open_cover
       entity_id: 
       - cover.covers_all
-  - service:  notify.mobile_app_iphone
-    data:
-      title: "Blinds"
-      message: "All Blinds Open"
+    - service:  notify.mobile_app_iphone
       data:
-        push:
-          sound: default
+        title: "Blinds"
+        message: "All Blinds Open"
+        data:
+          push:
+            sound: default

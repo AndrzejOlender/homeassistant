@@ -76,10 +76,13 @@
           - input_select.covers_sun
         option: "OFF"
 
-- alias: Auto Blinds Up Sunrise
+- alias: Auto Blinds Up Morning - Sunset
   trigger: 
     - platform: time
       at: "07:00:00"
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
   condition:
     condition: and
     conditions:

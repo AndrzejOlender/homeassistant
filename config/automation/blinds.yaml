@@ -6,6 +6,10 @@
     - service: cover.close_cover
       entity_id: 
       - cover.covers_all
+    - service: cover.open_cover
+      entity_id: 
+      - cover.blindsofficewindow1
+      - cover.blindsofficewindow2
     - service:  notify.mobile_app_iphone
       data:
         title: "Blinds"

@@ -1,4 +1,4 @@
-db_url: postgresql://hass:U5PeiJw7n1HeXnhyzwgbShBEcfeq1CIVplEkg3b3SkXhrFtB5rNActcDUFU0zLYD@postgres-hass.postgresql.svc.cluster.local/hass
+db_url: postgresql://hass:AIKbWSJYTkXJGiuS1cz6BsmQHPQNAMo954hbCypxtWK9VjcTJItqFllC4Fo1vp3Z@postgres-hass.postgresql.svc.cluster.local/hass
 auto_purge: true
 exclude:
   domains:

@@ -23,7 +23,8 @@ jobs:
 
     - name: Configure kubectl
       run: |
-        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
+        # echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
+        echo "${{ secrets.KUBE_CONFIG }}" > kubeconfig.yaml
         echo "KUBECONFIG=$(pwd)/kubeconfig.yaml" >> $GITHUB_ENV
 
     - name: Get Pod Name

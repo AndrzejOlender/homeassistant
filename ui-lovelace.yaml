@@ -33,7 +33,7 @@ views:
             name: Work Days
 
       - type: media-control
-        entity: media_player.office_2
+        entity: media_player.office
 
       - type: entities
         show_header_toggle: false

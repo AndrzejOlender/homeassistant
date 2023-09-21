@@ -36,13 +36,18 @@ jobs:
         current_dir=$(pwd)
         changed_files=$(git diff HEAD~1 --name-only)
         for file in $changed_files; do
-          if [[ $file == config/* ]]; then
-            dest_path="/config/$(dirname $file)"
-            full_path="$current_dir/$file"
-            echo "Copying file from: $full_path to: $dest_path"        
-            kubectl cp $full_path smart-home/$POD_NAME:$dest_path -c homeassistant -n smart-home || exit 1
+          if [[ $file == config/* ]] || [[ $file == "ui-lovelace.yaml" ]]; then
+              # Jeśli plik znajduje się w folderze "config" lub to jest "ui-lovelace.yaml"
+              dest_dir="/config"  # domyślny folder docelowy
+              if [[ $file == "ui-lovelace.yaml" ]]; then
+                  dest_dir="/"
+              fi
+              dest_path="$dest_dir/$(dirname $file)"
+              full_path="$current_dir/$file"
+              echo "Copying file from: $full_path to: $dest_path"        
+              kubectl cp $full_path smart-home/$POD_NAME:$dest_path -c homeassistant -n smart-home || exit 1
           else
-            echo "Skipping file: $file"
+              echo "Skipping file: $file"
           fi
         done
   validate_and_reload:

@@ -1,4 +1,4 @@
 platform: tts
 name: sonos
 tts_service: tts.google_cloud_say
-media_player: media_player.office_2
+media_player: media_player.office

@@ -39,10 +39,10 @@
       data:
         volume_level: 0.4
       target:
-        entity_id: media_player.office_2
+        entity_id: media_player.office
     - service: media_player.play_media
       target:
-        entity_id: media_player.office_2
+        entity_id: media_player.office
       data:
         media_content_type: "music"
         media_content_id: "https://home.olender.me/local/audio/doorbell.mp3"

@@ -457,7 +457,7 @@ views:
         tap_action:
           action: toggle
       - type: custom:mushroom-media-player-card
-        entity: media_player.office_2
+        entity: media_player.office
         name: Sonos
         volume_controls:
           - volume_mute
@@ -1218,7 +1218,7 @@ views:
         icon_color: cyan
         fill_container: true
       - type: custom:mushroom-media-player-card
-        entity: media_player.office_2
+        entity: media_player.office
         name: Sonos
         volume_controls:
           - volume_mute

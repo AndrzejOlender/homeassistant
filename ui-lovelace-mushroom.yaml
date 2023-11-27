@@ -380,8 +380,6 @@ views:
             entity: binary_sensor.motionkitchen2_occupancy
             icon_color: green
             icon: mdi:motion-sensor
-          - type: entity
-            entity: binary_sensor.leaksensorkitchen_water_leak
         alignment: center
       - type: custom:mushroom-light-card
         entity: light.lamp_kitchen

@@ -509,6 +509,7 @@
         brightness: 255
         rgb_color: [255, 0, 0]
         entity_id:
+          - group_livingroom_1
           - light.ikeabulblamp_light
           - light.philipsledoffice
     - service: switch.turn_off
@@ -517,14 +518,7 @@
     - service: notify.tv
       data:
         message: "Leak in toilet"
-    - service: notify.mobile_app_xiaomi
-      data:
-        title: "Leak!"
-        message: "Leak in toilet"  
-        data:
-          ttl: 0
-          priority: high        
-          action:
+
     # - service: media_player.play_media
     #   data:
     #     entity_id: 
@@ -541,60 +535,6 @@
     #       type: tts
     #     message: "Warning! Warning! Warning!. Leak in toilet."
 
-- alias: Send Notification Leak Kitchen
-  trigger:
-    platform: state
-    entity_id: binary_sensor.leaksensorkitchen_water_leak
-    from: "off"
-    to: "on"
-  action:
-    - service: sonos.snapshot
-      entity_id: all
-    - service: notify.sonos
-      data:
-        message: "Uwaga! Uwaga! Uwaga!, zalało kuchnię!."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Leak!"
-        message: "Leak in kitchen"
-        data:
-          push:
-            sound: 
-              name: default
-              critical: 1
-              volume: 1.0
-    - service: light.turn_on
-      data:
-        brightness: 255
-        rgb_color: [255, 0, 0]
-        entity_id:
-          - light.ikeabulblamp_light 
-          - light.philipsledoffice2
-    - service: switch.turn_off
-      data:
-        entity_id: switch.dishwasher_relay   
-    - service: notify.tv
-      data:
-        message: "Leak in kitchen"
-    - service: notify.mobile_app_xiaomi
-      data:
-        title: "Leak!"
-        message: "Leak in kitchen"     
-        data:
-          ttl: 0
-          priority: high 
-    # - service: notify.alexa_media
-    #   data:
-    #     target: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     data:
-    #       type: tts
-    #     message: "Warning! Warning! Warning!. Leak in kitchen."   
 
 # # Notification End Dishwasher
 # - alias: "Notification Dishwasher End"

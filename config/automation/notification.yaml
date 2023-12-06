@@ -509,7 +509,7 @@
         brightness: 255
         rgb_color: [255, 0, 0]
         entity_id:
-          - group_livingroom_1
+          - light.group_livingroom_1
           - light.ikeabulblamp_light
           - light.philipsledoffice
     - service: switch.turn_off

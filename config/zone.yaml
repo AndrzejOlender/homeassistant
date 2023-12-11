@@ -22,6 +22,12 @@
   radius: 150
   icon: mdi:dumbbell
 
+- name: GymForYou
+  latitude: !secret latitude_gym_for_you
+  longitude: !secret longitude_gym_for_you
+  radius: 150
+  icon: mdi:dumbbell
+
 - name: Preschool
   latitude: !secret latitude_preschool
   longitude: !secret longitude_preschool

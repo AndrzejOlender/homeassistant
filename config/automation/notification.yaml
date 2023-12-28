@@ -560,7 +560,7 @@
           - light.philipsledoffice
     - service: switch.turn_off
       data:
-        entity_id: switch.washermachine_relay  
+        entity_id: switch.washermachine  
     - service: notify.tv
       data:
         message: "Leak in toilet"

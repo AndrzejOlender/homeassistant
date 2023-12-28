@@ -5,7 +5,7 @@ filter:
     - light.aqaralampchildroom_light
     - light.ikeabulblamp_light
     - switch.hdmi2
-    - switch.washermachine_relay
+    - switch.washermachine
     - switch.radio
     - light.group_livingroom_1
     - light.lightlivingroomleftright_l1

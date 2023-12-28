@@ -34,7 +34,7 @@ light.ikeabulblamp_light:
   supported_features: 57
 light.lightlivingroomleftright_l2:
   icon: mdi:wall-sconce-flat
-switch.washermachine_relay:
+switch.washermachine:
   icon: mdi:washing-machine
 switch.tv_relay:
   icon: mdi:television

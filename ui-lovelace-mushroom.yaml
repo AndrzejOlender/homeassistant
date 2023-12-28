@@ -366,7 +366,7 @@ views:
         show_brightness_control: true
         layout: horizontal
       - type: custom:mushroom-entity-card
-        entity: switch.washermachine_relay
+        entity: switch.washermachine
         name: Washermachine
         icon_color: blue
         layout: horizontal
@@ -1110,7 +1110,7 @@ views:
         show_brightness_control: true
         layout: horizontal
       - type: custom:mushroom-entity-card
-        entity: switch.washermachine_relay
+        entity: switch.washermachine
         name: Washermachine
         icon_color: blue
         layout: horizontal

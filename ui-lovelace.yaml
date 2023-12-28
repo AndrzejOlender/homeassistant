@@ -427,7 +427,7 @@ views:
           - entity: switch.dishwasher_relay
             name: Dishwasher
             state_color: on
-          - entity: switch.washermachine_relay
+          - entity: switch.washermachine
             name: Washermachine
             state_color: on
           - entity: switch.fridge_relay

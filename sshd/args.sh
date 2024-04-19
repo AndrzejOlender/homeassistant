@@ -8,4 +8,4 @@ cat /root/tmp/authorized_keys >> /root/.ssh/authorized_keys
 cat /root/tmp/id_rsa > /root/.ssh/id_rsa 
 cat /root/tmp/gitconfig > /root/.gitconfig
 chmod 600 /root/.ssh/id_rsa 
-cat /root/tmp/id_rsa.pub > /root/.ssh/id_rsa.pub 
+cat /root/tmp/id_rsa.pub > /root/.ssh/id_rsa.pub

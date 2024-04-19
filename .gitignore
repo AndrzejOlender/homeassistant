@@ -24,5 +24,4 @@ googlecloud.json
 home-assistant.log.1
 tts/
 custom_components/*
-deps/**
-
+deps/

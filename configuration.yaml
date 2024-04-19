@@ -37,5 +37,3 @@ prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 binary_sensor: !include config/binary.yaml
-
-

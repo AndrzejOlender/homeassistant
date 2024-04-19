@@ -3,678 +3,6 @@ kiosk_mode:
     - users:
         - arsen
       hide_header: true
-
-resources:
-  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js 
-    type: module
-  - url: /hacsfiles/lovelace-mushroom/mushroom.js
-    type: module
-  - url: /hacsfiles/kiosk-mode/kiosk-mode.js
-    type: module
-
-views:
-  - theme: Backend-selected
-    title: Home
-    icon: mdi:home-analytics
-    badges: []
-    cards:
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: person.arsen
-            icon_color: blue
-            use_entity_picture: true
-          - type: entity
-            entity: person.ania
-            name: Ania
-            use_entity_picture: true
-          - type: entity
-            entity: lock.maindoorlock
-            icon_color: green
-            use_entity_picture: false
-          - type: entity
-            entity: binary_sensor.maindoor_contact
-            icon_color: green
-            use_entity_picture: false
-            content_info: state
-          - type: entity
-            entity: sensor.airly_caqi
-            icon_color: green
-            use_entity_picture: false
-          - type: weather
-            entity: weather.home
-            show_conditions: false
-            show_temperature: true
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.burze_dzis_net_heat_warning
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.burze_dzis_net_heat_warning
-              content_info: name
-              name: Hot
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.burze_dzis_net_wind_warning
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.burze_dzis_net_wind_warning
-              icon_color: pink
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.burze_dzis_net_storm_warning
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.burze_dzis_net_storm_warning
-              icon_color: blue
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.burze_dzis_net_storms_nearby
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.burze_dzis_net_storms_nearby
-              icon_color: blue
-        alignment: center
-      - type: custom:mushroom-title-card
-        title: Scenes
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: scene.good_night
-            fill_container: false
-            secondary_info: none
-            primary_info: name
-            layout: vertical
-            name: Night
-          - type: custom:mushroom-template-card
-            primary: Blinds
-            secondary: ''
-            icon: mdi:blinds-horizontal
-            layout: vertical
-            icon_color: purple
-            tap_action:
-              action: call-service
-              service: script.covers_close
-              data: {}
-              target: {}
-            hold_action:
-              action: call-service
-              service: script.covers_open
-              data: {}
-              target: {}
-            multiline_secondary: false
-            double_tap_action:
-              action: call-service
-              service: script.covers_open
-              data: {}
-              target: {}
-          - type: custom:mushroom-entity-card
-            entity: script.work_day
-            icon_color: blue
-            fill_container: false
-            secondary_info: none
-            layout: vertical
-            name: Work
-          - type: custom:mushroom-template-card
-            primary: Rtv
-            secondary: ''
-            icon: mdi:television
-            layout: vertical
-            icon_color: green
-            tap_action:
-              action: navigate
-              navigation_path: rtv
-      - type: custom:mushroom-title-card
-        title: Living Room
-        subtitle: ''
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: sensor.thermostat_livingroom_temperature
-            icon_color: pink
-            use_entity_picture: false
-          - type: entity
-            entity: sensor.air_purifier_pm2_5
-            icon_color: green
-            use_entity_picture: true
-            icon: mdi:air-filter
-          - type: entity
-            entity: sensor.air_purifier_humidity
-            icon_color: blue
-            name: Humidity
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.livingroomwindow_contact
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.livingroomwindow_contact
-              icon_color: light-blue
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.livingroombalconywindow_contact
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.livingroombalconywindow_contact
-              icon_color: light-blue
-        alignment: center
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-light-card
-            entity: light.group_livingroom_1
-            name: Front
-            show_brightness_control: true
-            show_color_temp_control: false
-            use_light_color: true
-            show_color_control: false
-            secondary_info: state
-            layout: horizontal
-            fill_container: true
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: light.lightlivingroomleftright_l1
-            name: Left
-            layout: horizontal
-          - type: custom:mushroom-entity-card
-            entity: light.lightlivingroomleftright_l2
-            name: Right
-      - type: custom:mushroom-entity-card
-        entity: light.living_room_rtv
-        icon_type: icon
-        name: Led
-        icon: mdi:led-strip-variant
-        tap_action:
-          action: toggle
-      - type: custom:mushroom-cover-card
-        entity: cover.covers_living_room
-        name: Covers
-        show_position_control: true
-        show_buttons_control: true
-        fill_container: false
-        tap_action:
-          action: toggle
-        icon: mdi:blinds-horizontal-closed
-      - type: custom:mushroom-climate-card
-        entity: climate.thermolivingroom_climate
-        name: Thermostat
-        show_temperature_control: true
-        collapsible_controls: false
-        layout: horizontal
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-fan-card
-            entity: fan.air_purifier
-            fill_container: true
-            icon_animation: true
-            collapsible_controls: false
-            show_percentage_control: false
-            show_oscillate_control: false
-          - type: custom:mushroom-vacuum-card
-            entity: vacuum.john
-            name: Vacuum
-            commands: []
-            layout: horizontal
-      - type: custom:mushroom-title-card
-        title: Child Room
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: sensor.thermostat_childroom_temperature
-            icon_color: pink
-            use_entity_picture: false
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.wardobewindow_contact
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.wardobewindow_contact
-              icon_color: blue
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.childroomwindow_contact
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.childroomwindow_contact
-              icon_color: blue
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.motionchildroom_occupancy
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.motionchildroom_occupancy
-              icon_color: green
-              icon: mdi:motion-sensor
-          - type: conditional
-            conditions:
-              - entity: binary_sensor.motionchildroom2_occupancy
-                state: 'on'
-            chip:
-              type: entity
-              entity: binary_sensor.motionchildroom2_occupancy
-              icon_color: green
-              icon: mdi:motion-sensor
-        alignment: center
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-light-card
-            entity: light.aqaralampchildroom_light
-            tap_action:
-              action: toggle
-            use_light_color: false
-            show_brightness_control: true
-            show_color_temp_control: true
-            collapsible_controls: false
-            show_color_control: false
-            layout: horizontal
-            name: Lamp 1
-      - type: custom:mushroom-light-card
-        entity: light.group_6_wardobe_1
-        name: Lamp 2
-        use_light_color: false
-        show_brightness_control: true
-        show_color_temp_control: false
-        collapsible_controls: false
-        show_color_control: true
-        layout: horizontal
-      - type: custom:mushroom-cover-card
-        entity: cover.blindschildroomwindow1
-        name: Covers
-        show_position_control: true
-        show_buttons_control: true
-        fill_container: false
-        tap_action:
-          action: toggle
-        icon: mdi:blinds-horizontal-closed
-      - type: custom:mushroom-climate-card
-        entity: climate.thermochildroom_climate
-        name: Thermostat
-        show_temperature_control: true
-        collapsible_controls: false
-        layout: horizontal
-      - type: custom:mushroom-title-card
-        title: Ante Room
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: lock.maindoorlock
-            icon_color: green
-          - type: entity
-            entity: binary_sensor.maindoor_contact
-            icon_color: light-blue
-          - type: entity
-            entity: binary_sensor.motionkitchen_occupancy
-            icon_color: green
-            icon: mdi:motion-sensor
-        alignment: center
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-light-card
-            entity: light.group_2_anteroom_1
-            fill_container: false
-            name: Light 1
-            use_light_color: false
-            show_brightness_control: true
-            layout: horizontal
-            show_color_temp_control: false
-            show_color_control: false
-            collapsible_controls: false
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-light-card
-            entity: light.group_3_anteroom_2
-            fill_container: false
-            name: Light 2
-            use_light_color: false
-            show_brightness_control: true
-            layout: horizontal
-            show_color_temp_control: false
-            show_color_control: false
-            collapsible_controls: false
-      - type: custom:mushroom-title-card
-        title: Toilet
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: binary_sensor.toiletdoor_contact
-            icon_color: green
-          - type: entity
-            entity: binary_sensor.motiontoilet_occupancy
-            icon_color: green
-            icon: mdi:motion-sensor
-          - type: entity
-            entity: binary_sensor.leaksensortoilet_water_leak
-        alignment: center
-      - type: custom:mushroom-light-card
-        entity: light.group_1_toilet_1
-        name: Light
-        use_light_color: false
-        show_brightness_control: true
-        layout: horizontal
-      - type: custom:mushroom-light-card
-        entity: light.group_5_toilet_2
-        name: Mirror
-        use_light_color: false
-        show_brightness_control: true
-        layout: horizontal
-      - type: custom:mushroom-entity-card
-        entity: switch.washermachine_relay
-        name: Washermachine
-        icon_color: blue
-        layout: horizontal
-        tap_action:
-          action: toggle
-      - type: custom:mushroom-title-card
-        title: Kitchen
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: binary_sensor.motionkitchen2_occupancy
-            icon_color: green
-            icon: mdi:motion-sensor
-          - type: entity
-            entity: binary_sensor.leaksensorkitchen_water_leak
-        alignment: center
-      - type: custom:mushroom-light-card
-        entity: light.lamp_kitchen
-        name: Light
-        show_brightness_control: true
-        layout: horizontal
-        use_light_color: false
-        show_color_temp_control: false
-      - type: custom:mushroom-cover-card
-        entity: cover.blindskitchenwindow1
-        name: Covers
-        show_position_control: true
-        show_buttons_control: true
-        fill_container: false
-        tap_action:
-          action: toggle
-        icon: mdi:blinds-horizontal-closed
-      - type: custom:mushroom-climate-card
-        entity: climate.thermokitchen_climate
-        name: Thermostat
-        show_temperature_control: true
-        collapsible_controls: false
-        layout: horizontal
-      - type: custom:mushroom-title-card
-        title: Office
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: entity
-            entity: binary_sensor.kitchenwindow_contact
-            icon_color: blue
-        alignment: center
-      - type: custom:mushroom-light-card
-        entity: light.group_4_kitchen_1
-        use_light_color: true
-        show_brightness_control: true
-        show_color_temp_control: false
-        show_color_control: true
-        layout: horizontal
-        tap_action:
-          action: toggle
-      - type: custom:mushroom-light-card
-        entity: light.philipsledoffice
-        use_light_color: true
-        show_brightness_control: true
-        show_color_temp_control: false
-        show_color_control: true
-        layout: horizontal
-        tap_action:
-          action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-light-card
-            entity: light.philipsledofficeleft
-            name: Left
-            show_brightness_control: true
-            use_light_color: true
-          - type: custom:mushroom-light-card
-            entity: light.philipsledofficeright
-            use_light_color: true
-            show_brightness_control: true
-            name: Right
-      - type: custom:mushroom-cover-card
-        entity: cover.covers_office_room
-        name: Covers
-        show_position_control: true
-        show_buttons_control: true
-        fill_container: false
-        tap_action:
-          action: toggle
-        icon: mdi:blinds-horizontal-closed
-      - type: custom:mushroom-entity-card
-        entity: input_select.sre_alerts
-        tap_action:
-          action: toggle
-      - type: custom:mushroom-media-player-card
-        entity: media_player.office_2
-        name: Sonos
-        volume_controls:
-          - volume_mute
-          - volume_set
-          - volume_buttons
-        media_controls: []
-        collapsible_controls: false
-  - theme: Mushroom
-    title: Rtv
-    path: rtv
-    icon: mdi:television
-    badges: []
-    cards:
-      - type: custom:mushroom-chips-card
-        chips:
-          - type: back
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-media-player-card
-            entity: media_player.tv
-          - type: custom:mushroom-media-player-card
-            entity: media_player.appletv
-            volume_controls: []
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: switch.yamaha
-            icon_color: blue
-            tap_action:
-              action: toggle
-            layout: vertical
-          - type: custom:mushroom-entity-card
-            entity: switch.hdmi1
-            tap_action:
-              action: toggle
-            layout: vertical
-          - type: custom:mushroom-entity-card
-            entity: switch.hdmi2
-            layout: vertical
-          - type: custom:mushroom-entity-card
-            entity: switch.nc
-            tap_action:
-              action: toggle
-            layout: vertical
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_1_nc
-            icon_type: none
-            name: '1'
-            icon: mdi:remote
-            layout: vertical
-            secondary_info: none
-            fill_container: true
-            icon_color: blue
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_2_nc
-            icon_type: none
-            name: '2'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_3_nc
-            icon_type: none
-            name: '3'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_4_nc
-            icon_type: none
-            name: '4'
-            icon: mdi:remote
-            layout: vertical
-            secondary_info: none
-            fill_container: true
-            icon_color: blue
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_5_nc
-            icon_type: none
-            name: '5'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_6_nc
-            icon_type: none
-            name: '6'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_7_nc
-            icon_type: none
-            name: '7'
-            icon: mdi:remote
-            layout: vertical
-            secondary_info: none
-            fill_container: true
-            icon_color: blue
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_8_nc
-            icon_type: none
-            name: '8'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_9_nc
-            icon_type: none
-            name: '9'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_0_nc
-            icon_type: none
-            name: '0'
-            fill_container: true
-            layout: vertical
-            secondary_info: none
-            icon_color: blue
-            icon: mdi:remote
-            tap_action:
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_up_nc
-            name: Volume +
-            icon: mdi:arrow-up
-            icon_color: blue
-            layout: vertical
-            fill_container: true
-            secondary_info: none
-            tap_action:
-              action: toggle
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_up_nc
-            name: Chanel +
-            icon: mdi:arrow-up
-            icon_color: blue
-            layout: vertical
-            fill_container: true
-            secondary_info: none
-            tap_action:
-              action: toggle
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_up_nc
-            name: Volume -
-            icon: mdi:arrow-down
-            icon_color: blue
-            layout: vertical
-            fill_container: true
-            secondary_info: none
-            tap_action:
-              action: call-service
-              service: script.miio_turn_down_nc
-              data: {}
-              target: {}
-          - type: custom:mushroom-entity-card
-            entity: script.miio_turn_down_nc
-            name: Chanel -
-            icon: mdi:arrow-down
-            icon_color: blue
-            layout: vertical
-            fill_container: true
-            secondary_info: none
-            tap_action:
-              action: call-service
-              service: script.miio_turn_down_nc
-              data: {}
-              target: {}
-kiosk_mode:
-  user_settings:
-    - users:
-        - arsen
-      hide_header: true
 views:
   - theme: Backend-selected
     title: Home
@@ -703,7 +31,7 @@ views:
             use_entity_picture: false
             content_info: state
           - type: entity
-            entity: sensor.airly_caqi
+            entity: sensor.i_lo_siemianowice_slaskie_pm2_5
             icon_color: green
             use_entity_picture: false
           - type: weather
@@ -712,41 +40,44 @@ views:
             show_temperature: true
           - type: conditional
             conditions:
-              - entity: binary_sensor.burze_dzis_net_heat_warning
+              - entity: binary_sensor.burze_dzis_net_ostrzezenie_upal
                 state: 'on'
             chip:
               type: entity
-              entity: binary_sensor.burze_dzis_net_heat_warning
+              entity: binary_sensor.burze_dzis_net_ostrzezenie_upal
               content_info: name
               name: Hot
               icon_color: deep-orange
           - type: conditional
             conditions:
-              - entity: binary_sensor.burze_dzis_net_wind_warning
+              - entity: binary_sensor.burze_dzis_net_ostrzezenie_wiatr
                 state: 'on'
             chip:
               type: entity
-              entity: binary_sensor.burze_dzis_net_wind_warning
+              entity: binary_sensor.burze_dzis_net_ostrzezenie_wiatr
               icon_color: pink
           - type: conditional
             conditions:
-              - entity: binary_sensor.burze_dzis_net_storm_warning
+              - entity: binary_sensor.burze_dzis_net_ostrzezenie_burza
                 state: 'on'
             chip:
               type: entity
-              entity: binary_sensor.burze_dzis_net_storm_warning
+              entity: binary_sensor.burze_dzis_net_ostrzezenie_burza
               icon_color: blue
           - type: conditional
             conditions:
-              - entity: binary_sensor.burze_dzis_net_storms_nearby
+              - entity: binary_sensor.burze_dzis_net_wyladowania_w_poblizu
                 state: 'on'
             chip:
               type: entity
-              entity: binary_sensor.burze_dzis_net_storms_nearby
+              entity: binary_sensor.burze_dzis_net_wyladowania_w_poblizu
               icon_color: blue
           - type: entity
-            entity: sensor.btc
+            entity: sensor.pln_wallet
             icon_color: purple
+          - type: entity
+            entity: vacuum.john
+            icon_color: green
         alignment: center
       - type: custom:mushroom-title-card
         title: Scenes
@@ -885,13 +216,13 @@ views:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-entity-card
-            entity: switch.light2_relay
+            entity: light.lightlivingroomleftright_l1
             name: Left
             layout: horizontal
             tap_action:
               action: toggle
           - type: custom:mushroom-entity-card
-            entity: switch.light3_relay
+            entity: light.lightlivingroomleftright_l2
             name: Right
             tap_action:
               action: toggle
@@ -918,19 +249,12 @@ views:
           - type: custom:mushroom-entity-card
             entity: switch.blitzlivingroomglasscase
             name: '3'
-            icon: mdi:pine-tree
+            icon: mdi:led-strip
             icon_color: yellow
             layout: horizontal
             tap_action:
               action: toggle
             fill_container: true
-      - type: custom:mushroom-entity-card
-        entity: light.living_room_rtv
-        icon_type: icon
-        name: Led
-        icon: mdi:led-strip-variant
-        tap_action:
-          action: toggle
       - type: custom:mushroom-cover-card
         entity: cover.covers_living_room
         name: Covers
@@ -1112,7 +436,7 @@ views:
         show_brightness_control: true
         layout: horizontal
       - type: custom:mushroom-entity-card
-        entity: switch.washermachine_relay
+        entity: switch.washermachine
         name: Washermachine
         icon_color: blue
         layout: horizontal
@@ -1218,8 +542,20 @@ views:
         icon_color: cyan
         fill_container: true
       - type: custom:mushroom-media-player-card
-        entity: media_player.office_2
+        entity: media_player.office
         name: Sonos
+        volume_controls:
+          - volume_mute
+          - volume_set
+          - volume_buttons
+        media_controls: []
+        collapsible_controls: false
+        fill_container: false
+        show_volume_level: true
+        use_media_info: true
+      - type: custom:mushroom-media-player-card
+        entity: media_player.appletv
+        name: AppleTV
         volume_controls:
           - volume_mute
           - volume_set

@@ -7,7 +7,7 @@ smart_home:
     include_entities:
       - light.aqaralampchildroom_light
       - light.ikeabulblamp_light
-      - switch.washermachine_relay
+      - switch.washermachine
       - switch.yamaha
       - switch.radio
       - light.group_livingroom_1
@@ -61,7 +61,7 @@ smart_home:
       name: "Lamp"
     light.ikeabulblamp_light:
       name: "Lamp"
-    switch.washermachine_relay:
+    switch.washermachine:
       name: "Washermachine"
     switch.yamaha:
       name: "Yamaha"

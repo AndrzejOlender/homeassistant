@@ -1,17 +1,20 @@
 ## Configure a default setup
 default_config:
-# Color Extractor
-color_extractor:
 # lovelace mode
 lovelace:
   mode: yaml
+
+logger:
+  default: error
+
+network:
 
 frontend:
   themes: !include_dir_merge_named themes
 
 homeassistant:
   customize: !include config/customize.yaml
-  internal_url: "http://192.168.1.2:8123"
+  internal_url: "http://192.168.1.230:8123"
   allowlist_external_urls:
     - "https://home.olender.me"
 
@@ -34,5 +37,5 @@ prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 binary_sensor: !include config/binary.yaml
-device_tracker: !include config/tracker.yaml
+
 

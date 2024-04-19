@@ -34,7 +34,7 @@ light.ikeabulblamp_light:
   supported_features: 57
 light.lightlivingroomleftright_l2:
   icon: mdi:wall-sconce-flat
-switch.washermachine_relay:
+switch.washermachine:
   icon: mdi:washing-machine
 switch.tv_relay:
   icon: mdi:television
@@ -110,9 +110,6 @@ switch.hdmi2:
   icon: mdi:remote-tv
 switch.nc:
   icon: mdi:remote-tv
-light.group_4_kitchen_1:
-  friendly_name: Office
-  icon: mdi:track-light
 light.lamp_kitchen:
   friendly_name: Lamp Kitchen
   icon: mdi:ceiling-light

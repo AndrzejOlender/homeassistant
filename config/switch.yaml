@@ -45,7 +45,7 @@
 # Audio Yamaha
     yamaha:
       friendly_name: "Yamaha"
-      value_template: "{% if states('sensor.yamaha_power') | float > 20 %}True{%else%}False{%endif %}"
+      value_template: "{% if states('sensor.yamaha_power') | float > 40 %}True{%else%}False{%endif %}"
       turn_on:
         service: script.miio_turn_on_yamaha
       turn_off:

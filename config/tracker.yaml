@@ -1,9 +1,0 @@
-- platform: luci
-  host: 192.168.1.1
-  ssl: true
-  verify_ssl: false
-  username: root
-  password: !secret luci  
-  new_device_defaults:
-    track_new_devices: false
-

@@ -1,25 +1,3 @@
-# Dishwasher
-- platform: integration
-  source: sensor.dishwasher_power
-  name: "Dishwasher Energy"
-  unit_prefix: k
-  round: 2  
-
-- platform: template
-  sensors:
-    dishwasher:
-      friendly_name: "Dishwasher"
-      value_template: >-
-        {% if states('sensor.dishwasher_power') != ('unavailable' or 'unknown') %}
-          {% if states('sensor.dishwasher_power') | int > 5 %}
-            washing
-          {% else %}
-            disable
-          {% endif %}
-        {% else %}
-          {{ states('sensor.dishwasher') }}
-        {% endif %}
-
 # Washermachine
 - platform: integration
   source: sensor.washermachine_power
@@ -32,8 +10,8 @@
     washermachine:
       friendly_name: "Washermachine"
       value_template: >-
-        {% if states('sensor.washermachine_power') != ('unavailable' or 'unknown') %}
-          {% if states('sensor.washermachine_power') | int > 3 %}
+        {% if states('sensor.washermachine_power') not in ['unavailable', 'unknown'] %}
+          {% if states('sensor.washermachine_power').isnumeric() and states('sensor.washermachine_power')|int > 3 %}
             washing
           {% else %}
             disable
@@ -92,3 +70,4 @@
     home_andrzej:
       friendly_name: "Tracker Andrzej"
       value_template: "{% if is_state('device_tracker.iphone', 'home') %}Home{% else %}Away{% endif %}"
+      

@@ -1,11 +1,11 @@
-advertise_ip: "192.168.1.2"
-port: 51827
+port: 21065
+name: bridge-homekit
 filter:
   include_entities:
     - light.aqaralampchildroom_light
     - light.ikeabulblamp_light
     - switch.hdmi2
-    - switch.washermachine_relay
+    - switch.washermachine
     - switch.radio
     - light.group_livingroom_1
     - light.lightlivingroomleftright_l1
@@ -27,7 +27,6 @@ filter:
     - binary_sensor.childroomwindow_contact
     - binary_sensor.kitchenwindow_contact
     - binary_sensor.wardobewindow_contact
-    - binary_sensor.leaksensorkitchen_water_leak
     - binary_sensor.leaksensortoilet_water_leak
     - binary_sensor.motionkitchen_occupancy
     - binary_sensor.motionkitchen2_occupancy

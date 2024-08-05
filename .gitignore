@@ -25,3 +25,4 @@ home-assistant.log.1
 tts/
 custom_components/*
 deps/
+config/stt.yaml

@@ -554,35 +554,7 @@ views:
     icon: 'mdi:shield-account'
     path: guard
     theme: default
-    title: Guard
-
-  - badges: []
-    cards:
-      - type: custom:mini-graph-card
-        name: BTC / PLN
-        hour24: true
-        points_per_hour: 10
-        line_width: 2
-        animate: true
-        font_size: 75
-        font_size_header: 12
-        show:
-          fill: false
-          labels: true
-          points: false
-        line_color: '#04aaf5'
-        decimals: 1
-        entities:
-          - sensor.pln_wallet
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: sensor.btc_exchange_rate
-
-    icon: 'mdi:bitcoin'
-    path: btc
-    theme: default
-    title: Bitcoin      
+    title: Guard   
 
   - badges: []
     visible:

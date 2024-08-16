@@ -68,6 +68,11 @@
         data:
           push:
           sound: default
+    - service: input_select.select_option
+      data:
+        entity_id: 
+          - input_select.covers_sun
+        option: "ON"
 
 - alias: Reset Condition Blinds (Turn On Automation)
   trigger: 

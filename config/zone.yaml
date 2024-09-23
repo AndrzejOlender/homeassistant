@@ -16,26 +16,14 @@
   radius: 350
   icon: mdi:home
 
-- name: CityFit
-  latitude: !secret latitude_city_fit
-  longitude: !secret longitude_city_fit
-  radius: 150
-  icon: mdi:dumbbell
-
 - name: GymForYou
   latitude: !secret latitude_gym_for_you
   longitude: !secret longitude_gym_for_you
   radius: 150
   icon: mdi:dumbbell
 
-- name: Preschool
-  latitude: !secret latitude_preschool
-  longitude: !secret longitude_preschool
+- name: School
+  latitude: !secret latitude_school
+  longitude: !secret longitude_school
   radius: 150
-  icon: mdi:teddy-bear
-
-- name: Grandfathers
-  latitude: !secret latitude_grandfathers
-  longitude: !secret longitude_grandfathers
-  radius: 250
-  icon: mdi:account-multiple-outline
+  icon: mdi:school

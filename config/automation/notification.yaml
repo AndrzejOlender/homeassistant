@@ -340,52 +340,6 @@
     - delay:
         seconds: 10               
 
-- alias: CityFit Exit
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.cityfit
-    event: leave
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna left the Gym"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
-    - delay:
-        seconds: 50
-
-- alias: CityFit Enter
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.cityfit
-    event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna went into the Gym"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}" 
-
 - alias: GymForYou Exit
   trigger:
     platform: zone
@@ -477,52 +431,6 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"     
-
-- alias: Grandfathers Enter
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.grandfathers
-    event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna went into the Grandfathers"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"   
-
-- alias: Grandfathers Exit
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.grandfathers
-    event: leave
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: Anna left the Grandfathers
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
-    - delay:
-        seconds: 10   
 
 - alias: Send Notification Leak Toilet
   trigger:

@@ -386,17 +386,17 @@
             latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
             longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"               
 
-- alias: Preschool Exit
+- alias: School Exit
   trigger:
     platform: zone
     entity_id: person.ania
-    zone: zone.preschool
+    zone: zone.school
     event: leave
   action:
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: Anna left the Preschool
+        message: Anna left the School
         data:
           push:
             category: map
@@ -410,17 +410,17 @@
     - delay:
         seconds: 50
 
-- alias: Preschool Enter
+- alias: School Enter
   trigger:
     platform: zone
     entity_id: person.ania
-    zone: zone.preschool
+    zone: zone.school
     event: enter
   action: 
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: "Anna went into the Preschool"
+        message: "Anna went into the School"
         data:
           push:
             category: map

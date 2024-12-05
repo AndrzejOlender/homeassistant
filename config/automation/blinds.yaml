@@ -1,22 +1,22 @@
-- alias: Auto Blinds Up Down
-  trigger: 
-    - platform: time
-      at: "22:30:00"
-  action:
-    - service: cover.close_cover
-      entity_id: 
-      - cover.covers_all
-    - service: cover.open_cover
-      entity_id: 
-      - cover.blindsofficewindow1
-      - cover.blindsofficewindow2
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Blinds"
-        message: "All Blinds Close"
-        data:
-          push:
-            sound: default
+# - alias: Auto Blinds Up Down
+#   trigger: 
+#     - platform: time
+#       at: "22:30:00"
+#   action:
+#     - service: cover.close_cover
+#       entity_id: 
+#       - cover.covers_all
+#     - service: cover.open_cover
+#       entity_id: 
+#       - cover.blindsofficewindow1
+#       - cover.blindsofficewindow2
+#     - service:  notify.mobile_app_iphone
+#       data:
+#         title: "Blinds"
+#         message: "All Blinds Close"
+#         data:
+#           push:
+#             sound: default
 
 - alias: Auto Blinds Up Down - Sunny Day
   trigger:

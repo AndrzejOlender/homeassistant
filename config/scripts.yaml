@@ -448,7 +448,7 @@ work_day:
 #               brightness_pct: 100
 #             target:
 #               entity_id:
-#                 - light.group_4_kitchen_1
+#                 - light.group_4_office_1
 #           - delay:
 #               hours: 0
 #               minutes: 0

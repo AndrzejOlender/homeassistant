@@ -72,7 +72,7 @@ views:
             name: Toilet
           - entity: light.group_5_toilet_2
             name: Toilet Mirror
-          - entity: light.group_4_kitchen_1
+          - entity: light.group_4_office_1
             name: Office
           - entity: light.philipsledoffice
             name: Office Desk

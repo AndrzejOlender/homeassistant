@@ -36,7 +36,7 @@ filter:
     - light.lamp_kitchen
     - light.group_2_anteroom_1
     - light.group_3_anteroom_2
-    - light.group_4_kitchen_1
+    - light.group_4_office_1
     - light.philipsledoffice
     - light.philipsledofficeleft
     - light.philipsledofficeright

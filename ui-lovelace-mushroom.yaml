@@ -481,7 +481,7 @@ views:
       - type: custom:mushroom-title-card
         title: Office
       - type: custom:mushroom-light-card
-        entity: light.group_4_kitchen_1
+        entity: light.group_4_office_1
         use_light_color: true
         show_brightness_control: true
         show_color_temp_control: false

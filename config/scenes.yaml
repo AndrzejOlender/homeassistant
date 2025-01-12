@@ -41,7 +41,7 @@
       state: 'off'
     media_player.tv:
       state: 'off'
-    light.group_4_kitchen_1:  
+    light.group_4_office_1:  
       state: 'off'
     light.lamp_kitchen:
       state: 'off'

@@ -28,7 +28,7 @@ smart_home:
       - switch.hdmi1
       - switch.hdmi2
       - light.lamp_kitchen
-      - light.group_4_kitchen_1
+      - light.group_4_office_1
       - light.group_2_anteroom_1
       - light.group_3_anteroom_2
       - scene.good_evening
@@ -99,7 +99,7 @@ smart_home:
     light.lamp_kitchen:
       name: "Light"
       display_categories: LIGHT
-    light.group_4_kitchen_1:
+    light.group_4_office_1:
       name: "Office"
       display_categories: LIGHT
     light.group_2_anteroom_1:

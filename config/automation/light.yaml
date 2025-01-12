@@ -137,7 +137,7 @@
     entity_id: sensor.aqaraswitchkitchen1_action
     to: single
   action:
-    entity_id: light.group_4_kitchen_1
+    entity_id: light.group_4_office_1
     service: light.toggle 
 
 - alias: Switch Off Light in the Kitchen & Anteroom & Toilet
@@ -149,7 +149,7 @@
     to: hold
   action:
     entity_id: 
-      - light.group_4_kitchen_1
+      - light.group_4_office_1
       - light.lamp_kitchen
       - light.group_2_anteroom_1
       - light.group_3_anteroom_2
@@ -166,7 +166,7 @@
     to: double
   action:
     entity_id: 
-      - light.group_4_kitchen_1
+      - light.group_4_office_1
       - light.lamp_kitchen
       - light.group_2_anteroom_1
       - light.group_3_anteroom_2

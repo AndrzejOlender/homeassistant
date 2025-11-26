@@ -38,7 +38,7 @@
             entity_id: device_tracker.iphone
             state: "home"
           - condition: state
-            entity_id: device_tracker.samsung_ania
+            entity_id: device_tracker.samsung_a36
             state: "home"  
   action:
     - service: climate.set_temperature

@@ -41,7 +41,7 @@ filter:
     - light.philipsledofficeleft
     - light.philipsledofficeright
     - device_tracker.iphone
-    - device_tracker.samsung
+    - device_tracker.samsung_a36
     - scene.good_night
     - climate.thermochildroom_climate
     - climate.thermolivingroom_climate

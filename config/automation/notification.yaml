@@ -267,8 +267,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"  
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"  
 
 - alias: Send Notification Exit Home
   trigger:
@@ -313,8 +313,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"   
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"   
 
 - alias: Wpkiw Exit
   trigger:
@@ -335,8 +335,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
     - delay:
         seconds: 10               
 
@@ -359,8 +359,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
     - delay:
         seconds: 50
 
@@ -383,8 +383,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"               
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"               
 
 - alias: School Exit
   trigger:
@@ -405,8 +405,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
     - delay:
         seconds: 50
 
@@ -429,8 +429,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung', 'longitude') }}"     
+            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
+            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"     
 
 - alias: Send Notification Leak Toilet
   trigger:

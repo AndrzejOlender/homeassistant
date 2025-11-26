@@ -30,7 +30,7 @@
 #     platform: state
 #     entity_id: 
 #       - device_tracker.iphone
-#       - device_tracker.samsung
+#       - device_tracker.samsung_a36
 #     to: "home"
 #   action: 
 #     entity_id: switch.airpurifiermax

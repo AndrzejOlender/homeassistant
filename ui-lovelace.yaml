@@ -547,7 +547,7 @@ views:
       - type: map
         entities:
 #          - device_tracker.iphone
-          - device_tracker.samsung
+          - device_tracker.samsung_a36
         hours_to_show: 12
         dark_mode: true
 

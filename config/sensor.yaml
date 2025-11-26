@@ -56,7 +56,7 @@
   sensors:
     home_ania:
       friendly_name: "Tracker Ania"
-      value_template: "{% if is_state('device_tracker.samsung', 'home') %}Home{% else %}Away{% endif %}"
+      value_template: "{% if is_state('device_tracker.samsung_a36', 'home') %}Home{% else %}Away{% endif %}"
 
 - platform: template
   sensors:

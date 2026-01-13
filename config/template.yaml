@@ -1,0 +1,21 @@
+# Modern template sensors (migrated from legacy platform: template)
+- sensor:
+    - name: "Wind"
+      unit_of_measurement: ""
+      state: "{{ state_attr('weather.home', 'wind_speed') }}"
+    - name: "Tracker Ania"
+      state: "{% if is_state('device_tracker.samsung_a36', 'home') %}Home{% else %}Away{% endif %}"
+    - name: "Tracker Andrzej"
+      state: "{% if is_state('device_tracker.iphone', 'home') %}Home{% else %}Away{% endif %}"
+
+- binary_sensor:
+    - name: "Vacuum Cleaning"
+      state: "{{ is_state('vacuum.john', 'cleaning') }}"
+    - name: "Lock"
+      state: "{{ is_state('lock.maindoorlock', 'unlocked') }}"
+      icon: >-
+        {% if is_state('binary_sensor.lock', 'on') %}
+          mdi:lock-open
+        {% else %}
+          mdi:lock
+        {% endif %}

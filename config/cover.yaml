@@ -1,23 +1,23 @@
-- platform: group
-  name: "Covers Living Room"
-  entities:
-    - cover.blindslivingroomwindow1
-    - cover.blindslivingroomwindow2
-    - cover.blindslivingroomwindow3
+# - platform: group
+#   name: "Covers Living Room"
+#   entities:
+#     - cover.blindslivingroomwindow1
+#     - cover.blindslivingroomwindow2
+#     - cover.blindslivingroomwindow3
 
-- platform: group
-  name: "Covers Office Room"
-  entities:
-    - cover.blindsofficewindow1
-    - cover.blindsofficewindow2
+# - platform: group
+#   name: "Covers Office Room"
+#   entities:
+#     - cover.blindsofficewindow1
+#     - cover.blindsofficewindow2
 
-- platform: group
-  name: "Covers All"
-  entities:
-    - cover.blindslivingroomwindow1
-    - cover.blindslivingroomwindow2
-    - cover.blindslivingroomwindow3
-    - cover.blindschildroomwindow1
-    - cover.blindsofficewindow1
-    - cover.blindsofficewindow2
-    - cover.blindskitchenwindow1
+# - platform: group
+#   name: "Covers All"
+#   entities:
+#     - cover.blindslivingroomwindow1
+#     - cover.blindslivingroomwindow2
+#     - cover.blindslivingroomwindow3
+#     - cover.blindschildroomwindow1
+#     - cover.blindsofficewindow1
+#     - cover.blindsofficewindow2
+#     - cover.blindskitchenwindow1

@@ -240,6 +240,12 @@ views:
           - entity: climate.thermokitchen_climate
             name: Kitchen
             state_color: on
+          - entity: sensor.tauron_amiplus_590322400501543221_current_consumption_reading
+            name: Tauron All
+            state_color: on
+          - entity: sensor.tauron_amiplus_590322400501543221_daily_energy_consumption
+            name: Tauron Daily Energy
+            state_color: on
           - entity: switch.thermoseason
             name: Heat Season
             state_color: on

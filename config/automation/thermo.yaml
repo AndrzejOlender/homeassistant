@@ -1,234 +1,234 @@
-- alias: Set Away Mode In Weekdays
-  trigger:
-    platform: time
-    at: "08:30:00"
-  condition:
-    - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
-      state: 'on' 
-    - condition: state
-      entity_id: group.household
-      state: "not_home"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermochildroom_climate
-          - climate.thermolivingroom_climate
-          - climate.thermokitchen_climate
-        temperature: 5
-        hvac_mode: auto  
+# - alias: Set Away Mode In Weekdays
+#   trigger:
+#     platform: time
+#     at: "08:30:00"
+#   condition:
+#     - condition: state
+#       entity_id: 'binary_sensor.workday_sensor'
+#       state: 'on' 
+#     - condition: state
+#       entity_id: group.household
+#       state: "not_home"
+#   action:
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermochildroom_climate
+#           - climate.thermolivingroom_climate
+#           - climate.thermokitchen_climate
+#         temperature: 5
+#         hvac_mode: auto  
 
-- alias: Set Mode 23 In Weekdays (person in home) 
-  trigger:
-    platform: time
-    at: "07:00:00"
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: 'binary_sensor.workday_sensor'
-        state: 'on'
-      - condition: state
-        entity_id: input_select.thermo_season
-        state: "ON"
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: device_tracker.iphone
-            state: "home"
-          - condition: state
-            entity_id: device_tracker.samsung_a36
-            state: "home"  
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermolivingroom_climate
-          - climate.thermokitchen_climate
-        temperature: 23
-        hvac_mode: auto  
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermochildroom_climate
-        temperature: 25
-        hvac_mode: auto  
+# - alias: Set Mode 23 In Weekdays (person in home) 
+#   trigger:
+#     platform: time
+#     at: "07:00:00"
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: 'binary_sensor.workday_sensor'
+#         state: 'on'
+#       - condition: state
+#         entity_id: input_select.thermo_season
+#         state: "ON"
+#       - condition: or
+#         conditions:
+#           - condition: state
+#             entity_id: device_tracker.iphone
+#             state: "home"
+#           - condition: state
+#             entity_id: device_tracker.samsung_a36
+#             state: "home"  
+#   action:
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermolivingroom_climate
+#           - climate.thermokitchen_climate
+#         temperature: 23
+#         hvac_mode: auto  
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermochildroom_climate
+#         temperature: 25
+#         hvac_mode: auto  
 
-- alias: Set Auto 23 Day Mode In Weekdays
-  trigger:
-    platform: time
-    at: "15:30:00"
-  condition:
-    - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
-      state: 'on'
-    - condition: state
-      entity_id: input_select.thermo_season
-      state: "ON"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermolivingroom_climate
-          - climate.thermokitchen_climate
-        temperature: 23
-        hvac_mode: auto  
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermochildroom_climate
-        temperature: 25
-        hvac_mode: auto 
+# - alias: Set Auto 23 Day Mode In Weekdays
+#   trigger:
+#     platform: time
+#     at: "15:30:00"
+#   condition:
+#     - condition: state
+#       entity_id: 'binary_sensor.workday_sensor'
+#       state: 'on'
+#     - condition: state
+#       entity_id: input_select.thermo_season
+#       state: "ON"
+#   action:
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermolivingroom_climate
+#           - climate.thermokitchen_climate
+#         temperature: 23
+#         hvac_mode: auto  
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermochildroom_climate
+#         temperature: 25
+#         hvac_mode: auto 
 
-- alias: Set Auto 20 Night Mode 
-  trigger:
-    platform: time
-    at: "01:30:00"
-  condition:
-    - condition: state
-      entity_id: input_select.thermo_season
-      state: "ON"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermolivingroom_climate
-          - climate.thermokitchen_climate
-        temperature: 20
-        hvac_mode: auto  
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermochildroom_climate
-        temperature: 22
-        hvac_mode: auto  
+# - alias: Set Auto 20 Night Mode 
+#   trigger:
+#     platform: time
+#     at: "01:30:00"
+#   condition:
+#     - condition: state
+#       entity_id: input_select.thermo_season
+#       state: "ON"
+#   action:
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermolivingroom_climate
+#           - climate.thermokitchen_climate
+#         temperature: 20
+#         hvac_mode: auto  
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermochildroom_climate
+#         temperature: 22
+#         hvac_mode: auto  
 
-- alias: Set Auto 23 Day Mode Weekends
-  trigger:
-    platform: time
-    at: "07:00:00"
-  condition:
-    - condition: state
-      entity_id: 'binary_sensor.workday_sensor'
-      state: 'off'
-    - condition: state
-      entity_id: input_select.thermo_season
-      state: "ON"
-  action:
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermolivingroom_climate
-          - climate.thermokitchen_climate
-        temperature: 23
-        hvac_mode: auto
-    - service: climate.set_temperature
-      data:
-        entity_id: 
-          - climate.thermochildroom_climate
-        temperature: 25
-        hvac_mode: auto  
+# - alias: Set Auto 23 Day Mode Weekends
+#   trigger:
+#     platform: time
+#     at: "07:00:00"
+#   condition:
+#     - condition: state
+#       entity_id: 'binary_sensor.workday_sensor'
+#       state: 'off'
+#     - condition: state
+#       entity_id: input_select.thermo_season
+#       state: "ON"
+#   action:
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermolivingroom_climate
+#           - climate.thermokitchen_climate
+#         temperature: 23
+#         hvac_mode: auto
+#     - service: climate.set_temperature
+#       data:
+#         entity_id: 
+#           - climate.thermochildroom_climate
+#         temperature: 25
+#         hvac_mode: auto  
 
-# Disable climate for open window - Kitchen
-- alias: "Window opened Kitchen"
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.kitchenwindow_contact
-    from: "off"
-    to: "on"
-  condition: []
-  action:
-  - service: scene.create
-    data:
-      scene_id: before
-      snapshot_entities:
-      - climate.thermokitchen_climate
-  - service: climate.set_temperature
-    data:
-      entity_id: 
-        - climate.thermokitchen_climate
-      temperature: 5
-      hvac_mode: auto  
+# # Disable climate for open window - Kitchen
+# - alias: "Window opened Kitchen"
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.kitchenwindow_contact
+#     from: "off"
+#     to: "on"
+#   condition: []
+#   action:
+#   - service: scene.create
+#     data:
+#       scene_id: before
+#       snapshot_entities:
+#       - climate.thermokitchen_climate
+#   - service: climate.set_temperature
+#     data:
+#       entity_id: 
+#         - climate.thermokitchen_climate
+#       temperature: 5
+#       hvac_mode: auto  
 
-- alias: "Window closed Kitechen"
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.kitchenwindow_contact
-    from: "on"
-    to: "off"
-  condition: []
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.before
+# - alias: "Window closed Kitechen"
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.kitchenwindow_contact
+#     from: "on"
+#     to: "off"
+#   condition: []
+#   action:
+#   - service: scene.turn_on
+#     target:
+#       entity_id: scene.before
 
-# Disable climate for open window - Living Room
-- alias: "Window opened Living Room"
-  trigger:
-  - platform: state
-    entity_id: 
-      - binary_sensor.livingroomwindow_contact
-      - binary_sensor.livingroombalconywindow_contact
-    from: "off"
-    to: "on"
-  condition: []
-  action:
-  - service: scene.create
-    data:
-      scene_id: before
-      snapshot_entities:
-      - climate.thermolivingroom_climate
-  - service: climate.set_temperature
-    data:
-      entity_id: 
-        - climate.thermolivingroom_climate
-      temperature: 5
-      hvac_mode: auto  
+# # Disable climate for open window - Living Room
+# - alias: "Window opened Living Room"
+#   trigger:
+#   - platform: state
+#     entity_id: 
+#       - binary_sensor.livingroomwindow_contact
+#       - binary_sensor.livingroombalconywindow_contact
+#     from: "off"
+#     to: "on"
+#   condition: []
+#   action:
+#   - service: scene.create
+#     data:
+#       scene_id: before
+#       snapshot_entities:
+#       - climate.thermolivingroom_climate
+#   - service: climate.set_temperature
+#     data:
+#       entity_id: 
+#         - climate.thermolivingroom_climate
+#       temperature: 5
+#       hvac_mode: auto  
 
-- alias: "Window closed Living Room"
-  trigger:
-  - platform: state
-    entity_id: 
-      - binary_sensor.livingroomwindow_contact
-      - binary_sensor.livingroombalconywindow_contact
-    from: "on"
-    to: "off"
-  condition: []
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.before
+# - alias: "Window closed Living Room"
+#   trigger:
+#   - platform: state
+#     entity_id: 
+#       - binary_sensor.livingroomwindow_contact
+#       - binary_sensor.livingroombalconywindow_contact
+#     from: "on"
+#     to: "off"
+#   condition: []
+#   action:
+#   - service: scene.turn_on
+#     target:
+#       entity_id: scene.before
 
-# Disable climate for open window - Child Room
-- alias: "Window opened Child Room"
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.childroomwindow_contact
-    from: "off"
-    to: "on"
-  condition: []
-  action:
-  - service: scene.create
-    data:
-      scene_id: before
-      snapshot_entities:
-      - climate.thermochildroom_climate
-  - service: climate.set_temperature
-    data:
-      entity_id: 
-        - climate.thermochildroom_climate
-      temperature: 5
-      hvac_mode: auto  
+# # Disable climate for open window - Child Room
+# - alias: "Window opened Child Room"
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.childroomwindow_contact
+#     from: "off"
+#     to: "on"
+#   condition: []
+#   action:
+#   - service: scene.create
+#     data:
+#       scene_id: before
+#       snapshot_entities:
+#       - climate.thermochildroom_climate
+#   - service: climate.set_temperature
+#     data:
+#       entity_id: 
+#         - climate.thermochildroom_climate
+#       temperature: 5
+#       hvac_mode: auto  
 
-- alias: "Window closed Child Room"
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.childroomwindow_contact
-    from: "on"
-    to: "off"
-  condition: []
-  action:
-  - service: scene.turn_on
-    target:
-      entity_id: scene.before
+# - alias: "Window closed Child Room"
+#   trigger:
+#   - platform: state
+#     entity_id: binary_sensor.childroomwindow_contact
+#     from: "on"
+#     to: "off"
+#   condition: []
+#   action:
+#   - service: scene.turn_on
+#     target:
+#       entity_id: scene.before

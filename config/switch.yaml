@@ -1,84 +1,43 @@
-# Thermo
-- platform: template
-  switches:
-    thermoseason:
-      friendly_name: "Thermo Season"
-      value_template: "{{ is_state('input_select.thermo_season', 'ON') }}"
-      turn_on:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.thermo_season
-            option: "ON"
-      turn_off:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.thermo_season
-            option: "OFF"
-      icon_template: >-
-                {% if is_state('input_select.thermo_season', 'ON') %}
-                  mdi:radiator
-                {% else %}
-                  mdi:radiator-disabled
-                {% endif %} 
+# # Thermo
+# - platform: template
+#   switches:
+#     thermoseason:
+#       friendly_name: "Thermo Season"
+#       value_template: "{{ is_state('input_select.thermo_season', 'ON') }}"
+#       turn_on:
+#         - service: input_select.select_option
+#           data:
+#             entity_id: input_select.thermo_season
+#             option: "ON"
+#       turn_off:
+#         - service: input_select.select_option
+#           data:
+#             entity_id: input_select.thermo_season
+#             option: "OFF"
+#       icon_template: >-
+#                 {% if is_state('input_select.thermo_season', 'ON') %}
+#                   mdi:radiator
+#                 {% else %}
+#                   mdi:radiator-disabled
+#                 {% endif %} 
 
-# SRE Alerts
-    srealerts:
-      friendly_name: "SRE Alerts"
-      value_template: "{{ is_state('input_select.sre_alerts', 'ON') }}"
-      turn_on:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.sre_alerts
-            option: "ON"
-      turn_off:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.sre_alerts
-            option: "OFF"
-      icon_template: >-
-                {% if is_state('input_select.sre_alerts', 'ON') %}
-                  mdi:alert-decagram
-                {% else %}
-                  mdi:alert-decagram-outline
-                {% endif %} 
-
-# Audio Yamaha
-    yamaha:
-      friendly_name: "Yamaha"
-      value_template: "{% if states('sensor.yamaha_power') | float > 40 %}True{%else%}False{%endif %}"
-      turn_on:
-        service: script.miio_turn_on_yamaha
-      turn_off:
-        service: script.miio_turn_on_yamaha  
-
-    radio:
-      friendly_name: "Radio"
-      value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
-      turn_on:
-        service: script.miio_turn_on_yamaha_radio
-      turn_off:
-        service: script.miio_turn_on_yamaha_radio
-
-    hdmi1:
-      friendly_name: "HDMI1"
-      value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
-      turn_on:
-        service: script.miio_turn_on_yamaha_hdmi1
-      turn_off:
-        service: script.miio_turn_on_yamaha_hdmi1
-
-    hdmi2:
-      friendly_name: "HDMI2"
-      value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
-      turn_on:
-        service: script.miio_turn_on_yamaha_hdmi2
-      turn_off:
-        service: script.miio_turn_on_yamaha_hdmi2
-        
-    nc:
-      friendly_name: "NC"
-      value_template: "{% if states('sensor.yamaha_power') | float > 90 %}True{%else%}False{%endif %}"
-      turn_on:
-        service: script.miio_turn_on_nc
-      turn_off:
-        service: script.miio_turn_on_nc
+# # SRE Alerts
+#     srealerts:
+#       friendly_name: "SRE Alerts"
+#       value_template: "{{ is_state('input_select.sre_alerts', 'ON') }}"
+#       turn_on:
+#         - service: input_select.select_option
+#           data:
+#             entity_id: input_select.sre_alerts
+#             option: "ON"
+#       turn_off:
+#         - service: input_select.select_option
+#           data:
+#             entity_id: input_select.sre_alerts
+#             option: "OFF"
+#       icon_template: >-
+#                 {% if is_state('input_select.sre_alerts', 'ON') %}
+#                   mdi:alert-decagram
+#                 {% else %}
+#                   mdi:alert-decagram-outline
+#                 {% endif %} 

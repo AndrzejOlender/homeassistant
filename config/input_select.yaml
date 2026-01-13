@@ -1,39 +1,39 @@
-light_childroom:
-    name: "Light Childroom"
-    options:
-        - 'ON'
-        - 'OFF'
-    # initial: 'OFF'
-    icon: mdi:lightbulb
+# light_childroom:
+#     name: "Light Childroom"
+#     options:
+#         - 'ON'
+#         - 'OFF'
+#     # initial: 'OFF'
+#     icon: mdi:lightbulb
 
-light_childroom2:
-    name: "Light Childroom 2"
-    options:
-        - 'ON'
-        - 'OFF'
-    # initial: 'OFF'
-    icon: mdi:lightbulb
+# light_childroom2:
+#     name: "Light Childroom 2"
+#     options:
+#         - 'ON'
+#         - 'OFF'
+#     # initial: 'OFF'
+#     icon: mdi:lightbulb
 
-thermo_season:
-    name: "Thermo Season"
-    options:
-        - 'ON'
-        - 'OFF'
-    # initial: 'OFF'
-    icon: mdi:radiator
+# thermo_season:
+#     name: "Thermo Season"
+#     options:
+#         - 'ON'
+#         - 'OFF'
+#     # initial: 'OFF'
+#     icon: mdi:radiator
 
-sre_alerts:
-    name: "Sre Alerts"
-    options:
-        - 'ON'
-        - 'OFF'
-    # initial: 'OFF'
-    icon: mdi:alert-decagram
+# sre_alerts:
+#     name: "Sre Alerts"
+#     options:
+#         - 'ON'
+#         - 'OFF'
+#     # initial: 'OFF'
+#     icon: mdi:alert-decagram
     
-covers_sun:
-    name: "Covers Sun"
-    options:
-        - 'ON'
-        - 'OFF'
-    initial: 'OFF'
-    icon: mdi:blinds-horizontal
+# covers_sun:
+#     name: "Covers Sun"
+#     options:
+#         - 'ON'
+#         - 'OFF'
+#     initial: 'OFF'
+#     icon: mdi:blinds-horizontal

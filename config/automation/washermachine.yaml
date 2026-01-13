@@ -1,40 +1,40 @@
-- alias: Enable Washer
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_action
-    to: single_left
-  action:
-    entity_id: switch.washermachine
-    service: switch.turn_on
+# - alias: Enable Washer
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom2_action
+#     to: single_left
+#   action:
+#     entity_id: switch.washermachine
+#     service: switch.turn_on
 
-- alias: Disable Washer
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_action
-    to: double_left
-  action:
-    entity_id: switch.washermachine
-    service: switch.turn_off
+# - alias: Disable Washer
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom2_action
+#     to: double_left
+#   action:
+#     entity_id: switch.washermachine
+#     service: switch.turn_off
 
-# iOS Notification
-- alias: Washermachine Start Actions iOS 
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: STOP-WASHERMACHINE
-  action:
-    service: switch.turn_on
-    target:
-      entity_id: switch.washermachine
+# # iOS Notification
+# - alias: Washermachine Start Actions iOS 
+#   trigger:
+#     platform: event
+#     event_type: ios.notification_action_fired
+#     event_data:
+#       actionName: STOP-WASHERMACHINE
+#   action:
+#     service: switch.turn_on
+#     target:
+#       entity_id: switch.washermachine
 
-- alias: Washermachine Stop Actions iOS 
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: START-WASHERMACHINE
-  action:
-    service: switch.turn_off
-    target:
-      entity_id: switch.washermachine
+# - alias: Washermachine Stop Actions iOS 
+#   trigger:
+#     platform: event
+#     event_type: ios.notification_action_fired
+#     event_data:
+#       actionName: START-WASHERMACHINE
+#   action:
+#     service: switch.turn_off
+#     target:
+#       entity_id: switch.washermachine

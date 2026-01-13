@@ -1,42 +1,3 @@
-# Washermachine
-- platform: integration
-  source: sensor.washermachine_power
-  name: "Washermachine Energy"
-  unit_prefix: k
-  round: 2  
-
-- platform: template
-  sensors:
-    washermachine:
-      friendly_name: "Washermachine"
-      value_template: >-
-        {% if states('sensor.washermachine_power') not in ['unavailable', 'unknown'] %}
-          {% if states('sensor.washermachine_power').isnumeric() and states('sensor.washermachine_power')|int > 3 %}
-            washing
-          {% else %}
-            disable
-          {% endif %}
-        {% else %}
-          {{ states('sensor.washermachine') }}
-        {% endif %}     
-
-# Thermo
-- platform: template
-  sensors:
-    thermostat_livingroom_temperature:
-      friendly_name: "Living Room Temperature"
-      unit_of_measurement: '°C'
-      value_template: "{{ states.climate.thermolivingroom_climate.attributes.current_temperature }}"
-
-    thermostat_childroom_temperature:
-      friendly_name: "Child Room Temperature"
-      unit_of_measurement: '°C'
-      value_template: "{{ states.climate.thermochildroom_climate.attributes.current_temperature }}"
-
-    thermostat_kitchen_temperature:
-      friendly_name: "Kitchen Room Temperature"
-      unit_of_measurement: '°C'
-      value_template: "{{ states.climate.thermokitchen_climate.attributes.current_temperature }}" 
 
 # Weather 
 - platform: template
@@ -45,11 +6,6 @@
       friendly_name: "Wind"
       unit_of_measurement: ""
       value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
-
-# PGNiG
-- platform: pgnig_gas_sensor
-  username: !secret pgnig_user
-  password: !secret pgnig_password
 
 # Device Tracker
 - platform: template
@@ -63,47 +19,3 @@
     home_andrzej:
       friendly_name: "Tracker Andrzej"
       value_template: "{% if is_state('device_tracker.iphone', 'home') %}Home{% else %}Away{% endif %}"
-
-- platform: rest
-  name: SUI Wallet
-  resource: https://api.blockvision.org/v2/sui/account/coins?account=0xcf50d5f093fd78b0e3f785e792ee67ffa0fafbd5642e672042f656c7c7ef724b
-  method: GET
-  headers:
-    accept: application/json
-    x-api-key: !secret sui_api_key
-  value_template: >
-    {{ value_json.result.usdValue | float | round(0) }}
-  unit_of_measurement: "USD"
-  scan_interval: 300
-
-# - platform: rest
-#   name: SUI Token
-#   resource: https://api.blockvision.org/v2/sui/account/coins?account=0xcf50d5f093fd78b0e3f785e792ee67ffa0fafbd5642e672042f656c7c7ef724b
-#   method: GET
-#   headers:
-#     accept: application/json
-#     x-api-key: !secret sui_api_key
-#   value_template: >
-#     {% for coin in value_json.result.coins %}
-#       {% if coin.symbol == "SUI" %}
-#         {{ coin.usdValue | float | round(0) }}
-#       {% endif %}
-#     {% endfor %}
-#   unit_of_measurement: "USD"
-#   scan_interval: 300
-
-# - platform: rest
-#   name: DEEP Token
-#   resource: https://api.blockvision.org/v2/sui/account/coins?account=0xcf50d5f093fd78b0e3f785e792ee67ffa0fafbd5642e672042f656c7c7ef724b
-#   method: GET
-#   headers:
-#     accept: application/json
-#     x-api-key: !secret sui_api_key
-#   value_template: >
-#     {% for coin in value_json.result.coins %}
-#       {% if coin.symbol == "DEEP" %}
-#         {{ coin.usdValue | float | round(0) }}
-#       {% endif %}
-#     {% endfor %}
-#   unit_of_measurement: "USD"
-#   scan_interval: 300

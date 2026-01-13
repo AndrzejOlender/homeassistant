@@ -1,20 +1,20 @@
-- alias: Locking Main Door Actions iOS 
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: LOCK
-  action:
-    service: lock.lock
-    entity_id: lock.maindoorlock
+# - alias: Locking Main Door Actions iOS 
+#   trigger:
+#     platform: event
+#     event_type: ios.notification_action_fired
+#     event_data:
+#       actionName: LOCK
+#   action:
+#     service: lock.lock
+#     entity_id: lock.maindoorlock
 
-- alias: Unlocking Main Door Actions iOS 
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: UNLOCK
-  action:
-    service: lock.unlock
-    entity_id: lock.maindoorlock
+# - alias: Unlocking Main Door Actions iOS 
+#   trigger:
+#     platform: event
+#     event_type: ios.notification_action_fired
+#     event_data:
+#       actionName: UNLOCK
+#   action:
+#     service: lock.unlock
+#     entity_id: lock.maindoorlock
 

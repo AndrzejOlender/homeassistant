@@ -1,566 +1,566 @@
-# Toilet Switches
-- alias: Switch Light Toilet 1 (right)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchtoilet1_action
-    to: single_right
-  action:
-    entity_id: light.group_1_toilet_1
-    service: light.toggle
+# # Toilet Switches
+# - alias: Switch Light Toilet 1 (right)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchtoilet1_action
+#     to: single_right
+#   action:
+#     entity_id: light.group_1_toilet_1
+#     service: light.toggle
 
-- alias: Switch Light Toilet 2 (left)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchtoilet1_action
-    to: single_left
-  action:
-    entity_id: light.group_5_toilet_2
-    service: light.toggle
+# - alias: Switch Light Toilet 2 (left)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchtoilet1_action
+#     to: single_left
+#   action:
+#     entity_id: light.group_5_toilet_2
+#     service: light.toggle
 
-- alias: Turn Off Light Toilet 1 & 2 (right)
-  trigger:  
-    platform: state
-    entity_id: sensor.aqaraswitchtoilet1_action
-    to: double_right
-  action:
-    entity_id:   
-      - light.group_5_toilet_2
-      - light.group_1_toilet_1
-    service: light.turn_off       
+# - alias: Turn Off Light Toilet 1 & 2 (right)
+#   trigger:  
+#     platform: state
+#     entity_id: sensor.aqaraswitchtoilet1_action
+#     to: double_right
+#   action:
+#     entity_id:   
+#       - light.group_5_toilet_2
+#       - light.group_1_toilet_1
+#     service: light.turn_off       
 
-# Livingroom Switches    
-- alias: Turn Off Light 1,2,3
-  trigger:  
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_action
-    to: double_right
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.ikeabulblamp_light
-        - light.group_livingroom_1
-        - light.lightlivingroomleftright_l1
-        - light.lightlivingroomleftright_l2
+# # Livingroom Switches    
+# - alias: Turn Off Light 1,2,3
+#   trigger:  
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom1_action
+#     to: double_right
+#   action:
+#     - service: light.turn_off
+#       entity_id:
+#         - light.ikeabulblamp_light
+#         - light.group_livingroom_1
+#         - light.lightlivingroomleftright_l1
+#         - light.lightlivingroomleftright_l2
 
-- alias: Turn Off All Living Room and Child Room
-  trigger:  
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_action
-    to: double_left
-  action:
-    - service: switch.turn_off
-      entity_id: 
-        - switch.yamaha
-        - switch.nc
-        - switch.blitzlivingroomrtv
-        - switch.blitzlivingroomglasscase
-        - switch.blitzlivingroomcommod
-    - service: media_player.turn_off
-      entity_id: 
-        - media_player.tv
-    - service: light.turn_off
-      entity_id: 
-        - light.aqaralampchildroom_light
-        - light.lightlivingroomleftright_l1
-        - light.lightlivingroomleftright_l2
-        - light.group_6_wardobe_1
-        - light.ikeabulblamp_light
-        - light.group_livingroom_1
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom
-        option: "OFF"
+# - alias: Turn Off All Living Room and Child Room
+#   trigger:  
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom1_action
+#     to: double_left
+#   action:
+#     - service: switch.turn_off
+#       entity_id: 
+#         - switch.yamaha
+#         - switch.nc
+#         - switch.blitzlivingroomrtv
+#         - switch.blitzlivingroomglasscase
+#         - switch.blitzlivingroomcommod
+#     - service: media_player.turn_off
+#       entity_id: 
+#         - media_player.tv
+#     - service: light.turn_off
+#       entity_id: 
+#         - light.aqaralampchildroom_light
+#         - light.lightlivingroomleftright_l1
+#         - light.lightlivingroomleftright_l2
+#         - light.group_6_wardobe_1
+#         - light.ikeabulblamp_light
+#         - light.group_livingroom_1
+#     - service: input_select.select_option
+#       data:
+#         entity_id: input_select.light_childroom
+#         option: "OFF"
 
-- alias: Switch Light 1 (right)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_action
-    to: single_right
-  action:
-    entity_id: light.group_livingroom_1
-    service: light.toggle
+# - alias: Switch Light 1 (right)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom1_action
+#     to: single_right
+#   action:
+#     entity_id: light.group_livingroom_1
+#     service: light.toggle
 
-- alias: Switch Light 2 (left)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom1_action
-    to: single_left
-  action:
-    entity_id: light.lightlivingroomleftright_l1
-    service: light.toggle
+# - alias: Switch Light 2 (left)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom1_action
+#     to: single_left
+#   action:
+#     entity_id: light.lightlivingroomleftright_l1
+#     service: light.toggle
 
-- alias: Switch Light 3 (right)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchlivingroom2_action
-    to: single_right
-  action:
-    entity_id: light.lightlivingroomleftright_l2
-    service: light.toggle
+# - alias: Switch Light 3 (right)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchlivingroom2_action
+#     to: single_right
+#   action:
+#     entity_id: light.lightlivingroomleftright_l2
+#     service: light.toggle
 
-- alias: LED RTV
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchlivingroom3_action
-    to: single
-  action:
-    - service: switch.toggle
-      entity_id: 
-        - switch.blitzlivingroomcommod
-        - switch.blitzlivingroomrtv
-        - switch.blitzlivingroomglasscase
+# - alias: LED RTV
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchlivingroom3_action
+#     to: single
+#   action:
+#     - service: switch.toggle
+#       entity_id: 
+#         - switch.blitzlivingroomcommod
+#         - switch.blitzlivingroomrtv
+#         - switch.blitzlivingroomglasscase
 
-# Anteroom switches   
-- alias: Switch Light Anteroom 1 (right)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchanteroom1_action
-    to: single_right
-  action:
-    entity_id: light.group_2_anteroom_1
-    service: light.toggle
+# # Anteroom switches   
+# - alias: Switch Light Anteroom 1 (right)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchanteroom1_action
+#     to: single_right
+#   action:
+#     entity_id: light.group_2_anteroom_1
+#     service: light.toggle
 
-- alias: Switch Light Anteroom 2 (left)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchanteroom1_action
-    to: single_left
-  action:
-    entity_id: light.group_3_anteroom_2
-    service: light.toggle
+# - alias: Switch Light Anteroom 2 (left)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchanteroom1_action
+#     to: single_left
+#   action:
+#     entity_id: light.group_3_anteroom_2
+#     service: light.toggle
 
-# Offcie Switches    
-- alias: Lamp Desk Office
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchkitchen1_action
-    to: single
-  action:
-    entity_id: light.group_4_office_1
-    service: light.toggle 
+# # Offcie Switches    
+# - alias: Lamp Desk Office
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchkitchen1_action
+#     to: single
+#   action:
+#     entity_id: light.group_4_office_1
+#     service: light.toggle 
 
-- alias: Switch Off Light in the Kitchen & Anteroom & Toilet
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchkitchen1_action
-      - sensor.aqaraswitchkitchen2_action
-    to: hold
-  action:
-    entity_id: 
-      - light.group_4_office_1
-      - light.lamp_kitchen
-      - light.group_2_anteroom_1
-      - light.group_3_anteroom_2
-      - light.group_5_toilet_2
-      - light.group_1_toilet_1
-    service: light.turn_off  
+# - alias: Switch Off Light in the Kitchen & Anteroom & Toilet
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchkitchen1_action
+#       - sensor.aqaraswitchkitchen2_action
+#     to: hold
+#   action:
+#     entity_id: 
+#       - light.group_4_office_1
+#       - light.lamp_kitchen
+#       - light.group_2_anteroom_1
+#       - light.group_3_anteroom_2
+#       - light.group_5_toilet_2
+#       - light.group_1_toilet_1
+#     service: light.turn_off  
 
-- alias: Switch Off Light in the Kitchen 
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchkitchen1_action
-      - sensor.aqaraswitchkitchen2_action
-    to: double
-  action:
-    entity_id: 
-      - light.group_4_office_1
-      - light.lamp_kitchen
-      - light.group_2_anteroom_1
-      - light.group_3_anteroom_2
-      - light.philipsledoffice
-      - light.philipsledofficeleft
-      - light.philipsledofficeright
-    service: light.turn_off    
+# - alias: Switch Off Light in the Kitchen 
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchkitchen1_action
+#       - sensor.aqaraswitchkitchen2_action
+#     to: double
+#   action:
+#     entity_id: 
+#       - light.group_4_office_1
+#       - light.lamp_kitchen
+#       - light.group_2_anteroom_1
+#       - light.group_3_anteroom_2
+#       - light.philipsledoffice
+#       - light.philipsledofficeleft
+#       - light.philipsledofficeright
+#     service: light.turn_off    
 
-# Auto turnoff lights
-- alias: Switch Off Light in the Kitchen & Anteroom 2
-  trigger: 
-    platform: state
-    entity_id: 
-      - binary_sensor.motionkitchen_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 2
-  action:
-    entity_id: 
-      - light.group_2_anteroom_1
-      - light.group_3_anteroom_2
-    service: light.turn_off     
-
-- alias: Lamp Kitchen (single)
-  trigger:
-    platform: state
-    entity_id: sensor.aqaraswitchkitchen2_action
-    to: single
-  action:
-    entity_id: light.lamp_kitchen
-    service: light.toggle  
-
-# Switches Childroom 1
-- alias: Lamp Childroom
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchchildroom_action
-      - sensor.aqaraswitchchildroom2_action
-    to: single
-  action:
-    - service: light.toggle
-      entity_id: light.aqaralampchildroom_light
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom
-        option: "OFF"
-
-# Switches Childroom 2
-- alias: Light Childroom
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchwardrobe_action
-      - sensor.aqaraswitchchildroom3_action
-    to: single
-  action:
-    - service: light.toggle
-      entity_id: light.group_6_wardobe_1
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom2
-        option: "OFF"
-
-# Autooff all double click
-- alias: Lamp Childroom Off All
-  trigger:
-    platform: state
-    entity_id: 
-      - sensor.aqaraswitchwardrobe_action
-      - sensor.aqaraswitchchildroom_action
-      - sensor.aqaraswitchchildroom2_action
-      - sensor.aqaraswitchchildroom3_action
-    to: double
-  action:
-    - service: light.turn_off
-      entity_id:
-        - light.aqaralampchildroom_light
-        - light.group_6_wardobe_1
-    - service: cover.close_cover
-      entity_id:
-        - cover.blindschildroomwindow1
-    - service: input_select.select_option
-      data:
-        entity_id: 
-          - input_select.light_childroom
-          - input_select.light_childroom2
-        option: "OFF"
-
-# Auto on child room 1
-- alias: Turn On Light Childroom if auto light off
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionchildroom_occupancy
-    from: "off"
-    to: "on"
-  condition:
-    - condition: state
-      entity_id: input_select.light_childroom
-      state: "ON"
-    - condition: time
-      after: '05:00:00'
-      before: '23:00:00'
-  action: 
-    - service: light.turn_on
-      entity_id: light.aqaralampchildroom_light
-
-- alias: Turn Off Light Childroom 10 No Occupancy
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionchildroom_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 10
-  condition:
-    - condition: state
-      entity_id: light.aqaralampchildroom_light
-      state: "on"
-  action: 
-    - service: light.turn_off
-      entity_id:
-        - light.aqaralampchildroom_light
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom
-        option: "ON"
-
-# Auto off child room 2
-- alias: Turn On Light Childroom if auto light off
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionchildroom2_occupancy
-    from: "off"
-    to: "on"
-  condition:
-    - condition: state
-      entity_id: input_select.light_childroom2
-      state: "ON"
-    - condition: time
-      after: '05:00:00'
-      before: '23:00:00'
-  action: 
-    - service: light.turn_on
-      entity_id: light.group_6_wardobe_1
-
-- alias: Turn Off Light Childroom 10 No Occupancy
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionchildroom2_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 10
-  condition:
-    - condition: state
-      entity_id: light.group_6_wardobe_1
-      state: "on"
-  action: 
-    - service: light.turn_off
-      entity_id:
-        - light.group_6_wardobe_1
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.light_childroom2
-        option: "ON"                                   
-
-# Auto Light in Kithen Day
-- alias: Turn on Light in Kitchen Day
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionkitchen2_occupancy
-    from: "off"
-    to: "on"
-  condition:
-      - condition: and
-        conditions:
-          - condition: time
-            after: '05:00:00'
-            before: '01:00:00'
-          - condition: or
-            conditions:
-              - condition: sun
-                after: sunset
-                after_offset: "-00:15:00"
-              - condition: template
-                value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
-  action: 
-    service: light.turn_on
-    data:
-      brightness: 255
-      entity_id:
-        - light.lamp_kitchen
-
-# Auto Light in Kithen Night
-- alias: Turn on Light in Kitchen Night
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionkitchen2_occupancy
-    from: "off"
-    to: "on"
-  condition:
-    - condition: time
-      after: '01:00:00'
-      before: '05:00:00'
-  action: 
-    service: light.turn_on
-    data:
-      brightness: 10
-      entity_id:
-        - light.lamp_kitchen
-
-# Auto Light Off Kithen Day
-- alias: Turn off Light in Kitchen Day
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motionkitchen2_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 5
-  action: 
-    entity_id: light.lamp_kitchen
-    service: light.turn_off     
-
-# Toilet Auto Turn On
-- alias: Turn On Light In Toilet
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motiontoilet_occupancy
-    from: "off"
-    to: "on"
-  action:
-    - choose:
-      - conditions:
-        - condition: time
-          after: '23:45:00'
-          before: '05:00:00'   
-        - condition: state
-          entity_id: switch.yamaha
-          state: "off"
-        sequence:
-          service: light.turn_on          
-          data:
-            transition: 0
-            brightness: 20
-            entity_id:
-              - light.group_1_toilet_1
-      default:
-        service: light.turn_on          
-        data:
-          transition: 0
-          brightness: 254
-          entity_id:
-            - light.group_1_toilet_1
-
-- alias: Turn Off Light Toilet 10 No Occupancy
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.motiontoilet_occupancy
-    from: "on"
-    to: "off"
-    for:
-      minutes: 10
-  action: 
-    - service: light.turn_off
-      entity_id:
-        - light.group_1_toilet_1 
-        - light.group_5_toilet_2
-
-# Anteroom Auto Turn On       
-- alias: Turn on Light in Anteroom Enter Home
-  trigger: 
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-      - condition: sun
-        after: sunset
-        after_offset: "-00:15:00"
-      - condition: state
-        entity_id: device_tracker.iphone_luci_andrzej
-        state: "not_home"
-  action: 
-    - service: light.turn_on
-      data:
-        brightness: 254
-        entity_id:
-          - light.group_2_anteroom_1 
-
-# # Office Desk Auto Turn On and Off   
-# - alias: Turn on Light In The Office
+# # Auto turnoff lights
+# - alias: Switch Off Light in the Kitchen & Anteroom 2
 #   trigger: 
 #     platform: state
-#     entity_id: binary_sensor.macbook_pro_active
-#     to: "on" 
+#     entity_id: 
+#       - binary_sensor.motionkitchen_occupancy
+#     from: "on"
+#     to: "off"
 #     for:
-#       seconds: 3
+#       minutes: 2
+#   action:
+#     entity_id: 
+#       - light.group_2_anteroom_1
+#       - light.group_3_anteroom_2
+#     service: light.turn_off     
+
+# - alias: Lamp Kitchen (single)
+#   trigger:
+#     platform: state
+#     entity_id: sensor.aqaraswitchkitchen2_action
+#     to: single
+#   action:
+#     entity_id: light.lamp_kitchen
+#     service: light.toggle  
+
+# # Switches Childroom 1
+# - alias: Lamp Childroom
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchchildroom_action
+#       - sensor.aqaraswitchchildroom2_action
+#     to: single
+#   action:
+#     - service: light.toggle
+#       entity_id: light.aqaralampchildroom_light
+#     - service: input_select.select_option
+#       data:
+#         entity_id: input_select.light_childroom
+#         option: "OFF"
+
+# # Switches Childroom 2
+# - alias: Light Childroom
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchwardrobe_action
+#       - sensor.aqaraswitchchildroom3_action
+#     to: single
+#   action:
+#     - service: light.toggle
+#       entity_id: light.group_6_wardobe_1
+#     - service: input_select.select_option
+#       data:
+#         entity_id: input_select.light_childroom2
+#         option: "OFF"
+
+# # Autooff all double click
+# - alias: Lamp Childroom Off All
+#   trigger:
+#     platform: state
+#     entity_id: 
+#       - sensor.aqaraswitchwardrobe_action
+#       - sensor.aqaraswitchchildroom_action
+#       - sensor.aqaraswitchchildroom2_action
+#       - sensor.aqaraswitchchildroom3_action
+#     to: double
+#   action:
+#     - service: light.turn_off
+#       entity_id:
+#         - light.aqaralampchildroom_light
+#         - light.group_6_wardobe_1
+#     - service: cover.close_cover
+#       entity_id:
+#         - cover.blindschildroomwindow1
+#     - service: input_select.select_option
+#       data:
+#         entity_id: 
+#           - input_select.light_childroom
+#           - input_select.light_childroom2
+#         option: "OFF"
+
+# # Auto on child room 1
+# - alias: Turn On Light Childroom if auto light off
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionchildroom_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#     - condition: state
+#       entity_id: input_select.light_childroom
+#       state: "ON"
+#     - condition: time
+#       after: '05:00:00'
+#       before: '23:00:00'
+#   action: 
+#     - service: light.turn_on
+#       entity_id: light.aqaralampchildroom_light
+
+# - alias: Turn Off Light Childroom 10 No Occupancy
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionchildroom_occupancy
+#     from: "on"
+#     to: "off"
+#     for:
+#       minutes: 10
+#   condition:
+#     - condition: state
+#       entity_id: light.aqaralampchildroom_light
+#       state: "on"
+#   action: 
+#     - service: light.turn_off
+#       entity_id:
+#         - light.aqaralampchildroom_light
+#     - service: input_select.select_option
+#       data:
+#         entity_id: input_select.light_childroom
+#         option: "ON"
+
+# # Auto off child room 2
+# - alias: Turn On Light Childroom if auto light off
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionchildroom2_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#     - condition: state
+#       entity_id: input_select.light_childroom2
+#       state: "ON"
+#     - condition: time
+#       after: '05:00:00'
+#       before: '23:00:00'
+#   action: 
+#     - service: light.turn_on
+#       entity_id: light.group_6_wardobe_1
+
+# - alias: Turn Off Light Childroom 10 No Occupancy
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionchildroom2_occupancy
+#     from: "on"
+#     to: "off"
+#     for:
+#       minutes: 10
+#   condition:
+#     - condition: state
+#       entity_id: light.group_6_wardobe_1
+#       state: "on"
+#   action: 
+#     - service: light.turn_off
+#       entity_id:
+#         - light.group_6_wardobe_1
+#     - service: input_select.select_option
+#       data:
+#         entity_id: input_select.light_childroom2
+#         option: "ON"                                   
+
+# # Auto Light in Kithen Day
+# - alias: Turn on Light in Kitchen Day
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionkitchen2_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#       - condition: and
+#         conditions:
+#           - condition: time
+#             after: '05:00:00'
+#             before: '01:00:00'
+#           - condition: or
+#             conditions:
+#               - condition: sun
+#                 after: sunset
+#                 after_offset: "-00:15:00"
+#               - condition: template
+#                 value_template: "{{ state_attr('binary_sensor.motionkitchen2_occupancy', 'illuminance_lux') < 7 }}"
+#   action: 
+#     service: light.turn_on
+#     data:
+#       brightness: 255
+#       entity_id:
+#         - light.lamp_kitchen
+
+# # Auto Light in Kithen Night
+# - alias: Turn on Light in Kitchen Night
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionkitchen2_occupancy
+#     from: "off"
+#     to: "on"
+#   condition:
+#     - condition: time
+#       after: '01:00:00'
+#       before: '05:00:00'
+#   action: 
+#     service: light.turn_on
+#     data:
+#       brightness: 10
+#       entity_id:
+#         - light.lamp_kitchen
+
+# # Auto Light Off Kithen Day
+# - alias: Turn off Light in Kitchen Day
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motionkitchen2_occupancy
+#     from: "on"
+#     to: "off"
+#     for:
+#       minutes: 5
+#   action: 
+#     entity_id: light.lamp_kitchen
+#     service: light.turn_off     
+
+# # Toilet Auto Turn On
+# - alias: Turn On Light In Toilet
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motiontoilet_occupancy
+#     from: "off"
+#     to: "on"
+#   action:
+#     - choose:
+#       - conditions:
+#         - condition: time
+#           after: '23:45:00'
+#           before: '05:00:00'   
+#         - condition: state
+#           entity_id: switch.yamaha
+#           state: "off"
+#         sequence:
+#           service: light.turn_on          
+#           data:
+#             transition: 0
+#             brightness: 20
+#             entity_id:
+#               - light.group_1_toilet_1
+#       default:
+#         service: light.turn_on          
+#         data:
+#           transition: 0
+#           brightness: 254
+#           entity_id:
+#             - light.group_1_toilet_1
+
+# - alias: Turn Off Light Toilet 10 No Occupancy
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.motiontoilet_occupancy
+#     from: "on"
+#     to: "off"
+#     for:
+#       minutes: 10
+#   action: 
+#     - service: light.turn_off
+#       entity_id:
+#         - light.group_1_toilet_1 
+#         - light.group_5_toilet_2
+
+# # Anteroom Auto Turn On       
+# - alias: Turn on Light in Anteroom Enter Home
+#   trigger: 
+#     platform: state
+#     entity_id: binary_sensor.maindoor_contact
+#     from: "off"
+#     to: "on"
+#   condition:
+#       - condition: sun
+#         after: sunset
+#         after_offset: "-00:15:00"
+#       - condition: state
+#         entity_id: device_tracker.iphone_luci_andrzej
+#         state: "not_home"
 #   action: 
 #     - service: light.turn_on
 #       data:
 #         brightness: 254
+#         entity_id:
+#           - light.group_2_anteroom_1 
+
+# # # Office Desk Auto Turn On and Off   
+# # - alias: Turn on Light In The Office
+# #   trigger: 
+# #     platform: state
+# #     entity_id: binary_sensor.macbook_pro_active
+# #     to: "on" 
+# #     for:
+# #       seconds: 3
+# #   action: 
+# #     - service: light.turn_on
+# #       data:
+# #         brightness: 254
+# #         rgb_color: [0, 0, 255]
+# #         entity_id:
+# #           - light.philipsledoffice
+
+# # # Office Desk Auto Turn Off    
+# # - alias: Turn off Light In The Office
+# #   trigger:
+# #     platform: zone
+# #     entity_id: person.arsen
+# #     zone: zone.home
+# #     event: leave
+# #   action: 
+# #     - service: light.turn_off
+# #       data:
+# #         entity_id:
+# #           - light.philipsledoffice
+# #           - light.philipsledofficeleft
+# #           - light.philipsledofficeright
+# #           - light.philipsledoffice1
+# #           - light.philipsledoffice2
+# #     - service: cover.open_cover
+# #       entity_id: 
+# #       - cover.blindsofficewindow1
+# #       - cover.blindsofficewindow2
+
+# # # Office Desk Auto Turn On and Off if Camera Usage      
+# # - alias: Turn on Light In The Office if Camera Ussage
+# #   trigger: 
+# #     platform: state
+# #     entity_id: sensor.macbook_pro_active_camera
+# #     from: "Inactive"
+# #     to: "FaceTime HD Camera"
+# #     for:
+# #       seconds: 3
+# #   condition:
+# #     - condition: state
+# #       entity_id:
+# #         - binary_sensor.macbook_pro_active
+# #       state: "on"
+# #   action: 
+# #     - service: light.turn_on
+# #       data:
+# #         brightness: 254
+# #         rgb_color: [255, 153, 51]        
+# #         entity_id:
+# #           - light.philipsledoffice
+
+# # - alias: Turn off Light In The Office if Camera Ussage
+# #   trigger: 
+# #     platform: state
+# #     entity_id: sensor.macbook_pro_active_camera
+# #     from: "FaceTime HD Camera"
+# #     to: "Inactive"
+# #     for:
+# #       seconds: 3
+# #   condition:
+# #     - condition: state
+# #       entity_id:
+# #         - binary_sensor.macbook_pro_active
+# #       state: "on"
+# #   action: 
+# #     - service: light.turn_on
+# #       data:
+# #         brightness: 254
+# #         rgb_color: [0, 0, 255]        
+# #         entity_id:
+# #           - light.philipsledoffice
+
+# # Using a PagerDuty webhook
+# - alias: "PagerDuty Webhook"
+#   trigger:
+#     - platform: webhook
+#       webhook_id: !secret pagerdutty
+#   condition:
+#       - condition: state
+#         entity_id: input_select.sre_alerts
+#         state: "ON"
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.philipsledoffice
+#       data:
+#         transition: 5
+#         brightness: 254
+#         rgb_color: [255, 0, 0]
+#     - delay:
+#         minutes: 2
+#     - service: light.turn_on
+#       data:
+#         brightness: 254
+#         transition: 5
 #         rgb_color: [0, 0, 255]
 #         entity_id:
 #           - light.philipsledoffice
-
-# # Office Desk Auto Turn Off    
-# - alias: Turn off Light In The Office
-#   trigger:
-#     platform: zone
-#     entity_id: person.arsen
-#     zone: zone.home
-#     event: leave
-#   action: 
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.philipsledoffice
-#           - light.philipsledofficeleft
-#           - light.philipsledofficeright
-#           - light.philipsledoffice1
-#           - light.philipsledoffice2
-#     - service: cover.open_cover
-#       entity_id: 
-#       - cover.blindsofficewindow1
-#       - cover.blindsofficewindow2
-
-# # Office Desk Auto Turn On and Off if Camera Usage      
-# - alias: Turn on Light In The Office if Camera Ussage
-#   trigger: 
-#     platform: state
-#     entity_id: sensor.macbook_pro_active_camera
-#     from: "Inactive"
-#     to: "FaceTime HD Camera"
-#     for:
-#       seconds: 3
-#   condition:
-#     - condition: state
-#       entity_id:
-#         - binary_sensor.macbook_pro_active
-#       state: "on"
-#   action: 
-#     - service: light.turn_on
-#       data:
-#         brightness: 254
-#         rgb_color: [255, 153, 51]        
-#         entity_id:
-#           - light.philipsledoffice
-
-# - alias: Turn off Light In The Office if Camera Ussage
-#   trigger: 
-#     platform: state
-#     entity_id: sensor.macbook_pro_active_camera
-#     from: "FaceTime HD Camera"
-#     to: "Inactive"
-#     for:
-#       seconds: 3
-#   condition:
-#     - condition: state
-#       entity_id:
-#         - binary_sensor.macbook_pro_active
-#       state: "on"
-#   action: 
-#     - service: light.turn_on
-#       data:
-#         brightness: 254
-#         rgb_color: [0, 0, 255]        
-#         entity_id:
-#           - light.philipsledoffice
-
-# Using a PagerDuty webhook
-- alias: "PagerDuty Webhook"
-  trigger:
-    - platform: webhook
-      webhook_id: !secret pagerdutty
-  condition:
-      - condition: state
-        entity_id: input_select.sre_alerts
-        state: "ON"
-  action:
-    - service: light.turn_on
-      entity_id: light.philipsledoffice
-      data:
-        transition: 5
-        brightness: 254
-        rgb_color: [255, 0, 0]
-    - delay:
-        minutes: 2
-    - service: light.turn_on
-      data:
-        brightness: 254
-        transition: 5
-        rgb_color: [0, 0, 255]
-        entity_id:
-          - light.philipsledoffice

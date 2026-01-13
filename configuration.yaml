@@ -19,7 +19,6 @@ homeassistant:
     - "https://home.olender.me"
 
 tts: !include config/tts.yaml
-# stt: !include config/stt.yaml
 zone: !include config/zone.yaml
 http: !include config/http.yaml
 cover: !include config/cover.yaml

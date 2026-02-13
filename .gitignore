@@ -26,3 +26,8 @@ tts/
 custom_components/*
 deps/
 config/stt.yaml
+zigbee.db-shm
+zigbee.db-wal
+.ha_run.lock
+.gitignore
+.ha_run.lock

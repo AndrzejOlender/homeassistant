@@ -16,52 +16,6 @@
     switch.radio:
       state: 'on' 
 
-- id: '1577085914679'
-  name: Good Night
-  entities:
-    light.lightlivingroomleftright_l1:
-      state: 'off'
-    light.group_livingroom_1:
-      state: 'off'
-    light.lightlivingroomleftright_l2:
-      state: 'off'
-    light.aqaralampchildroom_light:
-      state: 'off'
-    light.ikeabulblamp_light:
-      state: 'off'
-    switch.yamaha:
-      state: 'off'  
-    switch.nc:
-      state: 'off'
-    switch.blitzlivingroomcommod:
-      state: 'off'
-    switch.blitzlivingroomrtv:
-      state: 'off'
-    switch.blitzlivingroomglasscase:
-      state: 'off'
-    media_player.tv:
-      state: 'off'
-    light.group_4_office_1:  
-      state: 'off'
-    light.lamp_kitchen:
-      state: 'off'
-    light.group_3_anteroom_2:
-      state: 'off'
-    light.group_1_toilet_1:
-      state: 'off'       
-    light.group_5_toilet_2:
-      state: 'off'   
-    light.group_2_anteroom_1:
-      state: 'off' 
-    light.group_6_wardobe_1:
-      state: 'off' 
-    light.philipsledoffice:
-      state: 'off'
-    light.philipsledofficeleft:
-      state: 'off'
-    light.philipsledofficeright:
-      state: 'off'
-
 - id: '1577085924679'
   name: Good Morning
   entities:

@@ -454,3 +454,21 @@ work_day:
 #               minutes: 0
 #               seconds: 1
 #               milliseconds: 0
+
+# Good Night
+good_night:
+  alias: Good Night
+  icon: mdi:bed-king
+  sequence:
+    # Turn off all lights
+    - service: light.turn_off
+      target:
+        entity_id: all
+    # Pause all media players (Sonos, Apple TV, etc.)
+    - service: media_player.media_pause
+      target:
+        entity_id: all
+    # # Turn off TV
+    # - service: media_player.turn_off
+    #   target:
+    #     entity_id: media_player.tv

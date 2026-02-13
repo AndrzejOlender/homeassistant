@@ -146,7 +146,8 @@ sensor.home_ania:
 sensor.home_andrzej:
   entity_picture: /local/andrzej.jpg
 sensor.sui_wallet:
-  icon: mdi:water
+  icon: mdi:wallet
+  friendly_name: "SUI Portfolio"
 device_tracker.samsung_a36_luci_ania:
   entity_picture: /local/ania.jpg
 device_tracker.iphone:

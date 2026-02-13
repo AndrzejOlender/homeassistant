@@ -2,5 +2,7 @@ port: 21065
 name: bridge-homekit
 filter:
   include_entities:
-    - scene.good_night
-    - lock.maindoorlock
+    - script.good_night
+    - camera.g5_pro_high_resolution_channel
+    - light.shelly_office_1_light_1
+    - light.shelly_office_1_light_2

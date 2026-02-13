@@ -1,0 +1,15 @@
+# Command line sensors
+
+# SUI Wallet Portfolio Tracker
+# Fetches all tokens from SUI wallet and calculates total USD value
+- sensor:
+    name: SUI Wallet
+    unique_id: sui_wallet_portfolio
+    command: "python3 /config/scripts/sui_wallet.py"
+    scan_interval: 600
+    value_template: "{{ value_json.total_usd }}"
+    unit_of_measurement: "USD"
+    json_attributes:
+      - tokens
+      - token_count
+      - wallet

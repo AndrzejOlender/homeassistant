@@ -1,8 +1,5 @@
 ## Configure a default setup
 default_config:
-# lovelace mode
-lovelace:
-  mode: yaml
 
 logger:
   default: error
@@ -17,8 +14,6 @@ homeassistant:
   internal_url: "http://192.168.1.230:8123"
   allowlist_external_urls:
     - "https://home.olender.me"
-
-tts: !include config/tts.yaml
 zone: !include config/zone.yaml
 http: !include config/http.yaml
 cover: !include config/cover.yaml
@@ -27,12 +22,11 @@ scene: !include config/scenes.yaml
 alexa: !include config/alexa/alexa.yaml
 sonos: !include config/sonos.yaml
 camera: !include config/camera.yaml
-notify: !include config/notify.yaml
 homekit: !include config/homekit.yaml
 switch: !include config/switch.yaml
-remote: !include config/remote.yaml
 recorder: !include config/recorder.yaml
 prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 template: !include config/template.yaml
+command_line: !include config/command_line.yaml

@@ -1,202 +1,3 @@
-# RTV
-miio_turn_on_tv:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VHACsCAACjBgAAyggAAI4RAAA9IwAACJ0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAQAAAAAAAQEAAQEBAQEAAAABAAAAAAEBAQABAQEBBQJAA=
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: TV 
-
-miio_turn_on_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLABUCAABIAgAAjQYAANIIAACnEQAAcyMAALyYAADoegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEhAQEhAQEBIQEhIQEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Canal+
-
-miio_turn_1_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VPADECAACeBgAA4QgAAKkRAABWIwAAvJgAAOh6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0EBAQAAAAABAAEBAQEAAQABAAAAAAAAAAABAQEBAQEBBQJGAkYCQA
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 1
-
-miio_turn_2_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAO0BAABwAgAAZgYAAKYIAACCEQAAkiMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEhAQEBAQEBIQEhISEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 2
-
-miio_turn_3_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VPAOsBAABwAgAAZAYAAKYIAAB+EQAAjyMAAFiYAACEegEA6HoBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEhAQEBAQEBAQEhISEhISFhNXE1gTUB
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 3
-
-miio_turn_4_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VPAO8BAABtAgAAZwYAAKYIAACcEQAAhyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBIQEBAQEBISEBISEhISFhNXE1cTUB
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 4
-
-miio_turn_5_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAPwBAABiAgAAcQYAAKoIAACgEQAAgyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBIQEBAQEBASEBISEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 5
-
-miio_turn_6_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAPMBAABoAgAAbgYAAKcIAADDCAAAghEAAHAjAACMIwAAWJgAAIR6AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXISEhAQEBASEBISEhIQEhAQEhIQEBAQEBIQEBISEhISGBN5FGAQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 6
-
-miio_turn_7_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAPABAABtAgAAZgYAAKYIAACaEQAAhSMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEhIQEBAQEBAQEBISEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 7
-
-miio_turn_8_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VPAPMBAABqAgAAawYAAKgIAACdEQAAhyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBASEBAQEBISEhASEhISFhNXE1cTUB
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 8
-
-miio_turn_9_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAOwBAABwAgAAZAYAAKYIAAB+EQAAkSMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBASEBAQEBASEhASEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 9
-
-miio_turn_0_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VRAKoAAADuAQAAbQIAAGcGAACAEQAA3hUAAI4jAACwgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB1RjIyMnBwRjIyMhISEhIyEjIyMjISMhISEhISEhISEjIyMjIyMjIyAg==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC 0
-
-miio_turn_menu_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAOwBAABvAgAAZgYAAKUIAACBEQAAjyMAALyYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBIQEhAQEBISEBIQEhISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC Menu
-
-miio_turn_up_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAO0BAABtAgAAaQYAALUIAAB/EQAAgyMAAFiYAACEegEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhAQEBAQEhIQEBISEhIQEBISFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC Up
-
-miio_turn_down_nc:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VHAO4BAABtAgAAZwYAAKgIAACAEQAAjyMAAFiYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFISEhAQEBASEBISEhIQEhASEBAQEhIQEBASEhIQEBISFhNQE=
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: NC Down
-
-miio_turn_on_yamaha_hdmi1:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLADQCAAB7BgAAtggAAGoRAAAIIwAAYJ8AAHB1AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0ABAAEBAQEAAQABAAAAAAEBAQEAAAABAAAAAAEBAQAABQJGAkAA==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: HDMI1  
-
-miio_turn_on_yamaha_hdmi2:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLACMCAABFAgAAkQYAAM0IAACCEQAA8SIAAGCfAABwdQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFECAQICAgIBAgECAQEBAQIBAgECAQECAQIBAgECAgEBBgNXA1AA==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: HDMI2  
-
-miio_turn_on_yamaha_radio:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VDADcCAAB3BgAAaBEAAAwjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjABAAEBAQEAAQABAAAAAAEBAAABAAAAAAABAQABAQEAAA
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Radio
-
-miio_turn_on_yamaha:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VHADYCAAB6BgAAtggAAG0RAAAIIwAAFJsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0ABAQEBAQEAAQAAAAAAAAEAAQABAAEAAAEAAQABAAEBBQJAA=
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Yamaha
-
-miio_turn_on_climate:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLABwCAABxAgAASAYAAIIIAABKEQAAACQAALyYAABEdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAQEBAQEBAQEhISEhISEhISEhAQEBASEBAQEhISEhASFhNXE1AQ==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Climate-ON
-
-miio_speed_climate:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VLAEoCAABsBgAApwgAAG0RAAD8IwAAIJkAAKh0AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAQEBAQEBAQEBAAEAAAABAAABAAEBAQABBQJGAkAA==
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Climate-Speed
-
-miio_osc_climate:
-  sequence:
-  - data:
-      command:
-      - raw:Z6VPABcCAAByAgAARwYAAH8IAABGEQAA6CMAALyYAABEdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFAQEBAQEBAQEhISEhISEhIQEBAQEBASEBISEhISEhASFhNXE1cTUB
-    entity_id: remote.xiaomi_miio
-    service: remote.send_command
-  alias: Climate-OSC
-
 # Vacuum
 clean_home:
   alias: Clean Home
@@ -209,7 +10,7 @@ clean_home:
     data:
       entity_id: vacuum.john
       command: app_segment_clean
-      params: [17,16,22,19,21,18]
+      params: [16,17,18,19,20]
   - service: vacuum.set_fan_speed
     data:
       entity_id: vacuum.john
@@ -225,9 +26,9 @@ stop_clean_home:
   - service: vacuum.return_to_base
     entity_id: vacuum.john
 
-clean_office:
-  alias: Clean Office
-  icon: mdi:desk
+clean_dining_room:
+  alias: Clean Dining Room
+  icon: mdi:table-chair
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -240,11 +41,11 @@ clean_office:
   - service: vacuum.set_fan_speed
     data:
       entity_id: vacuum.john
-      fan_speed: 105
+      fan_speed: Auto
 
-clean_kitchen:
-  alias: Clean Kitchen
-  icon: mdi:table-chair
+clean_hall:
+  alias: Clean Hall
+  icon: mdi:coat-rack
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -260,60 +61,9 @@ clean_kitchen:
       fan_speed: Auto
       repeats: 2
 
-clean_toilet:
-  alias: Clean Toilet
-  icon: mdi:toilet
-  sequence:
-  - service: vacuum.stop
-    entity_id: vacuum.john
-  - delay: 00:00:01
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.john
-      command: app_segment_clean
-      params: [22] 
-  - service: vacuum.set_fan_speed
-    data:
-      entity_id: vacuum.john
-      fan_speed: Auto
-
-clean_ante_room:
-  alias: Clean Ante Room
-  icon: mdi:town-hall
-  sequence:
-  - service: vacuum.stop
-    entity_id: vacuum.john
-  - delay: 00:00:01
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.john
-      command: app_segment_clean
-      params: [19]
-  - service: vacuum.set_fan_speed
-    data:
-      entity_id: vacuum.john
-      fan_speed: Auto
-
 clean_living_room:
   alias: Clean Living Room
   icon: mdi:sofa
-  sequence:
-  - service: vacuum.stop
-    entity_id: vacuum.john
-  - delay: 00:00:01
-  - service: vacuum.send_command
-    data:
-      entity_id: vacuum.john
-      command: app_segment_clean
-      params: [21]
-  - service: vacuum.set_fan_speed
-    data:
-      entity_id: vacuum.john
-      fan_speed: Auto
-
-clean_child_room:
-  alias: Clean Child Room
-  icon: mdi:teddy-bear
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -328,9 +78,9 @@ clean_child_room:
       entity_id: vacuum.john
       fan_speed: Auto
 
-clean_white_floor:
-  alias: Clean White Floor
-  icon: mdi:apps
+clean_kitchen:
+  alias: Clean Kitchen
+  icon: mdi:fridge-outline
   sequence:
   - service: vacuum.stop
     entity_id: vacuum.john
@@ -339,121 +89,28 @@ clean_white_floor:
     data:
       entity_id: vacuum.john
       command: app_segment_clean
-      params: [17,16,19]
+      params: [19]
   - service: vacuum.set_fan_speed
     data:
       entity_id: vacuum.john
       fan_speed: Auto
 
-# Blinds
-covers_open:
-  alias: All Covers Open
-  icon: mdi:blinds-horizontal
+clean_toilet_down:
+  alias: Clean Toilet Down
+  icon: mdi:toilet
   sequence:
-  - service: cover.open_cover
-    entity_id: 
-    - cover.blindslivingroomwindow1
-    - cover.blindslivingroomwindow2
-    - cover.blindslivingroomwindow3
-    - cover.blindschildroomwindow1
-    - cover.blindsofficewindow1
-    - cover.blindsofficewindow2
-    - cover.blindskitchenwindow1
-  - service:  notify.mobile_app_iphone
+  - service: vacuum.stop
+    entity_id: vacuum.john
+  - delay: 00:00:01
+  - service: vacuum.send_command
     data:
-      title: "Blinds"
-      message: "All Blinds Open"
-      data:
-        push:
-          sound: default
-  - service: sonos.snapshot
-    entity_id: all
-  - service: notify.sonos
+      entity_id: vacuum.john
+      command: app_segment_clean
+      params: [20]
+  - service: vacuum.set_fan_speed
     data:
-      message: "Rolety we wszystkich oknach zostaną otwarte"
-  - delay: 00:00:05
-  - service: sonos.restore
-    entity_id: all
-
-covers_close:
-  alias: All Covers Close
-  icon: mdi:blinds-horizontal
-  sequence:
-  - service: cover.close_cover
-    entity_id: 
-    - cover.blindslivingroomwindow1
-    - cover.blindslivingroomwindow2
-    - cover.blindslivingroomwindow3
-    - cover.blindschildroomwindow1
-    - cover.blindsofficewindow1
-    - cover.blindsofficewindow2
-    - cover.blindskitchenwindow1
-  - service:  notify.mobile_app_iphone
-    data:
-      title: "Blinds"
-      message: "All Blinds Close"
-      data:
-        push:
-          sound: default
-  - service: sonos.snapshot
-    entity_id: all
-  - service: notify.sonos
-    data:
-      message: "Rolety we wszystkich oknach zostaną zamknięte"
-  - delay: 00:00:05
-  - service: sonos.restore
-    entity_id: all
-  - service: input_select.select_option
-    data:
-      entity_id: 
-        - input_select.covers_sun
-      option: "ON"
-
-# Work Day
-work_day:
-  alias: Work Day
-  icon: mdi:blinds-horizontal
-  sequence:
-  - service: cover.close_cover
-    entity_id: 
-    - cover.blindslivingroomwindow1
-    - cover.blindslivingroomwindow2
-    - cover.blindslivingroomwindow3
-    - cover.blindschildroomwindow1
-    - cover.blindsofficewindow1
-    - cover.blindsofficewindow2
-    - cover.blindskitchenwindow1
-  - service: light.turn_on
-    entity_id: 
-    - light.philipsledoffice
-    - light.philipsledofficeleft
-    - light.philipsledofficeright
-  - service: sonos.snapshot
-    entity_id: all
-  - service: notify.sonos
-    data:
-      message: "Uruchamiam tryb 'Work Day'. Miłego dnia w pracy Andrzej"
-  - delay: 00:00:05
-  - service: sonos.restore
-    entity_id: all
-
-# Flash Lights Alarm
-# flash_lights:
-#   sequence:
-#     - repeat:
-#         while:
-#         sequence:
-#           - service: light.toggle
-#             data:
-#               brightness_pct: 100
-#             target:
-#               entity_id:
-#                 - light.group_4_office_1
-#           - delay:
-#               hours: 0
-#               minutes: 0
-#               seconds: 1
-#               milliseconds: 0
+      entity_id: vacuum.john
+      fan_speed: Auto
 
 # Good Night
 good_night:
@@ -464,11 +121,11 @@ good_night:
     - service: light.turn_off
       target:
         entity_id: all
-    # Pause all media players (Sonos, Apple TV, etc.)
+    # Pause Sonos
     - service: media_player.media_pause
       target:
-        entity_id: all
-    # # Turn off TV
-    # - service: media_player.turn_off
-    #   target:
-    #     entity_id: media_player.tv
+        entity_id: media_player.office
+    # Turn off Apple TV
+    - service: media_player.turn_off
+      target:
+        entity_id: media_player.living_room

@@ -1,77 +1,3 @@
-- alias: Notification Open Main Door
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.maindoor_contact
-      from: "off"
-      to: "on"
-      for:
-        minutes: 1
-  action:
-    - service: sonos.snapshot
-      entity_id: all
-    - service: tts.speak
-      target:
-        entity_id: tts.elevenlabs_text_to_speech
-      data:
-        media_player_entity_id: media_player.office
-        message: "Uwaga! otwarte drzwi wejściowe."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Door"
-        message: "Open Main Door"
-        data:
-          push:
-            sound: default
-    - service: notify.tv
-      data:
-        message: "Open Main Door"
-    - service: notify.mobile_app_xiaomi
-      data:
-        message: "Open Main Door"
-    # - service: media_player.play_media
-    #   data:
-    #     entity_id: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     media_content_type: sound
-    #     media_content_id: amzn_sfx_doorbell_chime_01
-    # - service: notify.alexa_media
-    #   data:
-    #     target: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     data:
-    #       type: tts
-    #     message: "Open Main Door"
-
-- alias: Send Notification Enter Home
-  trigger:
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-    # for:
-    #   minutes: 1
-  condition:
-    - condition: state
-      entity_id: device_tracker.iphone
-      state: "not_home"
-    - condition: state
-      entity_id: binary_sensor.motionkitchen_occupancy
-      state: "off"
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Home"
-        message: "Enter Home"
-        data:
-          push:
-            sound: default
-
 - alias: Send Notification Opened Lock
   trigger:
     platform: state
@@ -142,18 +68,12 @@
     from: "docked"
     to: "cleaning"
   action:
-    - service: sonos.snapshot
-      entity_id: all
     - service: tts.speak
       target:
         entity_id: tts.elevenlabs_text_to_speech
       data:
         media_player_entity_id: media_player.office
         message: "Odkurzacz rozpoczął sprzątanie mieszkania."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
     - service:  notify.mobile_app_iphone
       data:
         message: "Vacuum Started Cleaning"
@@ -169,15 +89,6 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    # - service: notify.alexa_media
-    #   data:
-    #     target: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     data:
-    #       type: tts
-    #     message: "Clening House started."
-
 
 - alias: Send Notification Vacuum Stop
   trigger:
@@ -189,18 +100,12 @@
       - "idle"
     to: "docked"
   action:
-    - service: sonos.snapshot
-      entity_id: all
     - service: tts.speak
       target:
         entity_id: tts.elevenlabs_text_to_speech
       data:
         media_player_entity_id: media_player.office
         message: "Odkurzacz skończył odkurzanie mieszkania."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
     - service:  notify.mobile_app_iphone
       data:
         message: "Vacuum Finished Cleaning"
@@ -216,14 +121,6 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    # - service: notify.alexa_media
-    #   data:
-    #     target: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     data:
-    #       type: tts
-    #     message: "Cleaning house ended."
 
 - alias: "Very Bad Air"
   trigger:
@@ -231,46 +128,30 @@
       entity_id: sensor.air_purifier_pm2_5
       above: 100
   action:
-    - service: sonos.snapshot
-      entity_id: all
     - service: tts.speak
       target:
         entity_id: tts.elevenlabs_text_to_speech
       data:
         media_player_entity_id: media_player.office
         message: "Uwaga! bardzo zła jakość powietrza w mieszkaniu."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
     - service:  notify.mobile_app_iphone
       data:
         title: "Air"
         message: "Very Bad Air"
-    # - service: notify.alexa_media
-    #   data:
-    #     target: 
-    #       - media_player.echo_dot_3
-    #       - media_player.echo_dot_4
-    #     data:
-    #       type: tts
-    #     message: "Warning, very bad air in all House."
 
 - alias: Send Notification Enter Zone Home
   trigger:
     platform: zone
-    entity_id: person.ania
+    entity_id:
+      - person.ania
+      - person.gosia
     zone: zone.home
     event: enter
-  condition:
-    - condition: state
-      entity_id: device_tracker.iphone
-      state: "home" 
   action:
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: "Anna went into zone Home"
+        message: "{{ trigger.to_state.name }} went into zone Home"
         data:
           push:
             category: map
@@ -279,32 +160,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"  
-
-- alias: Send Notification Exit Home
-  trigger:
-    platform: state
-    entity_id: binary_sensor.maindoor_contact
-    from: "off"
-    to: "on"
-  condition:
-    - condition: state
-      entity_id: device_tracker.iphone
-      state: "not_home"
-    - condition: state
-      entity_id: binary_sensor.motionkitchen_occupancy
-      state: "on"
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Home"
-        message: "Exit Home"
-        data:
-          push:
-            sound: default 
-    - delay:
-        seconds: 10
+            latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"  
 
 - alias: Wpkiw Enter
   trigger:
@@ -316,7 +173,7 @@
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: "Anna went into the WPKiW"
+        message: "{{ trigger.to_state.name }} went into the WPKiW"
         data:
           push:
             category: map
@@ -325,8 +182,8 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"   
+            latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"   
 
 - alias: Wpkiw Exit
   trigger:
@@ -338,7 +195,7 @@
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: Anna left the WPKiW
+        message: "{{ trigger.to_state.name }} left the WPKiW"
         data:
           push:
             category: map
@@ -347,68 +204,24 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
+            latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
     - delay:
-        seconds: 10               
-
-- alias: GymForYou Exit
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.gymforyou
-    event: leave
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna left the GymForYou"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
-    - delay:
-        seconds: 50
-
-- alias: GymForYou Enter
-  trigger:
-    platform: zone
-    entity_id: person.ania
-    zone: zone.gymforyou
-    event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Location"
-        message: "Anna went into the GymForYou"
-        data:
-          push:
-            category: map
-            sound: default
-          action_data:
-            shows_traffic: true
-            shows_compass: true
-            shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"               
+        seconds: 10                          
 
 - alias: School Exit
   trigger:
     platform: zone
-    entity_id: person.ania
+    entity_id:
+      - person.ania
+      - person.gosia
     zone: zone.school
     event: leave
   action:
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: Anna left the School
+        message: "{{ trigger.to_state.name }} left the School"
         data:
           push:
             category: map
@@ -417,22 +230,24 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"
+            latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
     - delay:
         seconds: 50
 
 - alias: School Enter
   trigger:
     platform: zone
-    entity_id: person.ania
+    entity_id:
+      - person.ania
+      - person.gosia
     zone: zone.school
     event: enter
   action: 
     - service:  notify.mobile_app_iphone
       data:
         title: "Location"
-        message: "Anna went into the School"
+        message: "{{ trigger.to_state.name }} went into the School"
         data:
           push:
             category: map
@@ -441,121 +256,47 @@
             shows_traffic: true
             shows_compass: true
             shows_points_of_interest: true
-            latitude: "{{ state_attr('device_tracker.samsung_a36', 'latitude') }}"
-            longitude: "{{ state_attr('device_tracker.samsung_a36', 'longitude') }}"     
+            latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"     
 
-- alias: Send Notification Leak Toilet
-  trigger:
-    platform: state
-    entity_id: binary_sensor.leaksensortoilet_water_leak
-    from: "off"
-    to: "on"
-  action:
-    - service: sonos.snapshot
-      entity_id: all
-    - service: tts.speak
-      target:
-        entity_id: tts.elevenlabs_text_to_speech
-      data:
-        media_player_entity_id: media_player.office
-        message: "Uwaga! Uwaga! Uwaga!, zalało łazienkę!."
-    - delay:
-        seconds: 5
-    - service: sonos.restore
-      entity_id: all
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Leak!"
-        message: "Leak in toilet"
-        data:
-          push:
-            sound: 
-              name: default
-              critical: 1
-              volume: 1.0
-    - service: light.turn_on
-      data:
-        brightness: 255
-        rgb_color: [255, 0, 0]
-        entity_id:
-          - light.group_livingroom_1
-          - light.ikeabulblamp_light
-          - light.philipsledoffice
-    - service: switch.turn_off
-      data:
-        entity_id: switch.washermachine  
-    - service: notify.tv
-      data:
-        message: "Leak in toilet"
-
-- alias: "Notification Storm Nearby"
+# Weather alerts (storm, heat, wind)
+- alias: "Weather Alerts"
   trigger:
     - platform: state
       entity_id: binary_sensor.burze_dzis_net_wyladowania_w_poblizu
       from: 'off'
-      to: 'on'  
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Storm"
-        message: "Storm nearby"
-        data:
-          push:
-            sound: 
-              name: default
-              critical: 1
-              volume: 1.0
-
-- alias: "Notification Storm Warning"
-  trigger:
+      to: 'on'
+      id: storm_nearby
     - platform: state
       entity_id: binary_sensor.burze_dzis_net_ostrzezenie_burza
       from: 'off'
-      to: 'on'   
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Weather"
-        message: "Storm warning"
-        data:
-          push:
-            sound: 
-              name: default
-              critical: 1
-              volume: 1.0
-
-- alias: "Notification Heat Warning"
-  trigger:
+      to: 'on'
+      id: storm_warning
     - platform: state
       entity_id: binary_sensor.burze_dzis_net_ostrzezenie_upal
       from: 'off'
-      to: 'on'    
-  action:
-    - service:  notify.mobile_app_iphone
-      data:
-        title: "Weather"
-        message: "Heat warning"
-        data:
-          push:
-            sound: 
-              name: default
-              critical: 1
-              volume: 1.0
-
-- alias: "Notification Wind Warning"
-  trigger:
+      to: 'on'
+      id: heat_warning
     - platform: state
       entity_id: binary_sensor.burze_dzis_net_ostrzezenie_wiatr
       from: 'off'
-      to: 'on'  
+      to: 'on'
+      id: wind_warning
   action:
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         title: "Weather"
-        message: "Wind warning"
+        message: >-
+          {% set messages = {
+            'storm_nearby': 'Storm nearby',
+            'storm_warning': 'Storm warning',
+            'heat_warning': 'Heat warning',
+            'wind_warning': 'Wind warning'
+          } %}
+          {{ messages[trigger.id] }}
         data:
           push:
-            sound: 
+            sound:
               name: default
               critical: 1
               volume: 1.0

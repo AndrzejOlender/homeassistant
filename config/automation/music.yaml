@@ -11,7 +11,7 @@
     # Only between 07:00 and 20:00
     - condition: time
       after: "04:00:00"
-      before: "21:00:00"
+      before: "23:15:00"
     # Only play if not already playing
     - condition: state
       entity_id: media_player.toilet_up

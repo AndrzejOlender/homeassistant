@@ -31,3 +31,4 @@ zigbee.db-wal
 .ha_run.lock
 .gitignore
 .ha_run.lock
+.ha_run.lock

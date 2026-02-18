@@ -6,3 +6,6 @@ filter:
     - camera.g5_pro_high_resolution_channel
     - light.shelly_office_1_light_1
     - light.shelly_office_1_light_2
+    - light.shelly_toilet_up_mirror
+    - light.shelly_cabinet_1_light_1
+    - light.shelly_toilet_up_wall_light_1

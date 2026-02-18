@@ -10,18 +10,6 @@
   radius: 250
   icon: mdi:account-hard-hat  
 
-- name: Home
-  latitude: !secret latitude_home
-  longitude: !secret longitude_home
-  radius: 350
-  icon: mdi:home
-
-- name: GymForYou
-  latitude: !secret latitude_gym_for_you
-  longitude: !secret longitude_gym_for_you
-  radius: 150
-  icon: mdi:dumbbell
-
 - name: School
   latitude: !secret latitude_school
   longitude: !secret longitude_school

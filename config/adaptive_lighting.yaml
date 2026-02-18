@@ -1,0 +1,18 @@
+# Circadian rhythm for desk LED - syncs color temperature with sun position
+- name: "Desk LED Circadian"
+  lights:
+    - light.desk_led
+  min_color_temp: 2000
+  max_color_temp: 6535
+  min_brightness: 40
+  max_brightness: 100
+  sleep_brightness: 10
+  sleep_color_temp: 2200
+  transition: 60
+  initial_transition: 5
+  adapt_only_on_bare_turn_on: true
+  take_over_control: true
+  detect_non_ha_changes: false
+  send_split_delay: 500
+  separate_turn_on_commands: true
+  adapt_delay: 3

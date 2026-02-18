@@ -14,6 +14,7 @@ views:
           - condition: user
             users:
               - 4b4a93638a344e758538b4f233cb5147
+              - 53b4ef7f40234de2ad73a26e61f3bd7a
         card:
           type: custom:mushroom-chips-card
           chips:
@@ -24,6 +25,10 @@ views:
             - type: entity
               entity: person.ania
               name: Ania
+              use_entity_picture: true
+            - type: entity
+              entity: person.gosia
+              name: Gosia
               use_entity_picture: true
             - type: entity
               entity: lock.maindoorlock
@@ -113,32 +118,21 @@ views:
               action: perform-action
               perform_action: script.good_night
       - type: custom:mushroom-title-card
-        title: Office
-      - type: custom:mushroom-light-card
-        entity: light.shelly_office_1_light_1
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info
-      - type: custom:mushroom-light-card
-        entity: light.shelly_office_1_light_2
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info
-      - type: custom:mushroom-light-card
-        entity: light.desk_led
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        double_tap_action:
-          action: more-info
-        name: Desk
+        title: Living Room
+      - type: custom:mushroom-media-player-card
+        entity: media_player.living_room
+        fill_container: false
+        volume_controls:
+          - volume_set
+          - volume_buttons
+        media_controls:
+          - play_pause_stop
+          - next
+        use_media_info: true
+        show_volume_level: true
+        collapsible_controls: false
+        name: Apple TV
+        icon: mdi:apple
       - type: custom:mushroom-media-player-card
         entity: media_player.office_2
         fill_container: false
@@ -154,6 +148,36 @@ views:
         collapsible_controls: false
         name: Office Sonos
       - type: custom:mushroom-title-card
+        title: Office
+      - type: custom:mushroom-light-card
+        entity: light.shelly_office_1_light_1
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+        name: Light 1
+      - type: custom:mushroom-light-card
+        entity: light.shelly_office_1_light_2
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+        name: Light 2
+      - type: custom:mushroom-light-card
+        entity: light.desk_led
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+        name: Desk
+        icon: mdi:desk
+      - type: custom:mushroom-title-card
         title: Toilet
       - type: custom:mushroom-media-player-card
         entity: media_player.toilet_up
@@ -168,3 +192,76 @@ views:
         use_media_info: true
         show_volume_level: true
         collapsible_controls: false
+      - type: custom:mushroom-light-card
+        entity: light.shelly_toilet_up_mirror
+        icon: mdi:mirror
+        name: Mirror
+      - type: custom:mushroom-light-card
+        entity: light.shelly_cabinet_1_light_1
+        name: Cabinet
+      - type: custom:mushroom-light-card
+        entity: light.shelly_toilet_up_wall_light_1
+        name: Wall
+  - type: sections
+    max_columns: 1
+    theme: Mushroom
+    path: vacuum
+    icon: mdi:robot-vacuum
+    title: Vacuum
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: Vacuum
+            heading_style: title
+            icon: mdi:robot-vacuum
+          - type: custom:mushroom-vacuum-card
+            entity: vacuum.john
+      - type: grid
+        cards:
+          - type: tile
+            entity: script.clean_home
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_home
+          - type: tile
+            entity: script.clean_hall
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_hall
+          - type: tile
+            entity: script.clean_dining_room
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_dining_room
+          - type: tile
+            entity: script.clean_kitchen
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_kitchen
+          - type: tile
+            entity: script.clean_living_room
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_living_room
+          - type: tile
+            entity: script.clean_toilet_down
+            tap_action:
+              action: perform-action
+              perform_action: script.turn_on
+              target:
+                entity_id: script.clean_toilet_down
+        column_span: 1
+    badges:
+      - type: entity
+        entity: vacuum.john

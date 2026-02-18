@@ -18,7 +18,6 @@ zone: !include config/zone.yaml
 http: !include config/http.yaml
 cover: !include config/cover.yaml
 script: !include config/scripts.yaml
-scene: !include config/scenes.yaml
 alexa: !include config/alexa/alexa.yaml
 sonos: !include config/sonos.yaml
 camera: !include config/camera.yaml
@@ -30,3 +29,4 @@ automation: !include_dir_merge_list config/automation
 input_select: !include config/input_select.yaml
 template: !include config/template.yaml
 command_line: !include config/command_line.yaml
+adaptive_lighting: !include config/adaptive_lighting.yaml

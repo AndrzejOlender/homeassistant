@@ -9,3 +9,5 @@ filter:
     - light.shelly_toilet_up_mirror
     - light.shelly_cabinet_1_light_1
     - light.shelly_toilet_up_wall_light_1
+    - light.shelly_toilet_up_light_1
+    - light.shelly_toilet_up_light_2

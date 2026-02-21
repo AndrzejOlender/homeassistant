@@ -1,13 +1,28 @@
-port: 21065
-name: bridge-homekit
-filter:
-  include_entities:
-    - script.good_night
-    - camera.g5_pro_high_resolution_channel
-    - light.shelly_office_1_light_1
-    - light.shelly_office_1_light_2
-    - light.shelly_toilet_up_mirror
-    - light.shelly_cabinet_1_light_1
-    - light.shelly_toilet_up_wall_light_1
-    - light.shelly_toilet_up_light_1
-    - light.shelly_toilet_up_light_2
+- port: 21065
+  name: bridge-homekit
+  filter:
+    include_entities:
+      - script.good_night
+      - light.shelly_office_1_light_1
+      - light.shelly_office_1_light_2
+      - light.shelly_toilet_up_mirror
+      - light.shelly_cabinet_1_light_1
+      - light.shelly_toilet_up_wall_light_1
+      - light.shelly_toilet_up_light_1
+      - light.shelly_toilet_up_bath_1
+      - light.shelly_bedroom_light_1
+      - light.desk_led
+      - binary_sensor.presense_sensor_toilet_up
+      - sensor.presense_sensor_toilet_up_illuminance
+
+- name: Camera G5 Front 
+  port: 21066
+  mode: accessory
+  filter:
+    include_entities:
+      - camera.g5_pro_high_resolution_channel
+  entity_config:
+    camera.g5_pro_high_resolution_channel:
+      support_audio: true
+      max_width: 1280
+      max_height: 720

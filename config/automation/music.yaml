@@ -1,14 +1,14 @@
 # Music automation for Toilet Up
-- alias: "Play Music Toilet Up on Presence"
-  description: "Play jazz playlist when presence detected in toilet"
+- alias: "Play Music Toilet Up on Light On"
+  description: "Play jazz playlist when toilet light is turned on"
   mode: single
   trigger:
     - platform: state
-      entity_id: binary_sensor.presense_sensor_toilet_up
+      entity_id: light.shelly_toilet_up_bath
       from: "off"
       to: "on"
   condition:
-    # Only between 07:00 and 20:00
+    # Only between 04:00 and 23:15
     - condition: time
       after: "04:00:00"
       before: "23:15:00"
@@ -31,21 +31,19 @@
         entity_id: media_player.toilet_up
     - service: media_player.play_media
       data:
-        media_content_id: "library://playlist/35"
+        media_content_id: "library://playlist/38"
         media_content_type: "playlist"
       target:
         entity_id: media_player.toilet_up
 
-- alias: "Stop Music Toilet Up on No Presence"
-  description: "Pause music when no presence detected for 10 seconds"
+- alias: "Stop Music Toilet Up on Light Off"
+  description: "Pause music when toilet light is turned off"
   mode: single
   trigger:
     - platform: state
-      entity_id: binary_sensor.presense_sensor_toilet_up
+      entity_id: light.shelly_toilet_up_bath
       from: "on"
       to: "off"
-      for:
-        seconds: 10
   action:
     - service: media_player.media_pause
       target:

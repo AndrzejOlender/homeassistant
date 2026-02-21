@@ -22,6 +22,7 @@ alexa: !include config/alexa/alexa.yaml
 sonos: !include config/sonos.yaml
 camera: !include config/camera.yaml
 homekit: !include config/homekit.yaml
+ffmpeg:
 switch: !include config/switch.yaml
 recorder: !include config/recorder.yaml
 prometheus: !include config/prometheus.yaml

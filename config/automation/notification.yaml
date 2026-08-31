@@ -1,12 +1,12 @@
 - alias: Send Notification Opened Lock
   trigger:
-    platform: state
-    entity_id: binary_sensor.lock
-    from: "off"
-    to: "on"
+    - platform: state
+      entity_id: lock.aqara_smart_lock_u200
+      to: "unlocked"
   action:
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
+        title: "Lock"
         message: "Lock Opened"
         data:
           actions:
@@ -25,13 +25,13 @@
 
 - alias: Send Notification Closed Lock
   trigger:
-    platform: state
-    entity_id: binary_sensor.lock
-    from: "on"
-    to: "off"
+    - platform: state
+      entity_id: lock.aqara_smart_lock_u200
+      to: "locked"
   action:
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
+        title: "Lock"
         message: "Lock Closed"
         data:
           actions:
@@ -258,6 +258,81 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
             longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"     
+
+# Waste collection reminder (push notification when any waste is due tomorrow)
+- alias: "Waste Collection Reminder"
+  trigger:
+    - platform: template
+      value_template: >
+        {{ states('sensor.waste_mixed_days') | int(99) == 1 or
+           states('sensor.waste_plastic_days') | int(99) == 1 or
+           states('sensor.waste_paper_days') | int(99) == 1 or
+           states('sensor.waste_glass_days') | int(99) == 1 or
+           states('sensor.waste_bio_days') | int(99) == 1 }}
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Waste Collection Tomorrow"
+        message: >-
+          {% set types = [] %}
+          {% if states('sensor.waste_mixed_days') | int(99) == 1 %}
+            {% set types = types + ['Zmieszane'] %}
+          {% endif %}
+          {% if states('sensor.waste_plastic_days') | int(99) == 1 %}
+            {% set types = types + ['Plastik'] %}
+          {% endif %}
+          {% if states('sensor.waste_paper_days') | int(99) == 1 %}
+            {% set types = types + ['Papier'] %}
+          {% endif %}
+          {% if states('sensor.waste_glass_days') | int(99) == 1 %}
+            {% set types = types + ['Szklo'] %}
+          {% endif %}
+          {% if states('sensor.waste_bio_days') | int(99) == 1 %}
+            {% set types = types + ['Bio'] %}
+          {% endif %}
+          Jutro odbior: {{ types | join(', ') }}. Wystawic pojemniki!
+        data:
+          push:
+            sound:
+              name: default
+
+# Waste collection TTS reminder at 20:00 via ElevenLabs + Sonos
+- alias: "Waste Collection TTS Reminder"
+  trigger:
+    - platform: time
+      at: "20:00:00"
+  condition:
+    - condition: template
+      value_template: >
+        {{ states('sensor.waste_mixed_days') | int(99) == 1 or
+           states('sensor.waste_plastic_days') | int(99) == 1 or
+           states('sensor.waste_paper_days') | int(99) == 1 or
+           states('sensor.waste_glass_days') | int(99) == 1 or
+           states('sensor.waste_bio_days') | int(99) == 1 }}
+  action:
+    - service: tts.speak
+      target:
+        entity_id: tts.elevenlabs_text_to_speech
+      data:
+        media_player_entity_id: media_player.office
+        message: >-
+          {% set types = [] %}
+          {% if states('sensor.waste_mixed_days') | int(99) == 1 %}
+            {% set types = types + ['zmieszane'] %}
+          {% endif %}
+          {% if states('sensor.waste_plastic_days') | int(99) == 1 %}
+            {% set types = types + ['plastik'] %}
+          {% endif %}
+          {% if states('sensor.waste_paper_days') | int(99) == 1 %}
+            {% set types = types + ['papier'] %}
+          {% endif %}
+          {% if states('sensor.waste_glass_days') | int(99) == 1 %}
+            {% set types = types + ['szklo'] %}
+          {% endif %}
+          {% if states('sensor.waste_bio_days') | int(99) == 1 %}
+            {% set types = types + ['bio'] %}
+          {% endif %}
+          Przypomnienie. Jutro odbiór odpadów: {{ types | join(', ') }}. Pamiętaj by wystawić pojemniki przed godziną szóstą rano.
 
 # Weather alerts (storm, heat, wind)
 - alias: "Weather Alerts"

@@ -3,6 +3,15 @@ default_config:
 
 logger:
   default: error
+#  logs:
+#    homeassistant.components.camera: debug
+#    homeassistant.components.stream: debug#
+#    homeassistant.components.ffmpeg: debug
+#    homeassistant.components.unifiprotect: debug
+#    homeassistant.components.go2rtc: debug
+#    custom_components.unifiprotect: debug
+#    pyunifiprotect: debug
+#    uiprotect: debug
 
 network:
 
@@ -16,18 +25,13 @@ homeassistant:
     - "https://home.olender.me"
 zone: !include config/zone.yaml
 http: !include config/http.yaml
-cover: !include config/cover.yaml
 script: !include config/scripts.yaml
 alexa: !include config/alexa/alexa.yaml
 sonos: !include config/sonos.yaml
-camera: !include config/camera.yaml
 homekit: !include config/homekit.yaml
-ffmpeg:
-switch: !include config/switch.yaml
 recorder: !include config/recorder.yaml
 prometheus: !include config/prometheus.yaml
 automation: !include_dir_merge_list config/automation
-input_select: !include config/input_select.yaml
 template: !include config/template.yaml
 command_line: !include config/command_line.yaml
 adaptive_lighting: !include config/adaptive_lighting.yaml

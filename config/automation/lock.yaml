@@ -1,4 +1,4 @@
-# - alias: Locking Main Door Actions iOS 
+# - alias: Locking Main Door Actions iOS
 #   trigger:
 #     platform: event
 #     event_type: ios.notification_action_fired
@@ -8,7 +8,7 @@
 #     service: lock.lock
 #     entity_id: lock.maindoorlock
 
-# - alias: Unlocking Main Door Actions iOS 
+# - alias: Unlocking Main Door Actions iOS
 #   trigger:
 #     platform: event
 #     event_type: ios.notification_action_fired
@@ -17,4 +17,35 @@
 #   action:
 #     service: lock.unlock
 #     entity_id: lock.maindoorlock
+
+- alias: "Hall Light On When Door Unlocked"
+  description: "Turn on hall light when front door lock is unlocked"
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: lock.aqara_smart_lock_u200
+      to: "unlocked"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.shelly_hall_down_light
+    - delay:
+        minutes: 3
+    - service: light.turn_off
+      target:
+        entity_id: light.shelly_hall_down_light
+
+- alias: "Hall Light Off After Door Locked"
+  description: "Turn off hall light 1 minute after front door lock is locked"
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: lock.aqara_smart_lock_u200
+      to: "locked"
+  action:
+    - delay:
+        minutes: 1
+    - service: light.turn_off
+      target:
+        entity_id: light.shelly_hall_down_light
 

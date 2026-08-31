@@ -12,3 +12,4 @@ exclude:
     - sensor.date
   event_types:
     - call_service
+    - homekit_state_change

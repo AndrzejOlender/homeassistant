@@ -1,49 +1,96 @@
 # Music automation for Toilet Up
-- alias: "Play Music Toilet Up on Light On"
-  description: "Play jazz playlist when toilet light is turned on"
+- alias: "Play Music Toilet Up on Presence"
+  description: "Resume paused music or start fresh album when presence detected"
   mode: single
   trigger:
     - platform: state
-      entity_id: light.shelly_toilet_up_bath
+      entity_id: binary_sensor.presense_sensor_toilet_up
       from: "off"
       to: "on"
+      for:
+        seconds: 5
   condition:
     # Only between 04:00 and 23:15
     - condition: time
       after: "04:00:00"
       before: "23:15:00"
-    # Only play if not already playing
-    - condition: state
-      entity_id: media_player.toilet_up
-      state:
-        - "idle"
-        - "paused"
+    # Skip if already playing — presence flicker shouldn't restart playback
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.toilet_up
+          state: "playing"
   action:
     - service: media_player.volume_set
       data:
-        volume_level: 0.5
+        volume_level: >
+          {% if now().hour >= 4 and now().hour < 8 %}
+            0.4
+          {% else %}
+            0.5
+          {% endif %}
       target:
         entity_id: media_player.toilet_up
-    - service: media_player.shuffle_set
-      data:
-        shuffle: true
-      target:
-        entity_id: media_player.toilet_up
-    - service: media_player.play_media
-      data:
-        media_content_id: "library://playlist/38"
-        media_content_type: "playlist"
-      target:
-        entity_id: media_player.toilet_up
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.toilet_up
+              state: "paused"
+          sequence:
+            - service: media_player.media_play
+              target:
+                entity_id: media_player.toilet_up
+      default:
+        - service: media_player.play_media
+          data:
+            media_content_id: "library://playlist/60"
+            media_content_type: "playlist"
+          target:
+            entity_id: media_player.toilet_up
+        - service: media_player.shuffle_set
+          data:
+            shuffle: true
+          target:
+            entity_id: media_player.toilet_up
 
-- alias: "Stop Music Toilet Up on Light Off"
-  description: "Pause music when toilet light is turned off"
+- alias: "Stop Music Toilet Up on No Presence"
+  description: "Pause music after 10 minutes without presence, or when all toilet lights are off"
   mode: single
   trigger:
     - platform: state
-      entity_id: light.shelly_toilet_up_bath
+      entity_id: binary_sensor.presense_sensor_toilet_up
       from: "on"
       to: "off"
+      for:
+        seconds: 600
+    - platform: state
+      entity_id:
+        - light.shelly_toilet_up_light_1
+        - light.shelly_toilet_up_bath
+        - light.shelly_toilet_up_wall_light_1
+        - light.shelly_cabinet_1_light_1
+      to: "off"
+      for:
+        seconds: 5
+  condition:
+    - condition: or
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.entity_id == 'binary_sensor.presense_sensor_toilet_up' }}"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: light.shelly_toilet_up_light_1
+              state: "off"
+            - condition: state
+              entity_id: light.shelly_toilet_up_bath
+              state: "off"
+            - condition: state
+              entity_id: light.shelly_toilet_up_wall_light_1
+              state: "off"
+            - condition: state
+              entity_id: light.shelly_cabinet_1_light_1
+              state: "off"
   action:
     - service: media_player.media_pause
       target:

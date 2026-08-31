@@ -8,11 +8,101 @@
     - name: "Tracker Andrzej"
       state: "{% if is_state('device_tracker.iphone', 'home') %}Home{% else %}Away{% endif %}"
 
+- sensor:
+    - name: "Waste Mixed Days"
+      unique_id: waste_mixed_days
+      icon: mdi:trash-can
+      unit_of_measurement: "d"
+      state: >
+        {% set start = state_attr('calendar.odpady_zmieszane', 'start_time') %}
+        {% if is_state('calendar.odpady_zmieszane', 'on') %}
+          0
+        {% elif start %}
+          {{ ((as_timestamp(start) - as_timestamp(now())) / 86400) | round(0, 'ceil') }}
+        {% else %}
+          unknown
+        {% endif %}
+
+    - name: "Waste Plastic Days"
+      unique_id: waste_plastic_days
+      icon: mdi:recycle
+      unit_of_measurement: "d"
+      state: >
+        {% set start = state_attr('calendar.plastik_i_metal', 'start_time') %}
+        {% if is_state('calendar.plastik_i_metal', 'on') %}
+          0
+        {% elif start %}
+          {{ ((as_timestamp(start) - as_timestamp(now())) / 86400) | round(0, 'ceil') }}
+        {% else %}
+          unknown
+        {% endif %}
+
+    - name: "Waste Paper Days"
+      unique_id: waste_paper_days
+      icon: mdi:newspaper-variant-outline
+      unit_of_measurement: "d"
+      state: >
+        {% set start = state_attr('calendar.papier', 'start_time') %}
+        {% if is_state('calendar.papier', 'on') %}
+          0
+        {% elif start %}
+          {{ ((as_timestamp(start) - as_timestamp(now())) / 86400) | round(0, 'ceil') }}
+        {% else %}
+          unknown
+        {% endif %}
+
+    - name: "Waste Glass Days"
+      unique_id: waste_glass_days
+      icon: mdi:bottle-wine-outline
+      unit_of_measurement: "d"
+      state: >
+        {% set start = state_attr('calendar.szklo', 'start_time') %}
+        {% if is_state('calendar.szklo', 'on') %}
+          0
+        {% elif start %}
+          {{ ((as_timestamp(start) - as_timestamp(now())) / 86400) | round(0, 'ceil') }}
+        {% else %}
+          unknown
+        {% endif %}
+
+    - name: "Waste Bio Days"
+      unique_id: waste_bio_days
+      icon: mdi:leaf
+      unit_of_measurement: "d"
+      state: >
+        {% set start = state_attr('calendar.bio', 'start_time') %}
+        {% if is_state('calendar.bio', 'on') %}
+          0
+        {% elif start %}
+          {{ ((as_timestamp(start) - as_timestamp(now())) / 86400) | round(0, 'ceil') }}
+        {% else %}
+          unknown
+        {% endif %}
+
+# Live display of the current G12W rate. NOT what bills the Energy dashboard -
+# that is scripts/tauron_g12w_cost.py (external statistic tauron_g12w:cost).
+# The same zone schedule is implemented in both; change it in both or the
+# displayed price will silently disagree with the billed cost.
+- sensor:
+    - name: "Tauron G12W Price"
+      unique_id: tauron_g12w_price
+      unit_of_measurement: "PLN/kWh"
+      state: >
+        {% set day_rate = states('input_number.tauron_g12w_day_rate') | float(0) %}
+        {% set night_rate = states('input_number.tauron_g12w_night_rate') | float(0) %}
+        {% if now().isoweekday() >= 6 %}
+          {{ night_rate | round(4) }}
+        {% elif (6 <= now().hour < 13) or (15 <= now().hour < 22) %}
+          {{ day_rate | round(4) }}
+        {% else %}
+          {{ night_rate | round(4) }}
+        {% endif %}
+
 - binary_sensor:
     - name: "Vacuum Cleaning"
       state: "{{ is_state('vacuum.john', 'cleaning') }}"
     - name: "Lock"
-      state: "{{ is_state('lock.maindoorlock', 'unlocked') }}"
+      state: "{{ is_state('lock.aqara_smart_lock_u200', 'unlocked') }}"
       icon: >-
         {% if is_state('binary_sensor.lock', 'on') %}
           mdi:lock-open

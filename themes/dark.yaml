@@ -65,3 +65,5 @@ Google Dark Theme:
   table-row-background-color: var(--primary-background-color)
   table-row-alternative-background-color: var(--secondary-background-color)
   data-table-background-color: var(--primary-background-color)
+  # Map
+  map-tile-url: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png"

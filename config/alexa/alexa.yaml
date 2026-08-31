@@ -3,204 +3,90 @@ smart_home:
   endpoint: https://api.amazonalexa.com/v3/events
   client_id: !secret alexa_client_id
   client_secret: !secret alexa_client_secret
+
   filter:
+    # Lights: mirror config/homekit.yaml — expose all lights, drop indicator LEDs
+    include_entity_globs:
+      - light.*
+    exclude_entities:
+      - light.u6_pro_led
+      - light.u7_pro_xg_led
+      - light.home_assistant_voice_093e77_led_ring
     include_entities:
-      - light.aqaralampchildroom_light
-      - light.ikeabulblamp_light
-      - switch.washermachine
-      - switch.yamaha
-      - switch.radio
-      - light.group_livingroom_1
-      - light.lightlivingroomleftright_l1
-      - light.lightlivingroomleftright_l2
-      - switch.blitzlivingroomcommod
-      - switch.blitzlivingroomrtv
-      - switch.blitzlivingroomglasscase
-      - light.group_1_toilet_1
-      - light.group_5_toilet_2
-      - light.group_6_wardobe_1
-      - light.philipsledoffice
-      - light.philipsledofficeleft
-      - light.philipsledofficeright
-      - climate.thermolivingroom_climate
-      - climate.thermochildroom_climate
-      - climate.thermokitchen_climate
-      - switch.hdmi1
-      - switch.hdmi2
-      - light.lamp_kitchen
-      - light.group_4_office_1
-      - light.group_2_anteroom_1
-      - light.group_3_anteroom_2
-      - scene.good_evening
-      - scene.good_morning
-      - scene.good_night
-      - scene.cinema
-      - media_player.tv
       - fan.air_purifier
       - vacuum.john
-      - lock.maindoorlock
+      - lock.aqara_smart_lock_u200
+      # Media players
+      - media_player.tv_webos
+      - media_player.living_room
+      - media_player.office_2
+      - media_player.toilet_up
+      # Appliances
+      - switch.pralka_power
+      - switch.szuszarka_power
+      # Scripts — Good Night routine + per-room vacuum
+      - script.good_night
       - script.clean_home
-      - script.clean_office
+      - script.clean_hall
+      - script.clean_dining_room
       - script.clean_kitchen
-      - script.clean_toilet
-      - script.clean_ante_room
       - script.clean_living_room
-      - script.clean_child_room
-      - script.clean_white_floor
+      - script.clean_toilet_down
       - script.stop_clean_home
-      - script.covers_close
-      - script.covers_open
-      - script.work_day
-      - cover.blindschildroomwindow1
-      - cover.blindskitchenwindow1
-      - cover.covers_office_room
-      - cover.covers_living_room
+      # Scenes
+      - scene.good_morning
+      - scene.good_evening
+      - scene.cinema
 
   entity_config:
-    light.aqaralampchildroom_light:
-      name: "Lamp"
-    light.ikeabulblamp_light:
-      name: "Lamp"
-    switch.washermachine:
-      name: "Washermachine"
-    switch.yamaha:
-      name: "Yamaha"
-      display_categories: SWITCH
-    switch.radio:
-      name: "Radio"
-      display_categories: SWITCH
-    light.group_livingroom_1:
-      name: "Light 1"
-      display_categories: LIGHT
-    light.lightlivingroomleftright_l1:
-      name: "Light 2"
-      display_categories: LIGHT
-    light.lightlivingroomleftright_l2:
-      name: "Light 3"
-      display_categories: LIGHT
-    switch.blitzlivingroomcommod:
-      name: "Light Commode"
-      display_categories: LIGHT
-    switch.blitzlivingroomrtv:
-      name: "Light RTV"
-      display_categories: LIGHT
-    switch.blitzlivingroomglasscase:
-      name: "Light Glass"
-      display_categories: LIGHT
-    light.group_1_toilet_1:
-      name: "Light"
-      display_categories: LIGHT
-    light.group_5_toilet_2:
-      name: "Mirror"
-      display_categories: LIGHT
-    light.group_6_wardobe_1:
-      name: "Light"
-      display_categories: LIGHT
-    light.lamp_kitchen:
-      name: "Light"
-      display_categories: LIGHT
-    light.group_4_office_1:
-      name: "Office"
-      display_categories: LIGHT
-    light.group_2_anteroom_1:
-      name: "Light 1"
-      display_categories: LIGHT
-    light.group_3_anteroom_2:
-      name: "Light 2"
-      display_categories: LIGHT
-    light.philipsledoffice:
-      name: "Office Desk"
-      display_categories: LIGHT
-    light.philipsledofficeleft:
-      name: "Office Desk Left"
-      display_categories: LIGHT
-    light.philipsledofficeright:
-      name: "Office Desk Right"
-      display_categories: LIGHT
-    switch.hdmi1:
-      name: "HDMI1"
-      display_categories: SWITCH
-    switch.hdmi2:
-      name: "HDMI2"
-      display_categories: SWITCH        
-    scene.good_evening:
-      name: "Good Night"
-      display_categories: SCENE
-    scene.good_morning:
-      name: "Good Morning"
-      display_categories: SCENE
-    scene.good_night:
-      name: "Good Night"
-      display_categories: SCENE
-    scene.cinema:
-      name: "Cinema"
-      display_categories: SCENE
-    script.clean_home:
-      name: "Clean Home"
-      display_categories: SCENE
-    script.clean_office:
-      name: "Clean Office"
-      display_categories: SCENE
-    script.clean_kitchen:
-      name: "Clean Kitchen"
-      display_categories: SCENE
-    script.clean_toilet:
-      name: "Clean Toilet"
-      display_categories: SCENE
-    script.clean_ante_room:
-      name: "Clean Ante Room"
-      display_categories: SCENE
-    script.clean_living_room:
-      name: "Clean Living Room"
-      display_categories: SCENE
-    script.clean_child_room:
-      name: "Clean Child Room"
-      display_categories: SCENE
-    script.clean_white_floor:
-      name: "Clean White Floor"
-      display_categories: SCENE
-    script.stop_clean_home:
-      name: "Stop Cleaning"
-      display_categories: SCENE
-    script.covers_open:
-      name: "Open Blinds"
-      display_categories: SCENE
-    script.covers_close:
-      name: "Close Blinds"
-      display_categories: SCENE
-    script.work_day:
-      name: "Work Day"
-      display_categories: SCENE
-    vacuum.john:
-      name: "Vacuum Cleaner"
-      display_categories: VACUUM_CLEANER
-    media_player.tv:
-      name: TV
-      display_categories: TV
-    fan.air_purifier:
-      name: Airpurifier
-      display_categories: AIR_PURIFIER
-    lock.maindoorlock:
-      name: Door
-      display_categories: SMARTLOCK
-    cover.covers_living_room:
-      name: Living Room 
-      display_categories: INTERIOR_BLIND
-    cover.blindschildroomwindow1:
-      name: Child Room
-      display_categories: INTERIOR_BLIND
-    cover.covers_office_room:
-      name: Office
-      display_categories: INTERIOR_BLIND
-    cover.blindskitchenwindow1:
-      name: Kitchen
-      display_categories: INTERIOR_BLIND
-    climate.thermolivingroom_climate:
-      name: Living Room
-      display_categories: THERMOSTAT
-    climate.thermochildroom_climate:
-      name: Child Room
-      display_categories: THERMOSTAT
-    climate.thermokitchen_climate:
-      name: Kitchen
-      display_categories: THERMOSTAT
+    # --- Lights (room-qualified, unique names for unambiguous voice control) ---
+    light.shelly_living_room_light_1: { name: "Living Room Light 1" }
+    light.shelly_living_room_light_2: { name: "Living Room Light 2" }
+    light.led_rtv:                    { name: "TV LED" }
+    light.shelly_office_1_light_1:    { name: "Office Light 1" }
+    light.shelly_office_1_light_2:    { name: "Office Light 2" }
+    light.desk_led:                   { name: "Desk" }
+    light.office_lamp:                { name: "Office Lamp" }
+    light.shelly_bedroom_light_1:     { name: "Bedroom" }
+    light.shelly_kitchen_light_1:     { name: "Kitchen" }
+    light.shelly_table_light_1:       { name: "Dining Table" }
+    light.shelly_toilet_up_light_1:   { name: "Upstairs Toilet" }
+    light.shelly_toilet_up_mirror:    { name: "Mirror" }
+    light.shelly_toilet_up_bath:      { name: "Bath" }
+    light.shelly_cabinet_1_light_1:   { name: "Cabinet" }
+    light.shelly_toilet_up_wall_light_1: { name: "Wall" }
+    light.shelly_toilet_down_light_1: { name: "Downstairs Toilet" }
+    light.shelly_hall_down_light:     { name: "Downstairs Hall" }
+    light.shelly_hall_up_light_1:     { name: "Upstairs Hall" }
+    light.shelly_stairs_light_1:      { name: "Stairs" }
+    light.shelly_child_room_1:        { name: "Child Room" }
+
+    # --- Media players (TVs keep default TV category; Sonos must be SPEAKER) ---
+    media_player.tv_webos:    { name: "TV" }
+    media_player.living_room: { name: "Apple TV" }
+    media_player.office_2:    { name: "Office Speaker",   display_categories: SPEAKER }
+    media_player.toilet_up:   { name: "Bathroom Speaker", display_categories: SPEAKER }
+
+    # --- Fan / vacuum / lock ---
+    fan.air_purifier:           { name: "Air Purifier", display_categories: AIR_PURIFIER }
+    vacuum.john:                { name: "Vacuum" }
+    lock.aqara_smart_lock_u200: { name: "Front Door" }
+
+    # --- Appliances ---
+    switch.pralka_power:    { name: "Washing Machine" }
+    switch.szuszarka_power: { name: "Dryer" }
+
+    # --- Scripts (HA maps to ACTIVITY_TRIGGER; "turn off" stops them) — name only ---
+    script.good_night:        { name: "Good Night" }
+    script.clean_home:        { name: "Clean Home" }
+    script.clean_hall:        { name: "Clean Hall" }
+    script.clean_dining_room: { name: "Clean Dining Room" }
+    script.clean_kitchen:     { name: "Clean Kitchen" }
+    script.clean_living_room: { name: "Clean Living Room" }
+    script.clean_toilet_down: { name: "Clean Toilet" }
+    script.stop_clean_home:   { name: "Stop Cleaning" }
+
+    # --- Scenes (HA maps to SCENE_TRIGGER; activate only) — name only ---
+    scene.good_morning: { name: "Good Morning" }
+    scene.good_evening: { name: "Good Evening" }
+    scene.cinema:       { name: "Cinema" }

@@ -121,11 +121,33 @@ good_night:
     - service: light.turn_off
       target:
         entity_id: all
+    # Restore Unifi LEDs
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.u7_pro_xg_led
     # Pause Sonos
     - service: media_player.media_pause
       target:
-        entity_id: media_player.office
+        entity_id: 
+          - media_player.office
+          - media_player.toilet_up
+          - media_player.living_room
     # Turn off Apple TV
     - service: media_player.turn_off
       target:
-        entity_id: media_player.living_room
+        entity_id:
+          - media_player.tv_webos
+
+work_mode:
+  alias: Work Mode
+  icon: mdi:desk-lamp
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id:
+          - light.desk_led
+          - light.office_lamp
+      data:
+        brightness_pct: 100
+        

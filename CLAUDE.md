@@ -9,7 +9,7 @@ Home Assistant configuration repository for a smart home running on a Kubernetes
 - External URL: `https://home.olender.me`
 - Internal URL: `http://192.168.1.230:8123`
 
-**This is a pure configuration repo — there are no build, test, or lint commands.** Code lives in `scripts/`: `sui_wallet.py` and `clean-dotfiles.sh` are stdlib/dep-free; `tauron_g12w_cost.py` depends on `pyyaml` and `aiohttp`.
+**This is a pure configuration repo — there are no build, test, or lint commands.** Code lives in `scripts/`: `clean-dotfiles.sh` is dep-free; `sui_wallet.py` depends on `pyyaml` (reads secrets.yaml directly, matching how command_line invokes it — no way to pass `!secret` into a command_line sensor's `command`); `tauron_g12w_cost.py` depends on `pyyaml` and `aiohttp`.
 
 ## Architecture
 

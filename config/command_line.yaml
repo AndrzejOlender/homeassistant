@@ -5,7 +5,7 @@
 - sensor:
     name: SUI Wallet
     unique_id: sui_wallet_portfolio
-    command: "python3 /config/scripts/sui_wallet.py !secret sui_wallet_address"
+    command: "python3 /config/scripts/sui_wallet.py"
     scan_interval: 600
     value_template: "{{ value_json.total_usd }}"
     unit_of_measurement: "USD"
@@ -13,6 +13,7 @@
       - tokens
       - token_count
       - wallet
+      - error
 
 # Tauron G12W Cost Updater
 # Computes and imports the tauron_g12w:cost external statistic from the

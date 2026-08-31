@@ -5,15 +5,38 @@ Fetches all tokens from a SUI wallet and calculates total USD value.
 Uses DeFi Llama for prices (single source, no API key needed).
 """
 import json
+import os
 import sys
 import urllib.request
 import urllib.error
+
+import yaml
 
 # Configuration
 # JSON-RPC on public fullnodes is deprecated (https://docs.sui.io/develop/accessing-data/json-rpc-migration) - use GraphQL RPC instead.
 SUI_GRAPHQL = "https://graphql.mainnet.sui.io/graphql"
 DEFILLAMA_API = "https://coins.llama.fi/prices/current"
 TIMEOUT = 30
+
+WALLET_KEY = "sui_wallet_address"
+DEFAULT_SECRETS_PATH = "/config/secrets.yaml"
+
+
+def resolve_wallet() -> str:
+    """Return the wallet address. Prefers SUI_WALLET_ADDRESS env (manual
+    runs); falls back to secrets.yaml (in-container runs, matching how
+    command_line invokes this script)."""
+    env_wallet = os.environ.get("SUI_WALLET_ADDRESS")
+    if env_wallet:
+        return env_wallet
+
+    secrets_path = os.environ.get("HA_SECRETS_PATH", DEFAULT_SECRETS_PATH)
+    with open(secrets_path) as f:
+        secrets = yaml.safe_load(f)
+    wallet = secrets.get(WALLET_KEY)
+    if not wallet:
+        raise RuntimeError(f"{WALLET_KEY} missing from {secrets_path}")
+    return wallet
 
 
 def http_post(url: str, data: dict, timeout: int = TIMEOUT) -> dict:
@@ -119,9 +142,7 @@ def get_defillama_prices(coin_types: list) -> dict:
 
 
 def main():
-    if len(sys.argv) < 2:
-        raise RuntimeError("wallet address not provided as argv[1]")
-    wallet = sys.argv[1]
+    wallet = resolve_wallet()
 
     # Get all coins from wallet
     coins = get_all_coins(wallet)
@@ -196,6 +217,8 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        # Return error state for Home Assistant
+        # Exit 0 on purpose: command_line discards stdout on a non-zero exit,
+        # which would hide this message instead of surfacing it as the sensor
+        # state plus its "error" attribute.
         print(json.dumps({"total_usd": 0, "error": str(e), "tokens": [], "token_count": 0}))
-        sys.exit(1)
+        sys.exit(0)

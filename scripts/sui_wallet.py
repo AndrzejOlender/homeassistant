@@ -10,8 +10,8 @@ import urllib.request
 import urllib.error
 
 # Configuration
-WALLET = "0xcf50d5f093fd78b0e3f785e792ee67ffa0fafbd5642e672042f656c7c7ef724b"
-SUI_RPC = "https://fullnode.mainnet.sui.io:443"
+# JSON-RPC on public fullnodes is deprecated (https://docs.sui.io/develop/accessing-data/json-rpc-migration) - use GraphQL RPC instead.
+SUI_GRAPHQL = "https://graphql.mainnet.sui.io/graphql"
 DEFILLAMA_API = "https://coins.llama.fi/prices/current"
 TIMEOUT = 30
 
@@ -34,21 +34,57 @@ def http_get(url: str, timeout: int = TIMEOUT) -> dict:
         return json.loads(response.read().decode("utf-8"))
 
 
-def rpc_call(method: str, params: list) -> dict:
-    """Make a JSON-RPC call to SUI node."""
-    return http_post(SUI_RPC, {"jsonrpc": "2.0", "id": 1, "method": method, "params": params})
+BALANCES_QUERY = """
+query ($wallet: SuiAddress!, $after: String) {
+  address(address: $wallet) {
+    balances(first: 50, after: $after) {
+      pageInfo { hasNextPage endCursor }
+      nodes { coinType { repr } totalBalance }
+    }
+  }
+}
+"""
+
+COIN_METADATA_QUERY = """
+query ($coinType: String!) {
+  coinMetadata(coinType: $coinType) { decimals symbol name }
+}
+"""
+
+
+def graphql_call(query: str, variables: dict) -> dict:
+    """Make a GraphQL call to SUI node."""
+    result = http_post(SUI_GRAPHQL, {"query": query, "variables": variables})
+    if "errors" in result:
+        raise RuntimeError(result["errors"][0].get("message", "GraphQL error"))
+    return result.get("data") or {}
 
 
 def get_all_coins(wallet: str) -> list:
-    """Get all coins from SUI wallet via RPC."""
-    result = rpc_call("suix_getAllCoins", [wallet])
-    return result.get("result", {}).get("data", [])
+    """Get all coin balances from SUI wallet via GraphQL (paginated, 50/page)."""
+    coins = []
+    after = None
+    while True:
+        data = graphql_call(BALANCES_QUERY, {"wallet": wallet, "after": after})
+        balances = (data.get("address") or {}).get("balances") or {}
+        for node in balances.get("nodes", []):
+            coins.append(
+                {
+                    "coinType": (node.get("coinType") or {}).get("repr", ""),
+                    "balance": node.get("totalBalance", 0),
+                }
+            )
+        page_info = balances.get("pageInfo") or {}
+        if not page_info.get("hasNextPage"):
+            break
+        after = page_info.get("endCursor")
+    return coins
 
 
 def get_coin_metadata(coin_type: str) -> dict:
-    """Get coin metadata including decimals from SUI RPC."""
-    result = rpc_call("suix_getCoinMetadata", [coin_type])
-    return result.get("result") or {}
+    """Get coin metadata including decimals from SUI GraphQL RPC."""
+    data = graphql_call(COIN_METADATA_QUERY, {"coinType": coin_type})
+    return data.get("coinMetadata") or {}
 
 
 def get_defillama_prices(coin_types: list) -> dict:
@@ -83,8 +119,12 @@ def get_defillama_prices(coin_types: list) -> dict:
 
 
 def main():
+    if len(sys.argv) < 2:
+        raise RuntimeError("wallet address not provided as argv[1]")
+    wallet = sys.argv[1]
+
     # Get all coins from wallet
-    coins = get_all_coins(WALLET)
+    coins = get_all_coins(wallet)
 
     # Aggregate balances by coin type
     balances = {}
@@ -95,13 +135,13 @@ def main():
             balances[coin_type] = balances.get(coin_type, 0) + balance
 
     if not balances:
-        print(json.dumps({"total_usd": 0, "tokens": [], "token_count": 0, "wallet": WALLET[:10] + "..." + WALLET[-6:]}))
+        print(json.dumps({"total_usd": 0, "tokens": [], "token_count": 0, "wallet": wallet[:10] + "..." + wallet[-6:]}))
         return
 
     # Get prices and decimals from DeFi Llama (single API call)
     llama_data = get_defillama_prices(list(balances.keys()))
 
-    # For tokens not in DeFi Llama, get metadata from SUI RPC
+    # For tokens not in DeFi Llama, get metadata from SUI GraphQL RPC
     for coin_type in balances.keys():
         if coin_type not in llama_data:
             metadata = get_coin_metadata(coin_type)
@@ -146,7 +186,7 @@ def main():
         "total_usd": round(total_usd, 2),
         "tokens": tokens,
         "token_count": len(tokens),
-        "wallet": WALLET[:10] + "..." + WALLET[-6:],
+        "wallet": wallet[:10] + "..." + wallet[-6:],
     }
 
     print(json.dumps(output))

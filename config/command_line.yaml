@@ -5,7 +5,7 @@
 - sensor:
     name: SUI Wallet
     unique_id: sui_wallet_portfolio
-    command: "python3 /config/scripts/sui_wallet.py"
+    command: "python3 /config/scripts/sui_wallet.py !secret sui_wallet_address"
     scan_interval: 600
     value_template: "{{ value_json.total_usd }}"
     unit_of_measurement: "USD"
@@ -13,3 +13,25 @@
       - tokens
       - token_count
       - wallet
+
+# Tauron G12W Cost Updater
+# Computes and imports the tauron_g12w:cost external statistic from the
+# Tauron grid consumption stat, priced per G12W day/night zone. Idempotent -
+# only processes newly-complete days, safe to run repeatedly.
+- sensor:
+    name: Tauron G12W Cost Updater
+    unique_id: tauron_g12w_cost_updater
+    command: "python3 /config/scripts/tauron_g12w_cost.py"
+    scan_interval: 21600
+    command_timeout: 120
+    value_template: "{{ value_json.status }}"
+    json_attributes:
+      - processed_days
+      - skipped_incomplete
+      - hours_imported
+      - import_verified
+      - running_total_pln
+      - day_rate
+      - night_rate
+      - monthly_fee
+      - error

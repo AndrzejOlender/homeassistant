@@ -1,78 +1,72 @@
-#  Home Assistant Configuration Files
+# Home Assistant Configuration Files
 
-## Server
-* [ Intel NUC NUC7i3BNH, i3-7100U CPU 2.40GHz, 16GB RAM](https://ark.intel.com/content/www/us/en/ark/products/95066/intel-nuc-kit-nuc7i3bnh.html) (Ubuntu Server)
-* Home Assistant in Kubernetes instalation ([Helm Charts](https://gitlab.olender.io/andrzej/infrastructure/-/tree/master/nuc/helm))
+Configuration for a Home Assistant instance running on a Kubernetes cluster (Intel NUC, Ubuntu Server), deployed via Helm charts from a separate [infrastructure repo](https://gitlab.olender.io/andrzej/infrastructure). See `CLAUDE.md` for the full technical breakdown (entity IDs, automation conventions, deployment details).
 
-## ZigBee Devices
-### ZigBee Adapter 
-* [Texas Instruments LAUNCHXL-CC1352P-2](https://www.zigbee2mqtt.io/information/supported_adapters.html#texas-instruments-launchxl-cc1352p-2)
+## Platform
 
-### Lights
-* [Aqara bulb ZNLDP12LM](https://www.zigbee2mqtt.io/devices/ZNLDP12LM.html) x1
-* [Ikea bulb GU10 LED1650R5](https://www.zigbee2mqtt.io/devices/LED1650R5.html) x11
-* [Ikea bulb LED1649C5](https://www.zigbee2mqtt.io/devices/LED1649C5.html) x4
-* [Ikea bulb RGB LED1624G9](https://www.zigbee2mqtt.io/devices/LED1624G9.html) x1
-* [Osram bulb RGB AC08559](https://www.zigbee2mqtt.io/devices/AC08559.html) x3
+* Home Assistant on Kubernetes ([Helm Charts](https://gitlab.olender.io/andrzej/infrastructure/-/tree/master/nuc/helm))
+* [PostgreSQL](https://www.home-assistant.io/integrations/recorder/) recorder backend
+* [Prometheus](https://www.home-assistant.io/integrations/prometheus/) metrics export
 
-### Switches
-* [Aqara WXKG11LM](https://www.zigbee2mqtt.io/devices/WXKG11LM.html) x2
-* [Aqara WXKG03LM](https://www.zigbee2mqtt.io/devices/WXKG03LM.html) x4
-* [Aqara WXKG02LM](https://www.zigbee2mqtt.io/devices/WXKG02LM.html) x4
+## Zigbee & Matter/Thread
 
-### Lock
-* [Danalock V3-BTZB](https://www.zigbee2mqtt.io/devices/V3-BTZB.html) x1
+* [ZHA](https://www.home-assistant.io/integrations/zha/) (native Zigbee integration) with a network-attached CC2652P coordinator
+* [Matter](https://www.home-assistant.io/integrations/matter/) over [Thread](https://www.home-assistant.io/integrations/thread/), with a self-hosted [OpenThread Border Router](https://www.home-assistant.io/integrations/otbr/) on the cluster
+* [Aqara Smart Lock U200](https://www.aqara.com/) (Matter/Thread) on the front door
+* Zigbee bulbs, switches and sensors across the house
 
-### Thermostats
-* [Eurotronic SPZB0001](https://www.zigbee2mqtt.io/devices/SPZB0001.html) x3
+## Local WiFi Relays
 
-### Leak Sensors
-* [Aqara SJCGQ11LM](https://www.zigbee2mqtt.io/devices/SJCGQ11LM.html) x2
+* [Shelly Gen4](https://www.shelly.com/) 1PM/2PM relays (local API, no cloud) driving most wired switches
+* [Govee](https://www.govee.com/) lights via the local API integration
+* [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting) for circadian desk lighting
 
-### Motion Sensors
-* [Aqara RTCGQ11LM](https://www.zigbee2mqtt.io/devices/RTCGQ11LM.html) x5
+## Media & Entertainment
 
-### Contact Sensor
-* [Aqara MCCGQ11LM](https://www.zigbee2mqtt.io/devices/MCCGQ11LM.html) x7
+* LG OLED TV via [webOS](https://www.home-assistant.io/integrations/webostv/) and a dedicated HomeKit bridge
+* [Apple TV](https://www.home-assistant.io/integrations/apple_tv/)
+* Satellite TV box via DLNA
+* [Sonos](https://www.home-assistant.io/integrations/sonos/) multi-room audio, orchestrated through [Music Assistant](https://www.music-assistant.io/), plus Spotify
 
-### Vibration Sensor
-* [Aqara DJT11LM](https://www.zigbee2mqtt.io/devices/DJT11LM.html) x1
+## Voice & AI
 
-## Wifi Devices
-### Power Plugs
-* [BlitWolf BW-SHP6](https://www.blitzwolf.com/BlitzWolf-BW-SHP6-2300W-WIFI-Smart-Socket-EU-Plug-Works-with-Alexa-Remote-Control-Time-Switch-Electricity-Monitoring-p-300.html) x7 ([eshome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
-* [Shelly 2.5](https://shelly.cloud/products/shelly-25-smart-home-automation-relay/) x2 ([esphome](https://gitlab.olender.io/andrzej/homeassistant/-/tree/master/esphome))
+* Local voice pipeline ([Wyoming](https://www.home-assistant.io/integrations/wyoming/)): openWakeWord, faster-whisper, Piper, running on a Home Assistant Voice Preview Edition device
+* [ElevenLabs](https://elevenlabs.io/) text-to-speech for Polish announcements
+* Google Generative AI conversation agent for Assist
+* Home Assistant exposed as an [MCP server](https://www.home-assistant.io/integrations/mcp_server/), so AI assistants (Claude included) can query and control the house directly
 
-### Air Purifier
-* [Xiaomi Air Purifier 2S](https://www.mi.com/in/air2s/) x1
+## Vacuum
 
-### IR Controller
-* [Xiaomi Universal IR](https://www.gearbest.com/smart-home/pp_229556.html) x1
+* [Roborock](https://www.home-assistant.io/integrations/roborock/) robot vacuum, with [Xiaomi Cloud Map Extractor](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor) for cleaning maps
 
-### Voice Assistants
-* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R) x1
-* [Amazon Echo Dot 4](https://www.amazon.com/All-New-Echo-Dot-4th-Gen/dp/B07XJ8C8F5) x1
-* [Siri](https://www.apple.com/siri/) (iPhone, Apple Watch)
+## Energy & Utilities
 
-### Media Players
-* [LG WebOS](https://www.lg.com/global/business/webos) x1
-* [AppleTV 4K](https://www.apple.com/apple-tv-4k/) x1
-* [Amazon Echo Dot 3](https://www.amazon.com/Echo-Dot/dp/B07FZ8S74R) x1
+* [Tauron AmiPlus](https://github.com/PiotrMachowski/homeassistant-tauron-amiplus) smart meter integration
+* Custom G12W day/night tariff cost tracking (`scripts/tauron_g12w_cost.py`), importing a priced statistic into the Energy dashboard
 
-## Integrations
-* [Mobile App](https://apps.apple.com/us/app/home-assistant-companion/id1099568401) (iPhone, Android, MacOS)
-* [MQTT](https://www.home-assistant.io/integrations/mqtt/)
-* [HomeKit](https://www.home-assistant.io/integrations/homekit/)
-* [Airly](https://github.com/bieniu/ha-airly)
-* [Speedtest](https://www.home-assistant.io/integrations/speedtestdotnet/)
-* [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
-* [HACS](https://github.com/custom-components/hacs)
-* [Burze dziś](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Burze.dzis.net)
-* [LG WebOS](https://www.home-assistant.io/integrations/webostv/)
-* [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
+## Weather & Air Quality
 
-## Screenshots
-### Main 
-![HA.png](image/HA-20201231.png)
-### Zigbee Mesh
-![HA-zigbbe-mesh.png](image/HA-zigbbe-mesh.png)
+* [Met.no](https://www.home-assistant.io/integrations/met/) weather
+* ESA NASK hyperlocal air quality (custom component)
+* [Burze.dzis.net](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Burze.dzis.net) Polish storm warnings
+
+## Network & Security
+
+* [UniFi Network](https://www.home-assistant.io/integrations/unifi/) (U6-Pro / U7-Pro-XG access points) and [UniFi Protect](https://www.home-assistant.io/integrations/unifiprotect/) cameras
+* [AdGuard Home](https://www.home-assistant.io/integrations/adguard/) for network-wide DNS filtering
+
+## Presence & Access
+
+* iOS and Android companion apps for household members
+* [HomeKit](https://www.home-assistant.io/integrations/homekit/) bridge for the Apple ecosystem
+* Amazon Alexa (Echo Dot) via [Alexa Media Player](https://github.com/custom-components/alexa_media_player)
+
+## Waste & Household
+
+* Local calendars per waste stream (mixed, plastic/metal, paper, glass, bio, textiles) driving pickup reminders
+* Shared shopping list
+
+## Dashboard
+
+* [Lovelace](https://www.home-assistant.io/dashboards/) UI built with [Mushroom cards](https://github.com/piitaya/lovelace-mushroom) (`ui-lovelace-mushroom.yaml`)
+* Google Dark OLED theme by default

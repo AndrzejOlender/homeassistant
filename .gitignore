@@ -30,5 +30,18 @@ zigbee.db-shm
 zigbee.db-wal
 .ha_run.lock
 .gitignore
-.ha_run.lock
-.ha_run.lock
+.mcp.json
+
+# macOS junk (NFS mount can't store xattrs natively -> AppleDouble sidecars)
+._*
+.DS_Store
+
+# HA image_upload runtime data (avatars/photos, not config)
+image/*/
+
+# Agent/tooling artifacts, not part of HA config
+.agents/
+.cache/
+.sisyphus/
+.claude/settings.local.json
+__pycache__/

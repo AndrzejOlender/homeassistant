@@ -9,7 +9,7 @@ Home Assistant configuration repository for a smart home running on a Kubernetes
 - External URL: `https://home.olender.me`
 - Internal URL: `http://192.168.1.230:8123`
 
-**This is a pure configuration repo — there are no build, test, or lint commands.** Code lives in `scripts/`: `clean-dotfiles.sh` is dep-free; `sui_wallet.py` depends on `pyyaml` (reads secrets.yaml directly, matching how command_line invokes it — no way to pass `!secret` into a command_line sensor's `command`); `tauron_g12w_cost.py` depends on `pyyaml` and `aiohttp`.
+**This is a pure configuration repo — there are no build, test, or lint commands.** Code lives in `scripts/`: `clean-dotfiles.sh` is dep-free; `sui_wallet.py` depends on `pyyaml` (reads secrets.yaml directly, matching how command_line invokes it — no way to pass `!secret` into a command_line sensor's `command`); `tauron_g12w_cost.py` depends on `pyyaml` and `aiohttp`; `aqua_sprint_water.py` depends on `pyyaml` and `aiohttp` (scrapes the Aqua-Sprint eBOK portal for the water meter reading and imports both the consumption and cost statistics — see its docstring for the reverse-engineered Oracle APEX login, which is easy to break).
 
 ## Architecture
 
@@ -71,6 +71,7 @@ After editing YAML config, reload the affected component via `hass-cli` (install
 | `config/scripts.yaml` | `hass-cli service call script.reload` |
 | `config/template.yaml` | `hass-cli service call template.reload` |
 | `config/input_boolean.yaml` | `hass-cli service call input_boolean.reload` |
+| `config/command_line.yaml` | `hass-cli service call command_line.reload` (picks up new sensors too — no restart needed) |
 | `config/homekit.yaml` | `hass-cli service call homekit.reload` |
 | `themes/*.yaml` | `hass-cli service call frontend.reload_themes` |
 | `configuration.yaml` (core) | `hass-cli service call homeassistant.reload_core_config` |

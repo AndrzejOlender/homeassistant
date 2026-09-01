@@ -36,3 +36,34 @@
       - night_rate
       - monthly_fee
       - error
+
+# Aqua-Sprint Water Meter (eBOK)
+# Logs into the Aqua-Sprint eBOK portal, reads the water meter's cumulative
+# Stan (m3) and imports it as the aqua_sprint:water_consumption external
+# statistic, attributing each delta to its reading date so a calendar month
+# containing one reading totals exactly what that invoice says. The utility
+# only publishes a new radio reading every ~30 days, so most runs are a no-op.
+# Also prices the series into aqua_sprint:water_cost (water + sewage + fixed
+# monthly fee, gross) from the input_number.aqua_sprint_* rate helpers, and
+# wires that into the Energy dashboard's water source as stat_cost.
+# Requires a one-time `python3 scripts/aqua_sprint_water.py --seed` first;
+# after changing a rate helper, run `--rebuild-cost` to reprice history.
+- sensor:
+    name: Aqua-Sprint Water Updater
+    unique_id: aqua_sprint_water_updater
+    command: "python3 /config/scripts/aqua_sprint_water.py"
+    scan_interval: 43200
+    command_timeout: 120
+    value_template: "{{ value_json.status }}"
+    json_attributes:
+      - last_reading_date
+      - last_reading_m3
+      - days_imported
+      - import_verified
+      - cost_days_imported
+      - cost_total_pln
+      - cost_verified
+      - rate_per_m3_gross
+      - cost_source_wired
+      - session
+      - error

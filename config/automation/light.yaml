@@ -77,9 +77,9 @@
           - light.shelly_cabinet_1_light_1
           - light.shelly_toilet_up_wall_light_1
 
-# Toilet Down presence-based light control
-- alias: "Turn On Light Toilet Down on Presence"
-  description: "Turn on toilet down light when presence is detected"
+# Toilet Down presence-based LED control (main light is manual-only)
+- alias: "Turn On LED Toilet Down on Presence"
+  description: "Turn on stand LED when presence is detected"
   mode: single
   trigger:
     - platform: state
@@ -89,20 +89,24 @@
   action:
     - service: light.turn_on
       target:
-        entity_id: light.shelly_toilet_down_light_1
+        entity_id: light.toilet_down_stand_led
 
-- alias: "Turn Off Light Toilet Down on No Presence"
-  description: "Turn off toilet down light when no presence detected"
+- alias: "Turn Off All Lights Toilet Down on No Presence"
+  description: "Turn off toilet down light and stand LED 5 minutes after no presence detected"
   mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.presence_sensor_toilet_down
       from: "on"
       to: "off"
+      for:
+        minutes: 5
   action:
     - service: light.turn_off
       target:
-        entity_id: light.shelly_toilet_down_light_1
+        entity_id:
+          - light.shelly_toilet_down_light_1
+          - light.toilet_down_stand_led
 
 # Extra light triggered by toilet down light
 - alias: "Turn On Extra Light Toilet Down on Light On"

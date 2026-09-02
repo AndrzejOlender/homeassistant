@@ -205,6 +205,9 @@
   action:
     - service: script.work_mode
 
+# The companion app's "Active" sensor is known to occasionally get stuck "on"
+# (community reports) - re-check its live state before actually turning off,
+# in case it already flickered back to "on" by the time this runs.
 - alias: "Turn Off Office Lights on MacBook Inactive"
   description: "Turn off desk LED and office lamp as soon as the MacBook Pro (Andrzej) stops being active (locked or asleep)"
   mode: single
@@ -212,6 +215,12 @@
     - platform: state
       entity_id: binary_sensor.macbook_pro_andrzej_active
       from: "on"
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.macbook_pro_andrzej_active
+          state: "on"
   action:
     - service: light.turn_off
       target:

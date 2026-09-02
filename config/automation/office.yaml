@@ -1,0 +1,48 @@
+# Office "someone is working": keep the office lamp on while any MacBook is
+# in use (Home Assistant macOS companion app "Active" sensors), turn it off
+# after 15 minutes of all Macs being idle.
+#
+# Note: the companion app "Active" sensors are known to occasionally get
+# stuck "on" (community reports); if that happens the lamp stays on until
+# manually turned off. The on-trigger only fires on transitions
+# (-> on), so a manual light.turn_off wins until the sensor flips again.
+- alias: "Office Lamp On When MacBook Active"
+  description: "Turn on office lamp when any MacBook becomes active"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.macbook_esky_active
+        - binary_sensor.macbook_pro_active
+        - binary_sensor.macbook_pro_priv_active
+        - binary_sensor.macbook_pro_andrzej_active
+      to: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.office_lamp
+
+- alias: "Office Lamp Off After Idle"
+  description: "Turn off office lamp 15 minutes after all MacBooks go idle"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.macbook_esky_active
+        - binary_sensor.macbook_pro_active
+        - binary_sensor.macbook_pro_priv_active
+        - binary_sensor.macbook_pro_andrzej_active
+      to: "off"
+      for:
+        minutes: 15
+  condition:
+    - condition: template
+      value_template: >
+        {{ states('binary_sensor.macbook_esky_active') != 'on'
+           and states('binary_sensor.macbook_pro_active') != 'on'
+           and states('binary_sensor.macbook_pro_priv_active') != 'on'
+           and states('binary_sensor.macbook_pro_andrzej_active') != 'on' }}
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.office_lamp

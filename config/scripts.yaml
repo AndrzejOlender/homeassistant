@@ -143,11 +143,13 @@ work_mode:
   alias: Work Mode
   icon: mdi:desk-lamp
   sequence:
+    # Bare turn_on so adaptive_lighting keeps driving desk_led's circadian brightness/color temp
     - service: light.turn_on
       target:
-        entity_id:
-          - light.desk_led
-          - light.office_lamp
+        entity_id: light.desk_led
+    - service: light.turn_on
+      target:
+        entity_id: light.office_lamp
       data:
         brightness_pct: 100
         

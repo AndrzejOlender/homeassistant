@@ -193,3 +193,28 @@
     - service: light.turn_off
       target:
         entity_id: light.shelly_stairs_light_1
+
+# Office lighting driven by MacBook Pro (Andrzej) activity via the HA companion app
+- alias: "Turn On Office Lights on MacBook Active"
+  description: "Run Work Mode when the MacBook Pro (Andrzej) becomes active (awake and unlocked)"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.macbook_pro_andrzej_active
+      to: "on"
+  action:
+    - service: script.work_mode
+
+- alias: "Turn Off Office Lights on MacBook Inactive"
+  description: "Turn off desk LED and office lamp as soon as the MacBook Pro (Andrzej) stops being active (locked or asleep)"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.macbook_pro_andrzej_active
+      from: "on"
+  action:
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.desk_led
+          - light.office_lamp

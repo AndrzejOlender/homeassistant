@@ -196,12 +196,16 @@
 
 # Office lighting driven by MacBook Pro (Andrzej) activity via the HA companion app
 - alias: "Turn On Office Lights on MacBook Active"
-  description: "Run Work Mode when the MacBook Pro (Andrzej) becomes active (awake and unlocked)"
+  description: "Run Work Mode when the MacBook Pro (Andrzej) becomes active (awake and unlocked) and docked at the desk (Ethernet)"
   mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.macbook_pro_andrzej_active
       to: "on"
+  condition:
+    - condition: state
+      entity_id: sensor.macbook_pro_andrzej_connection_type
+      state: "Ethernet"
   action:
     - service: script.work_mode
 
@@ -227,3 +231,42 @@
         entity_id:
           - light.desk_led
           - light.office_lamp
+
+# Office lamp as an "on air" indicator while the MacBook Pro (Andrzej) camera is
+# in use. Same Ethernet gate as the automation above (docked at the home office
+# desk). The restore side is deliberately ungated so the lamp never gets stuck
+# orange.
+- alias: "Turn Office Lamp Orange on MacBook Camera In Use"
+  description: "Snapshot office lamp state and turn it orange while the MacBook Pro (Andrzej) camera is in use (at home only)"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: sensor.macbook_pro_andrzej_connection_type
+      state: "Ethernet"
+  action:
+    - service: scene.create
+      data:
+        scene_id: before_camera_office_lamp
+        snapshot_entities:
+          - light.office_lamp
+    - service: light.turn_on
+      target:
+        entity_id: light.office_lamp
+      data:
+        color_name: orange
+
+- alias: "Restore Office Lamp After MacBook Camera In Use"
+  description: "Restore office lamp to its pre-call state once the MacBook Pro (Andrzej) camera stops being in use"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
+      from: "on"
+  action:
+    - service: scene.turn_on
+      target:
+        entity_id: scene.before_camera_office_lamp

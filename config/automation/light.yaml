@@ -232,17 +232,31 @@
           - light.desk_led
           - light.office_lamp
 
-# Office lamp as an "on air" indicator while the MacBook Pro (Andrzej) camera is
-# in use. Same Ethernet gate as the automation above (docked at the home office
-# desk). The restore side is deliberately ungated so the lamp never gets stuck
-# orange.
-- alias: "Turn Office Lamp Orange on MacBook Camera In Use"
-  description: "Snapshot office lamp state and turn it orange while the MacBook Pro (Andrzej) camera is in use (at home only)"
+# Office lamp and desk LED as an "on air" indicator while the MacBook Pro
+# (Andrzej) camera is in use. Same Ethernet gate as the automation above
+# (docked at the home office desk). The restore side is deliberately ungated
+# so the lights never get stuck orange.
+#
+# camera_in_use is known to bounce on/off several times (some transitions
+# under a second apart) when a call is starting - observed via history during
+# a real Meet join. The 2s "for" debounces that out; a real ongoing call stays
+# "on"/"off" far longer than that.
+#
+# Both lights are snapshotted and restored verbatim via a scene, not handed
+# back to adaptive_lighting via a bare turn_on - switch.adaptive_lighting_
+# desk_led_circadian is currently off, so there's no adaptation loop to hand
+# control back to. Revisit if that switch gets turned back on: a scene
+# restore sets an explicit color, which would then knock desk_led out of
+# adaptive_lighting's circadian control (same issue fixed on work_mode).
+- alias: "Turn Office Lights Orange on MacBook Camera In Use"
+  description: "Snapshot office lamp + desk LED state and turn them orange while the MacBook Pro (Andrzej) camera is in use (at home only)"
   mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
       to: "on"
+      for:
+        seconds: 2
   condition:
     - condition: state
       entity_id: sensor.macbook_pro_andrzej_connection_type
@@ -250,23 +264,28 @@
   action:
     - service: scene.create
       data:
-        scene_id: before_camera_office_lamp
+        scene_id: before_camera_office_lights
         snapshot_entities:
           - light.office_lamp
+          - light.desk_led
     - service: light.turn_on
       target:
-        entity_id: light.office_lamp
+        entity_id:
+          - light.office_lamp
+          - light.desk_led
       data:
         color_name: orange
 
-- alias: "Restore Office Lamp After MacBook Camera In Use"
-  description: "Restore office lamp to its pre-call state once the MacBook Pro (Andrzej) camera stops being in use"
+- alias: "Restore Office Lights After MacBook Camera In Use"
+  description: "Restore office lamp and desk LED to their pre-call state once the MacBook Pro (Andrzej) camera stops being in use"
   mode: single
   trigger:
     - platform: state
       entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
       from: "on"
+      for:
+        seconds: 2
   action:
     - service: scene.turn_on
       target:
-        entity_id: scene.before_camera_office_lamp
+        entity_id: scene.before_camera_office_lights

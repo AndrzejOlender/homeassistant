@@ -239,7 +239,7 @@
 #
 # camera_in_use is known to bounce on/off several times (some transitions
 # under a second apart) when a call is starting - observed via history during
-# a real Meet join. The 2s "for" debounces that out; a real ongoing call stays
+# a real Meet join. The 1s "for" debounces that out; a real ongoing call stays
 # "on"/"off" far longer than that.
 #
 # Both lights are snapshotted and restored verbatim via a scene, not handed
@@ -256,7 +256,7 @@
       entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
       to: "on"
       for:
-        seconds: 2
+        seconds: 1
   condition:
     - condition: state
       entity_id: sensor.macbook_pro_andrzej_connection_type
@@ -284,7 +284,7 @@
       entity_id: binary_sensor.macbook_pro_andrzej_camera_in_use
       from: "on"
       for:
-        seconds: 2
+        seconds: 1
   action:
     - service: scene.turn_on
       target:

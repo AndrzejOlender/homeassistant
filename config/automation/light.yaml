@@ -45,6 +45,7 @@
           - light.shelly_cabinet_1_light_1
           - light.shelly_toilet_up_wall_light_1
           - light.shelly_toilet_up_bath
+          - light.shelly_toilet_up_mirror
 
 # Extra lights triggered by bath light
 - alias: "Turn On Extra Lights Toilet Up on Bath Light On"

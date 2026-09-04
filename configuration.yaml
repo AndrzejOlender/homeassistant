@@ -24,7 +24,6 @@ homeassistant:
   allowlist_external_urls:
     - "https://home.olender.me"
 zone: !include config/zone.yaml
-http: !include config/http.yaml
 script: !include config/scripts.yaml
 alexa: !include config/alexa/alexa.yaml
 sonos: !include config/sonos.yaml

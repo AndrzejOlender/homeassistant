@@ -22,6 +22,10 @@
               authenticationRequired: false
               destructive: false
               icon: "sfsymbols:lock.open"
+    - service: script.notify_active_mac
+      data:
+        title: "Lock"
+        message: "Lock Opened"
 
 - alias: Send Notification Closed Lock
   trigger:
@@ -59,6 +63,10 @@
               authenticationRequired: false
               destructive: false
               icon: "sfsymbols:desktopcomputer"
+    - service: script.notify_active_mac
+      data:
+        title: "Lock"
+        message: "Lock Closed"
 
 # Vacuum
 - alias: Send Notification Vacuum Start
@@ -89,6 +97,9 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+    - service: script.notify_active_mac
+      data:
+        message: "Vacuum Started Cleaning"
 
 - alias: Send Notification Vacuum Stop
   trigger:
@@ -121,6 +132,9 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
+    - service: script.notify_active_mac
+      data:
+        message: "Vacuum Finished Cleaning"
 
 - alias: "Very Bad Air"
   trigger:
@@ -135,6 +149,10 @@
         media_player_entity_id: media_player.office
         message: "Uwaga! bardzo zła jakość powietrza w mieszkaniu."
     - service:  notify.mobile_app_iphone
+      data:
+        title: "Air"
+        message: "Very Bad Air"
+    - service: script.notify_active_mac
       data:
         title: "Air"
         message: "Very Bad Air"
@@ -161,7 +179,11 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
-            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"  
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
+    - service: script.notify_active_mac
+      data:
+        title: "Location"
+        message: "{{ trigger.to_state.name }} went into zone Home"
 
 - alias: Wpkiw Enter
   trigger:
@@ -183,7 +205,11 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
-            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"   
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
+    - service: script.notify_active_mac
+      data:
+        title: "Location"
+        message: "{{ trigger.to_state.name }} went into the WPKiW"
 
 - alias: Wpkiw Exit
   trigger:
@@ -206,8 +232,12 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
             longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
+    - service: script.notify_active_mac
+      data:
+        title: "Location"
+        message: "{{ trigger.to_state.name }} left the WPKiW"
     - delay:
-        seconds: 10                          
+        seconds: 10
 
 - alias: School Exit
   trigger:
@@ -232,6 +262,10 @@
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
             longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
+    - service: script.notify_active_mac
+      data:
+        title: "Location"
+        message: "{{ trigger.to_state.name }} left the School"
     - delay:
         seconds: 50
 
@@ -257,7 +291,11 @@
             shows_compass: true
             shows_points_of_interest: true
             latitude: "{{ state_attr(trigger.entity_id, 'latitude') }}"
-            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"     
+            longitude: "{{ state_attr(trigger.entity_id, 'longitude') }}"
+    - service: script.notify_active_mac
+      data:
+        title: "Location"
+        message: "{{ trigger.to_state.name }} went into the School"
 
 # Waste collection reminder (push notification when any waste is due tomorrow)
 - alias: "Waste Collection Reminder"
@@ -269,32 +307,38 @@
            states('sensor.waste_paper_days') | int(99) == 1 or
            states('sensor.waste_glass_days') | int(99) == 1 or
            states('sensor.waste_bio_days') | int(99) == 1 }}
+  variables:
+    waste_message: >-
+      {% set types = [] %}
+      {% if states('sensor.waste_mixed_days') | int(99) == 1 %}
+        {% set types = types + ['Zmieszane'] %}
+      {% endif %}
+      {% if states('sensor.waste_plastic_days') | int(99) == 1 %}
+        {% set types = types + ['Plastik'] %}
+      {% endif %}
+      {% if states('sensor.waste_paper_days') | int(99) == 1 %}
+        {% set types = types + ['Papier'] %}
+      {% endif %}
+      {% if states('sensor.waste_glass_days') | int(99) == 1 %}
+        {% set types = types + ['Szklo'] %}
+      {% endif %}
+      {% if states('sensor.waste_bio_days') | int(99) == 1 %}
+        {% set types = types + ['Bio'] %}
+      {% endif %}
+      Jutro odbior: {{ types | join(', ') }}. Wystawic pojemniki!
   action:
     - service: notify.mobile_app_iphone
       data:
         title: "Waste Collection Tomorrow"
-        message: >-
-          {% set types = [] %}
-          {% if states('sensor.waste_mixed_days') | int(99) == 1 %}
-            {% set types = types + ['Zmieszane'] %}
-          {% endif %}
-          {% if states('sensor.waste_plastic_days') | int(99) == 1 %}
-            {% set types = types + ['Plastik'] %}
-          {% endif %}
-          {% if states('sensor.waste_paper_days') | int(99) == 1 %}
-            {% set types = types + ['Papier'] %}
-          {% endif %}
-          {% if states('sensor.waste_glass_days') | int(99) == 1 %}
-            {% set types = types + ['Szklo'] %}
-          {% endif %}
-          {% if states('sensor.waste_bio_days') | int(99) == 1 %}
-            {% set types = types + ['Bio'] %}
-          {% endif %}
-          Jutro odbior: {{ types | join(', ') }}. Wystawic pojemniki!
+        message: "{{ waste_message }}"
         data:
           push:
             sound:
               name: default
+    - service: script.notify_active_mac
+      data:
+        title: "Waste Collection Tomorrow"
+        message: "{{ waste_message }}"
 
 # Waste collection TTS reminder at 20:00 via ElevenLabs + Sonos
 - alias: "Waste Collection TTS Reminder"
@@ -357,21 +401,27 @@
       from: 'off'
       to: 'on'
       id: wind_warning
+  variables:
+    weather_message: >-
+      {% set messages = {
+        'storm_nearby': 'Storm nearby',
+        'storm_warning': 'Storm warning',
+        'heat_warning': 'Heat warning',
+        'wind_warning': 'Wind warning'
+      } %}
+      {{ messages[trigger.id] }}
   action:
     - service: notify.mobile_app_iphone
       data:
         title: "Weather"
-        message: >-
-          {% set messages = {
-            'storm_nearby': 'Storm nearby',
-            'storm_warning': 'Storm warning',
-            'heat_warning': 'Heat warning',
-            'wind_warning': 'Wind warning'
-          } %}
-          {{ messages[trigger.id] }}
+        message: "{{ weather_message }}"
         data:
           push:
             sound:
               name: default
               critical: 1
               volume: 1.0
+    - service: script.notify_active_mac
+      data:
+        title: "Weather"
+        message: "{{ weather_message }}"

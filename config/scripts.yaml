@@ -152,4 +152,22 @@ work_mode:
         entity_id: light.office_lamp
       data:
         brightness_pct: 100
+
+# Mirrors a notification to the MacBook Pro (Andrzej) notification center
+# whenever it's actively being used - a phone in your pocket is easy to miss
+# while you're sitting at the desk. Not gated on Ethernet/home like the light
+# automations - a notification is still useful wherever the MacBook currently is.
+notify_active_mac:
+  alias: Notify Active MacBook
+  icon: mdi:laptop
+  sequence:
+    - if:
+        - condition: state
+          entity_id: binary_sensor.macbook_pro_andrzej_active
+          state: "on"
+      then:
+        - service: notify.mobile_app_macbook_pro_andrzej
+          data:
+            title: "{{ title | default('', true) }}"
+            message: "{{ message }}"
         

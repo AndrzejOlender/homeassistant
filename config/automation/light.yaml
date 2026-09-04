@@ -232,22 +232,6 @@
           - light.desk_led
           - light.office_lamp
 
-# Office lamp and desk LED as an "on air" indicator while the MacBook Pro
-# (Andrzej) camera is in use. Same Ethernet gate as the automation above
-# (docked at the home office desk). The restore side is deliberately ungated
-# so the lights never get stuck orange.
-#
-# camera_in_use is known to bounce on/off several times (some transitions
-# under a second apart) when a call is starting - observed via history during
-# a real Meet join. The 1s "for" debounces that out; a real ongoing call stays
-# "on"/"off" far longer than that.
-#
-# Both lights are snapshotted and restored verbatim via a scene, not handed
-# back to adaptive_lighting via a bare turn_on - switch.adaptive_lighting_
-# desk_led_circadian is currently off, so there's no adaptation loop to hand
-# control back to. Revisit if that switch gets turned back on: a scene
-# restore sets an explicit color, which would then knock desk_led out of
-# adaptive_lighting's circadian control (same issue fixed on work_mode).
 - alias: "Turn Office Lights Orange on MacBook Camera In Use"
   description: "Snapshot office lamp + desk LED state and turn them orange while the MacBook Pro (Andrzej) camera is in use (at home only)"
   mode: single

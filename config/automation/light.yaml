@@ -80,7 +80,7 @@
 
 # Toilet Down presence-based LED control (main light is manual-only)
 - alias: "Turn On LED Toilet Down on Presence"
-  description: "Turn on stand LED when presence is detected"
+  description: "Turn on stand LED and mirror when presence is detected"
   mode: single
   trigger:
     - platform: state
@@ -90,10 +90,12 @@
   action:
     - service: light.turn_on
       target:
-        entity_id: light.toilet_down_stand_led
+        entity_id:
+          - light.toilet_down_stand_led
+          - light.shelly_toilet_down_mirror
 
 - alias: "Turn Off All Lights Toilet Down on No Presence"
-  description: "Turn off toilet down light and stand LED 5 minutes after no presence detected"
+  description: "Turn off toilet down light, stand LED and mirror 5 minutes after no presence detected"
   mode: single
   trigger:
     - platform: state
@@ -108,10 +110,11 @@
         entity_id:
           - light.shelly_toilet_down_light_1
           - light.toilet_down_stand_led
+          - light.shelly_toilet_down_mirror
 
 # Extra light triggered by toilet down light
 - alias: "Turn On Extra Light Toilet Down on Light On"
-  description: "Turn on stand LED when toilet down light is turned on"
+  description: "Turn on stand LED and mirror when toilet down light is turned on"
   mode: single
   trigger:
     - platform: state
@@ -121,10 +124,12 @@
   action:
     - service: light.turn_on
       target:
-        entity_id: light.toilet_down_stand_led
+        entity_id:
+          - light.toilet_down_stand_led
+          - light.shelly_toilet_down_mirror
 
 - alias: "Turn Off Extra Light Toilet Down on Light Off"
-  description: "Turn off stand LED when toilet down light is turned off"
+  description: "Turn off stand LED and mirror when toilet down light is turned off"
   mode: single
   trigger:
     - platform: state
@@ -134,7 +139,9 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.toilet_down_stand_led
+        entity_id:
+          - light.toilet_down_stand_led
+          - light.shelly_toilet_down_mirror
 
 # LED RTV backlight controlled by TV state (only after dark)
 - alias: "Turn On LED RTV on TV On"

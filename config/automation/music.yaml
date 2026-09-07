@@ -43,7 +43,9 @@
       default:
         - service: media_player.play_media
           data:
-            media_content_id: "library://playlist/60"
+            # Ania's playlist when she is home, alternative playlist otherwise
+            media_content_id: >
+              {{ 'library://playlist/60' if is_state('person.ania', 'home') else 'library://playlist/61' }}
             media_content_type: "playlist"
           target:
             entity_id: media_player.toilet_up

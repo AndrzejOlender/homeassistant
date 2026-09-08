@@ -30,3 +30,237 @@
     service: script.turn_on
     target:
       entity_id: script.clean_white_floor
+
+- id: vulpo_la_vacuum_john__state_82DFD463
+  alias: '[Vulpo] Live Activity roborock.john (Vulpo 1ee94a)'
+  description: Created by Vulpo app — monitors roborock.john and updates Live Activity
+  triggers:
+  - entity_id: vacuum.john
+    platform: state
+  - for: 00:00:30
+    value_template: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) > 0 else
+      false) %}{% set settled = states(''vacuum.john'') in [''docked'', ''idle'',
+      ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) > 0 else
+      (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{ settled }}'
+    platform: template
+  actions:
+  - data:
+      data:
+        live_activity:
+          stale_date: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            (as_timestamp(now()) | int) if settled else ((as_timestamp(now()) + 600)
+            | int) }}'
+          dismissal_date: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            (as_timestamp(now()) + 300) | int if settled else 0 }}'
+          event: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            ''end'' if settled else ''update'' }}'
+          content_state:
+            lastUpdated: '{{ as_timestamp(now()) | int }}'
+            vacuumStatusKey: '{{ states(''vacuum.john'') }}'
+            vacuumFinished: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+              ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570)
+              %}{{ ''true'' if settled else ''false'' }}'
+            vacuumBattery: '{{ states(''sensor.office_roborock_john_battery'') | float(0)
+              | int if states(''sensor.office_roborock_john_battery'') not in [''unavailable'',
+              ''unknown''] else '''' }}'
+            vacuumAreaUnit: '{{ state_attr(''sensor.roborock_john_current_clean_area'',
+              ''unit_of_measurement'') | default(''m²'', true) }}'
+            vacuumAreaM2: '{{ states(''sensor.roborock_john_current_clean_area'')
+              | float(0) if states(''sensor.roborock_john_current_clean_area'') not
+              in [''unavailable'', ''unknown''] else '''' }}'
+            displayValue: '{{ states(''vacuum.john'') | replace(''_'', '' '') | title
+              }}'
+            vacuumElapsedMinutes: '{% set t = state_attr(''vacuum.john'', ''cleaning_time'')
+              %}{{ t | float(0) | int if t is not none else '''' }}'
+            state: '{{ states(''vacuum.john'') }}'
+          activity_push_token: 401c43b23b933ecaeaaa4dcfda7a9a0872bc3b09b7e7cfedd02ff95f0c6a4478b641ccd57de5702dea4624180c17b1b9b4512ccbf09c287207a019afcd7ec2aa5d4756e9776b096f9581ab17d3ad4c01
+      message: live_activity_update
+    action: notify.mobile_app_vulpo_1ee94a
+  mode: queued
+- id: vulpo_la_vacuum_john__periodic_82DFD463
+  alias: '[Vulpo] Live Activity roborock.john Progress (Vulpo 1ee94a)'
+  description: Created by Vulpo app — periodic progress updates for roborock.john
+  triggers:
+  - platform: time_pattern
+    minutes: /1
+  conditions:
+  - condition: template
+    value_template: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) > 0 else
+      false) %}{% set settled = states(''vacuum.john'') in [''docked'', ''idle'',
+      ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+      0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) > 0 else
+      (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{ states(''vacuum.john'')
+      in [''cleaning'', ''on'', ''auto'', ''spot'', ''edge'', ''single_room'', ''paused'',
+      ''returning'', ''returning_to_dock'', ''returning_to_base'', ''error''] or (settled
+      and (as_timestamp(now()) - as_timestamp(s.last_changed)) < 900) }}'
+  actions:
+  - data:
+      data:
+        live_activity:
+          content_state:
+            vacuumBattery: '{{ states(''sensor.office_roborock_john_battery'') | float(0)
+              | int if states(''sensor.office_roborock_john_battery'') not in [''unavailable'',
+              ''unknown''] else '''' }}'
+            vacuumStatusKey: '{{ states(''vacuum.john'') }}'
+            lastUpdated: '{{ as_timestamp(now()) | int }}'
+            vacuumElapsedMinutes: '{% set t = state_attr(''vacuum.john'', ''cleaning_time'')
+              %}{{ t | float(0) | int if t is not none else '''' }}'
+            vacuumAreaUnit: '{{ state_attr(''sensor.roborock_john_current_clean_area'',
+              ''unit_of_measurement'') | default(''m²'', true) }}'
+            displayValue: '{{ states(''vacuum.john'') | replace(''_'', '' '') | title
+              }}'
+            vacuumAreaM2: '{{ states(''sensor.roborock_john_current_clean_area'')
+              | float(0) if states(''sensor.roborock_john_current_clean_area'') not
+              in [''unavailable'', ''unknown''] else '''' }}'
+            state: '{{ states(''vacuum.john'') }}'
+            vacuumFinished: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+              ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570)
+              %}{{ ''true'' if settled else ''false'' }}'
+          event: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            ''end'' if settled else ''update'' }}'
+          activity_push_token: 401c43b23b933ecaeaaa4dcfda7a9a0872bc3b09b7e7cfedd02ff95f0c6a4478b641ccd57de5702dea4624180c17b1b9b4512ccbf09c287207a019afcd7ec2aa5d4756e9776b096f9581ab17d3ad4c01
+          stale_date: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            (as_timestamp(now()) | int) if settled else ((as_timestamp(now()) + 600)
+            | int) }}'
+          dismissal_date: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+            ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+            0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0) >
+            0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570) %}{{
+            (as_timestamp(now()) + 300) | int if settled else 0 }}'
+      message: live_activity_update
+    action: notify.mobile_app_vulpo_1ee94a
+  mode: restart
+- id: vulpo_la_vacuum_john__watcher_82DFD463
+  alias: '[Vulpo] Live Activity Start roborock.john (Vulpo 1ee94a)'
+  description: Created by Vulpo app — auto-starts Live Activity when roborock.john
+    begins cleaning
+  triggers:
+  - entity_id: vacuum.john
+    platform: state
+    not_from:
+    - cleaning
+    - 'on'
+    - auto
+    - spot
+    - edge
+    - single_room
+    - paused
+    - returning
+    - returning_to_dock
+    - returning_to_base
+    - error
+  conditions:
+  - condition: state
+    entity_id: vacuum.john
+    state:
+    - cleaning
+    - 'on'
+    - auto
+    - spot
+    - edge
+    - single_room
+  - condition: template
+    value_template: '{{ states.automation | selectattr(''attributes.id'', ''defined'')
+      | selectattr(''attributes.id'', ''equalto'', ''vulpo_la_vacuum_john__periodic_82DFD463'')
+      | list | length == 0 }}'
+  actions:
+  - data:
+      data:
+        live_activity:
+          attributes:
+            entityId: vacuum.john
+            iconName: Vacuum
+            vacuumFeatures: 14140
+            domain: vacuum
+            entityName: roborock.john
+            template: vacuum
+          attributes_type: HAEntityActivity
+          activity_push_token: 40467676935c91d77a4fc7d9ab016ef62576ee7a68f15ed08bed77c264921f82804183d6e1aca4a7d31dde231d9730c33d190c23d3de9cfc69c1dac35301b7dcab4de5eae9d0ac9f014f1c83a9c38f49
+          content_state:
+            vacuumAreaM2: '{{ states(''sensor.roborock_john_current_clean_area'')
+              | float(0) if states(''sensor.roborock_john_current_clean_area'') not
+              in [''unavailable'', ''unknown''] else '''' }}'
+            vacuumStatusKey: '{{ states(''vacuum.john'') }}'
+            vacuumFinished: '{% set s = states[''vacuum.john''] %}{% set done = (as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > as_timestamp(states(''sensor.john_last_clean_start''), 0) if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else false) %}{% set settled = states(''vacuum.john'') in [''docked'',
+              ''idle'', ''off''] and s is not none and (done if as_timestamp(states(''sensor.john_last_clean_end''),
+              0) > 0 and as_timestamp(states(''sensor.john_last_clean_start''), 0)
+              > 0 else (as_timestamp(now()) - as_timestamp(s.last_changed)) >= 570)
+              %}{{ ''true'' if settled else ''false'' }}'
+            displayValue: '{{ states(''vacuum.john'') | replace(''_'', '' '') | title
+              }}'
+            vacuumAreaUnit: '{{ state_attr(''sensor.roborock_john_current_clean_area'',
+              ''unit_of_measurement'') | default(''m²'', true) }}'
+            lastUpdated: '{{ as_timestamp(now()) | int }}'
+            state: '{{ states(''vacuum.john'') }}'
+            vacuumElapsedMinutes: '{% set t = state_attr(''vacuum.john'', ''cleaning_time'')
+              %}{{ t | float(0) | int if t is not none else '''' }}'
+            vacuumBattery: '{{ states(''sensor.office_roborock_john_battery'') | float(0)
+              | int if states(''sensor.office_roborock_john_battery'') not in [''unavailable'',
+              ''unknown''] else '''' }}'
+          alert:
+            body: Started cleaning
+            title: roborock.john
+          stale_date: '{{ (as_timestamp(now()) + 300) | int }}'
+          event: start
+      message: live_activity_update
+    action: notify.mobile_app_vulpo_1ee94a
+  - data:
+      data:
+        vulpo_command: capture_la_token
+        monitor_id: 82DFD463-5205-490D-952C-F2C91BEFAF5A
+        push:
+          content-available: 1
+      message: ''
+    action: notify.mobile_app_vulpo_1ee94a
+  mode: single

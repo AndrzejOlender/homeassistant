@@ -20,9 +20,10 @@ frontend:
 
 homeassistant:
   customize: !include config/customize.yaml
-  internal_url: "http://192.168.1.230:8123"
+  internal_url: "https://home.lan.olender.me"
   allowlist_external_urls:
     - "https://home.olender.me"
+    - "https://home.lan.olender.me"
 zone: !include config/zone.yaml
 script: !include config/scripts.yaml
 alexa: !include config/alexa/alexa.yaml

@@ -66,4 +66,9 @@ Google Dark Theme Oled:
   table-row-alternative-background-color: var(--secondary-background-color)
   data-table-background-color: var(--primary-background-color)
   # Map
-  map-tile-url: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png"
+  # map-tile-url override removed 2026-09: CARTO started stamping "API KEY REQUIRED"
+  # watermarks on unauthenticated basemaps.cartocdn.com requests since 2026-08-28.
+  # HA 2026.9 (frontend PR #53816) ships its own dark vector map tiles natively
+  # (MapLibre GL, no CARTO dependency) — leaving this unset lets that native dark
+  # map render instead of the now-broken CARTO one.
+  # map-tile-url: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png"

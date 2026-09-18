@@ -1,5 +1,6 @@
 # Music automation for Toilet Up
 - alias: "Play Music Toilet Up on Presence"
+  id: play_music_toilet_up_on_presence
   description: "Resume paused music or start fresh album when presence detected"
   mode: single
   trigger:
@@ -44,6 +45,7 @@
         entity_id: media_player.toilet_up
 
 - alias: "Stop Music Toilet Up on No Presence"
+  id: stop_music_toilet_up_on_no_presence
   description: "Pause music after 10 minutes without presence, or when all toilet lights are off"
   mode: single
   trigger:
@@ -88,6 +90,7 @@
 
 # Music automation for Toilet Down
 - alias: "Play Music Toilet Down on Presence"
+  id: play_music_toilet_down_on_presence
   description: "Resume paused music or start fresh album when presence detected"
   mode: single
   trigger:
@@ -124,14 +127,16 @@
         entity_id: media_player.toilet_down
     - service: media_player.play_media
       data:
-        # Local "Acoustic Covers Of Popular Songs 100 Hits" compilation from the
-        # filesystem_local Music Assistant provider (no Apple Music playlist for this room)
-        media_content_id: "library://album/566"
-        media_content_type: "album"
+        # Playlist wrapping the local album's tracks, not the raw album: Music
+        # Assistant force-disables shuffle for "album" media on play_media
+        # regardless of shuffle_set, but honors it for playlists.
+        media_content_id: "library://playlist/63"
+        media_content_type: "playlist"
       target:
         entity_id: media_player.toilet_down
 
 - alias: "Stop Music Toilet Down on No Presence"
+  id: stop_music_toilet_down_on_no_presence
   description: "Pause music after presence timeout, or when all toilet down lights are off"
   mode: single
   trigger:

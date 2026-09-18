@@ -2,6 +2,7 @@
 
 # Toilet Up presence-based light control (night mode after 23:00)
 - alias: "Turn On Light Toilet Up on Presence"
+  id: turn_on_light_toilet_up_on_presence
   description: "Turn on toilet light when presence is detected, night mode after 23:00"
   mode: single
   trigger:
@@ -28,6 +29,7 @@
             entity_id: light.shelly_toilet_up_light_1
 
 - alias: "Turn Off Light Toilet Up on No Presence"
+  id: turn_off_light_toilet_up_on_no_presence
   description: "Turn off toilet lights when no presence detected"
   mode: single
   trigger:
@@ -49,6 +51,7 @@
 
 # Extra lights triggered by bath light
 - alias: "Turn On Extra Lights Toilet Up on Bath Light On"
+  id: turn_on_extra_lights_toilet_up_on_bath_light_on
   description: "Turn on cabinet and wall lights when bath light is turned on"
   mode: single
   trigger:
@@ -64,6 +67,7 @@
           - light.shelly_toilet_up_wall_light_1
 
 - alias: "Turn Off Extra Lights Toilet Up on Bath Light Off"
+  id: turn_off_extra_lights_toilet_up_on_bath_light_off
   description: "Turn off cabinet and wall lights when bath light is turned off"
   mode: single
   trigger:
@@ -80,6 +84,7 @@
 
 # Toilet Down presence-based LED control (main light is manual-only)
 - alias: "Turn On LED Toilet Down on Presence"
+  id: turn_on_led_toilet_down_on_presence
   description: "Turn on stand LED and mirror when presence is detected"
   mode: single
   trigger:
@@ -95,6 +100,7 @@
           - light.shelly_toilet_down_mirror
 
 - alias: "Turn Off All Lights Toilet Down on No Presence"
+  id: turn_off_all_lights_toilet_down_on_no_presence
   description: "Turn off toilet down light, stand LED and mirror 5 minutes after no presence detected"
   mode: single
   trigger:
@@ -114,6 +120,7 @@
 
 # Extra light triggered by toilet down light
 - alias: "Turn On Extra Light Toilet Down on Light On"
+  id: turn_on_extra_light_toilet_down_on_light_on
   description: "Turn on stand LED and mirror when toilet down light is turned on"
   mode: single
   trigger:
@@ -129,6 +136,7 @@
           - light.shelly_toilet_down_mirror
 
 - alias: "Turn Off Extra Light Toilet Down on Light Off"
+  id: turn_off_extra_light_toilet_down_on_light_off
   description: "Turn off stand LED and mirror when toilet down light is turned off"
   mode: single
   trigger:
@@ -145,6 +153,7 @@
 
 # LED RTV backlight controlled by TV state (only after dark)
 - alias: "Turn On LED RTV on TV On"
+  id: turn_on_led_rtv_on_tv_on
   description: "Turn on LED RTV backlight when TV is turned on (only after dark)"
   mode: single
   trigger:
@@ -166,6 +175,7 @@
         entity_id: light.led_rtv
 
 - alias: "Turn Off LED RTV on TV Off"
+  id: turn_off_led_rtv_on_tv_off
   description: "Turn off LED RTV backlight when TV is turned off (only after dark)"
   mode: single
   trigger:
@@ -188,6 +198,7 @@
 
 # Stairs light auto-off timeout
 - alias: "Turn Off Stairs Light After Timeout"
+  id: turn_off_stairs_light_after_timeout
   description: "Turn off stairs light automatically 5 minutes after it turns on"
   mode: single
   trigger:
@@ -203,6 +214,7 @@
 
 # Office lighting driven by MacBook Pro (Andrzej) activity via the HA companion app
 - alias: "Turn On Office Lights on MacBook Active"
+  id: turn_on_office_lights_on_macbook_active
   description: "Run Work Mode when the MacBook Pro (Andrzej) becomes active (awake and unlocked) and docked at the desk (Ethernet)"
   mode: single
   trigger:
@@ -220,6 +232,7 @@
 # (community reports) - re-check its live state before actually turning off,
 # in case it already flickered back to "on" by the time this runs.
 - alias: "Turn Off Office Lights on MacBook Inactive"
+  id: turn_off_office_lights_on_macbook_inactive
   description: "Turn off desk LED and office lamp as soon as the MacBook Pro (Andrzej) stops being active (locked or asleep), unless a camera call is currently in progress"
   mode: single
   trigger:
@@ -243,6 +256,7 @@
           - light.office_lamp
 
 - alias: "Turn Office Lights Orange on MacBook Camera In Use"
+  id: turn_office_lights_orange_on_macbook_camera_in_use
   description: "Snapshot office lamp + desk LED state and turn them orange while the MacBook Pro (Andrzej) camera is in use (at home only)"
   mode: single
   trigger:
@@ -271,6 +285,7 @@
         color_name: orange
 
 - alias: "Restore Office Lights After MacBook Camera In Use"
+  id: restore_office_lights_after_macbook_camera_in_use
   description: "Restore office lamp and desk LED to their pre-call state once the MacBook Pro (Andrzej) camera stops being in use; if the MacBook is already inactive by then, turn them off instead (only when docked on Ethernet, matching the orange-on-call automation)"
   mode: single
   trigger:

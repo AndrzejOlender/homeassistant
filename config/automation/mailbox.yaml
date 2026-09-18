@@ -1,4 +1,5 @@
 - alias: Notify Mailbox Flap Opened
+  id: notify_mailbox_flap_opened
   mode: single
   trigger:
     - platform: event

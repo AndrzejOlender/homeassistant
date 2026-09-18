@@ -1,4 +1,5 @@
 - alias: Send Notification Opened Lock
+  id: notify_lock_opened
   trigger:
     - platform: state
       entity_id: lock.aqara_smart_lock_u200
@@ -28,6 +29,7 @@
         message: "Lock Opened"
 
 - alias: Send Notification Closed Lock
+  id: notify_lock_closed
   trigger:
     - platform: state
       entity_id: lock.aqara_smart_lock_u200
@@ -57,12 +59,6 @@
               authenticationRequired: false
               destructive: false
               icon: "sfsymbols:lifepreserver"
-            - action: "START_WORK_DAY"
-              title: 'Work Day'
-              activationMode: 'background'
-              authenticationRequired: false
-              destructive: false
-              icon: "sfsymbols:desktopcomputer"
     - service: script.notify_active_mac
       data:
         title: "Lock"
@@ -70,6 +66,7 @@
 
 # Vacuum
 - alias: Send Notification Vacuum Start
+  id: notify_vacuum_start
   trigger:
     platform: state
     entity_id: vacuum.john
@@ -82,7 +79,7 @@
       data:
         media_player_entity_id: media_player.office
         message: "Odkurzacz rozpoczął sprzątanie mieszkania."
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Started Cleaning"
         data:
@@ -92,7 +89,7 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-            - action: "START"
+            - action: "START_HOME"
               title: 'Start'
               activationMode: 'background'
               authenticationRequired: false
@@ -102,6 +99,7 @@
         message: "Vacuum Started Cleaning"
 
 - alias: Send Notification Vacuum Stop
+  id: notify_vacuum_stop
   trigger:
     platform: state
     entity_id: vacuum.john
@@ -117,12 +115,12 @@
       data:
         media_player_entity_id: media_player.office
         message: "Odkurzacz skończył odkurzanie mieszkania."
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         message: "Vacuum Finished Cleaning"
         data:
           actions:
-            - action: "START"
+            - action: "START_HOME"
               title: 'Start'
               activationMode: 'background'
               authenticationRequired: false
@@ -137,10 +135,14 @@
         message: "Vacuum Finished Cleaning"
 
 - alias: "Very Bad Air"
+  id: notify_very_bad_air
+  mode: single
   trigger:
     - platform: numeric_state
       entity_id: sensor.air_purifier_pm2_5
       above: 100
+      for:
+        minutes: 5
   action:
     - service: tts.speak
       target:
@@ -148,7 +150,7 @@
       data:
         media_player_entity_id: media_player.office
         message: "Uwaga! bardzo zła jakość powietrza w mieszkaniu."
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         title: "Air"
         message: "Very Bad Air"
@@ -158,6 +160,7 @@
         message: "Very Bad Air"
 
 - alias: Send Notification Enter Zone Home
+  id: notify_enter_zone_home
   trigger:
     platform: zone
     entity_id:
@@ -186,13 +189,14 @@
         message: "{{ trigger.to_state.name }} went into zone Home"
 
 - alias: Wpkiw Enter
+  id: notify_wpkiw_enter
   trigger:
     platform: zone
     entity_id: person.ania
     zone: zone.wpkiw
     event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
+  action:
+    - service: notify.mobile_app_iphone
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} went into the WPKiW"
@@ -212,13 +216,14 @@
         message: "{{ trigger.to_state.name }} went into the WPKiW"
 
 - alias: Wpkiw Exit
+  id: notify_wpkiw_exit
   trigger:
     platform: zone
     entity_id: person.ania
     zone: zone.wpkiw
     event: leave
   action:
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} left the WPKiW"
@@ -236,10 +241,9 @@
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} left the WPKiW"
-    - delay:
-        seconds: 10
 
 - alias: School Exit
+  id: notify_school_exit
   trigger:
     platform: zone
     entity_id:
@@ -248,7 +252,7 @@
     zone: zone.school
     event: leave
   action:
-    - service:  notify.mobile_app_iphone
+    - service: notify.mobile_app_iphone
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} left the School"
@@ -266,10 +270,9 @@
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} left the School"
-    - delay:
-        seconds: 50
 
 - alias: School Enter
+  id: notify_school_enter
   trigger:
     platform: zone
     entity_id:
@@ -277,8 +280,8 @@
       - person.gosia
     zone: zone.school
     event: enter
-  action: 
-    - service:  notify.mobile_app_iphone
+  action:
+    - service: notify.mobile_app_iphone
       data:
         title: "Location"
         message: "{{ trigger.to_state.name }} went into the School"
@@ -299,6 +302,7 @@
 
 # Waste collection reminder (push notification when any waste is due tomorrow)
 - alias: "Waste Collection Reminder"
+  id: notify_waste_collection_reminder
   trigger:
     - platform: template
       value_template: >
@@ -342,6 +346,7 @@
 
 # Waste collection TTS reminder at 20:00 via ElevenLabs + Sonos
 - alias: "Waste Collection TTS Reminder"
+  id: notify_waste_collection_tts
   trigger:
     - platform: time
       at: "20:00:00"
@@ -380,6 +385,7 @@
 
 # Weather alerts (storm, heat, wind)
 - alias: "Weather Alerts"
+  id: notify_weather_alerts
   trigger:
     - platform: state
       entity_id: binary_sensor.burze_dzis_net_wyladowania_w_poblizu

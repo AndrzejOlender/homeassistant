@@ -1,4 +1,5 @@
 - alias: Notify Doorbell Pressed
+  id: notify_doorbell_pressed
   mode: single
   trigger:
     - platform: event

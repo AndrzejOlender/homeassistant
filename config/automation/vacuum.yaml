@@ -14,36 +14,39 @@
       target:
         entity_id: script.clean_home
 
-- alias: Vacum Start Actions iOS
+# iOS notification action buttons
+- alias: "Vacuum Stop Actions iOS"
+  id: vacuum_stop_actions_ios
   trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: STOP
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: STOP
   action:
-    service: script.turn_on
-    target:
-      entity_id: script.stop_clean_home
+    - service: script.turn_on
+      target:
+        entity_id: script.stop_clean_home
 
-- alias: Vacum Stop Actions iOS
+- alias: "Vacuum Clean Home Actions iOS"
+  id: vacuum_clean_home_actions_ios
   trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: START_HOME
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: START_HOME
   action:
-    service: script.turn_on
-    target:
-      entity_id: script.clean_home
+    - service: script.turn_on
+      target:
+        entity_id: script.clean_home
 
-- alias: Vacum Stop Actions iOS
+- alias: "Vacuum Clean White Floor Actions iOS"
+  id: vacuum_clean_white_floor_actions_ios
   trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: START_WHITE_FLOOR
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: START_WHITE_FLOOR
   action:
-    service: script.turn_on
-    target:
-      entity_id: script.clean_white_floor
-
+    - service: script.turn_on
+      target:
+        entity_id: script.clean_white_floor

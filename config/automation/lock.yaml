@@ -19,6 +19,7 @@
 #     entity_id: lock.maindoorlock
 
 - alias: "Hall Light On When Door Unlocked"
+  id: hall_light_on_when_door_unlocked
   description: "Turn on hall light when front door lock is unlocked"
   mode: restart
   trigger:
@@ -36,6 +37,7 @@
         entity_id: light.shelly_hall_down_light
 
 - alias: "Hall Light Off After Door Locked"
+  id: hall_light_off_after_door_locked
   description: "Turn off hall light 1 minute after front door lock is locked"
   mode: restart
   trigger:

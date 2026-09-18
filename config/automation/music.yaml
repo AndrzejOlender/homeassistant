@@ -7,8 +7,6 @@
       entity_id: binary_sensor.presense_sensor_toilet_up
       from: "off"
       to: "on"
-      for:
-        seconds: 5
   condition:
     # Only between 04:00 and 23:15
     - condition: time
@@ -31,29 +29,19 @@
           {% endif %}
       target:
         entity_id: media_player.toilet_up
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: media_player.toilet_up
-              state: "paused"
-          sequence:
-            - service: media_player.media_play
-              target:
-                entity_id: media_player.toilet_up
-      default:
-        - service: media_player.play_media
-          data:
-            # Ania's playlist when she is home, alternative playlist otherwise
-            media_content_id: >
-              {{ 'library://playlist/60' if is_state('person.ania', 'home') else 'library://playlist/61' }}
-            media_content_type: "playlist"
-          target:
-            entity_id: media_player.toilet_up
-        - service: media_player.shuffle_set
-          data:
-            shuffle: true
-          target:
-            entity_id: media_player.toilet_up
+    - service: media_player.shuffle_set
+      data:
+        shuffle: true
+      target:
+        entity_id: media_player.toilet_up
+    - service: media_player.play_media
+      data:
+        # Ania's playlist when she is home, alternative playlist otherwise
+        media_content_id: >
+          {{ 'library://playlist/60' if is_state('person.ania', 'home') else 'library://playlist/61' }}
+        media_content_type: "playlist"
+      target:
+        entity_id: media_player.toilet_up
 
 - alias: "Stop Music Toilet Up on No Presence"
   description: "Pause music after 10 minutes without presence, or when all toilet lights are off"
@@ -64,7 +52,7 @@
       from: "on"
       to: "off"
       for:
-        seconds: 600
+        seconds: 800
     - platform: state
       entity_id:
         - light.shelly_toilet_up_light_1
@@ -94,6 +82,88 @@
               entity_id: light.shelly_cabinet_1_light_1
               state: "off"
   action:
-    - service: media_player.media_pause
+    - service: media_player.media_stop
       target:
         entity_id: media_player.toilet_up
+
+# Music automation for Toilet Down
+- alias: "Play Music Toilet Down on Presence"
+  description: "Resume paused music or start fresh album when presence detected"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_sensor_toilet_down
+      from: "off"
+      to: "on"
+  condition:
+    # Only between 04:00 and 23:15
+    - condition: time
+      after: "04:00:00"
+      before: "23:15:00"
+    # Skip if already playing — presence flicker shouldn't restart playback
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.toilet_down
+          state: "playing"
+  action:
+    - service: media_player.volume_set
+      data:
+        volume_level: >
+          {% if now().hour >= 4 and now().hour < 8 %}
+            0.5
+          {% else %}
+            0.6
+          {% endif %}
+      target:
+        entity_id: media_player.toilet_down
+    - service: media_player.shuffle_set
+      data:
+        shuffle: true
+      target:
+        entity_id: media_player.toilet_down
+    - service: media_player.play_media
+      data:
+        # Local "Acoustic Covers Of Popular Songs 100 Hits" compilation from the
+        # filesystem_local Music Assistant provider (no Apple Music playlist for this room)
+        media_content_id: "library://album/566"
+        media_content_type: "album"
+      target:
+        entity_id: media_player.toilet_down
+
+- alias: "Stop Music Toilet Down on No Presence"
+  description: "Pause music after presence timeout, or when all toilet down lights are off"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.presence_sensor_toilet_down
+      from: "on"
+      to: "off"
+      for:
+        seconds: 800
+    - platform: state
+      entity_id:
+        - light.shelly_toilet_down_light_1
+        - light.toilet_down_stand_led
+        - light.shelly_toilet_down_mirror
+      to: "off"
+  condition:
+    - condition: or
+      conditions:
+        - condition: template
+          value_template: "{{ trigger.entity_id == 'binary_sensor.presence_sensor_toilet_down' }}"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: light.shelly_toilet_down_light_1
+              state: "off"
+            - condition: state
+              entity_id: light.toilet_down_stand_led
+              state: "off"
+            - condition: state
+              entity_id: light.shelly_toilet_down_mirror
+              state: "off"
+  action:
+    - service: media_player.media_stop
+      target:
+        entity_id: media_player.toilet_down

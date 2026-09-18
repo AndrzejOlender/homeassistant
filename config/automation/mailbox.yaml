@@ -5,7 +5,7 @@
     - platform: event
       event_type: zha_event
       event_data:
-        device_ieee: "54:ef:44:10:01:4b:b0:3d"
+        device_id: "d60cdc136aae64ca05bd3bbb87271421"
         command: vibration
   condition:
     # Debounce: flap movement can emit multiple action events

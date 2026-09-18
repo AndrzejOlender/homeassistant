@@ -5,7 +5,7 @@
     - platform: event
       event_type: zha_event
       event_data:
-        device_ieee: "54:ef:44:10:01:36:c9:2c"
+        device_id: "094470bcb55b470f147d29ef7929d7db"
         command: vibration
   condition:
     # Debounce: one press can emit multiple action events
@@ -22,7 +22,3 @@
       data:
         title: "Doorbell"
         message: "Someone is at the door"
-    - service: notify.mobile_app_samsung_a36
-      data:
-        title: "Doorbell"
-        message: "Ring ring, ktoś dzwoni do drzwi"

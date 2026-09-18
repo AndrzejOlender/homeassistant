@@ -383,7 +383,7 @@
           {% endif %}
           Przypomnienie. Jutro odbiór odpadów: {{ types | join(', ') }}. Pamiętaj by wystawić pojemniki przed godziną szóstą rano.
 
-# Weather alerts (storm, heat, wind)
+# Weather alerts (storm, heat, wind, frost, rain, tornado)
 - alias: "Weather Alerts"
   id: notify_weather_alerts
   trigger:
@@ -407,13 +407,31 @@
       from: 'off'
       to: 'on'
       id: wind_warning
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_mroz
+      from: 'off'
+      to: 'on'
+      id: frost_warning
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_opad
+      from: 'off'
+      to: 'on'
+      id: rain_warning
+    - platform: state
+      entity_id: binary_sensor.burze_dzis_net_ostrzezenie_traba
+      from: 'off'
+      to: 'on'
+      id: tornado_warning
   variables:
     weather_message: >-
       {% set messages = {
         'storm_nearby': 'Storm nearby',
         'storm_warning': 'Storm warning',
         'heat_warning': 'Heat warning',
-        'wind_warning': 'Wind warning'
+        'wind_warning': 'Wind warning',
+        'frost_warning': 'Frost warning',
+        'rain_warning': 'Heavy rain warning',
+        'tornado_warning': 'TORNADO WARNING'
       } %}
       {{ messages[trigger.id] }}
   action:

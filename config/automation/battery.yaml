@@ -1,0 +1,40 @@
+# Battery watchdog - daily digest of low smart-home device batteries.
+# Scans all battery-class sensors, excluding phones/laptop/watch (their owners
+# get their own low-battery warnings on the device itself).
+# Notifications go to iPhone + active MacBook only (not Ania's phone).
+
+- alias: "Low Battery Digest"
+  id: notify_low_battery_digest
+  mode: single
+  trigger:
+    - platform: time
+      at: "19:00:00"
+  variables:
+    battery_threshold: 20
+    low_batteries: >-
+      {% set ns = namespace(items=[]) %}
+      {% for s in states.sensor
+         | selectattr('attributes.device_class', 'defined')
+         | selectattr('attributes.device_class', 'eq', 'battery')
+         | rejectattr('entity_id', 'search', 'iphone|samsung|macbook')
+         if is_number(s.state) and s.state | float < battery_threshold %}
+        {% set ns.items = ns.items + [s.name ~ ' ' ~ (s.state | float | round(0)) ~ '%'] %}
+      {% endfor %}
+      {{ ns.items | sort | join(', ') }}
+  condition:
+    # Only notify when something is actually low
+    - condition: template
+      value_template: "{{ low_batteries | trim | length > 0 }}"
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Low Battery"
+        message: "{{ low_batteries }}"
+        data:
+          push:
+            sound:
+              name: default
+    - service: script.notify_active_mac
+      data:
+        title: "Low Battery"
+        message: "{{ low_batteries }}"

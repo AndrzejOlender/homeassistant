@@ -1,6 +1,11 @@
 ## Configure a default setup
 default_config:
 
+# Custom ZHA quirks: Aqara Vibration Sensor T1 (DJT12LM, lumi.vibration.agl01) support
+# See custom_zha_quirks/vibration_agl01.py
+zha:
+  custom_quirks_path: /config/custom_zha_quirks/
+
 logger:
   default: error
 #  logs:

@@ -1,0 +1,27 @@
+- alias: Notify Mailbox Flap Opened
+  mode: single
+  trigger:
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_ieee: "54:ef:44:10:01:4b:b0:3d"
+        command: vibration
+  condition:
+    # Debounce: flap movement can emit multiple action events
+    - condition: template
+      value_template: >-
+        {{ this.attributes.last_triggered is none
+           or (now() - this.attributes.last_triggered).total_seconds() > 30 }}
+  action:
+    - service: notify.mobile_app_iphone
+      data:
+        title: "Mailbox"
+        message: "Mail was delivered to the mailbox"
+    - service: script.notify_active_mac
+      data:
+        title: "Mailbox"
+        message: "Mail was delivered to the mailbox"
+    - service: notify.mobile_app_samsung_a36
+      data:
+        title: "Mailbox"
+        message: "Ktoś wrzucił do skrzynki korespondencję"

@@ -1,25 +1,27 @@
 # Washer / dryer (Electrolux HomeWhiz) notifications.
+# "Done" and error events come from event entities (event.*_notification,
+# event.*_error) via the event.received trigger. Unloading is signalled by
+# the user powering the machine off (switch.*_power).
 # Notifications go to iPhone + active MacBook only (not Ania's phone).
-# "Done" events come from event entities; unloading is signalled by the user
-# powering the machine off (switch.*_power).
 
 - alias: "Washer Finished"
   id: notify_washer_finished
   mode: single
-  trigger:
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+  triggers:
+    - trigger: event.received
+      target:
         entity_id: event.pralka_notification
-        type: washing_is_complete
-  action:
-    - service: tts.speak
+      options:
+        event_type:
+          - washing_is_complete
+  actions:
+    - action: tts.speak
       target:
         entity_id: tts.elevenlabs_text_to_speech
       data:
         media_player_entity_id: media_player.office
         message: "Pranie zakończone. Czas wyjąć pranie z pralki."
-    - service: notify.mobile_app_iphone
+    - action: notify.mobile_app_iphone
       data:
         title: "Washer"
         message: "Washing complete"
@@ -30,7 +32,7 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    - service: script.notify_active_mac
+    - action: script.notify_active_mac
       data:
         title: "Washer"
         message: "Washing complete"
@@ -40,49 +42,63 @@
 - alias: "Washer Laundry Reminder"
   id: notify_washer_laundry_reminder
   mode: single
-  trigger:
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+  triggers:
+    - trigger: event.received
+      target:
         entity_id: event.pralka_notification
-        type: washing_is_complete
-  action:
+      options:
+        event_type:
+          - washing_is_complete
+  actions:
     - delay: "02:00:00"
     - condition: state
       entity_id: switch.pralka_power
       state: "on"
-    - service: notify.mobile_app_iphone
+    - action: notify.mobile_app_iphone
       data:
         title: "Washer"
         message: "Laundry still in the drum - take it out"
-    - service: script.notify_active_mac
+    - action: script.notify_active_mac
       data:
         title: "Washer"
         message: "Laundry still in the drum - take it out"
 
-# Any washer event other than completion: error_during_washing notification
-# or one of the machine error events (water supply, drain, door, motor...).
+# Washer problems: error_during_washing notification or one of the machine
+# error events (water supply, drain, door, motor...).
 - alias: "Washer Alert"
   id: notify_washer_alert
   mode: single
-  trigger:
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+  triggers:
+    - trigger: event.received
+      id: notification
+      target:
         entity_id: event.pralka_notification
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+      options:
+        event_type:
+          - error_during_washing
+    - trigger: event.received
+      id: error
+      target:
         entity_id: event.pralka_error
-  condition:
-    # washing_is_complete is handled by "Washer Finished"
-    - condition: template
-      value_template: "{{ trigger.event.data.type != 'washing_is_complete' }}"
+      options:
+        event_type:
+          - water_drain_error
+          - door_open_error
+          - unable_to_lock_error
+          - water_supply_error
+          - out_of_balance_error
+          - power_fail_error
+          - overfill_error
+          - water_level_sensor_error
+          - locked_motor_error
+          - temperature_sensor_error
   variables:
+    # The event entity records the fired type in its attributes.
     washer_problem: >-
-      {{ trigger.event.data.type | replace('_error', '') | replace('_', ' ') }}
-  action:
-    - service: notify.mobile_app_iphone
+      {{ trigger.to_state.attributes.event_type
+         | replace('_error', '') | replace('_', ' ') }}
+  actions:
+    - action: notify.mobile_app_iphone
       data:
         title: "Washer Problem"
         message: "{{ washer_problem | capitalize }}"
@@ -92,7 +108,7 @@
               name: default
               critical: 1
               volume: 1.0
-    - service: script.notify_active_mac
+    - action: script.notify_active_mac
       data:
         title: "Washer Problem"
         message: "{{ washer_problem | capitalize }}"
@@ -100,20 +116,21 @@
 - alias: "Dryer Finished"
   id: notify_dryer_finished
   mode: single
-  trigger:
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+  triggers:
+    - trigger: event.received
+      target:
         entity_id: event.szuszarka_notification
-        type: drying_is_complete
-  action:
-    - service: tts.speak
+      options:
+        event_type:
+          - drying_is_complete
+  actions:
+    - action: tts.speak
       target:
         entity_id: tts.elevenlabs_text_to_speech
       data:
         media_player_entity_id: media_player.office
         message: "Suszarka zakończyła suszenie."
-    - service: notify.mobile_app_iphone
+    - action: notify.mobile_app_iphone
       data:
         title: "Dryer"
         message: "Drying complete"
@@ -124,34 +141,46 @@
               activationMode: 'background'
               authenticationRequired: false
               destructive: false
-    - service: script.notify_active_mac
+    - action: script.notify_active_mac
       data:
         title: "Dryer"
         message: "Drying complete"
 
-# Any dryer event other than completion: drying_failed notification
-# or one of the machine error events (door, filter, compressor, motor...).
+# Dryer problems: drying_failed notification or one of the machine error
+# events (door, filter, compressor, motor...).
 - alias: "Dryer Alert"
   id: notify_dryer_alert
   mode: single
-  trigger:
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+  triggers:
+    - trigger: event.received
+      id: notification
+      target:
         entity_id: event.szuszarka_notification
-    - platform: event
-      event_type: homeassistant_event
-      event_data:
+      options:
+        event_type:
+          - drying_failed
+    - trigger: event.received
+      id: error
+      target:
         entity_id: event.szuszarka_error
-  condition:
-    # drying_is_complete is handled by "Dryer Finished"
-    - condition: template
-      value_template: "{{ trigger.event.data.type != 'drying_is_complete' }}"
+      options:
+        event_type:
+          - high_temperature_detection_error
+          - door_lock_error
+          - compressor_error
+          - empty_water_alert_error
+          - door_sensor_error
+          - motor_lock_error
+          - no_filter_error
+          - door_open_error
+          - drainmotor_error
+          - temperature_sensor_error
   variables:
     dryer_problem: >-
-      {{ trigger.event.data.type | replace('_error', '') | replace('_', ' ') }}
-  action:
-    - service: notify.mobile_app_iphone
+      {{ trigger.to_state.attributes.event_type
+         | replace('_error', '') | replace('_', ' ') }}
+  actions:
+    - action: notify.mobile_app_iphone
       data:
         title: "Dryer Problem"
         message: "{{ dryer_problem | capitalize }}"
@@ -161,7 +190,7 @@
               name: default
               critical: 1
               volume: 1.0
-    - service: script.notify_active_mac
+    - action: script.notify_active_mac
       data:
         title: "Dryer Problem"
         message: "{{ dryer_problem | capitalize }}"

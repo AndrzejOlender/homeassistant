@@ -89,6 +89,9 @@
         entity_id: media_player.toilet_up
 
 # Music automation for Toilet Down
+# NOTE: media_player.living_room is the Apple TV (tvOS app grid as source_list,
+# aliased as "Apple TV" in alexa.yaml). Toilet Down music and Apple TV audio
+# interfere with each other, so Toilet Down never plays while the ATV plays.
 - alias: "Play Music Toilet Down on Presence"
   id: play_music_toilet_down_on_presence
   description: "Resume paused music or start fresh album when presence detected"
@@ -108,6 +111,12 @@
       conditions:
         - condition: state
           entity_id: media_player.toilet_down
+          state: "playing"
+    # Don't start while something is playing on the Apple TV
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: media_player.living_room
           state: "playing"
   action:
     - service: media_player.volume_set
@@ -168,6 +177,24 @@
             - condition: state
               entity_id: light.shelly_toilet_down_mirror
               state: "off"
+  action:
+    - service: media_player.media_stop
+      target:
+        entity_id: media_player.toilet_down
+
+# Stop Toilet Down music when the Apple TV starts playing - the two interfere.
+- alias: "Stop Music Toilet Down on Apple TV Playing"
+  id: stop_music_toilet_down_on_atv_playing
+  description: "Toilet Down music interferes with Apple TV audio - stop it when the ATV starts playing"
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: media_player.living_room
+      to: "playing"
+  condition:
+    - condition: state
+      entity_id: media_player.toilet_down
+      state: "playing"
   action:
     - service: media_player.media_stop
       target:

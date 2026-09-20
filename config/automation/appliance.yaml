@@ -1,4 +1,4 @@
-# Washer / dryer (Electrolux HomeWhiz) notifications.
+# Washer / dryer (Electrolux HomeWhiz) notifications (push only, no TTS).
 # "Done" and error events come from event entities (event.*_notification,
 # event.*_error) via the event.received trigger. Unloading is signalled by
 # the user powering the machine off (switch.*_power).
@@ -15,12 +15,6 @@
         event_type:
           - washing_is_complete
   actions:
-    - action: tts.speak
-      target:
-        entity_id: tts.elevenlabs_text_to_speech
-      data:
-        media_player_entity_id: media_player.office
-        message: "Pranie zakończone. Czas wyjąć pranie z pralki."
     - action: notify.mobile_app_iphone
       data:
         title: "Washer"
@@ -124,12 +118,6 @@
         event_type:
           - drying_is_complete
   actions:
-    - action: tts.speak
-      target:
-        entity_id: tts.elevenlabs_text_to_speech
-      data:
-        media_player_entity_id: media_player.office
-        message: "Suszarka zakończyła suszenie."
     - action: notify.mobile_app_iphone
       data:
         title: "Dryer"

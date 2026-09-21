@@ -236,6 +236,9 @@ views:
             entities:
               - entity: sensor.air_purifier_temperature
                 name: Temperature
+              - entity: sensor.air_purifier_humidity
+                name: Humidity
+                y_axis: secondary
             name: Temperature
             icon: mdi:thermometer
             hours_to_show: 24
@@ -249,6 +252,7 @@ views:
             show:
               extrema: true
               fill: true
+              labels: false
             color_thresholds:
               - value: 21
                 color: '#42a5f5'

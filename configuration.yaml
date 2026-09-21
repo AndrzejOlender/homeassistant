@@ -42,3 +42,11 @@ command_line: !include config/command_line.yaml
 adaptive_lighting: !include config/adaptive_lighting.yaml
 input_boolean: !include config/input_boolean.yaml
 timer: !include config/timer.yaml
+lovelace:
+  dashboards:
+    mushroom-home:
+      mode: yaml
+      filename: ui-lovelace-mushroom.yaml
+      title: Home
+      icon: mdi:home-analytics
+      show_in_sidebar: true

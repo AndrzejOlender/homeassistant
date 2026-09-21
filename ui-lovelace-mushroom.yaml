@@ -236,30 +236,27 @@ views:
             entities:
               - entity: sensor.air_purifier_temperature
                 name: Temperature
+                color: '#42a5f5'
               - entity: sensor.air_purifier_humidity
                 name: Humidity
                 y_axis: secondary
-            name: Temperature
-            icon: mdi:thermometer
+                color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 3
+            line_width: 2
+            line_color: '#42a5f5'
             smoothing: true
-            font_size: 65
-            font_size_adjustment: 20
-            align_icon: right
-            align_state: right
+            font_size: 55
+            align_icon: state
+            align_state: left
             show:
-              extrema: true
-              fill: true
+              graph: line
               labels: false
-            color_thresholds:
-              - value: 21
-                color: '#42a5f5'
-              - value: 23
-                color: '#66bb6a'
-              - value: 26
-                color: '#ff7043'
+              extrema: false
+              name: false
+              icon: false
+              fill: false
+              legend: false
           - type: custom:mushroom-light-card
             entity: light.shelly_living_room_light_1
           - type: custom:mushroom-light-card
@@ -446,29 +443,27 @@ views:
             entities:
               - entity: sensor.presence_sensor_toilet_down_temperature
                 name: Temperature
+                color: '#42a5f5'
               - entity: sensor.presence_sensor_toilet_down_humidity
                 name: Humidity
                 y_axis: secondary
-            name: Temperature
-            icon: mdi:thermometer
+                color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 3
-            font_size: 65
-            font_size_adjustment: 20
-            align_icon: right
-            align_state: right
+            line_width: 2
+            line_color: '#42a5f5'
+            smoothing: true
+            font_size: 55
+            align_icon: state
+            align_state: left
             show:
-              extrema: true
-              fill: true
+              graph: line
               labels: false
-            color_thresholds:
-              - value: 21
-                color: '#42a5f5'
-              - value: 23
-                color: '#66bb6a'
-              - value: 26
-                color: '#ff7043'
+              extrema: false
+              name: false
+              icon: false
+              fill: false
+              legend: false
           - type: custom:mushroom-media-player-card
             entity: media_player.toilet_down
             fill_container: false

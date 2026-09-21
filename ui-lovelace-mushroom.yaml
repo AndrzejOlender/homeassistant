@@ -468,24 +468,6 @@ views:
           - type: custom:mushroom-light-card
             entity: light.shelly_child_room_1
             name: Light
-      - type: custom:mushroom-entity-card
-        entity: input_boolean.music_block_toilet_down
-        icon_color: teal
-        tap_action:
-          action: toggle
-        hold_action:
-          action: toggle
-        double_tap_action:
-          action: toggle
-      - type: custom:mushroom-entity-card
-        entity: input_boolean.music_block_toilet_up
-        icon_color: teal
-        tap_action:
-          action: toggle
-        hold_action:
-          action: toggle
-        double_tap_action:
-          action: toggle
   - type: sections
     max_columns: 1
     theme: Mushroom

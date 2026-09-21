@@ -242,7 +242,7 @@ views:
                 y_axis: secondary
                 color: '#26a69a'
             hours_to_show: 24
-            points_per_hour: 2
+            points_per_hour: 6
             line_width: 4
             line_color: '#42a5f5'
             smoothing: true
@@ -449,7 +449,7 @@ views:
                 y_axis: secondary
                 color: '#26a69a'
             hours_to_show: 24
-            points_per_hour: 2
+            points_per_hour: 6
             line_width: 4
             line_color: '#42a5f5'
             smoothing: true

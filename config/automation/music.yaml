@@ -19,6 +19,11 @@
         - condition: state
           entity_id: media_player.toilet_up
           state: "playing"
+    # Music block switch (helper): while on, auto-start is blocked for the
+    # timer duration (30 min per switch-on, see timer.toilet_up_music_block)
+    - condition: state
+      entity_id: input_boolean.music_block_toilet_up
+      state: "off"
   action:
     - service: media_player.volume_set
       data:
@@ -199,3 +204,49 @@
     - service: media_player.media_stop
       target:
         entity_id: media_player.toilet_down
+
+# Toilet Up music block: switching the helper on starts/restarts the 30 min
+# mute timer; when the timer finishes the helper resets itself, so the block
+# always lasts exactly 30 min per switch-on. Switching the helper off cancels
+# the block immediately.
+- alias: "Toilet Up Music Block Timer Start"
+  id: toilet_up_music_block_timer_start
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: input_boolean.music_block_toilet_up
+      to: "on"
+  action:
+    - service: timer.start
+      target:
+        entity_id: timer.toilet_up_music_block
+
+- alias: "Toilet Up Music Block Timer Finished"
+  id: toilet_up_music_block_timer_finished
+  mode: single
+  trigger:
+    - platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.toilet_up_music_block
+  action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.music_block_toilet_up
+
+# Toilet Up music block: helper switched off manually also cancels the timer
+- alias: "Toilet Up Music Block Timer Cancel"
+  id: toilet_up_music_block_timer_cancel
+  mode: single
+  trigger:
+    - platform: state
+      entity_id: input_boolean.music_block_toilet_up
+      to: "off"
+  condition:
+    - condition: state
+      entity_id: timer.toilet_up_music_block
+      state: "active"
+  action:
+    - service: timer.cancel
+      target:
+        entity_id: timer.toilet_up_music_block

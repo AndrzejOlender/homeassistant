@@ -1,0 +1,7 @@
+# Virtual switches (helpers)
+# Toggle "on" blocks auto-starting music in the upstairs toilet for 30 min
+# (timer.toilet_up_music_block keeps the remaining time and auto-resets the
+# switch when it finishes). Bind to a dashboard tile or a physical switch.
+music_block_toilet_up:
+  name: Music Block Toilet Up
+  icon: mdi:music-off

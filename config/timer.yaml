@@ -1,0 +1,7 @@
+# Timers
+# 30 min mute window for Toilet Up music; restarted every time
+# input_boolean.music_block_toilet_up is switched on.
+toilet_up_music_block:
+  icon: mdi:timer-off
+  duration: "00:30:00"
+  restore: true

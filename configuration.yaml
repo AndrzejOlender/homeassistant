@@ -40,3 +40,5 @@ automation: !include_dir_merge_list config/automation
 template: !include config/template.yaml
 command_line: !include config/command_line.yaml
 adaptive_lighting: !include config/adaptive_lighting.yaml
+input_boolean: !include config/input_boolean.yaml
+timer: !include config/timer.yaml

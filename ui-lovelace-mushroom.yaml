@@ -82,10 +82,6 @@ views:
                 entity: binary_sensor.burze_dzis_net_wyladowania_w_poblizu
                 icon_color: blue
             - type: entity
-              entity: binary_sensor.presense_sensor_toilet_up
-              icon: mdi:motion
-              icon_color: purple
-            - type: entity
               entity: vacuum.john
               icon_color: green
             - type: entity
@@ -364,6 +360,13 @@ views:
         cards:
           - type: custom:mushroom-title-card
             title: Toilet Up
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: binary_sensor.presense_sensor_toilet_up
+                icon: mdi:motion
+                icon_color: purple
+            alignment: center
           - type: custom:mushroom-media-player-card
             entity: media_player.toilet_up
             fill_container: false

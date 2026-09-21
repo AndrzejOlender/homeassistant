@@ -129,7 +129,7 @@
               state: "playing"
             - condition: state
               entity_id: media_player.living_room
-              attribute: source
+              attribute: app_name
               state: "Music"
     # Music block switch (helper): while on, auto-start is blocked for the
     # timer duration (30 min per switch-on, see timer.toilet_down_music_block)
@@ -217,7 +217,7 @@
       state: "playing"
     - condition: state
       entity_id: media_player.living_room
-      attribute: source
+      attribute: app_name
       state: "Music"
   action:
     - service: media_player.media_stop

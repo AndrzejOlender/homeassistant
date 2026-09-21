@@ -5,3 +5,7 @@
 music_block_toilet_up:
   name: Music Block Toilet Up
   icon: mdi:music-off
+# Same 30 min mute switch for the downstairs toilet (timer.toilet_down_music_block)
+music_block_toilet_down:
+  name: Music Block Toilet Down
+  icon: mdi:music-off

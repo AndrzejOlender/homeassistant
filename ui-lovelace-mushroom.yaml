@@ -243,7 +243,7 @@ views:
                 color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 4
+            line_width: 3
             line_color: '#42a5f5'
             smoothing: true
             hour24: true
@@ -451,7 +451,7 @@ views:
                 color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 4
+            line_width: 3
             line_color: '#42a5f5'
             smoothing: true
             hour24: true

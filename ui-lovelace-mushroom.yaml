@@ -43,10 +43,6 @@ views:
               entity: sensor.i_lo_siemianowice_slaskie_pm2_5
               icon_color: green
               use_entity_picture: false
-            - type: weather
-              entity: weather.home
-              show_conditions: false
-              show_temperature: true
             - type: conditional
               conditions:
                 - entity: binary_sensor.burze_dzis_net_ostrzezenie_upal

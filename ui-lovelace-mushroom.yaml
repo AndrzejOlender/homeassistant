@@ -96,6 +96,11 @@ views:
               icon: mdi:cctv
               icon_color: blue
           alignment: center
+      - show_current: true
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.home
+        forecast_type: hourly
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-entity-card
@@ -109,17 +114,19 @@ views:
               action: perform-action
               perform_action: script.good_night
           - type: custom:mushroom-entity-card
-            entity: script.good_night
+            entity: script.work_mode
             fill_container: false
             secondary_info: none
             primary_info: name
             layout: vertical
-            name: Good Night
+            name: Work Mode
             tap_action:
               action: perform-action
-              perform_action: script.good_night
+              perform_action: script.work_mode
+              target: {}
       - type: custom:mushroom-title-card
         title: Waste Collection
+        subtitle: ul. Dworska
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
@@ -305,8 +312,36 @@ views:
           action: more-info
         name: Desk
         icon: mdi:desk
+      - type: custom:mushroom-light-card
+        entity: light.office_lamp
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: more-info
+        name: Lamp
+        icon: mdi:floor-lamp
+        fill_container: true
+        show_brightness_control: false
+        show_color_control: false
+        use_light_color: true
+        show_color_temp_control: false
+        collapsible_controls: false
       - type: custom:mushroom-title-card
         title: Toilet Up
+      - type: tile
+        entity: input_boolean.music_block_toilet_up
+        show_entity_picture: false
+        hide_state: false
+        vertical: false
+        tap_action:
+          action: toggle
+        icon_tap_action:
+          action: toggle
+        features:
+          - type: toggle
+        features_position: bottom
       - type: custom:mushroom-media-player-card
         entity: media_player.toilet_up
         fill_container: false
@@ -362,14 +397,50 @@ views:
               entity: sensor.szuszarka_current_status
               icon_color: green
               use_entity_picture: false
+            - type: entity
+              entity: binary_sensor.presence_sensor_toilet_down
+              icon: mdi:motion
+              icon_color: green
+              use_entity_picture: false
           alignment: center
+      - type: tile
+        entity: input_boolean.music_block_toilet_down
+        show_entity_picture: false
+        hide_state: false
+        vertical: false
+        tap_action:
+          action: toggle
+        icon_tap_action:
+          action: toggle
+        features:
+          - type: toggle
+        features_position: bottom
+      - type: custom:mushroom-media-player-card
+        entity: media_player.toilet_down
+        fill_container: false
+        volume_controls:
+          - volume_set
+          - volume_buttons
+        media_controls:
+          - previous
+          - play_pause_stop
+          - shuffle
+        use_media_info: true
+        show_volume_level: true
+        collapsible_controls: false
       - type: custom:mushroom-light-card
         entity: light.shelly_toilet_down_light_1
         name: Light
+      - type: custom:mushroom-light-card
+        entity: light.shelly_toilet_down_mirror
+        name: Mirror
+      - type: custom:mushroom-light-card
+        entity: light.toilet_down_stand_led
+        name: Stand
       - type: custom:mushroom-title-card
         title: Hall Down
       - type: custom:mushroom-light-card
-        entity: light.shelly_hall_down
+        entity: light.shelly_hall_down_light
       - type: custom:mushroom-title-card
         title: Hall Up
       - type: custom:mushroom-light-card
@@ -378,6 +449,11 @@ views:
       - type: custom:mushroom-light-card
         entity: light.shelly_stairs_light_1
         name: Stairs
+      - type: custom:mushroom-title-card
+        title: Child Room
+      - type: custom:mushroom-light-card
+        entity: light.shelly_child_room_1
+        name: Light
   - type: sections
     max_columns: 1
     theme: Mushroom

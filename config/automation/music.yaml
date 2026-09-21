@@ -95,8 +95,9 @@
 
 # Music automation for Toilet Down
 # NOTE: media_player.living_room is the Apple TV (tvOS app grid as source_list,
-# aliased as "Apple TV" in alexa.yaml). Toilet Down music and Apple TV audio
-# interfere with each other, so Toilet Down never plays while the ATV plays.
+# aliased as "Apple TV" in alexa.yaml). Toilet Down music and Apple Music audio
+# interfere with each other, so Toilet Down never plays while Apple Music
+# (source attribute "Music") is playing on the ATV — other apps don't block it.
 - alias: "Play Music Toilet Down on Presence"
   id: play_music_toilet_down_on_presence
   description: "Resume paused music or start fresh album when presence detected"
@@ -117,12 +118,19 @@
         - condition: state
           entity_id: media_player.toilet_down
           state: "playing"
-    # Don't start while something is playing on the Apple TV
+    # Don't start while Apple Music is playing on the Apple TV (other apps,
+    # e.g. video playback, don't interfere and shouldn't block this)
     - condition: not
       conditions:
-        - condition: state
-          entity_id: media_player.living_room
-          state: "playing"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: media_player.living_room
+              state: "playing"
+            - condition: state
+              entity_id: media_player.living_room
+              attribute: source
+              state: "Music"
     # Music block switch (helper): while on, auto-start is blocked for the
     # timer duration (30 min per switch-on, see timer.toilet_down_music_block)
     - condition: state
@@ -192,10 +200,12 @@
       target:
         entity_id: media_player.toilet_down
 
-# Stop Toilet Down music when the Apple TV starts playing - the two interfere.
+# Stop Toilet Down music when Apple Music starts playing on the Apple TV -
+# the two interfere. Other apps (e.g. video playback) don't, so they're
+# excluded via the source attribute.
 - alias: "Stop Music Toilet Down on Apple TV Playing"
   id: stop_music_toilet_down_on_atv_playing
-  description: "Toilet Down music interferes with Apple TV audio - stop it when the ATV starts playing"
+  description: "Toilet Down music interferes with Apple Music audio - stop it when the ATV starts playing Apple Music"
   mode: single
   trigger:
     - platform: state
@@ -205,6 +215,10 @@
     - condition: state
       entity_id: media_player.toilet_down
       state: "playing"
+    - condition: state
+      entity_id: media_player.living_room
+      attribute: source
+      state: "Music"
   action:
     - service: media_player.media_stop
       target:

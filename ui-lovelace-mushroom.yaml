@@ -246,6 +246,7 @@ views:
             line_width: 4
             line_color: '#42a5f5'
             smoothing: true
+            hour24: true
             font_size: 55
             align_icon: state
             align_state: left
@@ -453,6 +454,7 @@ views:
             line_width: 4
             line_color: '#42a5f5'
             smoothing: true
+            hour24: true
             font_size: 55
             align_icon: state
             align_state: left

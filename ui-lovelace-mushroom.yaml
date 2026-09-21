@@ -232,6 +232,30 @@ views:
                   entity: sensor.air_purifier_humidity
                   icon_color: blue
               alignment: center
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.air_purifier_temperature
+                name: Temperature
+            name: Temperature
+            icon: mdi:thermometer
+            hours_to_show: 24
+            points_per_hour: 2
+            line_width: 3
+            smoothing: true
+            font_size: 65
+            font_size_adjustment: 20
+            align_icon: right
+            align_state: right
+            show:
+              extrema: true
+              fill: true
+            color_thresholds:
+              - value: 21
+                color: '#42a5f5'
+              - value: 23
+                color: '#66bb6a'
+              - value: 26
+                color: '#ff7043'
           - type: custom:mushroom-light-card
             entity: light.shelly_living_room_light_1
           - type: custom:mushroom-light-card
@@ -350,7 +374,7 @@ views:
               - shuffle
             use_media_info: true
             show_volume_level: true
-            collapsible_controls: false            
+            collapsible_controls: false
           - type: custom:mushroom-entity-card
             entity: input_boolean.music_block_toilet_up
             icon_color: teal
@@ -414,6 +438,33 @@ views:
                   icon_color: green
                   use_entity_picture: false
               alignment: center
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.presence_sensor_toilet_down_temperature
+                name: Temperature
+              - entity: sensor.presence_sensor_toilet_down_humidity
+                name: Humidity
+                y_axis: secondary
+            name: Temperature
+            icon: mdi:thermometer
+            hours_to_show: 24
+            points_per_hour: 2
+            line_width: 3
+            font_size: 65
+            font_size_adjustment: 20
+            align_icon: right
+            align_state: right
+            show:
+              extrema: true
+              fill: true
+              labels: false
+            color_thresholds:
+              - value: 21
+                color: '#42a5f5'
+              - value: 23
+                color: '#66bb6a'
+              - value: 26
+                color: '#ff7043'
           - type: custom:mushroom-media-player-card
             entity: media_player.toilet_down
             fill_container: false
@@ -435,7 +486,7 @@ views:
             hold_action:
               action: toggle
             double_tap_action:
-              action: toggle            
+              action: toggle
           - type: custom:mushroom-light-card
             entity: light.shelly_toilet_down_light_1
             name: Light

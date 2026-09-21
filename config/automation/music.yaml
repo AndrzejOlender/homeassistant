@@ -225,6 +225,16 @@
     - service: timer.start
       target:
         entity_id: timer.toilet_up_music_block
+    # For completeness: also stop the music that is already playing there
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.toilet_up
+              state: "playing"
+          sequence:
+            - service: media_player.media_stop
+              target:
+                entity_id: media_player.toilet_up
 
 - alias: "Toilet Up Music Block Timer Finished"
   id: toilet_up_music_block_timer_finished
@@ -271,6 +281,16 @@
     - service: timer.start
       target:
         entity_id: timer.toilet_down_music_block
+    # For completeness: also stop the music that is already playing there
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: media_player.toilet_down
+              state: "playing"
+          sequence:
+            - service: media_player.media_stop
+              target:
+                entity_id: media_player.toilet_down
 
 - alias: "Toilet Down Music Block Timer Finished"
   id: toilet_down_music_block_timer_finished

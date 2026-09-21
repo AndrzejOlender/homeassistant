@@ -243,7 +243,7 @@ views:
                 color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 2
+            line_width: 4
             line_color: '#42a5f5'
             smoothing: true
             font_size: 55
@@ -255,7 +255,7 @@ views:
               extrema: false
               name: false
               icon: false
-              fill: false
+              fill: true
               legend: false
           - type: custom:mushroom-light-card
             entity: light.shelly_living_room_light_1
@@ -450,7 +450,7 @@ views:
                 color: '#26a69a'
             hours_to_show: 24
             points_per_hour: 2
-            line_width: 2
+            line_width: 4
             line_color: '#42a5f5'
             smoothing: true
             font_size: 55
@@ -462,7 +462,7 @@ views:
               extrema: false
               name: false
               icon: false
-              fill: false
+              fill: true
               legend: false
           - type: custom:mushroom-media-player-card
             entity: media_player.toilet_down

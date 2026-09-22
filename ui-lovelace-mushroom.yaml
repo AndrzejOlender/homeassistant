@@ -4,7 +4,7 @@ kiosk_mode:
         - arsen
       hide_header: true
 views:
-  - theme: Backend-selected
+  - theme: Mushroom
     title: Home
     icon: mdi:home-analytics
     badges: []
@@ -13,8 +13,8 @@ views:
         conditions:
           - condition: user
             users:
-              - 4b4a93638a344e758538b4f233cb5147
-              - 53b4ef7f40234de2ad73a26e61f3bd7a
+              - 4b4a93638a344e758538b4f233cb5147  # Andrzej
+              - 53b4ef7f40234de2ad73a26e61f3bd7a  # Ania
         card:
           type: custom:mushroom-chips-card
           chips:
@@ -120,15 +120,14 @@ views:
         cards:
           - type: custom:mushroom-title-card
             title: Waste Collection
-            subtitle: ul. Dworska
           - type: horizontal-stack
             cards:
               - type: custom:mushroom-template-card
                 primary: Zmieszane
                 secondary: >-
                   {% set d = states('sensor.waste_mixed_days') | int(99) %} {%
-                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% else %}Za {{ d }}
-                  dni{% endif %}
+                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% elif d >= 99 %}b/d
+                  {% else %}Za {{ d }} dni{% endif %}
                 icon: mdi:trash-can
                 icon_color: |-
                   {% set d = states('sensor.waste_mixed_days') | int(99) %}
@@ -143,8 +142,8 @@ views:
                 primary: Plastik
                 secondary: >-
                   {% set d = states('sensor.waste_plastic_days') | int(99) %} {%
-                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% else %}Za {{ d }}
-                  dni{% endif %}
+                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% elif d >= 99 %}b/d
+                  {% else %}Za {{ d }} dni{% endif %}
                 icon: mdi:recycle
                 icon_color: |-
                   {% set d = states('sensor.waste_plastic_days') | int(99) %}
@@ -159,8 +158,8 @@ views:
                 primary: Papier
                 secondary: >-
                   {% set d = states('sensor.waste_paper_days') | int(99) %} {%
-                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% else %}Za {{ d }}
-                  dni{% endif %}
+                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% elif d >= 99 %}b/d
+                  {% else %}Za {{ d }} dni{% endif %}
                 icon: mdi:newspaper-variant-outline
                 icon_color: |-
                   {% set d = states('sensor.waste_paper_days') | int(99) %}
@@ -177,8 +176,8 @@ views:
                 primary: Szklo
                 secondary: >-
                   {% set d = states('sensor.waste_glass_days') | int(99) %} {%
-                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% else %}Za {{ d }}
-                  dni{% endif %}
+                  if d == 0 %}Dzis! {% elif d == 1 %}Jutro {% elif d >= 99 %}b/d
+                  {% else %}Za {{ d }} dni{% endif %}
                 icon: mdi:glass-fragile
                 icon_color: |-
                   {% set d = states('sensor.waste_glass_days') | int(99) %}
@@ -193,8 +192,8 @@ views:
                 primary: Bio
                 secondary: >-
                   {% set d = states('sensor.waste_bio_days') | int(99) %} {% if
-                  d == 0 %}Dzis! {% elif d == 1 %}Jutro {% else %}Za {{ d }}
-                  dni{% endif %}
+                  d == 0 %}Dzis! {% elif d == 1 %}Jutro {% elif d >= 99 %}b/d
+                  {% else %}Za {{ d }} dni{% endif %}
                 icon: mdi:leaf
                 icon_color: |-
                   {% set d = states('sensor.waste_bio_days') | int(99) %}
@@ -209,21 +208,18 @@ views:
         cards:
           - type: custom:mushroom-title-card
             title: Living Room
-          - type: conditional
-            conditions: []
-            card:
-              type: custom:mushroom-chips-card
-              chips:
-                - type: entity
-                  entity: sensor.air_purifier_pm2_5
-                  icon_color: green
-                - type: entity
-                  entity: sensor.air_purifier_temperature
-                  icon_color: blue
-                - type: entity
-                  entity: sensor.air_purifier_humidity
-                  icon_color: blue
-              alignment: center
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: sensor.air_purifier_pm2_5
+                icon_color: green
+              - type: entity
+                entity: sensor.air_purifier_temperature
+                icon_color: blue
+              - type: entity
+                entity: sensor.air_purifier_humidity
+                icon_color: blue
+            alignment: center
           - type: custom:mini-graph-card
             entities:
               - entity: sensor.air_purifier_temperature
@@ -314,16 +310,12 @@ views:
               action: toggle
             hold_action:
               action: more-info
-            double_tap_action:
-              action: more-info
             name: Light 1
           - type: custom:mushroom-light-card
             entity: light.shelly_office_1_light_2
             tap_action:
               action: toggle
             hold_action:
-              action: more-info
-            double_tap_action:
               action: more-info
             name: Light 2
           - type: custom:mushroom-light-card
@@ -332,8 +324,6 @@ views:
               action: toggle
             hold_action:
               action: more-info
-            double_tap_action:
-              action: more-info
             name: Desk
             icon: mdi:desk
           - type: custom:mushroom-light-card
@@ -341,8 +331,6 @@ views:
             tap_action:
               action: toggle
             hold_action:
-              action: more-info
-            double_tap_action:
               action: more-info
             name: Lamp
             icon: mdi:floor-lamp
@@ -420,25 +408,22 @@ views:
         cards:
           - type: custom:mushroom-title-card
             title: Toilet Down
-          - type: conditional
-            conditions: []
-            card:
-              type: custom:mushroom-chips-card
-              chips:
-                - type: entity
-                  entity: sensor.pralka_current_status
-                  icon_color: blue
-                  use_entity_picture: false
-                - type: entity
-                  entity: sensor.szuszarka_current_status
-                  icon_color: green
-                  use_entity_picture: false
-                - type: entity
-                  entity: binary_sensor.presence_sensor_toilet_down
-                  icon: mdi:motion
-                  icon_color: green
-                  use_entity_picture: false
-              alignment: center
+          - type: custom:mushroom-chips-card
+            chips:
+              - type: entity
+                entity: sensor.pralka_current_status
+                icon_color: blue
+                use_entity_picture: false
+              - type: entity
+                entity: sensor.szuszarka_current_status
+                icon_color: green
+                use_entity_picture: false
+              - type: entity
+                entity: binary_sensor.presence_sensor_toilet_down
+                icon: mdi:motion
+                icon_color: green
+                use_entity_picture: false
+            alignment: center
           - type: custom:mini-graph-card
             entities:
               - entity: sensor.presence_sensor_toilet_down_temperature

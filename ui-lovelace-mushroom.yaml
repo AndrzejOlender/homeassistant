@@ -13,8 +13,8 @@ views:
         conditions:
           - condition: user
             users:
-              - 4b4a93638a344e758538b4f233cb5147  # Andrzej
-              - 53b4ef7f40234de2ad73a26e61f3bd7a  # Ania
+              - 4b4a93638a344e758538b4f233cb5147  # arsen
+              - 53b4ef7f40234de2ad73a26e61f3bd7a  # gosia
         card:
           type: custom:mushroom-chips-card
           chips:

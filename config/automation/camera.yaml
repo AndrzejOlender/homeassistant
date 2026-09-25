@@ -1,0 +1,92 @@
+# Garden camera (UniFi Protect, G5 Pro) smart-detection notifications.
+# Uses the "Smart detection" event entity, which fires once per detection
+# with the detected object class as the event type (person, animal, ...).
+#
+# Notifications go to iPhone + active MacBook only (not Ania's phone).
+# The push includes a snapshot frame: the phone fetches the camera_proxy URL
+# (token-authenticated, no login needed) when the notification is shown.
+# The trailing delay throttles repeat detections: mode: single drops new
+# triggers while the automation is still running.
+
+- alias: "Camera Person Detected"
+  id: notify_camera_person_detected
+  mode: single
+  variables:
+    snap_url: >-
+      {{ 'https://home.olender.me/api/camera_proxy/camera.g5_pro_high_resolution_channel?token='
+         ~ state_attr('camera.g5_pro_high_resolution_channel', 'access_token') }}
+  triggers:
+    - trigger: event.received
+      target:
+        entity_id: event.g5_pro_front_smart_detection
+      options:
+        event_type:
+          - person
+  actions:
+    # Critical sound only at night (23:00-04:00); quiet push otherwise
+    - choose:
+        - conditions:
+            - condition: time
+              after: "23:00:00"
+              before: "04:00:00"
+          sequence:
+            - action: notify.mobile_app_iphone
+              data:
+                title: "Camera"
+                message: "Person detected in the garden"
+                data:
+                  image: "{{ snap_url }}"
+                  push:
+                    sound:
+                      name: default
+                      critical: 1
+                      volume: 1.0
+      default:
+        - action: notify.mobile_app_iphone
+          data:
+            title: "Camera"
+            message: "Person detected in the garden"
+            data:
+              image: "{{ snap_url }}"
+              push:
+                sound:
+                  name: default
+    - action: script.notify_active_mac
+      data:
+        title: "Camera"
+        message: "Person detected in the garden"
+    # Throttle: drop further person triggers for 2 minutes
+    - delay: "00:02:00"
+
+# Animals fire often in a garden (cats, birds, hedgehogs) - quiet sound and
+# a longer 5-minute throttle.
+- alias: "Camera Animal Detected"
+  id: notify_camera_animal_detected
+  mode: single
+  variables:
+    snap_url: >-
+      {{ 'https://home.olender.me/api/camera_proxy/camera.g5_pro_high_resolution_channel?token='
+         ~ state_attr('camera.g5_pro_high_resolution_channel', 'access_token') }}
+  triggers:
+    - trigger: event.received
+      target:
+        entity_id: event.g5_pro_front_smart_detection
+      options:
+        event_type:
+          - animal
+  actions:
+    - action: notify.mobile_app_iphone
+      data:
+        title: "Camera"
+        message: "Animal detected in the garden"
+        data:
+          image: "{{ snap_url }}"
+          push:
+            sound:
+              name: default
+    - action: script.notify_active_mac
+      data:
+        title: "Camera"
+        message: "Animal detected in the garden"
+    # Throttle: drop further animal triggers for 5 minutes
+    - delay: "00:05:00"

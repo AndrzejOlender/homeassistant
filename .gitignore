@@ -45,3 +45,6 @@ image/*/
 .sisyphus/
 .claude/settings.local.json
 __pycache__/
+
+# Vulpo app writes UI-style automations here; config loads only config/automation/
+automations.yaml

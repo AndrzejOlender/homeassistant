@@ -12,8 +12,12 @@ sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_c
 # Create directory for sshd runtime
 mkdir -p /var/run/sshd
 
-# Copy authorized_keys file
-cat /root/tmp/authorized_keys >> /root/.ssh/authorized_keys
+# Idempotent key setup (mkdir guards images built without /root/.ssh)
+mkdir -p /root/.ssh
+
+# Copy authorized_keys file (overwrite, not append - restarts must not duplicate)
+cat /root/tmp/authorized_keys > /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
 
 # Copy private key
 cat /root/tmp/id_rsa > /root/.ssh/id_rsa

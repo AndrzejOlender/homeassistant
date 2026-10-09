@@ -30,3 +30,6 @@ chmod 600 /root/.ssh/id_rsa
 
 # Copy public key
 cat /root/tmp/id_rsa.pub > /root/.ssh/id_rsa.pub
+
+# Start sshd in the foreground
+/usr/sbin/sshd -D -o ListenAddress=0.0.0.0
